@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { ClientDetailView } from "@/components/clients/ClientDetailView";
 import { CLIENT_SEEDS } from "@/lib/data/clients";
+import { clientIds } from "@/lib/data/static-ids";
 
 export function generateStaticParams() {
-  return CLIENT_SEEDS.map((c) => ({ id: c.id }));
+  return clientIds().map((id) => ({ id }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {

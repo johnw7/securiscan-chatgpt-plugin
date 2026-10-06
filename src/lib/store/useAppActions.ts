@@ -7,6 +7,7 @@ import { interventionRef } from "../data/seed";
 import { nowTime, toISODateTime } from "../dates";
 import { services } from "../services";
 import { uid } from "../utils";
+import { NEW_CLIENT_PREFIX } from "../data/static-ids";
 import { useToast } from "@/components/ui/Toast";
 import { useStore } from "./AppStore";
 import { getClient, nextInterventionNumber } from "./selectors";
@@ -160,7 +161,8 @@ export function useAppActions() {
       },
 
       createClient(input: NewClientInput): string {
-        const id = uid("cli");
+        // Identifiant séquentiel : la page de la fiche existe aussi en export statique.
+        const id = `${NEW_CLIENT_PREFIX}${data.clients.filter((c) => c.id.startsWith(NEW_CLIENT_PREFIX)).length + 1}`;
         const client: Client = { id, ...input, clientSince: today, pastInterventions: 0, revenue: 0 };
         dispatch({ type: "CREATE_CLIENT", client });
         toast.success("Client créé avec succès", input.name);

@@ -23,6 +23,27 @@ npm run build && npm start
 
 Contrôles qualité : `npm run typecheck` · `npm run lint`.
 
+## Mettre la démo en ligne
+
+### GitHub Pages (configuré)
+
+Le workflow `.github/workflows/deploy-pages.yml` construit un export statique et le publie à chaque
+push sur la branche de démonstration (ou `main`).
+
+1. **Une seule fois** : dans GitHub, *Settings → Pages → Build and deployment → Source* : **GitHub Actions**.
+2. Relancer le workflow (*Actions → Déployer la démo sur GitHub Pages → Run workflow*) ou pousser un commit.
+3. La démo est disponible sur `https://<compte>.github.io/<dépôt>/` — ajouter `?demo=1` pour démarrer la visite guidée.
+
+En export statique, les routes `/api/*` sont retirées (hébergement sans serveur) et les fiches des éléments
+créés pendant la démo utilisent des emplacements pré-générés (`INT-2026-066` à `INT-2026-125`,
+`cli-new-1` à `cli-new-30`).
+
+Test local de l'export : `GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/<dépôt> npm run build` (routes API retirées au préalable).
+
+### Vercel
+
+Importer le dépôt sur vercel.com : aucune configuration nécessaire (mode serveur complet, routes API incluses).
+
 ## Enregistrer la démo LinkedIn (30 à 60 s)
 
 1. Ouvrir l'application (idéalement en 1440 × 900) et lancer l'enregistrement d'écran.

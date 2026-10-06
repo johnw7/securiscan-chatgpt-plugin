@@ -1,0 +1,60 @@
+name: Déployer la démo sur GitHub Pages
+
+on:
+  push:
+    branches: [claude/edust-intervention-app-oe2nm3, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Configurer GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - run: npm ci
+
+      # L'hébergement statique ne peut pas exécuter de routes API : elles sont retirées
+      # de la copie de travail du runner uniquement (le dépôt n'est pas modifié).
+      - name: Retirer les routes API pour l'export statique
+        run: rm -rf src/app/api
+
+      - name: Construire l'export statique
+        run: npm run build
+        env:
+          GITHUB_PAGES: "true"
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+
+      - run: touch out/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publier
+        id: deployment
+        uses: actions/deploy-pages@v4
