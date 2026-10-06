@@ -1,0 +1,235 @@
+// Schéma cible PostgreSQL pour la version connectée d'E-DUST INTERVENTION.
+// Non utilisé par le démonstrateur (données locales) : il documente le modèle
+// et sert de point de départ à `npx prisma migrate dev`.
+//
+// Installation : npm i -D prisma && npm i @prisma/client
+// Variables    : DATABASE_URL (voir .env.example)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  PLANIFICATEUR
+  TECHNICIEN
+  CLIENT
+}
+
+enum InterventionStatus {
+  A_PLANIFIER
+  PLANIFIEE
+  EN_COURS
+  TERMINEE
+  ANNULEE
+}
+
+enum Priority {
+  NORMALE
+  IMPORTANTE
+  URGENTE
+}
+
+enum InterventionType {
+  MAINTENANCE
+  INSTALLATION
+  DEPANNAGE
+  ENTRETIEN
+}
+
+enum QuoteStatus {
+  EN_ATTENTE
+  ACCEPTE
+  REFUSE
+}
+
+enum InvoiceStatus {
+  PAYEE
+  EN_ATTENTE
+  EN_RETARD
+}
+
+/// Entreprise cliente d'E-DUST (multi-entreprises).
+model Company {
+  id        String   @id @default(cuid())
+  name      String
+  siret     String?
+  email     String?
+  phone     String?
+  address   String?
+  settings  Json     @default("{}")
+  createdAt DateTime @default(now())
+
+  users         User[]
+  clients       Client[]
+  interventions Intervention[]
+  quotes        Quote[]
+  invoices      Invoice[]
+  documents     Document[]
+}
+
+model User {
+  id           String   @id @default(cuid())
+  companyId    String
+  company      Company  @relation(fields: [companyId], references: [id])
+  email        String   @unique
+  firstName    String
+  lastName     String
+  phone        String?
+  role         Role
+  jobTitle     String?
+  skills       String[]
+  /// Lien vers une fiche client pour les comptes « espace client ».
+  clientId     String?
+  client       Client?  @relation(fields: [clientId], references: [id])
+  createdAt    DateTime @default(now())
+
+  interventions Intervention[] @relation("Technician")
+}
+
+model Client {
+  id          String   @id @default(cuid())
+  companyId   String
+  company     Company  @relation(fields: [companyId], references: [id])
+  name        String
+  sector      String?
+  contactName String
+  contactRole String?
+  phone       String?
+  email       String?
+  address     String
+  city        String
+  notes       String?
+  clientSince DateTime @default(now())
+
+  interventions Intervention[]
+  quotes        Quote[]
+  invoices      Invoice[]
+  documents     Document[]
+  portalUsers   User[]
+
+  @@index([companyId, name])
+}
+
+model Intervention {
+  id           String             @id @default(cuid())
+  reference    String             @unique // INT-2026-042
+  companyId    String
+  company      Company            @relation(fields: [companyId], references: [id])
+  clientId     String
+  client       Client             @relation(fields: [clientId], references: [id])
+  technicianId String?
+  technician   User?              @relation("Technician", fields: [technicianId], references: [id])
+  type         InterventionType
+  title        String
+  description  String
+  address      String
+  scheduledAt  DateTime?
+  durationMin  Int
+  status       InterventionStatus @default(A_PLANIFIER)
+  priority     Priority           @default(NORMALE)
+  amount       Decimal            @default(0) @db.Decimal(10, 2)
+  report       String?
+  createdAt    DateTime           @default(now())
+  updatedAt    DateTime           @updatedAt
+
+  checklist ChecklistItem[]
+  events    InterventionEvent[]
+  photos    Photo[]
+  signature Signature?
+  invoice   Invoice?
+  documents Document[]
+
+  @@index([companyId, status])
+  @@index([technicianId, scheduledAt])
+}
+
+model ChecklistItem {
+  id             String       @id @default(cuid())
+  interventionId String
+  intervention   Intervention @relation(fields: [interventionId], references: [id], onDelete: Cascade)
+  label          String
+  done           Boolean      @default(false)
+  position       Int
+}
+
+model InterventionEvent {
+  id             String       @id @default(cuid())
+  interventionId String
+  intervention   Intervention @relation(fields: [interventionId], references: [id], onDelete: Cascade)
+  kind           String
+  label          String
+  at             DateTime     @default(now())
+  authorId       String?
+}
+
+model Photo {
+  id             String       @id @default(cuid())
+  interventionId String
+  intervention   Intervention @relation(fields: [interventionId], references: [id], onDelete: Cascade)
+  label          String
+  /// Clé dans le stockage objet (S3 / R2) — l'URL est signée à la demande.
+  storageKey     String
+  takenAt        DateTime     @default(now())
+}
+
+model Signature {
+  id             String       @id @default(cuid())
+  interventionId String       @unique
+  intervention   Intervention @relation(fields: [interventionId], references: [id], onDelete: Cascade)
+  signedBy       String
+  imageKey       String
+  /// Identifiant de la transaction chez le prestataire de signature électronique.
+  providerRef    String?
+  signedAt       DateTime     @default(now())
+}
+
+model Quote {
+  id         String      @id @default(cuid())
+  reference  String      @unique // DEV-2026-018
+  companyId  String
+  company    Company     @relation(fields: [companyId], references: [id])
+  clientId   String
+  client     Client      @relation(fields: [clientId], references: [id])
+  title      String
+  amount     Decimal     @db.Decimal(10, 2)
+  status     QuoteStatus @default(EN_ATTENTE)
+  lines      Json
+  issuedAt   DateTime    @default(now())
+  validUntil DateTime
+}
+
+model Invoice {
+  id             String        @id @default(cuid())
+  reference      String        @unique // FAC-2026-031
+  companyId      String
+  company        Company       @relation(fields: [companyId], references: [id])
+  clientId       String
+  client         Client        @relation(fields: [clientId], references: [id])
+  interventionId String?       @unique
+  intervention   Intervention? @relation(fields: [interventionId], references: [id])
+  amount         Decimal       @db.Decimal(10, 2)
+  status         InvoiceStatus @default(EN_ATTENTE)
+  issuedAt       DateTime      @default(now())
+  dueAt          DateTime
+}
+
+model Document {
+  id             String        @id @default(cuid())
+  companyId      String
+  company        Company       @relation(fields: [companyId], references: [id])
+  clientId       String
+  client         Client        @relation(fields: [clientId], references: [id])
+  interventionId String?
+  intervention   Intervention? @relation(fields: [interventionId], references: [id])
+  name           String
+  type           String
+  storageKey     String
+  sizeKb         Int
+  createdAt      DateTime      @default(now())
+}
