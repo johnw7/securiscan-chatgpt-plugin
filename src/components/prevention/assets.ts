@@ -27,8 +27,13 @@ export type CharacterAsset = {
     head: string;
     /** Pivot de la tête (base du cou), en px de l'image. */
     neck: [number, number];
-    /** Bouche animable (étirée verticalement selon la voix). */
-    mouth: Box & { src: string; /** ouverture au repos (0 = sprite masqué) */ rest: number };
+    /**
+     * Bouche animable : soit l'image de la bouche d'origine étirée selon la voix (enfant),
+     * soit une bouche dessinée, centrée sur l'axe du visage (policier).
+     */
+    mouth:
+      | (Box & { src: string; /** ouverture au repos */ rest: number })
+      | { drawn: true; /** centre, largeur, inclinaison du visage (degrés) */ cx: number; cy: number; w: number; tilt: number; rest: number };
     lids: Box & { src: string };
     /** Main articulée au poignet (gestes). */
     hand?: { src: string; wrist: [number, number] };
@@ -61,9 +66,9 @@ export const OFFICER: CharacterAsset = {
     body: `${rig}/policier-corps.webp`,
     head: `${rig}/policier-tete.webp`,
     neck: [262, 268],
-    // Sourire en coin d'origine effacé de la tête : une seule bouche, animée (lèvres de même style de rendu,
-    // recolorées à la teinte du policier), légèrement entrouverte au repos.
-    mouth: { src: `${rig}/policier-bouche.webp`, x: 224, y: 182, w: 80, h: 38, rest: 0.3 },
+    // Sourire en coin d'origine effacé de la tête : une seule bouche, dessinée, centrée sous le nez et inclinée
+    // comme le visage (la tête est légèrement penchée), qui s'ouvre avec la voix.
+    mouth: { drawn: true, cx: 252, cy: 206, w: 54, tilt: -9, rest: 0 },
     lids: { src: `${rig}/policier-paupieres.webp`, x: 195, y: 112, w: 117, h: 61 },
   },
 };
@@ -86,5 +91,11 @@ export const ALL_IMAGES = [
   DECOR.original,
   DECOR.place,
   DECOR.placeFlou,
-  ...[CHILD, OFFICER].flatMap((c) => [c.rig.body, c.rig.head, c.rig.mouth.src, c.rig.lids.src, ...(c.rig.hand ? [c.rig.hand.src] : [])]),
+  ...[CHILD, OFFICER].flatMap((c) => [
+    c.rig.body,
+    c.rig.head,
+    c.rig.lids.src,
+    ...("src" in c.rig.mouth ? [c.rig.mouth.src] : []),
+    ...(c.rig.hand ? [c.rig.hand.src] : []),
+  ]),
 ];

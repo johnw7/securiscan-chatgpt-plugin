@@ -95,25 +95,7 @@ head[..., 3] *= ramp(yy, CUT_P, CUT_P + 18)
 body = c.copy(); body[..., 3] *= (1 - (yy < CUT_P))
 save(body, 'policier-corps'); save(head, 'policier-tete')
 lbox = lid_overlay(c, [(204, 136, 242, 164, -4), (263, 121, 303, 151, -5)], 'policier-paupieres', color=(55, 32, 25))
-# Bouche du policier : bouche de l'enfant resserrée sur les lèvres et recolorée à la teinte de peau du policier
-kid = load(P + '/enfant/enfant-detoure.webp')
-x0, y0, x1, y1 = 279, 309, 363, 349
-mo = kid[y0:y1, x0:x1].copy()
-mh, mw = mo.shape[:2]
-em = np.zeros((mh, mw), np.float32)
-cv2.ellipse(em, (321 - x0, 328 - y0), (38, 15), -12, 0, 360, 1.0, -1)
-em = cv2.GaussianBlur(em, (0, 0), 2.5)
-px = mo[..., :3]
-lum = px.mean(-1); sat = px.max(-1) - px.min(-1)
-teeth = (lum > 185) & (sat < 60)
-inside = lum < 90
-kid_skin = np.median(kid[350:372, 300:340, :3].reshape(-1, 3), 0)      # peau sous la bouche de l'enfant
-pol_skin = np.median(c[214:236, 245:285, :3].reshape(-1, 3), 0)          # peau sous la bouche du policier
-tone = (~teeth & ~inside)[..., None]
-px = np.where(tone, np.clip(px * (pol_skin / kid_skin), 0, 255), px)
-mo[..., :3] = px; mo[..., 3] = 255 * em
-save(mo, 'policier-bouche')
-pol_mouth = [x0, y0, x1, y1]
-meta['policier'] = dict(mouth=pol_mouth, w=W, h=H, neck=[262, 268], mouthCenter=[261, 202], lids=lbox)
+# La bouche du policier est dessinée par le lecteur (DrawnMouth), centrée sous le nez.
+meta['policier'] = dict(w=W, h=H, neck=[262, 268], mouthCenter=[261, 202], lids=lbox)
 json.dump(meta, open(OUT + '/rig.json', 'w'), indent=1)
 print(json.dumps(meta))

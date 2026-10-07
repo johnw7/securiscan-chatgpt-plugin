@@ -321,18 +321,63 @@ function Character({
             }}
           >
             {img(rig.head, { width: asset.width, height: asset.height })}
-            {img(m.src, {
-              left: m.x,
-              top: m.y,
-              width: m.w,
-              height: m.h,
-              transform: `scaleY(${mouthScale})`,
-            })}
+            {"src" in m ? (
+              img(m.src, { left: m.x, top: m.y, width: m.w, height: m.h, transform: `scaleY(${mouthScale})` })
+            ) : (
+              <DrawnMouth cx={m.cx} cy={m.cy} w={m.w} tilt={m.tilt} open={open} />
+            )}
             {blink && img(rig.lids.src, { left: rig.lids.x, top: rig.lids.y, width: rig.lids.w, height: rig.lids.h })}
           </div>
         </div>
       </div>
     </div>
+  );
+}
+
+/**
+ * Bouche de dessin animé, symétrique : petit sourire fermé au repos, s'ouvre en « D » avec la voix
+ * (dents du haut, langue). Coordonnées en px de l'image du personnage.
+ */
+function DrawnMouth({ cx, cy, w, tilt, open }: { cx: number; cy: number; w: number; tilt: number; open: number }) {
+  const hw = w / 2;
+  const d = open * w * 0.42; // profondeur de l'ouverture
+  const lift = 3.5; // coins relevés : sourire
+  const top = `M ${-hw} ${-lift} Q 0 ${4 + d * 0.15} ${hw} ${-lift}`;
+  const shape = `${top} Q 0 ${4 + d * 2} ${-hw} ${-lift} Z`;
+  const teeth = Math.min(6, d * 0.4);
+  const id = `m${Math.round(cx)}`;
+  return (
+    <svg
+      className="pointer-events-none absolute overflow-visible"
+      style={{ left: cx, top: cy, width: 1, height: 1 }}
+      viewBox="0 0 1 1"
+    >
+      <defs>
+        <clipPath id={`${id}-clip`}>
+          <path d={shape} />
+        </clipPath>
+        <filter id={`${id}-soft`} x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="0.55" />
+        </filter>
+      </defs>
+      <g transform={`rotate(${tilt})`} filter={`url(#${id}-soft)`}>
+        {d > 0.6 && (
+          <>
+            <path d={shape} fill="#3a0d12" />
+            <g clipPath={`url(#${id}-clip)`}>
+              <path d={`M ${-hw} ${-lift} Q 0 ${4 + d * 0.15} ${hw} ${-lift} L ${hw} ${-lift + teeth} Q 0 ${4 + d * 0.15 + teeth} ${-hw} ${-lift + teeth} Z`} fill="#f4efe9" />
+              <ellipse cx="0" cy={4 + d * 0.95} rx={hw * 0.55} ry={Math.max(1, d * 0.35)} fill="#b8454d" />
+            </g>
+            {/* lèvre inférieure : léger reflet rosé */}
+            <path d={`M ${-hw * 0.6} ${2 + d * 0.95} Q 0 ${5 + d * 1.15} ${hw * 0.6} ${2 + d * 0.95}`} stroke="rgba(190,95,85,0.45)" strokeWidth="2.2" fill="none" strokeLinecap="round" />
+          </>
+        )}
+        {/* ligne des lèvres (toujours visible : sourire au repos) */}
+        <path d={top} stroke="#6b2f26" strokeWidth={2.6} fill="none" strokeLinecap="round" />
+        <path d={`M ${-hw - 1} ${-lift + 1.5} Q ${-hw - 3} ${-lift - 1} ${-hw - 2} ${-lift - 3}`} stroke="rgba(107,47,38,0.55)" strokeWidth="1.6" fill="none" strokeLinecap="round" />
+        <path d={`M ${hw + 1} ${-lift + 1.5} Q ${hw + 3} ${-lift - 1} ${hw + 2} ${-lift - 3}`} stroke="rgba(107,47,38,0.55)" strokeWidth="1.6" fill="none" strokeLinecap="round" />
+      </g>
+    </svg>
   );
 }
 
