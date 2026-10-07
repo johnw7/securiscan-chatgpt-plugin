@@ -65,6 +65,30 @@ Importer le dépôt sur vercel.com : aucune configuration nécessaire (mode serv
 Le lien du bouton **PARLONS DE VOTRE PROJET** se règle via `NEXT_PUBLIC_EDUST_CONTACT_URL`
 (voir `.env.example`). Sans valeur, le bouton affiche un message de remerciement.
 
+## Vidéo de prévention « Sur le chemin de l'école » (`/prevention`)
+
+Petite vidéo animée Police Municipale (58 s) construite avec les deux personnages fournis : le policier
+municipal et l'enfant (Léo). Dialogue en champ / contrechamp, 3 conseils illustrés, plan final.
+
+| Accès | Effet |
+|---|---|
+| `/prevention` | Lecteur : lecture, timeline par plans, format **9:16** / **4:5**, sous-titres, export `.srt` |
+| `/prevention?mode=demo` | **Mode démonstration** : plein écran, lecture automatique en boucle, interface masquée (Échap pour quitter) |
+| `/prevention?format=4x5&t=20` | Ouvre directement un format et un instant |
+
+Vidéos prêtes à publier : `public/videos/prevention/` (MP4 H.264 1080 × 1920 et 1080 × 1350, 30 i/s)
+et sous-titres `prevention-chemin-ecole.fr.srt`. Pour les régénérer après une modification :
+
+```bash
+npm run build && npm start
+node scripts/render-prevention-video.mjs --url http://localhost:3000   # nécessite ffmpeg + Playwright
+```
+
+- Scénario, découpage, transitions et sous-titres : `src/components/prevention/timeline.ts`
+- Mise en scène (cadrages par format, caméra, parallaxe, cartes conseil) : `src/components/prevention/PreventionScene.tsx`
+- Visuels : `public/images/prevention/` — `sources/` (images fournies), `enfant/` et `policier/`
+  (personnages détourés), `decors/` (place de la mairie tirée de la photo du policier, policier retiré puis flouté).
+
 ## Fonctionnalités
 
 - **Tableau de bord** : KPI (jour / semaine / mois) avec compteurs animés, planning du jour,
