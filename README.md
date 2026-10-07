@@ -70,13 +70,20 @@ Le lien du bouton **PARLONS DE VOTRE PROJET** se règle via `NEXT_PUBLIC_EDUST_C
 Petite vidéo animée Police Municipale (58 s) construite avec les deux personnages fournis : le policier
 municipal et l'enfant (Léo). Dialogue en champ / contrechamp, 3 conseils illustrés, plan final.
 
+Les personnages sont **animés et parlent** : chaque image fournie est découpée en marionnette 2D
+(corps, tête articulée au cou, main de Léo articulée au poignet, bouche, paupières). La bouche suit
+l'enveloppe de la voix (synchronisation labiale), les têtes s'inclinent et hochent, les yeux clignent,
+Léo entre en marchant et fait coucou au final. Voix françaises de synthèse (Kokoro, transformées en
+voix d'homme et d'enfant), bruitages et musique douce : `public/audio/prevention/bande-son.mp3`.
+Préparation des voix et du rig : voir [`scripts/prevention/README.md`](scripts/prevention/README.md).
+
 | Accès | Effet |
 |---|---|
-| `/prevention` | Lecteur : lecture, timeline par plans, format **9:16** / **4:5**, sous-titres, export `.srt` |
+| `/prevention` | Lecteur : lecture avec son, timeline par plans, format **9:16** / **4:5**, sous-titres, export `.srt` |
 | `/prevention?mode=demo` | **Mode démonstration** : plein écran, lecture automatique en boucle, interface masquée (Échap pour quitter) |
 | `/prevention?format=4x5&t=20` | Ouvre directement un format et un instant |
 
-Vidéos prêtes à publier : `public/videos/prevention/` (MP4 H.264 1080 × 1920 et 1080 × 1350, 30 i/s)
+Vidéos prêtes à publier : `public/videos/prevention/` (MP4 H.264 + son AAC, 1080 × 1920 et 1080 × 1350, 30 i/s)
 et sous-titres `prevention-chemin-ecole.fr.srt`. Pour les régénérer après une modification :
 
 ```bash

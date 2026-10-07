@@ -4,6 +4,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { Ban, Car, Check, Eye, Gift, PhoneCall, School, ShieldCheck, Store, UserX } from "lucide-react";
 import { CHILD, DECOR, OFFICER, type CharacterAsset } from "./assets";
 import {
+  CUES,
   SHOTS,
   SPEAKERS,
   STAGE_H,
@@ -15,10 +16,12 @@ import {
   easeOut,
   easeOutBack,
   lerp,
+  mouthOpen,
   shotAt,
   type Format,
   type Shot,
   type ShotId,
+  type Speaker,
 } from "./timeline";
 
 /* ------------------------------------------------------------------ */
@@ -153,65 +156,206 @@ function layoutFor(id: ShotId, f: Format): Layout {
 /* Personnages                                                         */
 /* ------------------------------------------------------------------ */
 
+/** Mouvements ponctuels d'un personnage dans un plan (en secondes absolues). */
+type Motion = {
+  /** Entrée en marchant depuis la gauche : [début, durée]. */
+  walkIn?: [number, number];
+  /** Coucou de la main : [début, fin]. */
+  wave?: [number, number];
+  /** Petit saut de joie. */
+  hop?: number;
+  /** Hochements de tête (écoute, approbation). */
+  nods?: number[];
+};
+
+/** Clignements pseudo-aléatoires mais déterministes (même rendu à chaque lecture / export). */
+function blinking(t: number, seed: number) {
+  const periods = [3.4, 2.7, 4.1, 3.0, 0.32, 3.8, 2.9];
+  let acc = seed;
+  for (let i = 0; acc < t + 10; i++) {
+    const d = t - acc;
+    if (d >= 0 && d < 0.13) return true;
+    acc += periods[i % periods.length];
+  }
+  return false;
+}
+
+/** Hochement : deux petites oscillations amorties sur 0,9 s. */
+const nodAt = (t: number, t0: number) => {
+  const d = t - t0;
+  return d < 0 || d > 0.9 ? 0 : Math.sin((d / 0.9) * Math.PI * 2) * Math.sin((d / 0.9) * Math.PI);
+};
+
+/**
+ * Personnage animé (marionnette 2D) : corps, tête articulée au cou, bouche synchronisée sur la voix,
+ * clignements, main articulée au poignet. Toutes les pièces viennent des images fournies.
+ */
 function Character({
   asset,
+  who,
   pose,
   t,
-  talking,
   soft,
   tint,
+  motion = {},
 }: {
   asset: CharacterAsset;
+  who: Speaker;
   pose: Pose;
   t: number;
-  talking: boolean;
   /** Hors mise au point (profondeur de champ). */
   soft: boolean;
   tint?: string;
+  motion?: Motion;
 }) {
+  const { rig } = asset;
   const h = pose.h;
-  const w = (h * asset.width) / asset.height;
-  const left = pose.x - w * asset.anchorX;
-  const top = pose.y - h;
-  // Respiration permanente + léger rebond quand le personnage parle (sans déformer ses proportions).
-  const breathe = 1 + Math.sin(t * 2.1) * 0.004;
-  const bob = talking ? Math.abs(Math.sin(t * 6.5)) * h * 0.004 : 0;
-  const tilt = talking ? Math.sin(t * 3.2) * 0.35 : 0;
+  const scale = h / asset.height;
+  const w = asset.width * scale;
+  const seed = who === "enfant" ? 0.6 : 1.9;
+  const kid = who === "enfant";
+
+  // Parole : ouverture de bouche issue de l'enveloppe de la voix
+  const open = mouthOpen(t, who);
+  const speaking = CUES.some((c) => c.speaker === who && t >= c.start && t < c.end);
+
+  // Déplacements du corps entier
+  let dx = 0;
+  let dy = 0;
+  let lean = Math.sin(t * 0.9 + seed) * 0.5; // balancement léger (degrés)
+  if (motion.walkIn) {
+    const [s0, dur] = motion.walkIn;
+    const k = clamp01((t - s0) / dur);
+    if (k < 1) {
+      dx = -(1 - easeOut(k)) * w * 1.6;
+      const steps = (t - s0) * 2.6;
+      dy = -Math.abs(Math.sin(steps * Math.PI)) * asset.height * 0.012 * (1 - k * 0.6);
+      lean += Math.sin(steps * Math.PI) * 2.2;
+    }
+  }
+  if (motion.hop !== undefined) {
+    const d = t - motion.hop;
+    if (d > 0 && d < 0.55) dy -= Math.sin((d / 0.55) * Math.PI) * asset.height * 0.05;
+  }
+  dy -= open * asset.height * 0.0025;
+  const breathe = 1 + Math.sin(t * 2.1 + seed) * 0.005;
+
+  // Tête : inclinaison au repos, accompagnement de la parole, hochements
+  let headRot = Math.sin(t * 0.8 + seed * 2) * 1.2;
+  let headY = 0;
+  if (speaking) headRot += Math.sin(t * 3.1 + seed) * 2.0 + (open - 0.4) * 2.2;
+  for (const n of motion.nods ?? []) {
+    const v = nodAt(t, n);
+    if (kid) headRot += v * 4;
+    else headY += Math.abs(v) * 9;
+  }
+  headY -= open * 3;
+
+  // Main de l'enfant : geste en parlant, coucou au final
+  let handRot = Math.sin(t * 1.4 + seed) * 3;
+  if (speaking) handRot += Math.sin(t * 2.6) * 9 * (0.4 + open) - 4;
+  if (motion.wave && t >= motion.wave[0] && t < motion.wave[1]) {
+    const env = Math.min(1, (t - motion.wave[0]) / 0.3, (motion.wave[1] - t) / 0.3);
+    handRot += Math.sin((t - motion.wave[0]) * 10) * 16 * env - 6 * env;
+  }
+
+  const blink = blinking(t, seed);
+  const m = rig.mouth;
+  // L'enfant a la bouche ouverte sur l'image d'origine : on peut l'ouvrir un peu plus grand (×1,25).
+  const mouthScale = m.rest > 0 ? m.rest + (1.25 - m.rest) * open : open;
+  const img = (src: string, style?: CSSProperties) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={src} alt="" draggable={false} className="absolute top-0 left-0 max-w-none select-none" style={style} />
+  );
 
   return (
-    <div className="absolute" style={{ left, top, width: w, height: h }}>
-      {/* Ombre portée au sol */}
+    <div className="absolute" style={{ left: pose.x - w * asset.anchorX + dx, top: pose.y - h, width: w, height: h }}>
+      {/* Ombre portée au sol (reste au sol pendant les sauts) */}
       <div
         className="absolute rounded-[50%]"
         style={{
-          left: w * asset.anchorX - w * 0.48 + w * 0.06,
+          left: w * asset.anchorX - w * 0.42,
           top: h - w * 0.07,
           width: w * 0.96,
           height: w * 0.15,
           background: "radial-gradient(closest-side, rgba(38,24,18,0.55), rgba(38,24,18,0.22) 60%, transparent)",
           filter: soft ? "blur(6px)" : "blur(2px)",
+          opacity: 1 + dy / (asset.height * 0.08),
         }}
       />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={asset.src}
-        alt=""
-        draggable={false}
-        className="absolute inset-0 h-full w-full select-none"
+      <div
+        className="absolute top-0 left-0"
         style={{
-          objectFit: "contain",
-          transformOrigin: `${asset.anchorX * 100}% 100%`,
-          transform: `translateY(${-bob}px) rotate(${tilt}deg) scale(${breathe})`,
+          width: asset.width,
+          height: asset.height,
+          transformOrigin: "0 0",
+          transform: `scale(${scale})`,
+          // Les filtres s'appliquent avant la mise à l'échelle : valeurs converties en px de scène.
           filter: [
             tint ?? "",
-            soft ? "blur(3px) brightness(0.86)" : "",
-            "drop-shadow(0 18px 24px rgba(20,14,30,0.25))",
+            soft ? `blur(${3 / scale}px) brightness(0.86)` : "",
+            `drop-shadow(0 ${18 / scale}px ${24 / scale}px rgba(20,14,30,0.25))`,
           ].join(" "),
-          transition: "none",
         }}
-      />
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            transformOrigin: `${asset.anchorX * 100}% 100%`,
+            transform: `translate(0px, ${dy}px) rotate(${lean}deg) scaleY(${breathe})`,
+          }}
+        >
+          {img(rig.body, { width: asset.width, height: asset.height })}
+          {rig.hand &&
+            img(rig.hand.src, {
+              width: asset.width,
+              height: asset.height,
+              transformOrigin: `${rig.hand.wrist[0]}px ${rig.hand.wrist[1]}px`,
+              transform: `rotate(${handRot}deg)`,
+            })}
+          <div
+            className="absolute inset-0"
+            style={{
+              transformOrigin: `${rig.neck[0]}px ${rig.neck[1]}px`,
+              transform: `translate(0px, ${headY}px) rotate(${headRot}deg)`,
+            }}
+          >
+            {img(rig.head, { width: asset.width, height: asset.height })}
+            {img(m.src, {
+              left: m.x,
+              top: m.y,
+              width: m.w,
+              height: m.h,
+              transform: `scaleY(${Math.max(0.02, mouthScale)})`,
+              opacity: m.rest > 0 ? 1 : clamp01(open * 6),
+              filter: kid ? undefined : "saturate(0.8) brightness(0.92)",
+            })}
+            {blink && img(rig.lids.src, { left: rig.lids.x, top: rig.lids.y, width: rig.lids.w, height: rig.lids.h })}
+          </div>
+        </div>
+      </div>
     </div>
   );
+}
+
+/** Mouvements de chaque personnage selon le plan. */
+function motionsFor(id: ShotId): { enfant?: Motion; policier?: Motion } {
+  switch (id) {
+    case "policier-1":
+      return { policier: { nods: [11.0] } };
+    case "duo":
+      return { enfant: { walkIn: [16.5, 1.3] }, policier: { nods: [18.6] } };
+    case "conseil-3":
+      return { enfant: { nods: [38.1, 41.2] } };
+    case "enfant-2":
+      return { enfant: { nods: [46.0] } };
+    case "policier-2":
+      return { policier: { nods: [48.2, 50.9] } };
+    case "final":
+      return { enfant: { wave: [53.4, 56.2], hop: 52.6 }, policier: { nods: [53.0, 55.8] } };
+    default:
+      return {};
+  }
 }
 
 /* ------------------------------------------------------------------ */
@@ -387,7 +531,7 @@ function Crosswalk({ t, start }: { t: number; start: number }) {
 
 function Conseil1({ t }: { t: number }) {
   const s = 20;
-  const look = (i: number) => appear(t, 24.0 + i * 1.05, 0.4);
+  const look = (i: number) => appear(t, [24.4, 25.0, 26.1][i], 0.35);
   return (
     <TipCard
       n={1}
@@ -435,9 +579,9 @@ function Conseil2({ t }: { t: number }) {
           <UserX size={72} strokeWidth={2.2} />
         </span>
         <div className="flex flex-wrap gap-3">
-          <Chip k={appear(t, 31.6, 0.4)} tone="red" icon={<Gift size={30} strokeWidth={2.4} />} label="Cadeau" />
-          <Chip k={appear(t, 32.4, 0.4)} tone="red" icon={<Car size={30} strokeWidth={2.4} />} label="Voiture" />
-          <Chip k={appear(t, 33.2, 0.4)} tone="red" icon={<Ban size={30} strokeWidth={2.6} />} label="Je refuse" />
+          <Chip k={appear(t, 32.2, 0.4)} tone="red" icon={<Gift size={30} strokeWidth={2.4} />} label="Cadeau" />
+          <Chip k={appear(t, 33.3, 0.4)} tone="red" icon={<Car size={30} strokeWidth={2.4} />} label="Voiture" />
+          <Chip k={appear(t, 34.0, 0.4)} tone="red" icon={<Ban size={30} strokeWidth={2.6} />} label="Je refuse" />
         </div>
       </div>
     </TipCard>
@@ -446,7 +590,7 @@ function Conseil2({ t }: { t: number }) {
 
 function Conseil3({ t }: { t: number }) {
   const s = 35;
-  const k17 = appear(t, 38.9, 0.5);
+  const k17 = appear(t, 41.3, 0.5);
   const pulse = (t * 1.2) % 1;
   return (
     <TipCard
@@ -470,9 +614,9 @@ function Conseil3({ t }: { t: number }) {
           </span>
         </span>
         <div className="flex flex-wrap gap-3">
-          <Chip k={appear(t, 36.6, 0.4)} icon={<Store size={30} strokeWidth={2.4} />} label="Commerçant" />
-          <Chip k={appear(t, 37.2, 0.4)} icon={<School size={30} strokeWidth={2.4} />} label="Enseignant" />
-          <Chip k={appear(t, 37.8, 0.4)} icon={<ShieldCheck size={30} strokeWidth={2.4} />} label="Policier" />
+          <Chip k={appear(t, 38.6, 0.4)} icon={<Store size={30} strokeWidth={2.4} />} label="Commerçant" />
+          <Chip k={appear(t, 39.0, 0.4)} icon={<School size={30} strokeWidth={2.4} />} label="Enseignant" />
+          <Chip k={appear(t, 39.4, 0.4)} icon={<ShieldCheck size={30} strokeWidth={2.4} />} label="Policier" />
         </div>
       </div>
     </TipCard>
@@ -487,7 +631,7 @@ const REFLEXES = [
 
 /** Léo récapitule : les trois réflexes se cochent au rythme de sa phrase. */
 function Recap({ t }: { t: number }) {
-  const times = [43.0, 43.9, 44.6];
+  const times = [43.1, 43.9, 44.8];
   return (
     <div className="absolute right-[48px] flex flex-col items-end gap-4" style={{ top: "var(--recap-top)" }}>
       {REFLEXES.map((r, i) => {
@@ -635,7 +779,7 @@ function ShotView({ shot, t, f, subtitles }: { shot: Shot; t: number; f: Format;
   const lt = t - shot.start;
   const k = easeInOut(clamp01(lt / (shot.end - shot.start)));
   const c = { z: lerp(L.cam[0].z, L.cam[1].z, k), px: lerp(L.cam[0].px, L.cam[1].px, k), py: lerp(L.cam[0].py, L.cam[1].py, k) };
-  const cue = cueAt(t);
+  const motions = motionsFor(shot.id);
   const H = STAGE_H[f];
 
   // Parallaxe : le décor suit la caméra plus lentement que les personnages.
@@ -672,22 +816,17 @@ function ShotView({ shot, t, f, subtitles }: { shot: Shot; t: number; f: Format;
         style={{ transform: `translate(${c.px}px, ${c.py}px) scale(${c.z})`, transformOrigin: `50% ${H * 0.6}px` }}
       >
         {officer && (
-          <Character
-            asset={OFFICER}
-            pose={officer}
-            t={t}
-            talking={cue?.speaker === "policier" && t < shot.end}
-            soft={L.focus === "enfant"}
-          />
+          <Character asset={OFFICER} who="policier" pose={officer} t={t} soft={L.focus === "enfant"} motion={motions.policier} />
         )}
         {child && (
           <Character
             asset={CHILD}
+            who="enfant"
             pose={child}
-            t={t + 0.7}
-            talking={cue?.speaker === "enfant" && t < shot.end}
+            t={t}
             soft={L.focus === "policier"}
             tint="sepia(0.06) saturate(1.04)"
+            motion={motions.enfant}
           />
         )}
       </div>

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Export de la vidéo de prévention en MP4 (H.264) image par image, + sous-titres SRT.
+ * Export de la vidéo de prévention en MP4 (H.264 + bande-son AAC) image par image, + sous-titres SRT.
  *
  * Prérequis : l'application lancée (npm run build && npm start), ffmpeg et Playwright
  * (npm i -D playwright, ou un Playwright global).
@@ -54,6 +54,7 @@ for (const format of formats) {
   const ffmpeg = spawn(
     "ffmpeg",
     ["-y", "-loglevel", "error", "-f", "image2pipe", "-framerate", String(fps), "-c:v", "mjpeg", "-i", "-",
+      "-i", "public/audio/prevention/bande-son.m4a", "-map", "0:v", "-map", "1:a", "-c:a", "aac", "-b:a", "160k", "-shortest",
       "-c:v", "libx264", "-preset", "slow", "-crf", "23", "-pix_fmt", "yuv420p", "-movflags", "+faststart", file],
     { stdio: ["pipe", "inherit", "inherit"] },
   );

@@ -10,10 +10,12 @@ import {
   Pause,
   Play,
   RotateCcw,
+  Volume2,
+  VolumeX,
   X,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ALL_IMAGES } from "./assets";
+import { ALL_IMAGES, SOUNDTRACK } from "./assets";
 import { PreventionScene } from "./PreventionScene";
 import { DURATION, FORMAT_LABEL, SHOTS, STAGE_H, STAGE_W, cueAt, shotAt, toSrt, type Format } from "./timeline";
 
@@ -65,7 +67,11 @@ export function PreventionPlayer() {
   /** Mode export : scène seule à sa taille réelle, pilotée par le script de rendu. */
   const [capture, setCapture] = useState(false);
   const [ready, setReady] = useState(false);
+  const [muted, setMuted] = useState(false);
+  /** Le navigateur a refusé la lecture du son sans geste de l'utilisateur (lancement par URL). */
+  const [soundBlocked, setSoundBlocked] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const tRef = useRef(0);
   tRef.current = t;
 
@@ -94,7 +100,24 @@ export function PreventionPlayer() {
     };
   }, []);
 
-  // Horloge de lecture
+  // Bande-son : démarre / s'arrête avec la lecture, toujours recalée sur l'image
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio || capture) return;
+    if (playing && ready) {
+      audio.currentTime = tRef.current;
+      audio.play().then(
+        () => setSoundBlocked(false),
+        () => setSoundBlocked(true),
+      );
+    } else audio.pause();
+  }, [playing, ready, capture]);
+
+  useEffect(() => {
+    if (audioRef.current) audioRef.current.muted = muted;
+  }, [muted]);
+
+  // Horloge de lecture (l'audio sert d'horloge maître quand il joue : voix et lèvres restent synchrones)
   useEffect(() => {
     if (!playing || !ready) return;
     let raf = 0;
@@ -102,10 +125,16 @@ export function PreventionPlayer() {
     const tick = (now: number) => {
       const dt = Math.min(0.1, (now - last) / 1000);
       last = now;
-      let next = tRef.current + dt;
-      if (next >= DURATION) {
-        if (demo) next = 0;
-        else {
+      const audio = audioRef.current;
+      let next = audio && !audio.paused && !audio.ended ? audio.currentTime : tRef.current + dt;
+      if (next >= DURATION - 0.02) {
+        if (demo) {
+          next = 0;
+          if (audio) {
+            audio.currentTime = 0;
+            audio.play().catch(() => undefined);
+          }
+        } else {
           setT(DURATION);
           setPlaying(false);
           return;
@@ -123,7 +152,18 @@ export function PreventionPlayer() {
     setPlaying((p) => !p);
   }, []);
 
-  const seek = useCallback((time: number) => setT(Math.max(0, Math.min(DURATION, time))), []);
+  const seek = useCallback((time: number) => {
+    const v = Math.max(0, Math.min(DURATION, time));
+    setT(v);
+    if (audioRef.current) audioRef.current.currentTime = v;
+  }, []);
+
+  const unlockSound = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.currentTime = tRef.current;
+    audio.play().then(() => setSoundBlocked(false), () => undefined);
+  };
 
   const enterDemo = useCallback(() => {
     setDemo(true);
@@ -148,6 +188,7 @@ export function PreventionPlayer() {
       } else if (e.key === "ArrowRight") seek(tRef.current + 5);
       else if (e.key === "ArrowLeft") seek(tRef.current - 5);
       else if (e.key === "c" || e.key === "s") setSubtitles((v) => !v);
+      else if (e.key === "m") setMuted((v) => !v);
       else if (e.key === "1") setFormat("9x16");
       else if (e.key === "2") setFormat("4x5");
       else if (e.key === "d") (demo ? exitDemo : enterDemo)();
@@ -181,6 +222,7 @@ export function PreventionPlayer() {
 
   return (
     <div ref={rootRef} className={cn("flex min-h-dvh flex-col bg-[#070b1f] text-white", demo && "h-dvh")}>
+      <audio ref={audioRef} src={SOUNDTRACK} preload="auto" />
       {!demo && (
         <header className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-5 py-3">
           <div>
@@ -252,6 +294,15 @@ export function PreventionPlayer() {
               </div>
             )}
           </div>
+          {soundBlocked && playing && (
+            <button
+              type="button"
+              onClick={unlockSound}
+              className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-navy shadow-xl"
+            >
+              <Volume2 size={16} /> Activer le son
+            </button>
+          )}
           {demo && (
             <button
               type="button"
@@ -301,7 +352,7 @@ export function PreventionPlayer() {
               ))}
             </ol>
             <p className="text-xs text-white/40">
-              Espace : lecture · ← → : ±5 s · C : sous-titres · 1 / 2 : format · D : mode démo
+              Espace : lecture · ← → : ±5 s · M : son · C : sous-titres · 1 / 2 : format · D : mode démo
             </p>
           </aside>
         )}
@@ -324,6 +375,14 @@ export function PreventionPlayer() {
             aria-label="Revenir au début"
           >
             <RotateCcw size={18} />
+          </button>
+          <button
+            type="button"
+            onClick={() => setMuted((v) => !v)}
+            className="grid size-10 place-items-center rounded-full bg-white/10 hover:bg-white/15"
+            aria-label={muted ? "Activer le son" : "Couper le son"}
+          >
+            {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
           </button>
           <span className="w-24 text-sm tabular-nums text-white/70">
             {fmtTime(t)} / {fmtTime(DURATION)}

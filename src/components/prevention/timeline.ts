@@ -1,3 +1,5 @@
+import { CUE_ENDS, LIPSYNC, LIPSYNC_FPS } from "./lipsync";
+
 /**
  * Scénario, découpage et sous-titres de la vidéo de prévention
  * « Sur le chemin de l'école » — Police Municipale.
@@ -63,24 +65,43 @@ export const SHOTS: Shot[] = [
 
 export const DURATION = SHOTS[SHOTS.length - 1].end;
 
-export type Cue = { start: number; end: number; speaker: Speaker; text: string };
+export type Cue = { start: number; end: number; speaker: Speaker; text: string; /** index dans LIPSYNC */ line: number };
 
-export const CUES: Cue[] = [
-  { start: 5.5, end: 7.8, speaker: "enfant", text: "Bonjour monsieur le policier !" },
-  { start: 7.8, end: 10.4, speaker: "enfant", text: "Aujourd'hui, je vais à l'école tout seul pour la première fois !" },
-  { start: 10.9, end: 13.5, speaker: "policier", text: "Bonjour Léo ! Bravo, tu deviens grand." },
-  { start: 13.5, end: 16.4, speaker: "policier", text: "Avant de partir, retiens bien mes trois conseils." },
-  { start: 16.8, end: 19.9, speaker: "enfant", text: "Trois conseils ? Je t'écoute !" },
-  { start: 20.4, end: 23.8, speaker: "policier", text: "Un : pour traverser, utilise toujours le passage piéton." },
-  { start: 23.8, end: 27.4, speaker: "policier", text: "Regarde à gauche, à droite, puis encore à gauche." },
-  { start: 27.9, end: 31.3, speaker: "policier", text: "Deux : ne suis jamais une personne que tu ne connais pas…" },
-  { start: 31.3, end: 34.9, speaker: "policier", text: "… même si elle te propose un cadeau ou de te raccompagner." },
-  { start: 35.4, end: 38.8, speaker: "policier", text: "Trois : si tu as peur ou si tu es perdu, va voir un adulte de confiance." },
-  { start: 38.8, end: 42.4, speaker: "policier", text: "Et en cas d'urgence, on appelle le 17." },
-  { start: 42.9, end: 45.3, speaker: "enfant", text: "Passage piéton, jamais d'inconnu, et le 17." },
-  { start: 45.3, end: 47.4, speaker: "enfant", text: "C'est noté, merci !" },
-  { start: 47.9, end: 51.4, speaker: "policier", text: "Parfait, Léo ! Bonne route et bonne journée à l'école !" },
+/** Répliques : début calé à la main, fin = durée réelle de la voix (+ petite marge de lecture). */
+const LINES: Omit<Cue, "end" | "line">[] = [
+  { start: 5.5, speaker: "enfant", text: "Bonjour monsieur le policier !" },
+  { start: 7.3, speaker: "enfant", text: "Aujourd'hui, je vais à l'école tout seul pour la première fois !" },
+  { start: 10.9, speaker: "policier", text: "Bonjour Léo ! Bravo, tu deviens grand." },
+  { start: 13.3, speaker: "policier", text: "Avant de partir, retiens bien mes trois conseils." },
+  { start: 16.9, speaker: "enfant", text: "Trois conseils ? Je t'écoute !" },
+  { start: 20.5, speaker: "policier", text: "Un : pour traverser, utilise toujours le passage piéton." },
+  { start: 23.9, speaker: "policier", text: "Regarde à gauche, à droite, puis encore à gauche." },
+  { start: 27.9, speaker: "policier", text: "Deux : ne suis jamais une personne que tu ne connais pas…" },
+  { start: 30.8, speaker: "policier", text: "… même si elle te propose un cadeau ou de te raccompagner." },
+  { start: 35.4, speaker: "policier", text: "Trois : si tu as peur ou si tu es perdu, va voir un adulte de confiance." },
+  { start: 39.8, speaker: "policier", text: "Et en cas d'urgence, on appelle le 17." },
+  { start: 42.9, speaker: "enfant", text: "Passage piéton, jamais d'inconnu, et le 17." },
+  { start: 45.6, speaker: "enfant", text: "C'est noté, merci !" },
+  { start: 47.9, speaker: "policier", text: "Parfait, Léo ! Bonne route et bonne journée à l'école !" },
 ];
+
+export const CUES: Cue[] = LINES.map((l, i) => ({
+  ...l,
+  line: i,
+  // ne déborde ni sur la réplique suivante, ni sur le plan suivant
+  end: Math.min(CUE_ENDS[i] + 0.3, LINES[i + 1]?.start ?? DURATION, SHOTS.find((sh) => l.start < sh.end)?.end ?? DURATION),
+}));
+
+/** Ouverture de la bouche (0 → 1) du personnage à l'instant t, d'après l'enveloppe de sa voix. */
+export function mouthOpen(t: number, speaker: Speaker): number {
+  const c = CUES.find((q) => q.speaker === speaker && t >= q.start && t < CUE_ENDS[q.line] + 0.1);
+  if (!c) return 0;
+  const data = LIPSYNC[c.line];
+  const f = (t - c.start) * LIPSYNC_FPS;
+  const i = Math.floor(f);
+  const v = (j: number) => (j >= 0 && j < data.length ? Number(data[j]) / 9 : 0);
+  return lerp(v(i), v(i + 1), f - i);
+}
 
 export function shotAt(t: number): number {
   const i = SHOTS.findIndex((s) => t < s.end);
