@@ -73,8 +73,8 @@ municipal et l'enfant (Léo). Dialogue en champ / contrechamp, 3 conseils illust
 Les personnages sont **animés et parlent** : chaque image fournie est découpée en marionnette 2D
 (corps, tête articulée au cou, main de Léo articulée au poignet, bouche, paupières). La bouche suit
 l'enveloppe de la voix (synchronisation labiale), les têtes s'inclinent et hochent, les yeux clignent,
-Léo entre en marchant et fait coucou au final. Voix françaises de synthèse (Kokoro, transformées en
-voix d'homme et d'enfant) et bruitages, **sans musique** (à ajouter au montage) :
+Léo entre en marchant et fait coucou au final. Voix françaises de synthèse (Kokoro : voix d'homme
+naturelle pour le policier, voix d'enfant pour Léo) et bruitages, **sans musique** (à ajouter au montage) :
 `public/audio/prevention/bande-son.mp3`.
 Préparation des voix et du rig : voir [`scripts/prevention/README.md`](scripts/prevention/README.md).
 

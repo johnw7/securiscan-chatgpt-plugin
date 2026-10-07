@@ -9,8 +9,9 @@ Modèle vocal (dans un dossier `voices/`) :
 
 1. `python rig.py public/images/prevention` — découpe les personnages en pièces animables
    (corps, tête, main, bouche, paupières fermées).
-2. `python lines.py voices` — synthétise les répliques (voix française Kokoro `ff_siwis`, transformée
-   avec le vocodeur WORLD : grave pour le policier, aiguë pour l'enfant). Le texte est dans `lines.py`.
+2. `python lines.py voices` — synthétise les répliques (Kokoro : voix d'homme naturelle pour le policier,
+   mélange des styles `ff_siwis` et `am_onyx` sans transformation ; voix française `ff_siwis` rendue plus
+   aiguë avec le vocodeur WORLD pour l'enfant). Le texte est dans `lines.py`.
 3. `python build_audio.py voices .` — mixe la bande-son (voix + bruitages, sans musique, 58 s),
    calcule la synchronisation labiale et écrit `lipsync.ts` (fins de répliques comprises).
 

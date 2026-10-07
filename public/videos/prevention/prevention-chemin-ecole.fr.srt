@@ -7,11 +7,11 @@ LÉO : Bonjour monsieur le policier !
 LÉO : Aujourd'hui, je vais à l'école tout seul pour la première fois !
 
 3
-00:00:10,900 --> 00:00:13,230
+00:00:10,900 --> 00:00:13,300
 POLICIER MUNICIPAL : Bonjour Léo ! Bravo, tu deviens grand.
 
 4
-00:00:13,300 --> 00:00:16,370
+00:00:13,300 --> 00:00:16,300
 POLICIER MUNICIPAL : Avant de partir, retiens bien mes trois conseils.
 
 5
@@ -23,7 +23,7 @@ LÉO : Trois conseils ? Je t'écoute !
 POLICIER MUNICIPAL : Un : pour traverser, utilise toujours le passage piéton.
 
 7
-00:00:23,900 --> 00:00:26,950
+00:00:23,900 --> 00:00:26,890
 POLICIER MUNICIPAL : Regarde à gauche, à droite, puis encore à gauche.
 
 8
@@ -31,7 +31,7 @@ POLICIER MUNICIPAL : Regarde à gauche, à droite, puis encore à gauche.
 POLICIER MUNICIPAL : Deux : ne suis jamais une personne que tu ne connais pas…
 
 9
-00:00:30,800 --> 00:00:34,250
+00:00:30,800 --> 00:00:34,270
 POLICIER MUNICIPAL : … même si elle te propose un cadeau ou de te raccompagner.
 
 10
@@ -39,7 +39,7 @@ POLICIER MUNICIPAL : … même si elle te propose un cadeau ou de te raccompagne
 POLICIER MUNICIPAL : Trois : si tu as peur ou si tu es perdu, va voir un adulte de confiance.
 
 11
-00:00:39,800 --> 00:00:42,500
+00:00:39,800 --> 00:00:42,330
 POLICIER MUNICIPAL : Et en cas d'urgence, on appelle le 17.
 
 12
@@ -51,5 +51,5 @@ LÉO : Passage piéton, jamais d'inconnu, et le 17.
 LÉO : C'est noté, merci !
 
 14
-00:00:47,900 --> 00:00:50,990
+00:00:47,900 --> 00:00:50,960
 POLICIER MUNICIPAL : Parfait, Léo ! Bonne route et bonne journée à l'école !

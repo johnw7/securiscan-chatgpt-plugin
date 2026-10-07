@@ -2,8 +2,11 @@ import sys, json, numpy as np, soundfile as sf, pyworld as pw
 from kokoro_onnx import Kokoro
 _V = sys.argv[1] if len(sys.argv) > 1 else 'voices'
 k = Kokoro(_V + '/kokoro-v1.0.onnx', _V + '/voices-v1.0.bin')
+# Policier : voix d'homme produite directement par le modèle (mélange de styles Kokoro), sans
+# transformation -> naturelle. Enfant : voix française transformée (plus aiguë) avec le vocodeur WORLD.
+MALE = 0.4 * k.get_voice_style('ff_siwis') + 0.6 * k.get_voice_style('am_onyx')
 PROFILES = {
-  'policier': dict(speed=0.95, f0=0.58, warp=0.84),
+  'policier': dict(speed=0.95, voice=MALE),
   'enfant':   dict(speed=1.04, f0=1.32, warp=1.13),
 }
 def transform(x, fs, f0k, warp):
@@ -17,8 +20,8 @@ def transform(x, fs, f0k, warp):
     return y
 def run(text, who, out):
     p = PROFILES[who]
-    x, fs = k.create(text, voice='ff_siwis', speed=p['speed'], lang='fr-fr')
-    y = transform(x, fs, p['f0'], p['warp'])
+    x, fs = k.create(text, voice=p.get('voice', 'ff_siwis'), speed=p['speed'], lang='fr-fr')
+    y = transform(x, fs, p['f0'], p['warp']) if 'f0' in p else x.astype(np.float64)
     # coupe des silences de début / fin
     e = np.abs(y); th = 0.02 * e.max(); nz = np.where(e > th)[0]
     y = y[max(0, nz[0] - int(0.03*fs)): nz[-1] + int(0.08*fs)]
