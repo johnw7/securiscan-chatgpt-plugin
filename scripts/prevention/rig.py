@@ -80,10 +80,7 @@ lbox = lid_overlay(c, [(218, 222, 282, 284, -6), (318, 196, 364, 252, -6)], 'enf
 meta['enfant'] = dict(w=W, h=H, neck=[270, 418], wrist=[566, 566], mouth=mbox, lids=lbox)
 
 # ---------------- Policier ----------------
-# Buste « bras décroisés » produit par pose_masks.py + torso.py + pose_arms.py (dossier de travail WORK)
-WORK = sys.argv[2] if len(sys.argv) > 2 else 'pose-work'
 c = load(P + '/policier/policier-detoure.webp'); H, W = c.shape[:2]
-buste = load(WORK + '/torso.png')
 yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
 CUT_P = 262
 head = c.copy()
@@ -95,12 +92,28 @@ fill = cv2.inpaint(c[..., :3].astype(np.uint8), mm, 4, cv2.INPAINT_NS).astype(np
 fm = cv2.GaussianBlur(mm.astype(np.float32) / 255, (0, 0), 2.0)[..., None]
 head[..., :3] = c[..., :3] * (1 - fm) + fill * fm
 head[..., 3] *= ramp(yy, CUT_P, CUT_P + 18)
-body = buste.copy(); body[..., 3] *= (1 - (yy < CUT_P))
+body = c.copy(); body[..., 3] *= (1 - (yy < CUT_P))
 save(body, 'policier-corps'); save(head, 'policier-tete')
 lbox = lid_overlay(c, [(204, 136, 242, 164, -4), (263, 121, 303, 151, -5)], 'policier-paupieres', color=(55, 32, 25))
-arms = json.load(open(WORK + '/arms.json'))
-for name in ('geste', 'ceinture'):
-    save(np.array(Image.open(f'{WORK}/policier-avantbras-{name}.png').convert('RGBA')).astype(np.float32), f'policier-avantbras-{name}')
-meta['policier'] = dict(w=W, h=H, neck=[262, 268], lids=lbox, arms=arms)
+# Bouche du policier : bouche de l'enfant resserrée sur les lèvres et recolorée à la teinte de peau du policier
+kid = load(P + '/enfant/enfant-detoure.webp')
+x0, y0, x1, y1 = 279, 309, 363, 349
+mo = kid[y0:y1, x0:x1].copy()
+mh, mw = mo.shape[:2]
+em = np.zeros((mh, mw), np.float32)
+cv2.ellipse(em, (321 - x0, 328 - y0), (38, 15), -12, 0, 360, 1.0, -1)
+em = cv2.GaussianBlur(em, (0, 0), 2.5)
+px = mo[..., :3]
+lum = px.mean(-1); sat = px.max(-1) - px.min(-1)
+teeth = (lum > 185) & (sat < 60)
+inside = lum < 90
+kid_skin = np.median(kid[350:372, 300:340, :3].reshape(-1, 3), 0)      # peau sous la bouche de l'enfant
+pol_skin = np.median(c[214:236, 245:285, :3].reshape(-1, 3), 0)          # peau sous la bouche du policier
+tone = (~teeth & ~inside)[..., None]
+px = np.where(tone, np.clip(px * (pol_skin / kid_skin), 0, 255), px)
+mo[..., :3] = px; mo[..., 3] = 255 * em
+save(mo, 'policier-bouche')
+pol_mouth = [x0, y0, x1, y1]
+meta['policier'] = dict(mouth=pol_mouth, w=W, h=H, neck=[262, 268], mouthCenter=[261, 202], lids=lbox)
 json.dump(meta, open(OUT + '/rig.json', 'w'), indent=1)
 print(json.dumps(meta))
