@@ -80,13 +80,27 @@ lbox = lid_overlay(c, [(218, 222, 282, 284, -6), (318, 196, 364, 252, -6)], 'enf
 meta['enfant'] = dict(w=W, h=H, neck=[270, 418], wrist=[566, 566], mouth=mbox, lids=lbox)
 
 # ---------------- Policier ----------------
+# Buste « bras décroisés » produit par pose_masks.py + torso.py + pose_arms.py (dossier de travail WORK)
+WORK = sys.argv[2] if len(sys.argv) > 2 else 'pose-work'
 c = load(P + '/policier/policier-detoure.webp'); H, W = c.shape[:2]
+buste = load(WORK + '/torso.png')
 yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
 CUT_P = 262
-head = c.copy(); head[..., 3] *= ramp(yy, CUT_P, CUT_P + 18)
-body = c.copy(); body[..., 3] *= (1 - (yy < CUT_P))
+head = c.copy()
+# le sourire en coin d'origine est effacé : seule la bouche animée reste visible (pas de « double bouche »)
+mm = np.zeros((H, W), np.uint8)
+cv2.polylines(mm, [np.array([(222, 203), (240, 208), (260, 207), (280, 200), (298, 190), (306, 183)], np.int32)], False, 255, 13)
+cv2.circle(mm, (295, 185), 11, 255, -1)  # fossette sombre du sourire en coin
+fill = cv2.inpaint(c[..., :3].astype(np.uint8), mm, 4, cv2.INPAINT_NS).astype(np.float32)
+fm = cv2.GaussianBlur(mm.astype(np.float32) / 255, (0, 0), 2.0)[..., None]
+head[..., :3] = c[..., :3] * (1 - fm) + fill * fm
+head[..., 3] *= ramp(yy, CUT_P, CUT_P + 18)
+body = buste.copy(); body[..., 3] *= (1 - (yy < CUT_P))
 save(body, 'policier-corps'); save(head, 'policier-tete')
 lbox = lid_overlay(c, [(204, 136, 242, 164, -4), (263, 121, 303, 151, -5)], 'policier-paupieres', color=(55, 32, 25))
-meta['policier'] = dict(w=W, h=H, neck=[262, 268], mouthCenter=[261, 202], lids=lbox)
+arms = json.load(open(WORK + '/arms.json'))
+for name in ('geste', 'ceinture'):
+    save(np.array(Image.open(f'{WORK}/policier-avantbras-{name}.png').convert('RGBA')).astype(np.float32), f'policier-avantbras-{name}')
+meta['policier'] = dict(w=W, h=H, neck=[262, 268], lids=lbox, arms=arms)
 json.dump(meta, open(OUT + '/rig.json', 'w'), indent=1)
 print(json.dumps(meta))

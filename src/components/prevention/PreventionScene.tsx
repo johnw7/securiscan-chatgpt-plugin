@@ -56,7 +56,12 @@ function layoutFor(id: ShotId, f: Format): Layout {
   const v = f === "9x16";
   switch (id) {
     case "intro":
-      return { bg: { src: DECOR.original, fx: 50, fy: v ? 50 : 22, z: 1 }, cam: cam(1, 1) };
+      // Plan d'ensemble : le policier (bras décroisés) devant la mairie, geste d'accueil.
+      return {
+        bg: { src: DECOR.place, fx: 50, fy: v ? 50 : 30, z: 1 },
+        cam: cam(1, 1.06, 0, 0, 0, 20),
+        officer: v ? still({ x: 520, y: 1900, h: 1780 }) : still({ x: 560, y: 1560, h: 1450 }),
+      };
 
     case "enfant-1":
       // Plan américain (coupé aux genoux, volontaire) ; travelling avant lent.
@@ -71,7 +76,7 @@ function layoutFor(id: ShotId, f: Format): Layout {
       return {
         bg: { src: DECOR.placeFlou, fx: 65, fy: 38, z: 1.12 },
         cam: cam(1.05, 1, 0, 0, 30, 0),
-        officer: v ? still({ x: 560, y: 2560, h: 2380 }) : still({ x: 560, y: 1940, h: 1840 }),
+        officer: v ? still({ x: 470, y: 2560, h: 2380 }) : still({ x: 480, y: 1940, h: 1840 }),
         focus: "policier",
       };
 
@@ -93,7 +98,7 @@ function layoutFor(id: ShotId, f: Format): Layout {
       return {
         bg: { src: DECOR.placeFlou, fx: 70, fy: 45, z: 1.15 },
         cam: cam(1, 1.04, 0, -10),
-        officer: v ? still({ x: 720, y: 2400, h: 2200 }) : still({ x: 840, y: 1700, h: 1500 }),
+        officer: v ? still({ x: 720, y: 2400, h: 2200 }) : still({ x: 780, y: 1700, h: 1500 }),
         focus: "policier",
       };
 
@@ -118,7 +123,7 @@ function layoutFor(id: ShotId, f: Format): Layout {
         : {
             bg: { src: DECOR.placeFlou, fx: 55, fy: 45, z: 1.12 },
             cam: cam(1, 1.03, 0, -15),
-            officer: still({ x: 850, y: 1640, h: 1420 }),
+            officer: still({ x: 790, y: 1640, h: 1420 }),
             child: still({ x: 165, y: 1800, h: 1420 * CHILD_RATIO * 1.05 }),
             focus: "policier",
           };
@@ -135,7 +140,7 @@ function layoutFor(id: ShotId, f: Format): Layout {
       return {
         bg: { src: DECOR.placeFlou, fx: 60, fy: 38, z: 1.12 },
         cam: cam(1, 1.07, 0, 0, 0, 40),
-        officer: v ? still({ x: 520, y: 2480, h: 2300 }) : still({ x: 540, y: 1900, h: 1800 }),
+        officer: v ? still({ x: 450, y: 2480, h: 2300 }) : still({ x: 470, y: 1900, h: 1800 }),
         focus: "policier",
       };
 
@@ -166,7 +171,28 @@ type Motion = {
   hop?: number;
   /** Hochements de tête (écoute, approbation). */
   nods?: number[];
+  /** Geste d'accueil main ouverte du policier hors réplique : [début, fin]. */
+  present?: [number, number];
+  /** Angle de l'avant-bras levé (degrés) : plus haut en plan serré pour que la main reste dans le cadre. */
+  raise?: number;
 };
+
+const smooth = (k: number) => k * k * (3 - 2 * k);
+
+/** Intensité 0 → 1 d'un intervalle, avec montée et descente progressives (pas d'à-coup). */
+const window01 = (t: number, a: number, b: number, rampIn = 0.45, rampOut = 0.5) =>
+  Math.min(smooth(clamp01((t - a) / rampIn)), smooth(clamp01((b - t) / rampOut)));
+
+/** Le personnage parle (0 → 1) : anticipe légèrement la réplique et retombe en douceur après. */
+function speakAmount(t: number, who: Speaker) {
+  let v = 0;
+  for (const c of CUES) if (c.speaker === who) v = Math.max(v, window01(t, c.start - 0.25, c.end + 0.3));
+  return v;
+}
+
+/** Ouverture de bouche moyennée sur 0,25 s : pilote les gestes sans les faire trembler. */
+const openSmooth = (t: number, who: Speaker) =>
+  [0, 0.06, 0.12, 0.18, 0.24].reduce((acc, d) => acc + mouthOpen(t - d, who), 0) / 5;
 
 /** Clignements pseudo-aléatoires mais déterministes (même rendu à chaque lecture / export). */
 function blinking(t: number, seed: number) {
@@ -215,14 +241,15 @@ function Character({
   const seed = who === "enfant" ? 0.6 : 1.9;
   const kid = who === "enfant";
 
-  // Parole : ouverture de bouche issue de l'enveloppe de la voix
+  // Parole : ouverture de bouche issue de l'enveloppe de la voix ; gestes pilotés par des valeurs lissées
   const open = mouthOpen(t, who);
-  const speaking = CUES.some((c) => c.speaker === who && t >= c.start && t < c.end);
+  const talk = speakAmount(t, who);
+  const energy = openSmooth(t, who);
 
-  // Déplacements du corps entier
-  let dx = 0;
+  // Déplacements du corps entier : transfert de poids lent + léger penché vers l'interlocuteur en parlant
+  let dx = Math.sin(t * 0.55 + seed) * asset.width * 0.006;
   let dy = 0;
-  let lean = Math.sin(t * 0.9 + seed) * 0.5; // balancement léger (degrés)
+  let lean = Math.sin(t * 0.7 + seed) * 0.6 + talk * (kid ? 0.9 : -0.6);
   if (motion.walkIn) {
     const [s0, dur] = motion.walkIn;
     const k = clamp01((t - s0) / dur);
@@ -237,32 +264,39 @@ function Character({
     const d = t - motion.hop;
     if (d > 0 && d < 0.55) dy -= Math.sin((d / 0.55) * Math.PI) * asset.height * 0.05;
   }
-  dy -= open * asset.height * 0.0025;
-  const breathe = 1 + Math.sin(t * 2.1 + seed) * 0.005;
+  dy -= energy * asset.height * 0.002;
+  const breathe = 1 + Math.sin(t * 1.6 + seed) * 0.005;
 
-  // Tête : inclinaison au repos, accompagnement de la parole, hochements
-  let headRot = Math.sin(t * 0.8 + seed * 2) * 1.2;
+  // Tête : inclinaison lente au repos, accompagnement souple de la parole, hochements
+  let headRot = Math.sin(t * 0.6 + seed * 2) * 1.4;
   let headY = 0;
-  if (speaking) headRot += Math.sin(t * 3.1 + seed) * 2.0 + (open - 0.4) * 2.2;
+  headRot += talk * (Math.sin(t * 2.0 + seed) * 1.8 + (energy - 0.35) * 2.5);
   for (const n of motion.nods ?? []) {
     const v = nodAt(t, n);
     if (kid) headRot += v * 4;
     else headY += Math.abs(v) * 9;
   }
-  headY -= open * 3;
+  headY -= energy * 3;
 
   // Main de l'enfant : geste en parlant, coucou au final
-  let handRot = Math.sin(t * 1.4 + seed) * 3;
-  if (speaking) handRot += Math.sin(t * 2.6) * 9 * (0.4 + open) - 4;
+  let handRot = Math.sin(t * 1.1 + seed) * 3;
+  handRot += talk * (Math.sin(t * 2.2) * 7 * (0.5 + energy) - 4);
   if (motion.wave && t >= motion.wave[0] && t < motion.wave[1]) {
     const env = Math.min(1, (t - motion.wave[0]) / 0.3, (motion.wave[1] - t) / 0.3);
     handRot += Math.sin((t - motion.wave[0]) * 10) * 16 * env - 6 * env;
   }
 
+  // Policier : avant-bras « geste » (main ouverte) qui se lève quand il parle, l'autre posé sur la ceinture
+  const present = motion.present ? window01(t, motion.present[0], motion.present[1], 0.6, 0.7) : 0;
+  const g = Math.max(talk, present);
+  const raise = motion.raise ?? -6;
+  const gestureAngle = lerp(42 + Math.sin(t * 0.8 + seed) * 2, raise + Math.sin(t * 1.7 + seed) * 8 - energy * 12, g);
+  const beltAngle = 31 + Math.sin(t * 0.7) * 1.2 + g * 3;
+
   const blink = blinking(t, seed);
   const m = rig.mouth;
-  // L'enfant a la bouche ouverte sur l'image d'origine : on peut l'ouvrir un peu plus grand (×1,25).
-  const mouthScale = m.rest > 0 ? m.rest + (1.25 - m.rest) * open : open;
+  // Bouche : ouverture au repos naturelle, l'enfant (bouche ouverte sur l'image d'origine) peut aller un peu au-delà.
+  const mouthScale = m.rest + ((kid ? 1.15 : 1) - m.rest) * open;
   const img = (src: string, style?: CSSProperties) => (
     // eslint-disable-next-line @next/next/no-img-element
     <img src={src} alt="" draggable={false} className="absolute top-0 left-0 max-w-none select-none" style={style} />
@@ -313,6 +347,22 @@ function Character({
               transformOrigin: `${rig.hand.wrist[0]}px ${rig.hand.wrist[1]}px`,
               transform: `rotate(${handRot}deg)`,
             })}
+          {rig.arms &&
+            (["ceinture", "geste"] as const).map((k) => {
+              const a = rig.arms![k];
+              return (
+                <span key={k}>
+                  {img(a.src, {
+                    left: a.elbow[0] - a.pivot[0],
+                    top: a.elbow[1] - a.pivot[1],
+                    width: a.w,
+                    height: a.h,
+                    transformOrigin: `${a.pivot[0]}px ${a.pivot[1]}px`,
+                    transform: `rotate(${k === "geste" ? gestureAngle : beltAngle}deg)`,
+                  })}
+                </span>
+              );
+            })}
           <div
             className="absolute inset-0"
             style={{
@@ -326,8 +376,7 @@ function Character({
               top: m.y,
               width: m.w,
               height: m.h,
-              transform: `scaleY(${Math.max(0.02, mouthScale)})`,
-              opacity: m.rest > 0 ? 1 : clamp01(open * 6),
+              transform: `scaleY(${mouthScale})`,
               filter: kid ? undefined : "saturate(0.8) brightness(0.92)",
             })}
             {blink && img(rig.lids.src, { left: rig.lids.x, top: rig.lids.y, width: rig.lids.w, height: rig.lids.h })}
@@ -341,18 +390,23 @@ function Character({
 /** Mouvements de chaque personnage selon le plan. */
 function motionsFor(id: ShotId): { enfant?: Motion; policier?: Motion } {
   switch (id) {
+    case "intro":
+      return { policier: { present: [1.3, 4.4] } };
     case "policier-1":
-      return { policier: { nods: [11.0] } };
+      return { policier: { nods: [11.0], raise: -50 } };
+    case "conseil-1":
+    case "conseil-2":
+      return { policier: { raise: -50 } };
     case "duo":
       return { enfant: { walkIn: [16.5, 1.3] }, policier: { nods: [18.6] } };
     case "conseil-3":
-      return { enfant: { nods: [38.1, 41.2] } };
+      return { enfant: { nods: [38.1, 41.2] }, policier: { raise: -50 } };
     case "enfant-2":
       return { enfant: { nods: [46.0] } };
     case "policier-2":
-      return { policier: { nods: [48.2, 50.9] } };
+      return { policier: { nods: [48.2, 50.9], raise: -50 } };
     case "final":
-      return { enfant: { wave: [53.4, 56.2], hop: 52.6 }, policier: { nods: [53.0, 55.8] } };
+      return { enfant: { wave: [53.4, 56.2], hop: 52.6 }, policier: { nods: [53.0, 55.8], present: [52.4, 56.4] } };
     default:
       return {};
   }
@@ -783,7 +837,7 @@ function ShotView({ shot, t, f, subtitles }: { shot: Shot; t: number; f: Format;
   const H = STAGE_H[f];
 
   // Parallaxe : le décor suit la caméra plus lentement que les personnages.
-  const bgZoom = L.bg.z * (shot.id === "intro" ? lerp(1, 1.1, easeOut(clamp01(lt / 5))) : 1 + (c.z - 1) * 0.45);
+  const bgZoom = L.bg.z * (1 + (c.z - 1) * 0.45);
   const lerpPose = (p?: [Pose, Pose]) =>
     p && { x: lerp(p[0].x, p[1].x, k), y: lerp(p[0].y, p[1].y, k), h: lerp(p[0].h, p[1].h, k) };
   const child = lerpPose(L.child);

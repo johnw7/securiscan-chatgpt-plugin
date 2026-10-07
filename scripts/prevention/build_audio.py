@@ -38,30 +38,8 @@ def pop(t0):
     a = int(t0 * SR); sfx[a:a + m] += s * 0.10
 for w in WIPES: whoosh(w - 0.05)
 for p in POPS: pop(p)
-# petite musique douce : nappe + arpèges pincés (Karplus-Strong), progression Do - La m - Fa - Sol
-def note(f, d, amp):
-    m = int(d * SR); N = int(SR / f); buf = rng.uniform(-1, 1, N); out = np.zeros(m)
-    for j in range(m):
-        out[j] = buf[j % N]; buf[j % N] = 0.996 * 0.5 * (buf[j % N] + buf[(j + 1) % N])
-    return out * amp
-music = np.zeros(n)
-chords = [[261.6, 329.6, 392.0], [220.0, 261.6, 329.6], [174.6, 220.0, 261.6], [196.0, 246.9, 293.7]]
-beat = 0.42; t = 0.0; bar = 0
-while t < DUR - 1:
-    ch = chords[bar % 4]
-    tt = np.arange(int(beat * 8 * SR)) / SR
-    pad = sum(np.sin(2 * np.pi * f / 2 * tt) for f in ch) * 0.025 * np.minimum(1, tt / 0.5) * np.minimum(1, (beat * 8 - tt) / 0.5)
-    a = int(t * SR); seg = music[a:a + len(pad)]; seg += pad[:len(seg)]
-    for s in range(8):
-        f = ch[[0, 1, 2, 1, 0, 2, 1, 2][s]] * (2 if s % 4 == 2 else 1)
-        nt = note(f, 0.9, 0.06); b = int((t + s * beat) * SR); seg2 = music[b:b + len(nt)]; seg2 += nt[:len(seg2)]
-    t += beat * 8; bar += 1
-# entrée / sortie en fondu, et la musique s'efface sous les voix (ducking)
-fade = np.ones(n); fi = int(1.0 * SR); fo = int(2.5 * SR)
-fade[:fi] = np.linspace(0, 1, fi); fade[-fo:] = np.linspace(1, 0, fo)
-vlev = np.convolve(np.abs(voice), np.ones(int(0.25 * SR)) / int(0.25 * SR), 'same')
-duck = 1 - 0.65 * np.clip(vlev / 0.05, 0, 1)
-mix = voice + sfx + music * fade * duck * 1.0
+# Pas de musique : elle sera ajoutée au montage.
+mix = voice + sfx
 mix = mix / np.abs(mix).max() * 0.89
 wav = f'{V}/bande-son.wav'; sf.write(wav, np.stack([mix, mix], 1).astype(np.float32), SR)
 out = f'{ROOT}/public/audio/prevention/bande-son.m4a'
