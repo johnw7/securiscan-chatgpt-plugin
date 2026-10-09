@@ -129,10 +129,14 @@ document.getElementById('form').addEventListener('submit', (e) => {
   const d = new FormData(e.target);
   const txt = `Bonjour E-DUST Solutions, je suis ${d.get('nom')}${d.get('activite') ? ` (${d.get('activite')})` : ''}.\n` +
     `Je suis intéressé(e) par : ${d.get('service')}.\n${d.get('message') || ''}`;
-  window.open('https://wa.me/33613249680?text=' + encodeURIComponent(txt.trim()), '_blank', 'noopener');
+  const url = 'https://wa.me/33613249680?text=' + encodeURIComponent(txt.trim());
+  const go = document.getElementById('wa-go');
+  go.href = url; go.hidden = false;
+  window.open(url, '_blank', 'noopener');
 });
 
 // ---- Apparition au défilement ----
+document.documentElement.classList.add('anim');
 const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.add('is-in'); io.unobserve(x.target); } }), { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 document.getElementById('y').textContent = new Date().getFullYear();

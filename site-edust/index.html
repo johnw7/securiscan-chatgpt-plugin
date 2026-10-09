@@ -263,15 +263,16 @@
     </div>
     <form class="form reveal" id="form">
       <h3>Demande de devis gratuit</h3>
-      <label>Votre nom<input name="nom" required autocomplete="name"></label>
-      <label>Votre activité<input name="activite" placeholder="Ex. restaurant, boutique, artisan…"></label>
+      <label>Votre nom<input id="f-nom" name="nom" required autocomplete="name"></label>
+      <label>Votre activité<input id="f-act" name="activite" placeholder="Ex. restaurant, boutique, artisan…"></label>
       <label>Le service qui vous intéresse
-        <select name="service">
+        <select id="f-svc" name="service">
           <option>Visuels réseaux sociaux</option><option>Refonte avant / après</option><option>Vidéos Reels &amp; TikTok</option>
           <option>Site web</option><option>Logo &amp; identité</option><option>Pitch deck</option><option>Application sur mesure</option><option>Je ne sais pas encore</option>
         </select></label>
-      <label>Votre message<textarea name="message" rows="4" placeholder="Parlez-nous de votre projet…"></textarea></label>
+      <label>Votre message<textarea id="f-msg" name="message" rows="4" placeholder="Parlez-nous de votre projet…"></textarea></label>
       <button class="btn btn--cyan btn--full" type="submit">Envoyer via WhatsApp</button>
+      <a class="btn btn--blue btn--full" id="wa-go" href="https://wa.me/33613249680" target="_blank" rel="noopener" hidden>Ouvrir mon message dans WhatsApp →</a>
       <small class="form__hint">Le message s’ouvre dans WhatsApp, prêt à envoyer. Vous préférez appeler ? <a href="tel:+33613249680">+33 6 13 24 96 80</a></small>
     </form>
   </div>
