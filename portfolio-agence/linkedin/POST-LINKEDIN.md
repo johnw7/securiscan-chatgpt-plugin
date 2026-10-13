@@ -9,69 +9,74 @@ Publiez du mardi au jeudi, entre 8 h et 10 h ou vers 12 h. Mettez le lien de con
 
 ---
 
-## Post principal (avec le document PDF)
+## Trois propositions de post (choisissez-en une)
+
+### A. Court et percutant
 
 ```
-On nous a posé un défi : créer une marque de burgers à partir de rien. 🍔
+Un nom. Un logo. 20 photos. Un site de commande. Un feed Instagram. Des flyers.
 
-Pas de nom. Pas de logo. Pas de photos. Juste une idée : des smash burgers, des tacos et des frites maison, dans une rue où tout le monde vend déjà des burgers.
+Tout ça, pour une marque de burgers qui n'existait pas.
 
-Voici ce qu'on a construit 👇
+Voici SMASH HOUSE, créée de A à Z par E-DUST Solutions. 👇
 
-🎨 Une identité qui se voit de l'autre trottoir
-Badge rond façon diner, typographie massive, palette moutarde et tomate. 6 variantes de logo, de l'enseigne à l'icône d'appli.
+Une marque, ce n'est pas un logo. C'est tout ce que vos clients voient, partout, tout le temps.
 
-📸 Une direction photo qui ouvre l'appétit
-20 visuels produits avec la même lumière, le même cadrage, la même envie.
+Vous avez un commerce ? Parlons-en en MP.
 
-💻 Un site de commande sans commission
-Carte avec photos, burger personnalisable, suivi de commande en direct et écran cuisine. Les commandes passées sur le site ne reversent rien aux plateformes de livraison.
-
-📱 Un kit réseaux sociaux
-Carrousel, vidéo de démonstration et calendrier de publication.
-
-🖨️ Des supports pour le quartier
-Flyer avec QR code, carte de visite, carte de fidélité.
-
-Une marque cohérente du sac kraft jusqu'au fil Instagram. C'est ça qui fait revenir les clients.
-
-👉 L'étude de cas complète est dans le document ci-dessous.
-
-Vous avez un restaurant, un commerce ou un projet qui mérite mieux que des visuels faits à la va-vite ? Écrivez-moi en message privé, le premier échange est offert.
-
-(SMASH HOUSE est une enseigne de démonstration : visuels générés par IA, paiement simulé.)
-
-#branding #identitévisuelle #marketing #restauration #fastfood #webdesign #communication #agencemarketing
+#branding #marketing #restauration #communication
 ```
 
-**Premier commentaire :**
+### B. Storytelling, à la première personne
 
 ```
-📩 Pour en parler : [VOTRE LIEN DE RENDEZ-VOUS ou VOTRE E-MAIL]
-🌐 [VOTRE SITE]
+Il y a quelques semaines, je me suis lancé un défi.
+
+Créer une marque de fast-food entièrement, sans client, sans brief, sans limite.
+Juste pour montrer ce qu'on peut faire quand tout est pensé ensemble.
+
+Le résultat s'appelle SMASH HOUSE.
+
+Ce que j'en retiens :
+→ Les gens n'achètent pas un burger, ils achètent l'envie qu'ils ressentent en le voyant.
+→ Un logo seul ne sert à rien s'il n'est pas sur le sac, le gobelet, le site et le feed.
+→ Un site de commande à son nom, c'est des commandes sans commission.
+
+Tout le projet est dans le document ci-dessous.
+
+Si vous êtes restaurateur ou commerçant et que votre image ne vous ressemble plus, mon MP est ouvert.
+
+(Enseigne fictive, visuels générés par IA.)
+
+#branding #entrepreneuriat #restauration #marketing
 ```
 
----
-
-## Version courte (avec l'image `visuel-post-linkedin.png`)
+### C. Directement pour les restaurateurs
 
 ```
-Une marque de burgers, de zéro. 🍔
+Restaurateurs, une question simple :
 
-Logo ✅ Photos ✅ Site de commande ✅ Réseaux sociaux ✅ Print ✅
+Si un client passe devant chez vous, regarde votre Instagram puis votre site…
+Est-ce qu'il a faim ?
 
-Quand tout parle le même langage, du gobelet au site web, les clients retiennent votre nom, et ils reviennent.
+C'est la question qu'on s'est posée en créant SMASH HOUSE :
+une identité, des photos, un site de commande et des supports qui donnent tous la même envie.
 
-C'est exactement ce qu'on fait chez E-DUST Solutions pour les restaurants et les commerces.
+Swipez le document pour voir le résultat. 👇
 
-Vous voulez le portfolio complet ? Commentez « PORTFOLIO » et je vous l'envoie. 👇
+Chez E-DUST Solutions, on fait la même chose pour votre établissement.
+Premier échange offert, en message privé.
 
 (Projet de démonstration : enseigne fictive, visuels générés par IA.)
 
-#branding #marketing #restaurant #communication #agencemarketing
+#restaurant #fastfood #branding #marketing #communication
 ```
 
-> Astuce : avec la version « Commentez PORTFOLIO », envoyez ensuite le PDF complet (`portfolio-edust-solutions.pdf`) en message privé à chaque personne qui commente. Les commentaires augmentent la portée du post, et chaque message ouvre une conversation.
+**Premier commentaire (pour toutes les versions) :**
+
+```
+📩 Pour en parler : [VOTRE LIEN DE RENDEZ-VOUS ou VOTRE E-MAIL]
+```
 
 ---
 
