@@ -26,11 +26,11 @@ Une vraie photo de vous, pas le logo : les gens font confiance à une personne. 
 Choisissez-en un :
 
 ```
-Fondateur d'E-DUST Solutions · Agence marketing créative · Je crée des marques qui donnent envie : logo, site web, réseaux sociaux, photo & print pour restaurants et commerces
+Fondateur d'E-DUST Solutions · Agence de communication digitale · Branding, sites web, réseaux sociaux, photo & print · Ce qui ne se voit pas ne se vend pas
 ```
 
 ```
-J'aide les restaurants et commerces à se faire remarquer · Branding, sites de commande en ligne, social media · Fondateur @E-DUST Solutions
+J'aide les entreprises et les marques à se faire remarquer · Branding, sites web, social media · Fondateur @E-DUST Solutions
 ```
 
 ## 3. Bouton personnalisé et coordonnées
@@ -44,7 +44,7 @@ J'aide les restaurants et commerces à se faire remarquer · Branding, sites de 
 ```
 Une marque qui donne envie, ça se voit partout : sur la devanture, sur le gobelet, sur le site et sur le fil Instagram.
 
-Je suis le fondateur d'E-DUST Solutions, une agence marketing créative pour les restaurants, les commerces et les indépendants.
+Je suis le fondateur d'E-DUST Solutions, une agence de communication digitale qui aide les entreprises, les marques et les entrepreneurs à se rendre visibles et désirables.
 
 Ce que je crée pour vous :
 → Logo, charte graphique et identité complète
@@ -55,7 +55,7 @@ Ce que je crée pour vous :
 → Fiche Google, avis clients et fidélisation
 
 Ma façon de travailler :
-1. Un premier échange offert pour comprendre votre commerce
+1. Un premier échange offert pour comprendre votre activité
 2. Un plan clair et un devis sur mesure
 3. La création, avec vos retours à chaque étape
 4. Le lancement, puis le suivi des résultats
@@ -82,7 +82,7 @@ Ajoutez dans cet ordre :
 **Type :** Indépendant · **Dates :** depuis votre date de création
 
 ```
-Agence marketing créative pour restaurants, commerces et indépendants.
+Agence de communication digitale pour les entreprises, les marques et les entrepreneurs.
 
 • Création d'identités visuelles complètes : logo, charte, déclinaisons
 • Sites web et commande en ligne, pensés pour le téléphone
@@ -105,7 +105,7 @@ Ensuite : Direction artistique, Design graphique, Stratégie de contenu, Canva, 
 Profil → « Fournir des services ». Cochez : Branding, Design graphique, Conception de sites web, Marketing sur les réseaux sociaux, Marketing digital. Ajoutez la description courte :
 
 ```
-Agence marketing créative : logo, site de commande en ligne, réseaux sociaux, photo et print pour restaurants et commerces. Premier échange offert.
+Agence de communication digitale : identité visuelle, sites web, réseaux sociaux, photo, vidéo et print. Premier échange offert.
 ```
 
 Vous apparaîtrez dans les recherches de prestataires et vous pourrez recevoir des demandes de devis.
@@ -126,21 +126,21 @@ Créez-la depuis « Pour les entreprises » → « Créer une page entreprise »
 - **Bouton :** « Nous contacter » → `https://wa.me/33613249680`
 - **Description :**
   ```
-  E-DUST Solutions est une agence de communication digitale pour les restaurants, les commerces et les indépendants.
+  E-DUST Solutions est une agence de communication digitale pour les entreprises, les marques et les entrepreneurs, quel que soit leur secteur.
 
   Nous créons des marques cohérentes et désirables, du logo jusqu'au fil Instagram : identité visuelle, sites web et commande en ligne, contenus pour les réseaux sociaux, direction photo, print et packaging, visibilité locale et fidélisation.
 
   Notre méthode : un premier échange offert, un devis sur mesure, une création validée étape par étape, puis un suivi des résultats. Nos clients restent propriétaires de tout ce que nous créons.
   ```
-- **Spécialités :** Branding, Identité visuelle, Création de sites web, Commande en ligne, Social media, Direction photo, Print, Packaging, Marketing local, Restauration.
+- **Spécialités :** Branding, Identité visuelle, Création de sites web, E-commerce, Social media, Création de contenu, Photo et vidéo, Print, Publicité digitale, Stratégie de communication.
 
 ---
 
 ## 10. Routine pour faire grandir le profil (20 minutes par jour)
 
 - **Publier 2 fois par semaine**, du mardi au jeudi : une réalisation (carrousel), un conseil, une coulisse de création. Commencez par le post de l'étude de cas (`../../portfolio-agence/linkedin/POST-LINKEDIN.md`).
-- **Commenter 5 posts par jour** de restaurateurs, commerçants et entrepreneurs de votre ville : un vrai avis, pas juste « Bravo ».
-- **Envoyer 10 invitations par semaine** à des gérants de restaurants et commerces locaux, avec une note courte et personnelle.
+- **Commenter 5 posts par jour** de dirigeants, entrepreneurs et responsables marketing : un vrai avis, pas juste « Bravo ».
+- **Envoyer 10 invitations par semaine** à des dirigeants et entrepreneurs de votre cible, avec une note courte et personnelle.
 - **Répondre à chaque commentaire** dans l'heure qui suit une publication.
 - Mettez à jour la section Sélection à chaque nouvelle réalisation.
 
