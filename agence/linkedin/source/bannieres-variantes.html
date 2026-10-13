@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; } body { margin: 0; background: #333; }
+  img { display: block; }
+  .bn { width: 1584px; height: 396px; position: relative; overflow: hidden; background: #010a2e; color: #fff; font-family: Inter, sans-serif; margin-bottom: 20px; }
+  .bn.light { background: #f5f7fb; color: #021448; }
+  .g { background: linear-gradient(120deg, #01daff 0%, #0b58ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .txt { position: absolute; left: 440px; top: 74px; }
+  .k { margin: 0; font: 700 12.5px 'Plus Jakarta Sans', sans-serif; letter-spacing: .26em; color: #01daff; text-transform: uppercase; }
+  .light .k { color: #0b58ff; }
+  h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 54px; letter-spacing: -.045em; line-height: 1.03; margin: 20px 0 0; }
+  .svc { margin: 22px 0 0; font-size: 16.5px; font-weight: 500; color: #9fb0dc; }
+  .light .svc { color: #5b6b94; }
+  .tel { margin: 24px 0 0; display: inline-flex; align-items: center; gap: 10px; font: 800 19px 'Plus Jakarta Sans', sans-serif; }
+  .tel i { width: 8px; height: 8px; border-radius: 50%; background: #25d366; box-shadow: 0 0 0 4px rgba(37,211,102,.18); }
+  .tel span { font: 600 12px Inter; letter-spacing: .16em; text-transform: uppercase; color: #6f82b8; }
+  .fade { position: absolute; top: 0; bottom: 0; width: 220px; }
+  .shadow { box-shadow: 0 24px 60px rgba(0,0,0,.45); }
+</style>
+</head>
+<body>
+
+<!-- A. Bande photo : trois plats bord à bord -->
+<section class="bn" id="a">
+  <div style="position:absolute; right:0; top:0; height:396px; display:flex">
+    <img src="../../site/img/bacon-bbq.jpg" style="width:250px; height:396px; object-fit:cover">
+    <img src="../../site/img/frites-cheddar-bacon.jpg" style="width:170px; height:396px; object-fit:cover">
+    <img src="../../site/img/smash-classique.jpg" style="width:170px; height:396px; object-fit:cover">
+  </div>
+  <div class="fade" style="right:410px; background:linear-gradient(90deg,#010a2e 15%,rgba(1,10,46,0))"></div>
+  <div class="txt">
+    <p class="k">E-DUST Solutions · Agence créative</p>
+    <h1>Vous avez le produit.<br>On crée <span class="g">l’envie.</span></h1>
+    <p class="svc">Branding · Sites web · Social media · Photo · Print</p>
+    <p class="tel"><i></i>+33 6 13 24 96 80 <span>WhatsApp</span></p>
+  </div>
+</section>
+
+<!-- B. Site : navigateur + téléphone -->
+<section class="bn" id="b">
+  <div style="position:absolute; width:700px; height:700px; right:-200px; top:-300px; border-radius:50%; background:radial-gradient(circle, rgba(11,88,255,.55), rgba(11,88,255,0) 65%)"></div>
+  <div class="shadow" style="position:absolute; left:1040px; top:56px; width:470px; border-radius:12px; overflow:hidden; background:#fff">
+    <div style="height:18px; background:#e9edf5; display:flex; gap:5px; align-items:center; padding:0 9px"><i style="width:7px; height:7px; border-radius:50%; background:#c3cbdb"></i><i style="width:7px; height:7px; border-radius:50%; background:#c3cbdb"></i><i style="width:7px; height:7px; border-radius:50%; background:#c3cbdb"></i></div>
+    <img src="../../site/img/ff-home.jpg" style="width:100%">
+  </div>
+  <div class="shadow" style="position:absolute; left:1430px; top:120px; width:120px; border-radius:20px; border:5px solid #05070f; overflow:hidden"><img src="../../site/img/ff-m-home.jpg" style="width:100%"></div>
+  <div class="txt">
+    <p class="k">E-DUST Solutions · Agence créative</p>
+    <h1>Des sites qui donnent<br><span class="g">faim au premier scroll.</span></h1>
+    <p class="svc">Branding · Sites & commande en ligne · Social media · Print</p>
+    <p class="tel"><i></i>+33 6 13 24 96 80 <span>WhatsApp</span></p>
+  </div>
+</section>
+
+<!-- C. Logo + photo -->
+<section class="bn" id="c">
+  <img src="../../site/img/hero.jpg" style="position:absolute; right:0; top:0; width:760px; height:396px; object-fit:cover; object-position:70% 50%">
+  <div class="fade" style="right:540px; width:260px; background:linear-gradient(90deg,#010a2e 20%,rgba(1,10,46,0))"></div>
+  <div class="shadow" style="position:absolute; left:1060px; top:118px; width:160px; height:160px; border-radius:36px; background:#ffc22b; display:grid; place-items:center"><img src="../../site/img/smashhouse-logo-badge.svg" style="width:134px"></div>
+  <div class="txt">
+    <p class="k">E-DUST Solutions · Agence créative</p>
+    <h1>Une marque, c’est plus<br>qu’un <span class="g">logo.</span></h1>
+    <p class="svc">Identité · Photo · Site web · Réseaux · Print</p>
+    <p class="tel"><i></i>+33 6 13 24 96 80 <span>WhatsApp</span></p>
+  </div>
+</section>
+
+<!-- D. Carrousel : trois slides alignées -->
+<section class="bn" id="d">
+  <div style="position:absolute; width:800px; height:800px; right:-260px; top:-200px; border-radius:50%; background:radial-gradient(circle, rgba(1,218,255,.25), rgba(1,218,255,0) 60%)"></div>
+  <div style="position:absolute; right:70px; top:52px; display:flex; gap:14px">
+    <img class="shadow" src="../../site/img/01.jpg" style="width:186px; border-radius:12px">
+    <img class="shadow" src="../../site/img/04.jpg" style="width:186px; border-radius:12px">
+    <img class="shadow" src="../../site/img/08.jpg" style="width:186px; border-radius:12px">
+  </div>
+  <div class="txt">
+    <p class="k">E-DUST Solutions · Agence créative</p>
+    <h1>Des contenus qui<br><span class="g">arrêtent le pouce.</span></h1>
+    <p class="svc">Carrousels · Posts · Vidéos courtes · Branding</p>
+    <p class="tel"><i></i>+33 6 13 24 96 80 <span>WhatsApp</span></p>
+  </div>
+</section>
+
+<!-- E. Version claire : mosaïque -->
+<section class="bn light" id="e">
+  <div style="position:absolute; right:56px; top:40px; display:grid; grid-template-columns:150px 150px 150px; grid-template-rows:150px 150px; gap:12px">
+    <div style="border-radius:20px; background:#ffc22b; display:grid; place-items:center"><img src="../../site/img/smashhouse-logo-badge.svg" style="width:124px"></div>
+    <img src="../../site/img/bacon-bbq.jpg" style="width:150px; height:150px; object-fit:cover; border-radius:20px">
+    <img src="../../site/img/milkshake.jpg" style="width:150px; height:150px; object-fit:cover; border-radius:20px">
+    <img src="../../site/img/tacos-xl.jpg" style="width:150px; height:150px; object-fit:cover; border-radius:20px">
+    <img src="../../site/img/01.jpg" style="width:150px; height:150px; object-fit:cover; object-position:top; border-radius:20px">
+    <img src="../../site/img/double-cheese.jpg" style="width:150px; height:150px; object-fit:cover; border-radius:20px">
+  </div>
+  <div class="txt">
+    <p class="k">E-DUST Solutions · Agence créative</p>
+    <h1>Vous avez le produit.<br>On crée <span class="g">l’envie.</span></h1>
+    <p class="svc">Branding · Sites web · Social media · Photo · Print</p>
+    <p class="tel"><i></i>+33 6 13 24 96 80 <span>WhatsApp</span></p>
+  </div>
+</section>
+
+</body>
+</html>
