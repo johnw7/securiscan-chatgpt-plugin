@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@500;600;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; } body { margin: 0; background: #333; }
+  .bn { width: 1584px; height: 396px; position: relative; overflow: hidden; font-family: Inter, sans-serif; margin-bottom: 20px; }
+  .night { background: #010a2e; color: #fff; }
+  .navy { background: #021448; color: #fff; }
+  .white { background: #fff; color: #021448; }
+  .grad { background: linear-gradient(110deg, #021448 0%, #062b8f 55%, #0b58ff 100%); color: #fff; }
+  h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; letter-spacing: -.045em; line-height: 1; margin: 0; }
+  .k { margin: 0; font: 700 12.5px 'Plus Jakarta Sans', sans-serif; letter-spacing: .26em; text-transform: uppercase; }
+  .tel { margin: 0; font: 600 17px Inter, sans-serif; }
+  .ic { position: absolute; width: 64px; height: 64px; }
+  .ic svg { width: 100%; height: 100%; display: block; }
+  .glow { filter: drop-shadow(0 0 14px rgba(1,218,255,.35)) drop-shadow(0 8px 18px rgba(0,0,0,.4)); }
+  .soft { filter: drop-shadow(0 10px 22px rgba(2,20,72,.18)); }
+</style>
+</head>
+<body>
+
+<!-- Logos (dessinés) -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <radialGradient id="ig" cx="30%" cy="107%" r="150%">
+      <stop offset="0" stop-color="#fdf497"/><stop offset=".05" stop-color="#fdf497"/><stop offset=".45" stop-color="#fd5949"/><stop offset=".6" stop-color="#d6249f"/><stop offset=".9" stop-color="#285AEB"/>
+    </radialGradient>
+    <symbol id="l-ig" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="url(#ig)"/><rect x="15" y="15" width="34" height="34" rx="10" fill="none" stroke="#fff" stroke-width="4.2"/><circle cx="32" cy="32" r="8.2" fill="none" stroke="#fff" stroke-width="4.2"/><circle cx="42.6" cy="21.4" r="2.6" fill="#fff"/></symbol>
+    <symbol id="l-fb" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#1877F2"/><path d="M35.6 64V40.6h7.6l1.2-8.9h-8.8v-5.6c0-2.6.7-4.3 4.4-4.3H45v-8a63 63 0 0 0-6.9-.4c-6.8 0-11.5 4.2-11.5 11.8v6.5H19v8.9h7.6V64z" fill="#fff"/></symbol>
+    <symbol id="l-tt" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#010101"/>
+      <g transform="translate(-1.4 -1.2)"><path d="M35 14h6.4c.5 4.6 3.6 8.1 8.6 8.6v6.6c-3.2 0-6-1-8.4-2.6v13.6A11.4 11.4 0 1 1 30 28.8v6.7a4.9 4.9 0 1 0 5 4.9z" fill="#25F4EE"/></g>
+      <g transform="translate(1.4 1.2)"><path d="M35 14h6.4c.5 4.6 3.6 8.1 8.6 8.6v6.6c-3.2 0-6-1-8.4-2.6v13.6A11.4 11.4 0 1 1 30 28.8v6.7a4.9 4.9 0 1 0 5 4.9z" fill="#FE2C55"/></g>
+      <path d="M35 14h6.4c.5 4.6 3.6 8.1 8.6 8.6v6.6c-3.2 0-6-1-8.4-2.6v13.6A11.4 11.4 0 1 1 30 28.8v6.7a4.9 4.9 0 1 0 5 4.9z" fill="#fff"/></symbol>
+    <symbol id="l-li" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#0A66C2"/><rect x="13" y="25" width="8" height="26" fill="#fff"/><circle cx="17" cy="16.5" r="4.7" fill="#fff"/><path d="M27 25h7.6v3.6c1.1-2 3.8-4.2 7.8-4.2 8.2 0 9.6 5.2 9.6 12.2V51h-8V38.5c0-3-.1-6.8-4.1-6.8-4.2 0-4.8 3.2-4.8 6.6V51H27z" fill="#fff"/></symbol>
+    <symbol id="l-yt" viewBox="0 0 64 64"><rect x="2" y="12" width="60" height="40" rx="12" fill="#FF0000"/><path d="M26 22.5v19l16.5-9.5z" fill="#fff"/></symbol>
+    <symbol id="l-wa" viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="#25D366"/><g transform="translate(12 12) scale(1.667)" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></g></symbol>
+  </defs>
+</svg>
+
+<!-- 2. Orbite -->
+<section class="bn navy" id="o">
+  <div style="position:absolute; right:60px; top:-160px; width:720px; height:720px; border-radius:50%; background:radial-gradient(circle, rgba(11,88,255,.35), rgba(11,88,255,0) 60%)"></div>
+  <div style="position:absolute; left:440px; top:100px">
+    <h1 style="font-size:66px">On crée <span style="color:#01daff">l’envie.</span></h1>
+    <p class="k" style="margin-top:22px; color:#9fdcff">Agence de communication digitale</p>
+    <p class="tel" style="margin-top:16px; color:#dbe5ff">WhatsApp +33 6 13 24 96 80</p>
+  </div>
+  <svg style="position:absolute; left:1170px; top:28px" width="340" height="340" viewBox="0 0 340 340"><circle cx="170" cy="170" r="136" fill="none" stroke="#01daff" stroke-opacity=".55" stroke-width="1.5"/><circle cx="170" cy="170" r="84" fill="none" stroke="#01daff" stroke-opacity=".18" stroke-width="1" stroke-dasharray="3 6"/></svg>
+  <div style="position:absolute; left:1312px; top:170px; width:56px; height:56px; border-radius:50%; background:rgba(1,218,255,.12); display:grid; place-items:center; box-shadow:0 0 30px rgba(1,218,255,.45)"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z" fill="#01daff"/></svg></div>
+  <!-- 6 positions sur le cercle r=136 centré (1340,198) -->
+  <div class="ic glow" style="left:1308px; top:30px; width:60px; height:60px"><svg><use href="#l-ig"/></svg></div>
+  <div class="ic glow" style="left:1426px; top:98px; width:60px; height:60px"><svg><use href="#l-tt"/></svg></div>
+  <div class="ic glow" style="left:1426px; top:234px; width:60px; height:60px"><svg><use href="#l-yt"/></svg></div>
+  <div class="ic glow" style="left:1308px; top:302px; width:60px; height:60px"><svg><use href="#l-wa"/></svg></div>
+  <div class="ic glow" style="left:1190px; top:234px; width:60px; height:60px"><svg><use href="#l-li"/></svg></div>
+  <div class="ic glow" style="left:1190px; top:98px; width:60px; height:60px"><svg><use href="#l-fb"/></svg></div>
+</section>
+
+<!-- 3. Grille de cartes claire -->
+<section class="bn white" id="g">
+  <div style="position:absolute; right:-120px; top:-140px; width:520px; height:520px; border-radius:50%; background:#eef4ff"></div>
+  <div style="position:absolute; left:440px; top:102px">
+    <h1 style="font-size:64px">On crée <span style="color:#0b58ff">l’envie.</span></h1>
+    <p style="margin:22px 0 0; font-size:18px; font-weight:500; color:#5b6b94">Agence de communication digitale</p>
+    <p class="tel" style="margin-top:14px; color:#021448; font-weight:800">WhatsApp +33 6 13 24 96 80</p>
+  </div>
+  <div style="position:absolute; right:90px; top:66px; display:grid; grid-template-columns:repeat(3,112px); gap:16px">
+    <div class="soft" style="height:112px; background:#fff; border-radius:24px; display:grid; place-items:center; border:1px solid #e6eaf2"><svg width="58" height="58"><use href="#l-ig"/></svg></div>
+    <div class="soft" style="height:112px; background:#fff; border-radius:24px; display:grid; place-items:center; border:1px solid #e6eaf2"><svg width="58" height="58"><use href="#l-fb"/></svg></div>
+    <div class="soft" style="height:112px; background:#fff; border-radius:24px; display:grid; place-items:center; border:1px solid #e6eaf2"><svg width="58" height="58"><use href="#l-tt"/></svg></div>
+    <div class="soft" style="height:112px; background:#fff; border-radius:24px; display:grid; place-items:center; border:1px solid #e6eaf2"><svg width="58" height="58"><use href="#l-li"/></svg></div>
+    <div class="soft" style="height:112px; background:#fff; border-radius:24px; display:grid; place-items:center; border:1px solid #e6eaf2"><svg width="58" height="58"><use href="#l-yt"/></svg></div>
+    <div class="soft" style="height:112px; background:#fff; border-radius:24px; display:grid; place-items:center; border:1px solid #e6eaf2"><svg width="58" height="58"><use href="#l-wa"/></svg></div>
+  </div>
+</section>
+
+<!-- 4. Smartphone + logos -->
+<section class="bn grad" id="p">
+  <div style="position:absolute; left:440px; top:100px">
+    <h1 style="font-size:64px">On crée l’envie.</h1>
+    <p style="margin:22px 0 0; font-size:18px; font-weight:500; color:#cfe0ff">Agence de communication digitale</p>
+    <p class="tel" style="margin-top:14px; color:#fff">WhatsApp +33 6 13 24 96 80</p>
+  </div>
+  <div style="position:absolute; left:1250px; top:40px; width:160px; height:330px; border-radius:30px; background:#0a0f24; border:6px solid #0a0f24; box-shadow:0 30px 60px rgba(0,0,0,.45); transform:rotate(-6deg); overflow:hidden">
+    <div style="height:100%; border-radius:24px; background:linear-gradient(180deg,#0f1d4d,#0b2f9a); padding:22px 10px">
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:4px">
+        <div style="aspect-ratio:1; border-radius:4px; background:#ffc22b"></div><div style="aspect-ratio:1; border-radius:4px; background:#01daff"></div><div style="aspect-ratio:1; border-radius:4px; background:#ff5a7a"></div>
+        <div style="aspect-ratio:1; border-radius:4px; background:#7c5cff"></div><div style="aspect-ratio:1; border-radius:4px; background:#fff"></div><div style="aspect-ratio:1; border-radius:4px; background:#25d366"></div>
+        <div style="aspect-ratio:1; border-radius:4px; background:#0b58ff"></div><div style="aspect-ratio:1; border-radius:4px; background:#ffc22b"></div><div style="aspect-ratio:1; border-radius:4px; background:#01daff"></div>
+      </div>
+      <div style="margin-top:12px; height:8px; width:70%; border-radius:4px; background:rgba(255,255,255,.4)"></div>
+      <div style="margin-top:6px; height:8px; width:45%; border-radius:4px; background:rgba(255,255,255,.25)"></div>
+    </div>
+  </div>
+  <div class="ic glow" style="left:1150px; top:44px; width:58px; height:58px; transform:rotate(-10deg)"><svg><use href="#l-ig"/></svg></div>
+  <div class="ic glow" style="left:1120px; top:160px; width:54px; height:54px; transform:rotate(8deg)"><svg><use href="#l-tt"/></svg></div>
+  <div class="ic glow" style="left:1170px; top:270px; width:54px; height:54px"><svg><use href="#l-fb"/></svg></div>
+  <div class="ic glow" style="left:1440px; top:56px; width:56px; height:56px; transform:rotate(10deg)"><svg><use href="#l-yt"/></svg></div>
+  <div class="ic glow" style="left:1456px; top:174px; width:52px; height:52px"><svg><use href="#l-li"/></svg></div>
+  <div class="ic glow" style="left:1424px; top:284px; width:56px; height:56px"><svg><use href="#l-wa"/></svg></div>
+  <div style="position:absolute; left:1360px; top:24px; background:#fff; color:#e0245e; border-radius:999px; padding:6px 12px; font:800 14px Inter; box-shadow:0 10px 24px rgba(0,0,0,.3)">♥ 128</div>
+</section>
+
+<!-- 5. Réseau de connexions -->
+<section class="bn night" id="r">
+  <svg style="position:absolute; inset:0" width="1584" height="396" viewBox="0 0 1584 396" fill="none">
+    <path d="M1080 70 C 1160 40, 1200 120, 1260 96 S 1380 40, 1460 80 M1260 96 C 1250 170, 1180 210, 1130 250 M1260 96 C 1300 170, 1350 200, 1400 250 M1130 250 C 1200 300, 1320 320, 1400 250 M1400 250 C 1440 200, 1470 140, 1460 80" stroke="#01daff" stroke-opacity=".55" stroke-width="1.6"/>
+    <g fill="#01daff"><circle cx="1196" cy="78" r="3"/><circle cx="1330" cy="62" r="3"/><circle cx="1210" cy="185" r="3"/><circle cx="1330" cy="186" r="3"/><circle cx="1265" cy="300" r="3"/></g>
+  </svg>
+  <div class="ic glow" style="left:1048px; top:38px; width:62px; height:62px"><svg><use href="#l-ig"/></svg></div>
+  <div class="ic glow" style="left:1229px; top:65px; width:62px; height:62px"><svg><use href="#l-li"/></svg></div>
+  <div class="ic glow" style="left:1429px; top:49px; width:62px; height:62px"><svg><use href="#l-tt"/></svg></div>
+  <div class="ic glow" style="left:1099px; top:219px; width:62px; height:62px"><svg><use href="#l-fb"/></svg></div>
+  <div class="ic glow" style="left:1369px; top:219px; width:62px; height:62px"><svg><use href="#l-yt"/></svg></div>
+  <div class="ic glow" style="left:1234px; top:300px; width:52px; height:52px"><svg><use href="#l-wa"/></svg></div>
+  <div style="position:absolute; left:440px; top:110px">
+    <h1 style="font-size:70px">On crée <span style="background:linear-gradient(120deg,#01daff,#0b58ff); -webkit-background-clip:text; background-clip:text; color:transparent">l’envie.</span></h1>
+    <p class="k" style="margin-top:26px; color:#9fb0dc">Agence de communication digitale · WhatsApp +33 6 13 24 96 80</p>
+  </div>
+</section>
+
+</body>
+</html>
