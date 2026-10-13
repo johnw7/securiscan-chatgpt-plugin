@@ -2,7 +2,7 @@ import { Menu as MenuIcon, ShoppingBag, User, X } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { useStore } from '../context/StoreContext';
-import { BRAND } from '../data/menu';
+import { asset, BRAND } from '../data/menu';
 import { formatPrice } from '../lib/format';
 import { computeTotals } from '../lib/pricing';
 
@@ -38,8 +38,9 @@ export default function Header() {
         <button className="grid h-11 w-11 place-items-center rounded-full lg:hidden" aria-label="Ouvrir le menu" onClick={() => setOpen(true)}>
           <MenuIcon className="h-6 w-6" />
         </button>
-        <Link to="/" className="h-display text-[28px] text-mustard sm:text-3xl" aria-label={`${BRAND.name}, accueil`}>
-          SMASH<span className="text-cream">HOUSE</span>
+        <Link to="/" className="flex items-center gap-2.5" aria-label={`${BRAND.name}, accueil`}>
+          <img src={asset('logo-pastille.svg')} alt="" width={40} height={40} className="h-10 w-10 transition hover:rotate-[-8deg]" />
+          <span className="h-display text-[28px] text-mustard sm:text-3xl">SMASH<span className="text-cream">HOUSE</span></span>
         </Link>
         <nav aria-label="Navigation principale" className="ml-6 hidden gap-1 lg:flex">
           {NAV.map((n) => (

@@ -1,12 +1,13 @@
 import { Clock, MapPin, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { BRAND } from '../data/menu';
+import { asset, BRAND } from '../data/menu';
 
 export default function Footer() {
   return (
     <footer className="mt-24 bg-ink text-cream">
       <div className="wrap grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
+          <img src={asset('logo-pastille.svg')} alt="" width={64} height={64} className="mb-3 h-16 w-16" />
           <p className="h-display text-4xl text-mustard">SMASH<span className="text-cream">HOUSE</span></p>
           <p className="mt-3 text-sm text-cream/70">{BRAND.tagline}. Fait minute, avec amour (et beaucoup de cheddar).</p>
         </div>
