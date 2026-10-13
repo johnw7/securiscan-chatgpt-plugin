@@ -53,8 +53,8 @@ Ce que nous faisons :
 → Sites web : sites vitrines, landing pages, e-commerce
 → Réseaux sociaux : stratégie, contenus, carrousels, vidéos courtes
 → Création de contenu : photo, vidéo, visuels publicitaires
-→ Print : supports de communication, signalétique, packaging
-→ Visibilité : référencement local, publicité digitale, fidélisation
+→ Pitch deck : présentations pour convaincre clients, partenaires et investisseurs
+→ Plaquette commerciale : brochures et documents de présentation de votre offre
 
 Notre méthode :
 1. Un premier échange offert pour comprendre votre activité et vos objectifs
