@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>E-DUST Solutions · Portfolio créations</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Anton&display=swap" rel="stylesheet">
+<style>
+  @page { size: 1600px 1000px; margin: 0; }
+  :root {
+    --navy:#021448; --navy-2:#0a1f5c; --deep:#010a2e; --el:#0b58ff; --cy:#01daff;
+    --ink:#0f172a; --mute:#64748b; --line:#e6eaf2; --canvas:#f5f7fb; --el-50:#eef4ff;
+    --grad: linear-gradient(135deg, #01daff 0%, #0b58ff 100%);
+    --sm-ink:#17110e; --sm-cream:#fff7ea; --sm-mus:#ffc22b; --sm-tom:#e4361b; --sm-bun:#ec8f2c;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font-family: Inter, sans-serif; color: var(--ink); background: #777; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: #fff; padding: 80px 96px; break-after: page; }
+  .page.navy { background: var(--navy); color: #fff; }
+  .page.deep { background: var(--deep); color: #fff; }
+  .page.canvas { background: var(--canvas); }
+  .page.grad { background: var(--grad); color: #fff; }
+  h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; }
+  h1 { font-size: 112px; }
+  h2 { font-size: 70px; }
+  h3 { font-size: 28px; letter-spacing: -0.02em; line-height: 1.15; }
+  p { margin: 0; }
+  .g { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .kicker { display: inline-flex; align-items: center; gap: 12px; font-family: 'Plus Jakarta Sans'; font-size: 16px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: var(--el); }
+  .kicker::before { content: ''; width: 34px; height: 3px; border-radius: 3px; background: var(--grad); }
+  .navy .kicker, .deep .kicker { color: var(--cy); }
+  .grad .kicker { color: #fff; } .grad .kicker::before { background: #fff; }
+  .lead { font-size: 22px; line-height: 1.55; color: #475569; }
+  .navy .lead, .deep .lead { color: #b4c0e0; }
+  .foot { position: absolute; left: 96px; right: 96px; bottom: 34px; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 600; color: #94a3b8; letter-spacing: .04em; }
+  .navy .foot, .deep .foot { color: #5f6f9e; }
+  .foot b { font-family: 'Plus Jakarta Sans'; font-weight: 800; letter-spacing: .12em; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+  .gridbg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 80px 80px; }
+  .chip { display: inline-flex; align-items: center; border-radius: 999px; padding: 9px 18px; font-size: 15px; font-weight: 600; border: 1px solid rgba(255,255,255,.18); color: #dbe5ff; background: rgba(255,255,255,.05); }
+  .chip.l { border-color: var(--line); color: var(--navy); background: #fff; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 30px; }
+  .navy .card, .deep .card { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); }
+  .shot { border-radius: 14px; overflow: hidden; background: #fff; box-shadow: 0 30px 80px rgba(2,20,72,.35); }
+  .shot .bar { height: 26px; background: #e9edf5; display: flex; gap: 7px; align-items: center; padding: 0 12px; }
+  .shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: #c3cbdb; display: block; }
+  .shot img { display: block; width: 100%; }
+  .phone { border-radius: 36px; border: 9px solid #05070f; overflow: hidden; background: #05070f; box-shadow: 0 30px 80px rgba(2,20,72,.4); }
+  .phone img { display: block; width: 100%; border-radius: 27px; }
+  .label { font-family: 'Plus Jakarta Sans'; font-size: 13px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); }
+  .navy .label, .deep .label { color: #7d8fc4; }
+  .outline { font-family: 'Plus Jakarta Sans'; font-weight: 800; color: transparent; -webkit-text-stroke: 2px rgba(11,88,255,.25); letter-spacing: -0.06em; line-height: .8; }
+  .navy .outline, .deep .outline { -webkit-text-stroke: 2px rgba(1,218,255,.22); }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--grad); display: inline-block; flex: none; }
+  ul.l { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; font-size: 19px; line-height: 1.4; }
+  ul.l li { display: flex; gap: 14px; align-items: baseline; }
+  ul.l li::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--grad); flex: none; transform: translateY(-2px); }
+  .ico { width: 58px; height: 58px; border-radius: 18px; background: var(--grad); display: grid; place-items: center; box-shadow: 0 12px 30px rgba(11,88,255,.35); }
+  .ico svg { width: 28px; height: 28px; }
+  .demo { font-size: 13px; color: var(--mute); }
+  .navy .demo, .deep .demo { color: #6c7cab; }
+</style>
+</head>
+<body>
+
+
+<!-- 1. COUVERTURE -->
+<section class="page deep">
+  <div class="gridbg"></div>
+  <div class="orb" style="width:700px; height:700px; right:-120px; top:-200px; background:#0b58ff; opacity:.55"></div>
+  <div class="orb" style="width:520px; height:520px; right:380px; bottom:-300px; background:#01daff; opacity:.35"></div>
+
+  <div style="position:relative; display:flex; align-items:center; gap:16px">
+    <img src="a/edust-icon.svg" style="width:54px; height:54px">
+    <div style="line-height:1"><p style="font-family:'Plus Jakarta Sans'; font-weight:800; font-size:24px; letter-spacing:.08em">E-DUST</p><p style="margin-top:6px; font-family:'Plus Jakarta Sans'; font-weight:700; font-size:12px; letter-spacing:.42em; color:var(--cy)">SOLUTIONS</p></div>
+  </div>
+
+  <div style="position:relative; width:760px; margin-top:70px">
+    <span class="kicker">Agence marketing &amp; création digitale</span>
+    <h1 style="margin-top:30px">On crée des marques qui <span class="g">donnent envie.</span></h1>
+    <p class="lead" style="margin-top:30px; max-width:620px">Identité visuelle, site web, réseaux sociaux, photo et print : tout ce qu’il faut pour qu’un commerce se fasse remarquer, et qu’on revienne chez lui.</p>
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:34px">
+      <span class="chip">Branding</span><span class="chip">Web &amp; commande en ligne</span><span class="chip">Social media</span><span class="chip">Direction photo</span><span class="chip">Print</span>
+    </div>
+  </div>
+
+  <!-- collage -->
+  <div style="position:absolute; left:930px; top:110px; width:600px; height:800px">
+    <div style="position:absolute; left:150px; top:0; width:330px; transform:rotate(5deg); border-radius:22px; overflow:hidden; box-shadow:0 40px 90px rgba(0,0,0,.5)"><img src="a/01.jpg" style="display:block; width:100%"></div>
+    <div class="shot" style="position:absolute; left:-40px; top:330px; width:520px; transform:rotate(-4deg)"><div class="bar"><i></i><i></i><i></i></div><img src="a/ff-home.jpg"></div>
+    <div style="position:absolute; left:420px; top:470px; width:220px; height:220px; border-radius:36px; background:var(--sm-mus); display:grid; place-items:center; transform:rotate(8deg); box-shadow:0 30px 70px rgba(0,0,0,.45)"><img src="a/smashhouse-logo-badge.svg" style="width:180px"></div>
+    <div style="position:absolute; left:0; top:20px; width:200px; height:200px; border-radius:50%; overflow:hidden; border:6px solid rgba(255,255,255,.1); transform:rotate(-6deg); box-shadow:0 30px 70px rgba(0,0,0,.45)"><img src="a/bacon-bbq.jpg" style="width:100%; height:100%; object-fit:cover"></div>
+  </div>
+
+  <div class="foot"><span><b>PORTFOLIO</b> · Créations [ANNÉE]</span><span>[VOTRE SITE] · [VILLE]</span></div>
+</section>
+
+<!-- 2. L'AGENCE -->
+<section class="page">
+  <div class="orb" style="width:520px; height:520px; right:-200px; top:-200px; background:#01daff; opacity:.18"></div>
+  <span class="kicker">L’agence</span>
+  <div style="display:flex; gap:90px; margin-top:34px">
+    <div style="flex:1.25">
+      <h2 style="font-size:64px">Une seule équipe pour toute votre image : <span class="g">de l’idée à la mise en ligne.</span></h2>
+      <p class="lead" style="margin-top:32px; max-width:720px">E-DUST Solutions accompagne les restaurants, commerces et indépendants qui veulent une communication à la hauteur de ce qu’ils font. Pas de jargon, pas de modèle tout fait : une marque pensée pour vous, et des outils qui font venir des clients.</p>
+    </div>
+    <div style="flex:1; display:flex; flex-direction:column; gap:18px; margin-top:6px">
+      <div class="card" style="display:flex; gap:22px; align-items:flex-start"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="#fff"/></svg></div><div><h3>Stratégie</h3><p style="margin-top:8px; font-size:18px; line-height:1.5; color:#475569">On part de vos clients et de votre quartier, pas d’une tendance.</p></div></div>
+      <div class="card" style="display:flex; gap:22px; align-items:flex-start"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6L20 9.5l-4 4 1 5.8L12 16.6 7 19.3l1-5.8-4-4 5.4-.9z"/></svg></div><div><h3>Création</h3><p style="margin-top:8px; font-size:18px; line-height:1.5; color:#475569">Logo, site, visuels, vidéos : un style reconnaissable partout.</p></div></div>
+      <div class="card" style="display:flex; gap:22px; align-items:flex-start"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg></div><div><h3>Résultats</h3><p style="margin-top:8px; font-size:18px; line-height:1.5; color:#475569">Des outils pour être trouvé, choisi, et revenir : on mesure ce qui marche.</p></div></div>
+    </div>
+  </div>
+  <div style="position:absolute; left:96px; right:96px; bottom:96px; display:grid; grid-template-columns:repeat(3,1fr); gap:24px">
+    <div style="border-top:3px solid var(--el); padding-top:18px"><p style="font-family:'Plus Jakarta Sans'; font-weight:800; font-size:22px; color:var(--navy)">Un interlocuteur unique</p><p style="margin-top:6px; color:#64748b; font-size:17px">Vous parlez à la personne qui crée.</p></div>
+    <div style="border-top:3px solid #3a8cff; padding-top:18px"><p style="font-family:'Plus Jakarta Sans'; font-weight:800; font-size:22px; color:var(--navy)">100 % sur mesure</p><p style="margin-top:6px; color:#64748b; font-size:17px">Chaque projet part d’une page blanche.</p></div>
+    <div style="border-top:3px solid var(--cy); padding-top:18px"><p style="font-family:'Plus Jakarta Sans'; font-weight:800; font-size:22px; color:var(--navy)">Vous restez propriétaire</p><p style="margin-top:6px; color:#64748b; font-size:17px">Logo, site, photos et comptes sont à vous.</p></div>
+  </div>
+  <div class="foot"><span><b>E-DUST SOLUTIONS</b></span><span>02</span></div>
+</section>
+
+<!-- 3. EXPERTISES -->
+<section class="page navy">
+  <div class="gridbg"></div>
+  <div class="orb" style="width:600px; height:600px; left:-260px; bottom:-320px; background:#0b58ff; opacity:.5"></div>
+  <div style="position:relative; display:flex; justify-content:space-between; align-items:flex-end">
+    <div><span class="kicker">Nos expertises</span><h2 style="margin-top:24px">Six métiers, <span class="g">une seule signature.</span></h2></div>
+    <p class="lead" style="max-width:430px; font-size:20px">Chaque expertise peut être choisie seule, mais c’est ensemble qu’elles font la différence.</p>
+  </div>
+  <div style="position:relative; display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:54px">
+    <div class="card" style="min-height:270px; display:flex; flex-direction:column"><div style="display:flex; justify-content:space-between"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg></div><span class="outline" style="font-size:80px">01</span></div><h3 style="margin-top:auto">Branding &amp; identité</h3><p style="margin-top:10px; color:#b4c0e0; font-size:17px; line-height:1.5">Nom, logo, couleurs, typographies, charte et déclinaisons.</p></div>
+    <div class="card" style="min-height:270px; display:flex; flex-direction:column"><div style="display:flex; justify-content:space-between"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></div><span class="outline" style="font-size:80px">02</span></div><h3 style="margin-top:auto">Site web &amp; vente en ligne</h3><p style="margin-top:10px; color:#b4c0e0; font-size:17px; line-height:1.5">Sites vitrines, commande en ligne, click &amp; collect, back-office.</p></div>
+    <div class="card" style="min-height:270px; display:flex; flex-direction:column"><div style="display:flex; justify-content:space-between"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="#fff"/></svg></div><span class="outline" style="font-size:80px">03</span></div><h3 style="margin-top:auto">Social media</h3><p style="margin-top:10px; color:#b4c0e0; font-size:17px; line-height:1.5">Ligne éditoriale, carrousels, stories, Reels, LinkedIn.</p></div>
+    <div class="card" style="min-height:270px; display:flex; flex-direction:column"><div style="display:flex; justify-content:space-between"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><span class="outline" style="font-size:80px">04</span></div><h3 style="margin-top:auto">Photo &amp; vidéo</h3><p style="margin-top:10px; color:#b4c0e0; font-size:17px; line-height:1.5">Direction artistique, visuels produits, vidéos courtes.</p></div>
+    <div class="card" style="min-height:270px; display:flex; flex-direction:column"><div style="display:flex; justify-content:space-between"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M6 14h12v7H6z"/></svg></div><span class="outline" style="font-size:80px">05</span></div><h3 style="margin-top:auto">Print &amp; packaging</h3><p style="margin-top:10px; color:#b4c0e0; font-size:17px; line-height:1.5">Flyers, menus, cartes fidélité, vitrine, sacs et gobelets.</p></div>
+    <div class="card" style="min-height:270px; display:flex; flex-direction:column"><div style="display:flex; justify-content:space-between"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></div><span class="outline" style="font-size:80px">06</span></div><h3 style="margin-top:auto">Visibilité &amp; fidélisation</h3><p style="margin-top:10px; color:#b4c0e0; font-size:17px; line-height:1.5">Fiche Google, avis, e-mail, SMS, programme de fidélité.</p></div>
+  </div>
+  <div class="foot"><span><b>E-DUST SOLUTIONS</b></span><span>03</span></div>
+</section>
+
+<!-- 4. ÉTUDE DE CAS : OUVERTURE -->
+<section class="page deep" style="padding:0">
+  <img src="a/hero.jpg" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover">
+  <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(1,10,46,.97) 0%, rgba(1,10,46,.88) 42%, rgba(1,10,46,.25) 75%, rgba(1,10,46,.1) 100%)"></div>
+  <div style="position:relative; padding:80px 96px; width:900px">
+    <span class="kicker">Étude de cas · Création complète</span>
+    <div style="width:420px; margin-top:44px"><img src="a/smashhouse-logo-horizontal-fond-sombre.svg" style="width:100%; display:block; border-radius:16px"></div>
+    <h1 style="margin-top:40px; font-size:92px">Une marque de burgers <span class="g">qui fait saliver.</span></h1>
+    <p class="lead" style="margin-top:26px; max-width:640px">Créer de zéro l’image d’un fast-food de quartier : du logo au site de commande, jusqu’aux publications et aux supports imprimés.</p>
+  </div>
+  <div style="position:absolute; left:96px; right:96px; bottom:90px; display:grid; grid-template-columns:1fr 1fr 1.6fr; gap:28px; border-top:1px solid rgba(255,255,255,.15); padding-top:26px">
+    <div><p class="label">Client</p><p style="margin-top:8px; font-size:20px; font-weight:600">SMASH HOUSE (enseigne de démonstration)</p></div>
+    <div><p class="label">Secteur</p><p style="margin-top:8px; font-size:20px; font-weight:600">Restauration rapide</p></div>
+    <div><p class="label">Livrables</p><p style="margin-top:8px; font-size:20px; font-weight:600">Identité · Site &amp; commande · Photo · Réseaux · Vidéo · Print</p></div>
+  </div>
+  <div class="foot"><span><b>SMASH HOUSE</b> · Projet de démonstration</span><span>04</span></div>
+</section>
+
+<!-- 5. BRIEF -->
+<section class="page canvas">
+  <span class="kicker">Le brief</span>
+  <h2 style="margin-top:24px; max-width:1100px">Se démarquer dans une rue où <span class="g">tout le monde vend des burgers.</span></h2>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:44px">
+    <div class="card" style="min-height:300px"><span class="outline" style="font-size:96px">01</span><h3 style="margin-top:22px">Le défi</h3><p style="margin-top:12px; font-size:18px; line-height:1.55; color:#475569">Un concept smash burger, tacos et frites maison, sans nom ni image, face à des enseignes déjà installées et aux applis de livraison.</p></div>
+    <div class="card" style="min-height:300px"><span class="outline" style="font-size:96px">02</span><h3 style="margin-top:22px">Le parti pris</h3><p style="margin-top:12px; font-size:18px; line-height:1.55; color:#475569">Une marque généreuse et rétro-street : couleurs moutarde et tomate, typographie massive, photos gros plan où le cheddar coule.</p></div>
+    <div class="card" style="min-height:300px; background:var(--navy); color:#fff; border-color:var(--navy)"><span class="outline" style="font-size:96px; -webkit-text-stroke:2px rgba(1,218,255,.35)">03</span><h3 style="margin-top:22px">La réponse</h3><p style="margin-top:12px; font-size:18px; line-height:1.55; color:#b4c0e0">Un écosystème complet et cohérent : identité, site de commande sans commission, kit réseaux et supports pour le quartier.</p></div>
+  </div>
+  <div style="position:absolute; left:96px; right:96px; bottom:84px; height:250px; display:grid; grid-template-columns:1fr 1.3fr 1fr 1.6fr; grid-template-rows:250px; gap:16px">
+    <div style="background:#ffc22b; border-radius:22px; display:grid; place-items:center; min-width:0"><img src="a/smashhouse-logo-badge.svg" style="width:85%"></div>
+    <img src="a/bacon-bbq.jpg" style="width:100%; height:100%; min-width:0; min-height:0; object-fit:cover; border-radius:22px">
+    <img src="a/02.jpg" style="width:100%; height:100%; min-width:0; min-height:0; object-fit:cover; object-position:top; border-radius:22px">
+    <img src="a/ff-home.jpg" style="width:100%; height:100%; min-width:0; min-height:0; object-fit:cover; object-position:top; border-radius:22px">
+  </div>
+  <div class="foot"><span><b>SMASH HOUSE</b> · Projet de démonstration</span><span>05</span></div>
+</section>
+
+<!-- 6. IDENTITÉ -->
+<section class="page">
+  <div style="display:flex; gap:64px; height:100%">
+    <div style="width:470px; display:flex; flex-direction:column">
+      <span class="kicker">01 · Identité visuelle</span>
+      <h2 style="margin-top:24px; font-size:60px">Un logo qui se voit <span class="g">de l’autre trottoir.</span></h2>
+      <p class="lead" style="margin-top:22px; font-size:19px">Un badge rond façon diner américain, un burger dessiné à la main et une typographie condensée très grasse. Lisible en enseigne comme en icône d’appli.</p>
+      <p class="label" style="margin-top:36px">Palette</p>
+      <div style="display:flex; gap:10px; margin-top:12px">
+        <div style="flex:1"><div style="height:70px; border-radius:14px; background:#17110e"></div><p style="margin-top:6px; font-size:12px; font-weight:600; color:#64748b">#17110E</p></div>
+        <div style="flex:1"><div style="height:70px; border-radius:14px; background:#ffc22b"></div><p style="margin-top:6px; font-size:12px; font-weight:600; color:#64748b">#FFC22B</p></div>
+        <div style="flex:1"><div style="height:70px; border-radius:14px; background:#e4361b"></div><p style="margin-top:6px; font-size:12px; font-weight:600; color:#64748b">#E4361B</p></div>
+        <div style="flex:1"><div style="height:70px; border-radius:14px; background:#ec8f2c"></div><p style="margin-top:6px; font-size:12px; font-weight:600; color:#64748b">#EC8F2C</p></div>
+        <div style="flex:1"><div style="height:70px; border-radius:14px; background:#fff7ea; border:1px solid var(--line)"></div><p style="margin-top:6px; font-size:12px; font-weight:600; color:#64748b">#FFF7EA</p></div>
+      </div>
+      <p class="label" style="margin-top:28px">Typographies</p>
+      <div style="display:flex; gap:28px; align-items:flex-end; margin-top:10px">
+        <p style="font-family:Anton; font-size:64px; line-height:1; color:#17110e">Aa</p><p style="font-size:15px; color:#475569; padding-bottom:8px"><b>Anton</b> · titres<br><b>Archivo</b> · textes</p>
+      </div>
+    </div>
+    <div style="flex:1; display:grid; grid-template-columns:1.25fr 1fr; grid-template-rows:1fr 1fr; gap:18px; padding-bottom:40px">
+      <div style="grid-row:span 2; background:#ffc22b; border-radius:28px; display:grid; place-items:center"><img src="a/smashhouse-logo-badge.svg" style="width:82%"></div>
+      <div style="background:#17110e; border-radius:28px; display:grid; place-items:center; padding:24px"><img src="a/smashhouse-logo-horizontal-fond-sombre.svg" style="width:100%"></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px">
+        <div style="background:#efe3cc; border-radius:28px; display:grid; place-items:center"><img src="a/smashhouse-logo-monochrome.svg" style="width:78%"></div>
+        <div style="background:var(--canvas); border-radius:28px; display:grid; place-items:center"><img src="a/smashhouse-icone.svg" style="width:62%; border-radius:22%; box-shadow:0 18px 40px rgba(0,0,0,.18)"></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>SMASH HOUSE</b> · Projet de démonstration</span><span>06</span></div>
+</section>
+
+<!-- 7. LA MARQUE EN SITUATION -->
+<section class="page canvas">
+  <div style="display:flex; justify-content:space-between; align-items:flex-end">
+    <div><span class="kicker">La marque en situation</span><h2 style="margin-top:24px">Partout, <span class="g">la même signature.</span></h2></div>
+    <p class="lead" style="max-width:440px; font-size:19px">Sac kraft, gobelet, boîte burger, stickers et icône d’appli : la charte est pensée pour tous les supports du quotidien.</p>
+  </div>
+  <div style="position:relative; height:640px; margin-top:30px">
+    <!-- sol -->
+    <div style="position:absolute; left:-96px; right:-96px; bottom:40px; height:330px; background:linear-gradient(180deg, #e8edf6, #dfe6f2)"></div>
+    <!-- sac kraft -->
+    <div style="position:absolute; left:20px; bottom:90px; width:330px; height:420px">
+      <div style="position:absolute; left:90px; top:-58px; width:150px; height:90px; border:12px solid #a97c4f; border-bottom:none; border-radius:80px 80px 0 0"></div>
+      <div style="position:absolute; inset:0; background:linear-gradient(90deg,#c69a68,#d4a874 45%,#c3955f); border-radius:6px 6px 10px 10px; box-shadow:0 40px 60px rgba(2,20,72,.25)"></div>
+      <div style="position:absolute; left:0; right:0; top:0; height:26px; background:rgba(0,0,0,.08)"></div>
+      <img src="a/smashhouse-logo-monochrome.svg" style="position:absolute; left:55px; top:90px; width:220px; opacity:.9; mix-blend-mode:multiply">
+    </div>
+    <!-- gobelet -->
+    <div style="position:absolute; left:420px; bottom:90px; width:200px; height:330px">
+      <div style="position:absolute; left:-10px; right:-10px; top:-22px; height:30px; background:#f4f4f4; border-radius:14px; box-shadow:0 2px 0 #ddd"></div>
+      <div style="position:absolute; left:120px; top:-110px; width:14px; height:110px; background:#e4361b; border-radius:7px; transform:rotate(12deg)"></div>
+      <div style="position:absolute; inset:0; background:#fff7ea; clip-path:polygon(0 0,100% 0,88% 100%,12% 100%); box-shadow:0 30px 50px rgba(2,20,72,.2)"></div>
+      <div style="position:absolute; left:0; right:0; top:48px; height:200px; background:#e4361b; clip-path:polygon(0 0,100% 0,93% 100%,7% 100%)"></div>
+      <img src="a/smashhouse-logo-badge.svg" style="position:absolute; left:28px; top:70px; width:144px">
+    </div>
+    <!-- boîte burger -->
+    <div style="position:absolute; left:690px; bottom:100px; width:400px; height:250px">
+      <div style="position:absolute; left:0; right:0; top:0; height:150px; background:#ffc22b; border-radius:18px 18px 4px 4px; box-shadow:inset 0 -10px 0 rgba(0,0,0,.08)"></div>
+      <div style="position:absolute; left:0; right:0; top:150px; height:100px; background:#f1b11a; border-radius:4px 4px 12px 12px; box-shadow:0 40px 60px rgba(2,20,72,.25)"></div>
+      <div style="position:absolute; left:40px; right:40px; top:24px; background:#17110e; border-radius:12px; padding:14px 18px"><img src="a/smashhouse-logo-horizontal-fond-sombre.svg" style="width:100%; display:block"></div>
+      <p style="position:absolute; left:0; right:0; top:178px; text-align:center; font-family:Anton; font-size:30px; color:#17110e; letter-spacing:.06em">SMASHED WITH LOVE</p>
+    </div>
+    <!-- stickers -->
+    <img src="a/smashhouse-pastille.svg" style="position:absolute; left:1110px; bottom:300px; width:150px; transform:rotate(-12deg); filter:drop-shadow(0 16px 20px rgba(2,20,72,.25))">
+    <div style="position:absolute; left:1150px; bottom:110px; width:240px; height:150px; border-radius:20px; background:#17110e; transform:rotate(7deg); display:grid; place-items:center; box-shadow:0 20px 40px rgba(2,20,72,.3)"><p style="font-family:Anton; font-size:44px; color:#ffc22b; line-height:.95; text-align:center">EN MODE<br><span style="color:#fff7ea">SMASH</span></p></div>
+  </div>
+  <p class="demo" style="position:absolute; left:96px; bottom:70px">Mises en situation réalisées pour SMASH HOUSE (démo).</p>
+  <div class="foot"><span><b>SMASH HOUSE</b> · Projet de démonstration</span><span>07</span></div>
+</section>
+
+<!-- 8. DIRECTION PHOTO -->
+<section class="page deep" style="padding:0">
+  <div style="position:absolute; inset:0; display:grid; grid-template-columns:repeat(5,1fr); grid-template-rows:repeat(3,1fr); gap:8px">
+    <img src="a/smash-classique.jpg" style="grid-column:span 2; grid-row:span 2; width:100%; height:100%; object-fit:cover">
+    <img src="a/frites-cheddar-bacon.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="a/milkshake.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="a/tacos-xl.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="a/double-cheese.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="a/signature-truffe.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="a/chicken-crispy.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="a/kitchen.jpg" style="grid-column:span 2; width:100%; height:100%; object-fit:cover">
+    <img src="a/onion-rings.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="a/cookie.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="a/sundae.jpg" style="width:100%; height:100%; object-fit:cover">
+  </div>
+  <div style="position:absolute; left:56px; bottom:56px; width:560px; background:rgba(1,10,46,.92); border:1px solid rgba(255,255,255,.12); border-radius:28px; padding:36px 40px; backdrop-filter:blur(6px)">
+    <span class="kicker">02 · Direction photo</span>
+    <h2 style="margin-top:18px; font-size:52px">Des images qui <span class="g">ouvrent l’appétit.</span></h2>
+    <p style="margin-top:16px; font-size:18px; line-height:1.55; color:#b4c0e0">Gros plans, lumière chaude, fond sombre : une même direction artistique pour 20 visuels produits, déclinés sur le site, les réseaux et le print.</p>
+    <p class="demo" style="margin-top:14px">Visuels générés par IA avec Canva pour la démo. Pour un client : shooting de vos vrais plats.</p>
+  </div>
+  <div class="foot" style="color:#c9d3ef"><span></span><span style="background:rgba(1,10,46,.8); padding:6px 12px; border-radius:999px">08</span></div>
+</section>
+
+<!-- 9. SITE WEB -->
+<section class="page navy">
+  <div class="orb" style="width:760px; height:760px; right:-200px; top:-160px; background:#0b58ff; opacity:.6"></div>
+  <div class="orb" style="width:420px; height:420px; right:300px; bottom:-220px; background:#01daff; opacity:.4"></div>
+  <div style="position:relative; width:480px">
+    <span class="kicker">03 · Site web</span>
+    <h2 style="margin-top:24px; font-size:62px">Un site qui donne <span class="g">faim au premier scroll.</span></h2>
+    <p class="lead" style="margin-top:24px; font-size:19px">Accueil plein écran, carte filtrable avec photos et allergènes, version mobile pensée pour commander d’une main.</p>
+    <ul class="l" style="margin-top:30px; color:#dbe5ff">
+      <li>Design sur mesure aux couleurs de la marque</li>
+      <li>Rapide et 100 % adapté au téléphone</li>
+      <li>Carte modifiable par le restaurateur</li>
+    </ul>
+  </div>
+  <div class="shot" style="position:absolute; left:640px; top:110px; width:860px"><div class="bar"><i></i><i></i><i></i></div><img src="a/ff-home.jpg"></div>
+  <div class="shot" style="position:absolute; left:740px; top:560px; width:560px; transform:none"><div class="bar"><i></i><i></i><i></i></div><img src="a/ff-menu.jpg"></div>
+  <div class="phone" style="position:absolute; left:1320px; top:400px; width:200px"><img src="a/ff-m-home.jpg"></div>
+  <div class="foot"><span><b>SMASH HOUSE</b> · Projet de démonstration</span><span>09</span></div>
+</section>
+
+<!-- 10. COMMANDE EN LIGNE -->
+<section class="page">
+  <div style="display:flex; gap:56px">
+    <div style="width:470px">
+      <span class="kicker">04 · Commande en ligne</span>
+      <h2 style="margin-top:24px; font-size:58px">Commander en 1 minute, <span class="g">sans commission.</span></h2>
+      <p class="lead" style="margin-top:22px; font-size:19px">Le client compose son burger (menu, sauce, suppléments), choisit livraison, à emporter ou sur place, et suit sa commande en direct. En cuisine, tout arrive sur un écran.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:30px">
+        <div class="card" style="padding:20px"><p class="label">Côté client</p><p style="margin-top:8px; font-size:17px; line-height:1.45">Personnalisation, panier, codes promo, suivi</p></div>
+        <div class="card" style="padding:20px"><p class="label">Côté cuisine</p><p style="margin-top:8px; font-size:17px; line-height:1.45">Commandes en direct, statuts, ruptures</p></div>
+      </div>
+      <p class="demo" style="margin-top:22px">Démo : paiement simulé, prêt pour Stripe.</p>
+    </div>
+    <div style="flex:1; position:relative; height:800px">
+      <div style="position:absolute; inset:20px -96px 60px 40px; background:var(--grad); border-radius:36px 0 0 36px; opacity:.95"></div>
+      <div class="shot" style="position:absolute; left:80px; top:70px; width:700px"><div class="bar"><i></i><i></i><i></i></div><img src="a/ff-modal.jpg"></div>
+      <div class="shot" style="position:absolute; left:140px; top:500px; width:640px"><div class="bar"><i></i><i></i><i></i></div><img src="a/ff-admin.jpg"></div>
+      <div class="phone" style="position:absolute; left:700px; top:150px; width:210px"><img src="a/ff-m-modal.jpg"></div>
+    </div>
+  </div>
+  <div class="foot"><span><b>SMASH HOUSE</b> · Projet de démonstration</span><span>10</span></div>
+</section>
+
+<!-- 11. RÉSEAUX SOCIAUX -->
+<section class="page deep">
+  <div class="gridbg"></div>
+  <div class="orb" style="width:600px; height:600px; left:500px; top:200px; background:#0b58ff; opacity:.45"></div>
+  <div style="position:relative; width:470px">
+    <span class="kicker">05 · Social media</span>
+    <h2 style="margin-top:24px; font-size:60px">Un feed qui <span class="g">arrête le pouce.</span></h2>
+    <p class="lead" style="margin-top:22px; font-size:19px">Templates de carrousels, posts produits et stories, tous dans la charte. Résultat : un compte reconnaissable au premier coup d’œil.</p>
+    <ul class="l" style="margin-top:28px; color:#dbe5ff">
+      <li>Carrousel LinkedIn / Instagram de 8 slides</li>
+      <li>Vidéo de démonstration de 34 secondes</li>
+      <li>Calendrier éditorial semaine type</li>
+    </ul>
+  </div>
+  <!-- slides en éventail -->
+  <div style="position:absolute; left:640px; top:200px; width:520px; height:700px">
+    <img src="a/03.jpg" style="position:absolute; left:0; top:80px; width:230px; border-radius:16px; transform:rotate(-9deg); box-shadow:0 30px 60px rgba(0,0,0,.5)">
+    <img src="a/04.jpg" style="position:absolute; left:125px; top:20px; width:240px; border-radius:16px; transform:rotate(-2deg); box-shadow:0 30px 60px rgba(0,0,0,.5)">
+    <img src="a/08.jpg" style="position:absolute; left:270px; top:60px; width:240px; border-radius:16px; transform:rotate(7deg); box-shadow:0 30px 60px rgba(0,0,0,.5)">
+  </div>
+  <!-- profil Instagram -->
+  <div class="phone" style="position:absolute; right:96px; top:90px; width:330px; background:#fff; border-color:#05070f">
+    <div style="background:#fff; border-radius:27px; padding:18px 12px 12px; color:#111">
+      <div style="display:flex; align-items:center; gap:14px; padding:0 4px">
+        <div style="width:72px; height:72px; border-radius:50%; padding:3px; background:linear-gradient(45deg,#ffc22b,#e4361b,#c13584)"><img src="a/smashhouse-pastille.svg" style="width:100%; display:block; border-radius:50%; border:2px solid #fff"></div>
+        <div style="display:flex; gap:16px; font-size:12px; text-align:center"><div><b style="font-size:15px">128</b><br>publications</div><div><b style="font-size:15px">—</b><br>abonnés</div><div><b style="font-size:15px">—</b><br>suivis</div></div>
+      </div>
+      <p style="margin-top:10px; font-size:13px; font-weight:700; padding:0 4px">SMASH HOUSE</p>
+      <p style="font-size:12px; line-height:1.4; color:#333; padding:0 4px">🍔 Smash burgers · tacos · frites maison<br>📍 Livraison &amp; à emporter · commande en ligne ⤵</p>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:12px">
+        <img src="a/01.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; object-position:top">
+        <img src="a/bacon-bbq.jpg" style="width:100%; aspect-ratio:1; object-fit:cover">
+        <img src="a/02.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; object-position:top">
+        <img src="a/milkshake.jpg" style="width:100%; aspect-ratio:1; object-fit:cover">
+        <img src="a/06.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; object-position:top">
+        <img src="a/frites-maison.jpg" style="width:100%; aspect-ratio:1; object-fit:cover">
+        <img src="a/05.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; object-position:top">
+        <img src="a/tacos-xl.jpg" style="width:100%; aspect-ratio:1; object-fit:cover">
+        <img src="a/07.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; object-position:top">
+        <img src="a/double-cheese.jpg" style="width:100%; aspect-ratio:1; object-fit:cover">
+        <img src="a/brownie.jpg" style="width:100%; aspect-ratio:1; object-fit:cover">
+        <img src="a/08.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; object-position:top">
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span><b>SMASH HOUSE</b> · Projet de démonstration</span><span>11</span></div>
+</section>
+
+<!-- 12. PRINT -->
+<section class="page canvas">
+  <div style="display:flex; gap:40px; height:100%">
+    <div style="width:470px">
+      <span class="kicker">06 · Print</span>
+      <h2 style="margin-top:24px; font-size:60px">Le quartier aussi <span class="g">doit vous voir.</span></h2>
+      <p class="lead" style="margin-top:22px; font-size:19px">Flyer avec QR code vers la commande en ligne, carte de visite et carte de fidélité à tampons : des supports simples qui ramènent du monde.</p>
+      <ul class="l" style="margin-top:28px">
+        <li>Flyers, affiches, menus</li>
+        <li>Cartes de visite et de fidélité</li>
+        <li>Vitrophanie, kakémono, enseigne</li>
+      </ul>
+    </div>
+    <div style="flex:1; position:relative">
+      <div style="position:absolute; left:20px; top:10px; width:380px; height:580px; background:#17110e; border-radius:10px; overflow:hidden; box-shadow:0 40px 80px rgba(2,20,72,.3); transform:rotate(-5deg); color:#fff7ea">
+        <img src="a/promo.jpg" style="width:100%; height:200px; object-fit:cover; display:block">
+        <div style="padding:22px 26px">
+          <img src="a/smashhouse-logo-horizontal-fond-sombre.svg" style="width:170px; display:block">
+          <p style="font-family:Anton; font-size:52px; line-height:.95; margin-top:16px; text-transform:uppercase">−10 % sur<br><span style="color:#ffc22b">ta 1re commande</span></p>
+          <p style="margin-top:12px; font-size:15px">Code SMASH10 sur smashhouse.example</p>
+          <div style="margin-top:16px; display:flex; align-items:center; gap:12px"><div style="width:64px; height:64px; background:#fff; border-radius:8px; display:grid; place-items:center; color:#17110e; font-size:11px; font-weight:800">QR</div><span style="font-size:13px; color:#d8cbb8">Scannez pour commander</span></div>
+        </div>
+      </div>
+      <div style="position:absolute; right:10px; top:40px; width:420px; height:240px; background:#ffc22b; border-radius:14px; box-shadow:0 30px 60px rgba(2,20,72,.22); transform:rotate(5deg); padding:26px; display:flex; justify-content:space-between">
+        <img src="a/smashhouse-pastille.svg" style="width:120px; height:120px">
+        <div style="text-align:right; color:#17110e"><p style="font-family:Anton; font-size:36px; line-height:1">SMASH HOUSE</p><p style="margin-top:10px; font-size:14px; line-height:1.55">24 rue de la Gourmandise<br>01 23 45 67 89<br>smashhouse.example</p></div>
+      </div>
+      <div style="position:absolute; right:0; top:390px; width:470px; background:#fff7ea; border:2px solid #17110e; border-radius:14px; box-shadow:0 30px 60px rgba(2,20,72,.18); transform:rotate(-2deg); padding:22px 26px">
+        <div style="display:flex; justify-content:space-between; align-items:center"><p style="font-family:Anton; font-size:30px; color:#e4361b">CARTE FIDÉLITÉ</p><img src="a/smashhouse-pastille.svg" style="width:60px"></div>
+        <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-top:16px">
+          %%STAMPS%%
+        </div>
+        <p style="margin-top:12px; font-size:14px; font-weight:700; color:#17110e">10 tampons = 1 burger offert</p>
+      </div>
+    </div>
+  </div>
+  <p class="demo" style="position:absolute; left:96px; bottom:70px">Maquettes réalisées pour SMASH HOUSE (démo).</p>
+  <div class="foot"><span><b>SMASH HOUSE</b> · Projet de démonstration</span><span>12</span></div>
+</section>
+
+<!-- 13. LE KIT LIVRÉ -->
+<section class="page navy">
+  <div class="gridbg"></div>
+  <div class="orb" style="width:640px; height:640px; right:-200px; bottom:-300px; background:#01daff; opacity:.3"></div>
+  <span class="kicker" style="position:relative">Ce qui a été livré</span>
+  <h2 style="position:relative; margin-top:24px; max-width:1100px">Une marque prête à ouvrir, <span class="g">clés en main.</span></h2>
+  <div style="position:relative; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:44px">
+    <div class="card" style="min-height:210px; display:flex; flex-direction:column"><p class="g" style="font-family:'Plus Jakarta Sans'; font-weight:800; font-size:96px; letter-spacing:-.05em; line-height:1">6</p><p style="margin-top:auto; font-size:20px; font-weight:600">variantes de logo (SVG + PNG)</p></div>
+    <div class="card" style="min-height:210px; display:flex; flex-direction:column"><p class="g" style="font-family:'Plus Jakarta Sans'; font-weight:800; font-size:96px; letter-spacing:-.05em; line-height:1">20</p><p style="margin-top:auto; font-size:20px; font-weight:600">visuels produits dans la même direction artistique</p></div>
+    <div class="card" style="min-height:210px; display:flex; flex-direction:column"><p class="g" style="font-family:'Plus Jakarta Sans'; font-weight:800; font-size:96px; letter-spacing:-.05em; line-height:1">7</p><p style="margin-top:auto; font-size:20px; font-weight:600">pages et écrans : site, carte, commande, suivi, compte, cuisine</p></div>
+    <div class="card" style="min-height:210px; display:flex; flex-direction:column"><p class="g" style="font-family:'Plus Jakarta Sans'; font-weight:800; font-size:96px; letter-spacing:-.05em; line-height:1">8</p><p style="margin-top:auto; font-size:20px; font-weight:600">slides de carrousel + 1 vidéo de 34 s</p></div>
+  </div>
+  <div style="position:relative; display:flex; gap:12px; margin-top:24px; flex-wrap:wrap">
+    <span class="chip">Charte graphique</span><span class="chip">Favicon &amp; icône d’appli</span><span class="chip">Image de post LinkedIn</span><span class="chip">Guide de publication</span><span class="chip">Flyer</span><span class="chip">Carte de visite</span><span class="chip">Carte fidélité</span>
+  </div>
+  <div style="position:absolute; left:96px; right:96px; bottom:84px; height:260px; display:grid; grid-template-columns:1fr 1.6fr 0.8fr 1fr 1fr; grid-template-rows:260px; gap:16px">
+    <div style="background:#17110e; border-radius:22px; display:grid; place-items:center; padding:20px; min-width:0"><img src="a/smashhouse-logo-horizontal-fond-sombre.svg" style="width:100%"></div>
+    <img src="a/ff-menu.jpg" style="width:100%; height:100%; min-width:0; min-height:0; object-fit:cover; object-position:top; border-radius:22px">
+    <img src="a/ff-m-modal.jpg" style="width:100%; height:100%; min-width:0; min-height:0; object-fit:cover; object-position:top; border-radius:22px">
+    <img src="a/06.jpg" style="width:100%; height:100%; min-width:0; min-height:0; object-fit:cover; object-position:top; border-radius:22px">
+    <img src="a/frites-cheddar-bacon.jpg" style="width:100%; height:100%; min-width:0; min-height:0; object-fit:cover; border-radius:22px">
+  </div>
+  <div class="foot"><span><b>SMASH HOUSE</b> · Projet de démonstration</span><span>13</span></div>
+</section>
+
+<!-- 14. MÉTHODE -->
+<section class="page">
+  <span class="kicker">Notre méthode</span>
+  <h2 style="margin-top:24px">Cinq étapes, <span class="g">zéro surprise.</span></h2>
+  <div style="position:relative; margin-top:100px">
+    <div style="position:absolute; left:30px; right:30px; top:30px; height:4px; border-radius:4px; background:var(--grad)"></div>
+    <div style="position:relative; display:grid; grid-template-columns:repeat(5,1fr); gap:24px">
+      <div><div style="width:64px; height:64px; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:22px; border:5px solid #fff; box-shadow:0 0 0 2px var(--el)">1</div><h3 style="margin-top:26px">Écoute</h3><p style="margin-top:10px; font-size:19px; line-height:1.55; color:#475569">Un rendez-vous offert pour comprendre votre commerce, vos clients et vos objectifs.</p><span class="chip l" style="margin-top:20px; font-weight:700; color:var(--el)">Jour 1</span></div>
+      <div><div style="width:64px; height:64px; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:22px; border:5px solid #fff; box-shadow:0 0 0 2px var(--el)">2</div><h3 style="margin-top:26px">Stratégie</h3><p style="margin-top:10px; font-size:19px; line-height:1.55; color:#475569">Un plan d’action clair et un devis détaillé, priorisé selon votre budget.</p><span class="chip l" style="margin-top:20px; font-weight:700; color:var(--el)">Sous 48 h</span></div>
+      <div><div style="width:64px; height:64px; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:22px; border:5px solid #fff; box-shadow:0 0 0 2px #3a8cff">3</div><h3 style="margin-top:26px">Création</h3><p style="margin-top:10px; font-size:19px; line-height:1.55; color:#475569">Pistes créatives, puis réalisation avec vos retours à chaque étape.</p><span class="chip l" style="margin-top:20px; font-weight:700; color:var(--el)">2 à 6 semaines</span></div>
+      <div><div style="width:64px; height:64px; border-radius:50%; background:var(--navy); color:#fff; display:grid; place-items:center; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:22px; border:5px solid #fff; box-shadow:0 0 0 2px #19a8ff">4</div><h3 style="margin-top:26px">Lancement</h3><p style="margin-top:10px; font-size:19px; line-height:1.55; color:#475569">Mise en ligne, impression, publication, et une prise en main simple.</p><span class="chip l" style="margin-top:20px; font-weight:700; color:var(--el)">Jour J</span></div>
+      <div><div style="width:64px; height:64px; border-radius:50%; background:var(--grad); color:#fff; display:grid; place-items:center; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:22px; border:5px solid #fff; box-shadow:0 0 0 2px var(--cy)">5</div><h3 style="margin-top:26px">Suivi</h3><p style="margin-top:10px; font-size:19px; line-height:1.55; color:#475569">On mesure, on ajuste, on fait grandir votre marque dans la durée.</p><span class="chip l" style="margin-top:20px; font-weight:700; color:var(--el)">En continu</span></div>
+    </div>
+  </div>
+  <div style="position:absolute; left:96px; right:96px; bottom:96px; background:var(--el-50); border-radius:24px; padding:28px 34px; display:flex; align-items:center; gap:24px">
+    <div class="ico" style="flex:none"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></div>
+    <p style="font-size:20px; line-height:1.5; color:var(--navy)"><b>Vous validez chaque étape.</b> Rien n’est publié ni imprimé sans votre accord, et tous les fichiers sources vous sont remis à la fin.</p>
+  </div>
+  <div class="foot"><span><b>E-DUST SOLUTIONS</b></span><span>14</span></div>
+</section>
+
+<!-- 15. ACCOMPAGNEMENTS -->
+<section class="page canvas">
+  <div style="display:flex; justify-content:space-between; align-items:flex-end">
+    <div><span class="kicker">Travailler ensemble</span><h2 style="margin-top:24px">Trois façons de <span class="g">vous accompagner.</span></h2></div>
+    <p class="lead" style="max-width:420px; font-size:19px">Chaque projet est chiffré sur mesure après notre premier échange. Devis gratuit et sans engagement.</p>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:54px">
+    <div class="card" style="min-height:500px; display:flex; flex-direction:column; padding:36px">
+      <p class="label">Pour démarrer</p><h3 style="margin-top:12px; font-size:36px">Lancement de marque</h3>
+      <p style="margin-top:12px; font-size:18px; line-height:1.5; color:#475569">Pour ouvrir ou repartir de zéro avec une image forte.</p>
+      <ul class="l" style="margin-top:28px; font-size:18px"><li>Logo et charte graphique</li><li>Cartes de visite et flyer</li><li>Fiche Google optimisée</li><li>Templates réseaux sociaux</li></ul>
+    </div>
+    <div class="card" style="min-height:500px; display:flex; flex-direction:column; padding:36px; background:var(--navy); color:#fff; border-color:var(--navy); position:relative; overflow:hidden">
+      <div class="orb" style="width:300px; height:300px; right:-120px; top:-120px; background:#0b58ff; opacity:.7"></div>
+      <span style="position:relative; align-self:flex-start; background:var(--grad); border-radius:999px; padding:7px 16px; font-size:13px; font-weight:800; letter-spacing:.08em">LE PLUS COMPLET</span>
+      <h3 style="position:relative; margin-top:16px; font-size:36px">Marque &amp; vente en ligne</h3>
+      <p style="position:relative; margin-top:12px; font-size:18px; line-height:1.5; color:#b4c0e0">Tout ce qu’on a fait pour SMASH HOUSE.</p>
+      <ul class="l" style="position:relative; margin-top:28px; font-size:18px; color:#dbe5ff"><li>Tout le Lancement de marque</li><li>Site + commande en ligne sans commission</li><li>Direction photo et visuels produits</li><li>Kit réseaux : carrousels et vidéo</li><li>Supports print et carte fidélité</li></ul>
+    </div>
+    <div class="card" style="min-height:500px; display:flex; flex-direction:column; padding:36px">
+      <p class="label">Dans la durée</p><h3 style="margin-top:12px; font-size:36px">Partenaire com’</h3>
+      <p style="margin-top:12px; font-size:18px; line-height:1.5; color:#475569">Votre service marketing externalisé, au mois.</p>
+      <ul class="l" style="margin-top:28px; font-size:18px"><li>Publications et stories chaque semaine</li><li>Mises à jour du site et de la carte</li><li>Campagnes e-mail, SMS et pub locale</li><li>Bilan mensuel des résultats</li></ul>
+    </div>
+  </div>
+  <div class="foot"><span><b>E-DUST SOLUTIONS</b></span><span>15</span></div>
+</section>
+
+<!-- 16. CONTACT -->
+<section class="page grad">
+  <div class="gridbg" style="background-image: linear-gradient(rgba(255,255,255,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.09) 1px, transparent 1px)"></div>
+  <div class="orb" style="width:700px; height:700px; left:-200px; bottom:-400px; background:#021448; opacity:.55"></div>
+  <div style="position:relative; display:flex; align-items:center; gap:16px">
+    <img src="a/edust-icon.svg" style="width:54px; height:54px; border-radius:12px; box-shadow:0 0 0 2px rgba(255,255,255,.5)">
+    <div style="line-height:1"><p style="font-family:'Plus Jakarta Sans'; font-weight:800; font-size:24px; letter-spacing:.08em">E-DUST</p><p style="margin-top:6px; font-family:'Plus Jakarta Sans'; font-weight:700; font-size:12px; letter-spacing:.42em; color:var(--navy)">SOLUTIONS</p></div>
+  </div>
+  <div style="position:relative; display:flex; justify-content:space-between; align-items:flex-end; margin-top:110px">
+    <div style="width:880px">
+      <span class="kicker">Parlons de votre projet</span>
+      <h1 style="margin-top:26px; font-size:120px; color:#fff">À vous de <span style="color:var(--navy)">faire envie.</span></h1>
+      <p style="margin-top:28px; font-size:23px; line-height:1.5; color:#eaf6ff; max-width:700px">Premier rendez-vous offert : 30 minutes pour regarder votre image actuelle et voir ce qu’on peut créer ensemble.</p>
+    </div>
+    <div style="width:260px; background:#fff; border-radius:26px; padding:22px; text-align:center; box-shadow:0 30px 70px rgba(2,20,72,.35)">
+      <div style="aspect-ratio:1; border:2px dashed #b8c4dd; border-radius:16px; display:grid; place-items:center; color:var(--navy); font-weight:800; font-size:15px">[VOTRE QR CODE]</div>
+      <p style="margin-top:12px; font-size:14px; font-weight:700; color:var(--navy)">Réservez votre rendez-vous</p>
+    </div>
+  </div>
+  <div style="position:absolute; left:96px; right:96px; bottom:90px; display:grid; grid-template-columns:repeat(4,1fr); gap:24px; border-top:1px solid rgba(255,255,255,.35); padding-top:24px">
+    <div><p class="label" style="color:#d6f7ff">Contact</p><p style="margin-top:8px; font-size:20px; font-weight:700">[VOTRE NOM]</p></div>
+    <div><p class="label" style="color:#d6f7ff">Téléphone</p><p style="margin-top:8px; font-size:20px; font-weight:700">[VOTRE TÉLÉPHONE]</p></div>
+    <div><p class="label" style="color:#d6f7ff">E-mail</p><p style="margin-top:8px; font-size:20px; font-weight:700">[VOTRE E-MAIL]</p></div>
+    <div><p class="label" style="color:#d6f7ff">Web</p><p style="margin-top:8px; font-size:20px; font-weight:700">[VOTRE SITE]</p></div>
+  </div>
+  <div class="foot" style="color:#d6f7ff"><span>SMASH HOUSE est une enseigne de démonstration : visuels générés par IA, paiement simulé.</span><span>16</span></div>
+</section>
+
+</body>
+</html>
