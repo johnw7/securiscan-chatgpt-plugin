@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Portfolio communication pour commerces</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Anton&display=swap" rel="stylesheet">
+<style>
+  @page { size: 1600px 1000px; margin: 0; }
+  :root { --ink:#121417; --paper:#f7f4ee; --sand:#ebe3d5; --coral:#ff5a36; --coral-d:#d9401f; --mute:#5d5a55; --line:#dcd4c6; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body { font-family: Archivo, sans-serif; color: var(--ink); background: #888; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 1600px; height: 1000px; position: relative; overflow: hidden; background: var(--paper); padding: 76px 96px; page-break-after: always; break-after: page; }
+  .page.dark { background: var(--ink); color: #f4efe6; }
+  .page.coral { background: var(--coral); color: #fff; }
+  h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -0.035em; line-height: 1.02; }
+  h1 { font-size: 104px; }
+  h2 { font-size: 66px; }
+  h3 { font-size: 30px; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  .kicker { font-size: 18px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--coral); }
+  .dark .kicker { color: #ff8a6e; }
+  .coral .kicker { color: #ffe1d8; }
+  .lead { font-size: 25px; line-height: 1.45; color: #3b3935; max-width: 760px; }
+  .dark .lead { color: #c9c2b6; }
+  .num { font-weight: 900; font-size: 22px; color: var(--coral); }
+  .hl { color: var(--coral); }
+  .dark .hl { color: #ff8a6e; }
+  .foot { position: absolute; left: 96px; right: 96px; bottom: 36px; display: flex; justify-content: space-between; font-size: 15px; font-weight: 600; color: #9a948a; }
+  .dark .foot { color: #6f6a62; }
+  .row { display: flex; gap: 40px; }
+  .card { background: #fff; border-radius: 22px; padding: 26px 28px; border: 1px solid var(--line); }
+  .dark .card { background: #1d2024; border-color: #2c3036; }
+  .tag { display: inline-flex; align-items: center; gap: 8px; border-radius: 999px; padding: 7px 16px; font-size: 15px; font-weight: 700; background: var(--sand); }
+  .dark .tag { background: #24282d; color: #f4efe6; }
+  ul.check { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 20px; line-height: 1.35; }
+  ul.check li { display: flex; gap: 12px; }
+  ul.check li::before { content: ''; flex: none; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background: var(--coral) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/14px no-repeat; }
+  .shot { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(18,20,23,.22); background: #fff; }
+  .shot .bar { height: 26px; background: #e7e1d6; display: flex; gap: 7px; align-items: center; padding: 0 12px; }
+  .shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: #c8bfb0; display: block; }
+  .shot img { display: block; width: 100%; }
+  .phone { border-radius: 34px; border: 9px solid #0d0e10; overflow: hidden; background: #0d0e10; box-shadow: 0 24px 60px rgba(18,20,23,.3); }
+  .phone img { display: block; width: 100%; border-radius: 25px; }
+  .pill-num { width: 54px; height: 54px; border-radius: 16px; background: var(--coral); color: #fff; display: grid; place-items: center; font-weight: 900; font-size: 24px; flex: none; }
+  .label { font-size: 14px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--mute); }
+  .dark .label { color: #8d877d; }
+  .pagehead { display: flex; align-items: flex-start; gap: 22px; }
+  .bignum { font-size: 120px; font-weight: 900; letter-spacing: -0.06em; line-height: .8; color: var(--coral); }
+</style>
+</head>
+<body>
+
+<!-- 1. Couverture -->
+<section class="page dark">
+  <div style="position:absolute; right:-60px; top:-40px; width:820px; height:1080px; display:grid; grid-template-columns:1fr 1fr; gap:18px; transform:rotate(6deg); opacity:.95">
+    <div style="display:flex; flex-direction:column; gap:18px; margin-top:120px">
+      <img src="a/smash-classique.jpg" style="width:100%; border-radius:24px">
+      <img src="a/trench.jpg" style="width:100%; border-radius:24px; height:420px; object-fit:cover">
+      <img src="a/milkshake.jpg" style="width:100%; border-radius:24px">
+    </div>
+    <div style="display:flex; flex-direction:column; gap:18px">
+      <img src="a/ss-hero.jpg" style="width:100%; border-radius:24px; height:420px; object-fit:cover">
+      <div style="background:#17110e; border-radius:24px; padding:30px">%%BADGE%%</div>
+      <img src="a/robe-midi.jpg" style="width:100%; border-radius:24px; height:380px; object-fit:cover">
+    </div>
+  </div>
+  <div style="position:absolute; left:0; top:0; bottom:0; width:980px; background:linear-gradient(90deg, #121417 72%, rgba(18,20,23,0))"></div>
+  <div style="position:relative; max-width:840px; height:100%; display:flex; flex-direction:column">
+    <p class="kicker">[VOTRE NOM] · Communication & digital</p>
+    <h1 style="margin-top:44px; font-size:112px">Faites venir <span class="hl">plus de clients</span> dans votre commerce.</h1>
+    <p class="lead" style="margin-top:34px; font-size:28px">Le guide complet de tout ce dont un commerce a besoin pour être trouvé, choisi et recommandé, avec des exemples de réalisations.</p>
+    <div style="margin-top:auto; display:flex; gap:12px; flex-wrap:wrap">
+      <span class="tag">Identité visuelle</span><span class="tag">Site web</span><span class="tag">Vente en ligne</span><span class="tag">Google</span><span class="tag">Réseaux sociaux</span><span class="tag">Photo & vidéo</span><span class="tag">Print</span><span class="tag">Fidélisation</span>
+    </div>
+    <p style="margin-top:28px; font-size:17px; color:#8d877d">Portfolio [ANNÉE] · [VILLE] · [VOTRE SITE]</p>
+  </div>
+</section>
+
+<!-- 2. Sommaire -->
+<section class="page">
+  <p class="kicker">Sommaire</p>
+  <h2 style="margin-top:18px">Ce que vous allez trouver</h2>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px 70px; margin-top:56px; font-size:26px; font-weight:700">
+    %%TOC%%
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>2</span></div>
+</section>
+
+<!-- 3. Le constat -->
+<section class="page dark">
+  <p class="kicker">Le constat</p>
+  <h2 style="margin-top:18px; max-width:1200px">Aujourd’hui, vos clients vous <span class="hl">découvrent en ligne</span> avant de pousser votre porte.</h2>
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:70px">
+    <div class="card" style="padding:36px">
+      <p class="label">Avant de venir</p>
+      <h3 style="margin-top:14px; font-size:34px">Ils vous cherchent</h3>
+      <p style="margin-top:14px; font-size:20px; line-height:1.5; color:#c9c2b6">« Burger près de moi », « boutique robe Paris 11 » : horaires, avis, photos et itinéraire se consultent sur Google en quelques secondes.</p>
+    </div>
+    <div class="card" style="padding:36px">
+      <p class="label">Pour se décider</p>
+      <h3 style="margin-top:14px; font-size:34px">Ils comparent</h3>
+      <p style="margin-top:14px; font-size:20px; line-height:1.5; color:#c9c2b6">Un logo soigné, de belles photos, des avis récents et un site clair font la différence face au concurrent d’à côté.</p>
+    </div>
+    <div class="card" style="padding:36px">
+      <p class="label">Après l’achat</p>
+      <h3 style="margin-top:14px; font-size:34px">Ils oublient</h3>
+      <p style="margin-top:14px; font-size:20px; line-height:1.5; color:#c9c2b6">Sans réseau social actif ni programme de fidélité, un client satisfait peut ne jamais revenir… faute d’y penser.</p>
+    </div>
+  </div>
+  <p style="margin-top:56px; font-size:30px; font-weight:700">→ Une communication cohérente travaille pour vous <span class="hl">24 h/24</span>, même quand la boutique est fermée.</p>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>3</span></div>
+</section>
+
+<!-- 4. Le parcours client -->
+<section class="page">
+  <p class="kicker">La méthode</p>
+  <h2 style="margin-top:18px">Les 4 étapes du parcours client</h2>
+  <p class="lead" style="margin-top:18px">Chaque outil de communication sert une étape précise. L’objectif : qu’aucune ne soit un point faible.</p>
+  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0; margin-top:64px; position:relative">
+    %%FUNNEL%%
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>4</span></div>
+</section>
+
+<!-- 5. Vue d'ensemble : 8 piliers -->
+<section class="page">
+  <p class="kicker">Vue d’ensemble</p>
+  <h2 style="margin-top:18px">Les 8 piliers d’une communication qui marche</h2>
+  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:22px; margin-top:56px">
+    %%PILLARS%%
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>5</span></div>
+</section>
+
+<!-- 6. Identité visuelle -->
+<section class="page">
+  <div class="row" style="height:100%">
+    <div style="width:600px; display:flex; flex-direction:column">
+      <div class="pagehead"><span class="bignum">01</span><p class="kicker" style="margin-top:12px">Identité visuelle</p></div>
+      <h2 style="margin-top:28px">Un logo et une charte qu’on reconnaît <span class="hl">au premier coup d’œil</span></h2>
+      <p class="lead" style="margin-top:22px; font-size:21px">C’est la base de tout : enseigne, site, réseaux, emballages. Une identité claire inspire confiance et rend le commerce mémorable.</p>
+      <ul class="check" style="margin-top:28px">
+        <li>Logo principal + versions (horizontal, rond, monochrome, icône)</li>
+        <li>Palette de couleurs et typographies</li>
+        <li>Fichiers vectoriels (SVG) et PNG prêts à imprimer</li>
+        <li>Mini-charte : comment utiliser le logo</li>
+      </ul>
+    </div>
+    <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:20px; align-content:center">
+      <div style="grid-row:span 2; background:#efe2cc; border-radius:24px; padding:36px; display:grid; place-items:center">%%BADGE%%</div>
+      <div style="background:#17110e; border-radius:24px; padding:30px">%%HORIZ_DARK%%</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px">
+        <div style="background:#fff; border:1px solid var(--line); border-radius:24px; padding:20px">%%ICON%%</div>
+        <div style="background:#d9b27c; border-radius:24px; padding:16px">%%MONO%%</div>
+      </div>
+      <p style="grid-column:span 2; font-size:16px; color:var(--mute)">Exemple de réalisation : identité SMASH HOUSE (enseigne fictive de démonstration).</p>
+    </div>
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>6</span></div>
+</section>
+
+<!-- 7. Site vitrine & e-commerce -->
+<section class="page">
+  <div class="row" style="height:100%">
+    <div style="width:560px; display:flex; flex-direction:column">
+      <div class="pagehead"><span class="bignum">02</span><p class="kicker" style="margin-top:12px">Site web</p></div>
+      <h2 style="margin-top:28px">Votre vitrine <span class="hl">ouverte 24 h/24</span></h2>
+      <p class="lead" style="margin-top:22px; font-size:21px">Le site présente l’offre, rassure et convertit. Pensé d’abord pour le téléphone, il peut aussi vendre en ligne.</p>
+      <ul class="check" style="margin-top:28px">
+        <li>Site vitrine : accueil, offre, à propos, avis, contact, plan</li>
+        <li>Boutique en ligne : catalogue, filtres, panier, paiement</li>
+        <li>Adapté mobile, rapide, référencé sur Google</li>
+        <li>Espace administrateur simple pour tout modifier</li>
+      </ul>
+      <p style="margin-top:auto; font-size:16px; color:var(--mute)">Exemple : STYLESHOP, boutique de mode en ligne (démo).</p>
+    </div>
+    <div style="flex:1; position:relative">
+      <div class="shot" style="position:absolute; left:0; top:10px; width:760px"><div class="bar"><i></i><i></i><i></i></div><img src="a/home.jpg"></div>
+      <div class="shot" style="position:absolute; left:120px; top:440px; width:620px"><div class="bar"><i></i><i></i><i></i></div><img src="a/product.jpg"></div>
+      <div class="phone" style="position:absolute; right:-10px; top:300px; width:220px"><img src="a/m-home.jpg"></div>
+    </div>
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>7</span></div>
+</section>
+
+<!-- 8. Commande en ligne -->
+<section class="page dark">
+  <div class="row" style="height:100%">
+    <div style="width:560px; display:flex; flex-direction:column">
+      <div class="pagehead"><span class="bignum">03</span><p class="kicker" style="margin-top:12px">Commande & vente en ligne</p></div>
+      <h2 style="margin-top:28px">Vos ventes en direct, <span class="hl">sans intermédiaire</span></h2>
+      <p class="lead" style="margin-top:22px; font-size:21px">Pour un restaurant ou un commerce de bouche : commande à emporter, livraison ou click & collect depuis votre propre site, sans commission de plateforme sur ces commandes.</p>
+      <ul class="check" style="margin-top:28px">
+        <li>Carte avec photos, options et suppléments</li>
+        <li>Livraison, à emporter, sur place, créneaux</li>
+        <li>Paiement en ligne sécurisé (Stripe)</li>
+        <li>Suivi de commande et écran cuisine en direct</li>
+      </ul>
+      <p style="margin-top:auto; font-size:16px; color:#8d877d">Exemple : SMASH HOUSE, site de commande pour fast-food (démo).</p>
+    </div>
+    <div style="flex:1; position:relative">
+      <div class="shot" style="position:absolute; left:0; top:10px; width:760px"><div class="bar"><i></i><i></i><i></i></div><img src="a/ff-home.jpg"></div>
+      <div class="shot" style="position:absolute; left:60px; top:470px; width:600px"><div class="bar"><i></i><i></i><i></i></div><img src="a/ff-admin.jpg"></div>
+      <div class="phone" style="position:absolute; right:-10px; top:250px; width:230px"><img src="a/ff-m-modal.jpg"></div>
+    </div>
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>8</span></div>
+</section>
+
+<!-- 9. Google -->
+<section class="page">
+  <div class="row" style="height:100%">
+    <div style="width:620px; display:flex; flex-direction:column">
+      <div class="pagehead"><span class="bignum">04</span><p class="kicker" style="margin-top:12px">Google & avis clients</p></div>
+      <h2 style="margin-top:28px">Être trouvé quand on vous <span class="hl">cherche à côté</span></h2>
+      <p class="lead" style="margin-top:22px; font-size:21px">La fiche Google Business Profile est gratuite. Bien remplie et active, elle apporte appels, itinéraires et visites.</p>
+      <ul class="check" style="margin-top:28px">
+        <li>Création ou optimisation de la fiche (catégories, horaires, photos)</li>
+        <li>Publications régulières et photos à jour</li>
+        <li>Stratégie d’avis : QR code en caisse, réponses aux avis</li>
+        <li>Présence sur Plans, Apple Plans et annuaires locaux</li>
+      </ul>
+    </div>
+    <div style="flex:1; display:grid; place-items:center">
+      <div style="width:560px; background:#fff; border-radius:26px; box-shadow:0 24px 60px rgba(18,20,23,.18); overflow:hidden; border:1px solid var(--line)">
+        <div style="display:grid; grid-template-columns:2fr 1fr; gap:4px; height:220px"><img src="a/hero.jpg" style="width:100%; height:100%; object-fit:cover"><div style="display:grid; gap:4px"><img src="a/frites-cheddar-bacon.jpg" style="width:100%; height:108px; object-fit:cover"><img src="a/kitchen.jpg" style="width:100%; height:108px; object-fit:cover"></div></div>
+        <div style="padding:24px 28px">
+          <p style="font-size:30px; font-weight:800">SMASH HOUSE</p>
+          <p style="margin-top:6px; font-size:18px"><b>4,8</b> <span style="color:#f2a800">★★★★★</span> <span style="color:var(--mute)">(avis · démo)</span></p>
+          <p style="margin-top:4px; font-size:17px; color:var(--mute)">Restaurant de burgers · €€ · 24 rue de la Gourmandise</p>
+          <p style="margin-top:8px; font-size:17px"><b style="color:#188038">Ouvert</b> · Ferme à 23 h</p>
+          <div style="display:flex; gap:10px; margin-top:18px">
+            %%GBTNS%%
+          </div>
+          <div style="margin-top:20px; padding-top:16px; border-top:1px solid #eee; font-size:16px; color:#3b3935">« Le meilleur smash burger du quartier, livré encore chaud ! » <span style="color:var(--mute)">· avis exemple</span></div>
+        </div>
+      </div>
+      <p style="margin-top:14px; font-size:15px; color:var(--mute)">Maquette illustrative d’une fiche bien optimisée (données fictives).</p>
+    </div>
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>9</span></div>
+</section>
+
+<!-- 10. Réseaux sociaux -->
+<section class="page">
+  <div class="pagehead"><span class="bignum">05</span><p class="kicker" style="margin-top:12px">Réseaux sociaux</p></div>
+  <div class="row" style="margin-top:22px">
+    <div style="width:560px">
+      <h2>Rester dans la tête <span class="hl">(et le fil)</span> de vos clients</h2>
+      <p class="lead" style="margin-top:20px; font-size:21px">Pas besoin d’être partout : 1 ou 2 réseaux bien tenus valent mieux que 5 abandonnés.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:26px; font-size:17px">
+        <div class="card" style="padding:16px 18px"><b>Instagram</b><br><span style="color:var(--mute)">Mode, food, déco, beauté</span></div>
+        <div class="card" style="padding:16px 18px"><b>TikTok</b><br><span style="color:var(--mute)">Coulisses, tendances, jeunes</span></div>
+        <div class="card" style="padding:16px 18px"><b>Facebook</b><br><span style="color:var(--mute)">Clientèle locale, événements</span></div>
+        <div class="card" style="padding:16px 18px"><b>LinkedIn</b><br><span style="color:var(--mute)">B2B, recrutement, image</span></div>
+      </div>
+      <ul class="check" style="margin-top:24px; font-size:18px">
+        <li>Ligne éditoriale + calendrier de publication</li>
+        <li>Visuels, carrousels, stories et vidéos courtes</li>
+      </ul>
+    </div>
+    <div style="flex:1">
+      <p class="label">Exemples de carrousels réalisés</p>
+      <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px; margin-top:14px">
+        <img src="a/01.jpg" style="width:100%; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.18)">
+        <img src="a/06.jpg" style="width:100%; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.18)">
+        <img src="a/ss-car-01.jpg" style="width:100%; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.18)">
+        <img src="a/ss-car-04.jpg" style="width:100%; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,.18)">
+      </div>
+      <p class="label" style="margin-top:30px">Exemple de semaine type</p>
+      <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:10px; margin-top:12px; font-size:15px">
+        %%WEEK%%
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>10</span></div>
+</section>
+
+<!-- 11. Photo & vidéo -->
+<section class="page dark">
+  <div class="row" style="height:100%">
+    <div style="width:540px; display:flex; flex-direction:column">
+      <div class="pagehead"><span class="bignum">06</span><p class="kicker" style="margin-top:12px">Photo & vidéo</p></div>
+      <h2 style="margin-top:28px">Des images qui <span class="hl">donnent envie</span></h2>
+      <p class="lead" style="margin-top:22px; font-size:21px">C’est souvent la photo qui décide du clic, de la commande ou de la visite. Elle se réutilise partout : site, Google, réseaux, flyers.</p>
+      <ul class="check" style="margin-top:28px">
+        <li>Shooting produits, plats, équipe et lieu</li>
+        <li>Visuels créés avec Canva, retouche et déclinaisons</li>
+        <li>Vidéos courtes (Reels, TikTok) et vidéo de démonstration</li>
+        <li>Banque d’images à votre nom, prête à l’emploi</li>
+      </ul>
+      <p style="margin-top:auto; font-size:16px; color:#8d877d">Exemples : visuels générés avec Canva pour les démos. Pour un client, on part de vraies photos de ses produits.</p>
+    </div>
+    <div style="flex:1; display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; align-content:center">
+      <img src="a/double-cheese.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:18px">
+      <img src="a/trench.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; object-position:top; border-radius:18px">
+      <img src="a/milkshake.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:18px">
+      <img src="a/veste-jean.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; object-position:top; border-radius:18px">
+      <img src="a/tacos-xl.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:18px">
+      <img src="a/sac-cabas.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:18px">
+      <img src="a/kitchen.jpg" style="grid-column:span 2; width:100%; aspect-ratio:2.05; object-fit:cover; border-radius:18px">
+      <img src="a/cookie.jpg" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius:18px">
+    </div>
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>11</span></div>
+</section>
+
+<!-- 12. Print -->
+<section class="page">
+  <div class="row" style="height:100%">
+    <div style="width:520px; display:flex; flex-direction:column">
+      <div class="pagehead"><span class="bignum">07</span><p class="kicker" style="margin-top:12px">Supports imprimés</p></div>
+      <h2 style="margin-top:28px">Le papier n’est <span class="hl">pas mort</span></h2>
+      <p class="lead" style="margin-top:22px; font-size:21px">Dans un commerce de proximité, le print reste le lien direct avec le quartier et le client en boutique.</p>
+      <ul class="check" style="margin-top:28px">
+        <li>Flyers, affiches, menus et cartes</li>
+        <li>Cartes de visite et cartes de fidélité</li>
+        <li>Vitrophanie, enseigne, kakémono</li>
+        <li>Packaging : sacs, stickers, gobelets</li>
+      </ul>
+    </div>
+    <div style="flex:1; position:relative">
+      <!-- Flyer -->
+      <div style="position:absolute; left:0; top:30px; width:390px; height:560px; background:#17110e; border-radius:10px; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,.3); transform:rotate(-4deg); color:#fff7ea">
+        <img src="a/promo.jpg" style="width:100%; height:190px; object-fit:cover">
+        <div style="padding:22px 26px">
+          <div style="width:150px">%%HORIZ_DARK_SMALL%%</div>
+          <p style="font-family:Anton; font-size:52px; line-height:.95; margin-top:14px; text-transform:uppercase">−10 % sur<br><span style="color:#ffc22b">ta 1re commande</span></p>
+          <p style="margin-top:12px; font-size:15px">Code SMASH10 · livraison offerte dès 25 €</p>
+          <div style="margin-top:14px; display:flex; align-items:center; gap:12px"><div style="width:62px; height:62px; background:#fff; border-radius:8px; display:grid; place-items:center; color:#17110e; font-size:11px; font-weight:800">QR</div><span style="font-size:13px; color:#d8cbb8">Scannez pour commander</span></div>
+        </div>
+      </div>
+      <!-- Carte de visite -->
+      <div style="position:absolute; right:20px; top:60px; width:400px; height:230px; background:#ffc22b; border-radius:14px; box-shadow:0 24px 50px rgba(0,0,0,.22); transform:rotate(5deg); padding:26px; display:flex; justify-content:space-between">
+        <div style="width:120px">%%PASTILLE%%</div>
+        <div style="text-align:right; color:#17110e"><p style="font-family:Anton; font-size:34px; line-height:1">SMASH HOUSE</p><p style="margin-top:10px; font-size:14px; line-height:1.5">24 rue de la Gourmandise<br>01 23 45 67 89<br>smashhouse.example</p></div>
+      </div>
+      <!-- Carte de fidélité -->
+      <div style="position:absolute; right:0; top:390px; width:450px; background:#fff7ea; border:2px solid #17110e; border-radius:14px; box-shadow:0 24px 50px rgba(0,0,0,.18); transform:rotate(-2deg); padding:22px 26px">
+        <div style="display:flex; justify-content:space-between; align-items:center"><p style="font-family:Anton; font-size:28px; color:#e4361b">CARTE FIDÉLITÉ</p><div style="width:60px">%%PASTILLE%%</div></div>
+        <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:10px; margin-top:16px">%%STAMPS%%</div>
+        <p style="margin-top:12px; font-size:14px; font-weight:700">10 tampons = 1 burger offert 🍔</p>
+      </div>
+      <p style="position:absolute; left:0; bottom:40px; font-size:15px; color:var(--mute)">Maquettes d’exemple réalisées pour SMASH HOUSE (démo).</p>
+    </div>
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>12</span></div>
+</section>
+
+<!-- 13. Fidélisation -->
+<section class="page">
+  <div class="pagehead"><span class="bignum">08</span><p class="kicker" style="margin-top:12px">Fidélisation</p></div>
+  <h2 style="margin-top:28px; max-width:1100px">Faire revenir un client coûte <span class="hl">moins cher</span> qu’en trouver un nouveau</h2>
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; margin-top:54px">
+    <div class="card" style="padding:32px">
+      <div class="pill-num">1</div>
+      <h3 style="margin-top:20px">Programme de fidélité</h3>
+      <p style="margin-top:12px; font-size:19px; line-height:1.5; color:#3b3935">Carte à tampons papier ou digitale, récompenses simples et visibles en caisse.</p>
+    </div>
+    <div class="card" style="padding:32px">
+      <div class="pill-num">2</div>
+      <h3 style="margin-top:20px">E-mail & SMS</h3>
+      <p style="margin-top:12px; font-size:19px; line-height:1.5; color:#3b3935">Nouveautés, offres d’anniversaire, relance des clients absents. Avec leur accord (RGPD).</p>
+      <div style="margin-top:18px; background:#f1ede6; border-radius:16px; padding:14px 16px; font-size:16px">💬 « Camille, ça fait un moment ! −10 % ce week-end avec le code RETOUR10 🍔 »</div>
+    </div>
+    <div class="card" style="padding:32px">
+      <div class="pill-num">3</div>
+      <h3 style="margin-top:20px">Avis & recommandation</h3>
+      <p style="margin-top:12px; font-size:19px; line-height:1.5; color:#3b3935">Demander un avis au bon moment, offrir un geste au parrain : le bouche-à-oreille se provoque.</p>
+    </div>
+  </div>
+  <div style="margin-top:40px; display:flex; gap:20px; align-items:center; font-size:22px; font-weight:700"><span class="tag" style="font-size:18px">Bonus</span>Publicité locale (Meta, Google) ciblée sur votre quartier, pour les lancements et les temps forts.</div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>13</span></div>
+</section>
+
+<!-- 14. Diagnostic -->
+<section class="page dark">
+  <p class="kicker">Auto-diagnostic</p>
+  <h2 style="margin-top:18px">Votre commerce est-il prêt ? <span class="hl">12 questions</span></h2>
+  <p class="lead" style="margin-top:16px; font-size:21px">Moins de 8 « oui » ? Il y a des clients que vous laissez filer.</p>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px 60px; margin-top:42px; font-size:21px">
+    %%QUIZ%%
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>14</span></div>
+</section>
+
+<!-- 15. Offres -->
+<section class="page">
+  <p class="kicker">Offres</p>
+  <h2 style="margin-top:18px">Trois formules selon votre étape</h2>
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:26px; margin-top:46px">
+    %%PACKS%%
+  </div>
+  <p style="margin-top:24px; font-size:16px; color:var(--mute)">Tarifs indicatifs HT, ajustés après l’audit selon vos besoins. Devis détaillé gratuit. Options à la carte : shooting photo, vidéo, publicité, gestion des réseaux au mois.</p>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>15</span></div>
+</section>
+
+<!-- 16. Méthode de travail -->
+<section class="page">
+  <p class="kicker">Comment on travaille</p>
+  <h2 style="margin-top:18px">Simple, rapide, <span class="hl">sans jargon</span></h2>
+  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; margin-top:60px">
+    %%STEPS%%
+  </div>
+  <div style="margin-top:50px; display:grid; grid-template-columns:repeat(3, 1fr); gap:24px">
+    <div class="card"><p class="label">Un seul interlocuteur</p><p style="margin-top:8px; font-size:20px; font-weight:600">Vous parlez à la personne qui réalise.</p></div>
+    <div class="card"><p class="label">Vous restez propriétaire</p><p style="margin-top:8px; font-size:20px; font-weight:600">Logo, site, photos et comptes sont à vous.</p></div>
+    <div class="card"><p class="label">Résultats suivis</p><p style="margin-top:8px; font-size:20px; font-weight:600">Visites, appels, commandes : on mesure.</p></div>
+  </div>
+  <div class="foot"><span>[VOTRE NOM] · Portfolio communication</span><span>16</span></div>
+</section>
+
+<!-- 17. Contact -->
+<section class="page coral">
+  <div style="display:flex; height:100%; gap:60px">
+    <div style="flex:1; display:flex; flex-direction:column">
+      <p class="kicker">On en parle ?</p>
+      <h1 style="margin-top:30px; font-size:120px">Audit offert de votre communication.</h1>
+      <p style="margin-top:30px; font-size:28px; line-height:1.4; max-width:760px">30 minutes, chez vous ou en visio : on regarde votre Google, vos réseaux, votre site, et je vous dis par quoi commencer. Sans engagement.</p>
+      <div style="margin-top:auto; display:grid; grid-template-columns:auto 1fr; gap:14px 28px; font-size:28px; font-weight:700">
+        <span style="opacity:.75">Nom</span><span>[VOTRE NOM]</span>
+        <span style="opacity:.75">Téléphone</span><span>[VOTRE TÉLÉPHONE]</span>
+        <span style="opacity:.75">E-mail</span><span>[VOTRE E-MAIL]</span>
+        <span style="opacity:.75">Web</span><span>[VOTRE SITE] · LinkedIn [VOTRE PROFIL]</span>
+      </div>
+    </div>
+    <div style="width:380px; display:flex; flex-direction:column; justify-content:center; gap:20px">
+      <div style="background:#fff; border-radius:28px; aspect-ratio:1; display:grid; place-items:center; color:var(--ink); font-weight:800; font-size:22px; text-align:center; padding:30px">[VOTRE QR CODE]<br><span style="font-size:16px; font-weight:500; color:var(--mute)">vers votre site ou votre agenda</span></div>
+      <p style="text-align:center; font-size:20px; font-weight:700">Scannez pour réserver votre audit</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
