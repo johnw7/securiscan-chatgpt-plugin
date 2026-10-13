@@ -20,6 +20,7 @@ Ouvrez ensuite l’adresse affichée (par défaut http://localhost:5173).
 | --- | --- |
 | `npm run dev` | serveur de développement avec rechargement à chaud |
 | `npm run build` | vérification TypeScript + build de production dans `dist/` |
+| `npm run build:static` | version statique (URL en `#/`, chemins relatifs) à déposer sur n’importe quel hébergeur : Netlify Drop, GitHub Pages… |
 | `npm run preview` | sert le build de production en local |
 | `npm test` | tests des calculs du panier (sous-total, remises, livraison, total) |
 
@@ -52,6 +53,10 @@ Conformément au cahier des charges, `localStorage` ne sert **qu’au panier et 
 Les 39 visuels (32 produits, bannière, tuiles Homme/Femme, 4 catégories) ont été **générés avec Canva** (images IA réalistes), exportés en haute définition depuis le design Canva « Couverture planche photos STYLESHOP », et sont enregistrés dans `public/images/` : ils font partie de l’application et ne dépendent d’aucun service externe. Chaque fiche produit affiche la photo principale et une vue « détail » recadrée de la même photo.
 
 Ce sont des images générées, pas des photos des articles réels : avant de vendre, remplacez-les par vos propres photos produit (même nom de fichier dans `public/images/products/`, ou champ « URL des photos » dans l’administration). Si une image ne charge pas, un visuel de remplacement neutre s’affiche.
+
+## Vendre l’application
+
+Le dossier `marketing/` contient un kit LinkedIn prêt à l’emploi : carrousel PDF, vidéo du parcours d’achat, image de post, textes de publication, messages de prospection et procédure de mise en ligne gratuite (voir `marketing/LINKEDIN.md`).
 
 ## Architecture
 

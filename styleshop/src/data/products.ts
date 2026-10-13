@@ -6,16 +6,18 @@ import type { Category, ColorOption, Product, Review, Size } from '../types';
  * Pour utiliser vos propres photos : remplacez les fichiers ou l'URL dans l'administration.
  * Si une image ne charge pas, <ProductImage> affiche automatiquement un visuel de remplacement.
  */
-const img = (slug: string, detail = false) => `/images/products/${slug}${detail ? '-detail' : ''}.jpg`;
+// BASE_URL vaut '/' en développement et './' pour la version statique (hébergeable dans n'importe quel dossier).
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const img = (slug: string, detail = false) => asset(`images/products/${slug}${detail ? '-detail' : ''}.jpg`);
 
 export const IMG = {
-  hero: '/images/site/hero.jpg',
-  tileHomme: '/images/site/tile-homme.jpg',
-  tileFemme: '/images/site/tile-femme.jpg',
-  catHomme: '/images/site/cat-homme.jpg',
-  catFemme: '/images/site/cat-femme.jpg',
-  catEnfant: '/images/site/cat-enfant.jpg',
-  catAccessoires: '/images/site/cat-accessoires.jpg',
+  hero: asset('images/site/hero.jpg'),
+  tileHomme: asset('images/site/tile-homme.jpg'),
+  tileFemme: asset('images/site/tile-femme.jpg'),
+  catHomme: asset('images/site/cat-homme.jpg'),
+  catFemme: asset('images/site/cat-femme.jpg'),
+  catEnfant: asset('images/site/cat-enfant.jpg'),
+  catAccessoires: asset('images/site/cat-accessoires.jpg'),
 };
 
 const C: Record<string, ColorOption> = {
