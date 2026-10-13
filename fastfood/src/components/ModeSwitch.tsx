@@ -17,7 +17,7 @@ export default function ModeSwitch({ dark = false }: { dark?: boolean }) {
         return (
           <button key={id} type="button" role="radio" aria-checked={on} onClick={() => setMode(id)}
             className={`flex min-h-14 flex-col items-center justify-center rounded-xl px-2 py-2 text-center transition ${on ? 'bg-mustard text-ink shadow' : dark ? 'text-cream/80 hover:bg-white/10' : 'text-ink/70 hover:bg-white'}`}>
-            <span className="flex items-center gap-1.5 text-sm font-extrabold"><Icon className="h-4 w-4" aria-hidden="true" /> {label}</span>
+            <span className="flex flex-col items-center gap-0.5 whitespace-nowrap text-[13px] font-extrabold sm:flex-row sm:gap-1.5 sm:text-sm"><Icon className="h-4 w-4" aria-hidden="true" /> {label}</span>
             <span className="hidden text-[11px] font-medium opacity-75 sm:block">{hint}</span>
           </button>
         );

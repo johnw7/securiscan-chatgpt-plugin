@@ -38,6 +38,10 @@ npm run dev          # http://localhost:5173
 
 Les 23 photos (20 plats, bannière, promo, cuisine) ont été **générées avec Canva** (IA), exportées en haute définition depuis le design Canva « Couverture photos du menu Smash House » et enregistrées dans `public/images/`. Ce ne sont pas des photos de vrais plats : pour un vrai restaurant, remplacez-les par des photos de ses produits (même nom de fichier).
 
+## Vendre le site
+
+Le dossier `marketing/` contient le kit LinkedIn : carrousel PDF (8 pages), vidéo de commande, image de post, guide PDF avec posts prêts à copier, messages de prospection pour restaurateurs et mise en ligne gratuite.
+
 ## Passer en production
 
 Même architecture que STYLESHOP (voir `../styleshop/README.md`, `supabase/schema.sql` et `server/stripe-checkout.ts`) :
