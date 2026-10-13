@@ -35,7 +35,7 @@ export default function Footer() {
       </div>
       <div className="border-t border-mist-200">
         <p className="container-page py-5 text-xs text-mist-500">
-          Boutique de démonstration — produits, prix et avis fictifs, paiement simulé. Photos : Unsplash.
+          Boutique de démonstration — produits, prix et avis fictifs, paiement simulé. Visuels générés avec Canva.
         </p>
       </div>
     </footer>

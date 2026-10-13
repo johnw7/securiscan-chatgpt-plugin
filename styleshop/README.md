@@ -49,7 +49,9 @@ Conformément au cahier des charges, `localStorage` ne sert **qu’au panier et 
 
 ### Photos
 
-Les photos proviennent d’[Unsplash](https://unsplash.com/license) (usage commercial autorisé). Elles sont chargées par le navigateur ; si l’une d’elles ne charge pas, un visuel de remplacement neutre s’affiche à sa place. **Avant la mise en ligne, remplacez-les par vos propres photos produit** (champ « URL des photos » dans l’administration, ou `src/data/products.ts`), afin que chaque photo montre exactement l’article vendu.
+Les 39 visuels (32 produits, bannière, tuiles Homme/Femme, 4 catégories) ont été **générés avec Canva** (images IA réalistes), exportés en haute définition depuis le design Canva « Couverture planche photos STYLESHOP », et sont enregistrés dans `public/images/` : ils font partie de l’application et ne dépendent d’aucun service externe. Chaque fiche produit affiche la photo principale et une vue « détail » recadrée de la même photo.
+
+Ce sont des images générées, pas des photos des articles réels : avant de vendre, remplacez-les par vos propres photos produit (même nom de fichier dans `public/images/products/`, ou champ « URL des photos » dans l’administration). Si une image ne charge pas, un visuel de remplacement neutre s’affiche.
 
 ## Architecture
 

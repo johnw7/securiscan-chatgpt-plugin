@@ -19,8 +19,9 @@ export default function Home() {
       {/* Bannière */}
       <section className="container-page mt-4 grid gap-3 lg:grid-cols-[1.4fr_1fr]">
         <div className="relative min-h-[520px] overflow-hidden rounded-3xl md:min-h-[620px]">
-          <ProductImage src={IMG.heroWoman} alt="Mannequin portant la collection automne-hiver" eager fallbackLabel="" className="absolute inset-0 h-full w-full" />
+          <ProductImage src={IMG.hero} alt="Mannequin portant la collection automne-hiver" eager fallbackLabel="" className="absolute inset-0 h-full w-full" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/35 to-transparent md:to-50%" />
           <div className="relative flex h-full min-h-[520px] flex-col justify-end p-6 text-white md:min-h-[620px] md:p-12">
             <p className="text-xs uppercase tracking-[0.22em] text-white/85">Collection automne–hiver 2026</p>
             <h1 className="mt-3 max-w-xl font-display text-5xl leading-[1.02] md:text-7xl">L’élégance au quotidien</h1>
@@ -34,7 +35,7 @@ export default function Home() {
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
           {(['homme', 'femme'] as Category[]).map((c) => (
             <Link key={c} to={`/catalogue?categorie=${c}`} className="group relative min-h-[260px] overflow-hidden rounded-3xl md:min-h-[304px]">
-              <ProductImage src={c === 'homme' ? IMG.heroMan : IMG.heroStore} alt={`Collection ${CATEGORY_LABELS[c]}`} fallbackLabel="" className="absolute inset-0 h-full w-full transition duration-700 group-hover:scale-105" />
+              <ProductImage src={c === 'homme' ? IMG.tileHomme : IMG.tileFemme} alt={`Collection ${CATEGORY_LABELS[c]}`} fallbackLabel="" className="absolute inset-0 h-full w-full transition duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 text-white">
                 <p className="font-display text-4xl">{CATEGORY_LABELS[c]}</p>
