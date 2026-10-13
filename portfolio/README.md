@@ -10,4 +10,4 @@ python3 build.py .                       # remplit les blocs %%…%% → portfol
 node render-pdf.mjs "$PWD" ../portfolio-communication-commerces.pdf   # nécessite playwright-core + Chromium
 ```
 
-Les exemples (STYLESHOP, SMASH HOUSE) sont des démos : enseignes fictives, visuels générés par IA avec Canva, prix indicatifs. Les mentions « démo » sont conservées dans le document.
+Version sans tarifs (devis sur mesure), illustrée uniquement avec l’exemple fast-food SMASH HOUSE : enseigne fictive, visuels générés par IA avec Canva. Les mentions « démo » sont conservées dans le document.

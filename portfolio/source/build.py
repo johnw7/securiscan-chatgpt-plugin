@@ -9,7 +9,7 @@ def svg(name, extra=''):
 
 toc = ['Le constat', 'Le parcours client en 4 étapes', 'Les 8 piliers de la communication', '01 · Identité visuelle', '02 · Site web',
        '03 · Commande & vente en ligne', '04 · Google & avis clients', '05 · Réseaux sociaux', '06 · Photo & vidéo', '07 · Supports imprimés',
-       '08 · Fidélisation', 'Auto-diagnostic : 12 questions', 'Offres', 'Méthode de travail & contact']
+       '08 · Fidélisation', 'Auto-diagnostic : 12 questions', 'Nos formules', 'Méthode de travail & contact']
 toc_html = ''.join(f'<div style="display:flex; gap:22px; align-items:baseline; padding:14px 0; border-bottom:1px solid var(--line)"><span class="num">{i:02d}</span><span>{t}</span></div>' for i, t in enumerate(toc, 1))
 
 funnel = [
@@ -31,7 +31,7 @@ for i, (t, d, tools) in enumerate(funnel):
 
 pillars = [
     ('01', 'Identité visuelle', 'Logo, couleurs, typographies, charte.'),
-    ('02', 'Site web', 'Vitrine ou boutique, rapide et mobile.'),
+    ('02', 'Site web', 'Vitrine et carte en ligne, rapide et mobile.'),
     ('03', 'Vente en ligne', 'Commande, click & collect, livraison.'),
     ('04', 'Google & avis', 'Fiche optimisée, avis, visibilité locale.'),
     ('05', 'Réseaux sociaux', 'Ligne éditoriale, posts, stories, vidéos.'),
@@ -48,17 +48,17 @@ week_html = ''.join(f'<div style="background:{c}; border-radius:14px; padding:14
 
 quiz = ['Mon commerce a un logo professionnel, utilisé partout', 'Ma fiche Google est complète, avec photos récentes', 'J’ai plus de 20 avis Google et j’y réponds',
         'J’ai un site qui s’affiche bien sur téléphone', 'Mes clients peuvent commander ou réserver en ligne', 'Je publie au moins une fois par semaine',
-        'Mes photos donnent vraiment envie', 'Mes horaires sont à jour partout', 'J’ai des flyers ou cartes à donner en boutique',
+        'Mes photos donnent vraiment envie', 'Mes horaires sont à jour partout', 'J’ai des flyers ou cartes à donner sur place',
         'J’ai un programme de fidélité', 'Je peux recontacter mes clients (e-mail, SMS)', 'Je sais d’où viennent mes nouveaux clients']
 quiz_html = ''.join(f'<div style="display:flex; gap:16px; align-items:center; padding:12px 0; border-bottom:1px solid #2c3036"><span style="width:30px; height:30px; flex:none; border:2.5px solid #ff8a6e; border-radius:8px"></span><span>{q}</span></div>' for q in quiz)
 
 packs = [
-    ('Démarrage', 'Être visible et professionnel', '900 – 1 500 €', False,
+    ('Démarrage', 'Être visible et professionnel', '', False,
      ['Logo + mini-charte', 'Fiche Google optimisée', 'Site vitrine 1 page', '10 modèles de posts réseaux', 'Cartes de visite']),
-    ('Croissance', 'Attirer et vendre plus', '2 500 – 4 500 €', True,
-     ['Tout le pack Démarrage', 'Site 5 pages ou commande / boutique en ligne', 'Pack photos & visuels', '1 mois de réseaux (12 publications)', 'Flyers + carte de fidélité']),
-    ('Premium', 'Un service com’ à vos côtés', 'dès 5 000 € + suivi mensuel', False,
-     ['Tout le pack Croissance', 'Vente en ligne complète (paiement, comptes)', 'Gestion des réseaux au mois', 'Campagnes e-mail / SMS', 'Publicité locale + rapport mensuel']),
+    ('Croissance', 'Attirer et vendre plus', '', True,
+     ['Tout le pack Démarrage', 'Site complet avec commande en ligne', 'Pack photos & visuels', '1 mois de réseaux (12 publications)', 'Flyers + carte de fidélité']),
+    ('Premium', 'Un service com’ à vos côtés', '', False,
+     ['Tout le pack Croissance', 'Commande et paiement en ligne, comptes clients', 'Gestion des réseaux au mois', 'Campagnes e-mail / SMS', 'Publicité locale + rapport mensuel']),
 ]
 packs_html = ''
 for name, sub, price, star, items in packs:
@@ -66,8 +66,7 @@ for name, sub, price, star, items in packs:
     packs_html += f'''<div class="card" style="padding:36px; {bg} position:relative; display:flex; flex-direction:column; min-height:520px">
       {'<span style="position:absolute; top:-16px; right:28px; background:#ff5a36; color:#fff; border-radius:999px; padding:8px 16px; font-size:15px; font-weight:800">Le plus choisi</span>' if star else ''}
       <h3 style="font-size:38px">{name}</h3><p style="margin-top:8px; font-size:19px; opacity:.75">{sub}</p>
-      <p style="margin-top:22px; font-size:34px; font-weight:900; letter-spacing:-.03em; color:#ff5a36">{price}</p>
-      <ul class="check" style="margin-top:24px; font-size:19px">{''.join(f'<li>{i}</li>' for i in items)}</ul></div>'''
+      <ul class="check" style="margin-top:30px; font-size:20px">{''.join(f'<li>{i}</li>' for i in items)}</ul></div>'''
 
 steps = [('1', 'Audit offert', '30 min pour faire le point sur votre communication actuelle.', 'Jour 1'),
          ('2', 'Proposition', 'Plan d’action et devis clair, priorisé selon votre budget.', 'Sous 48 h'),
