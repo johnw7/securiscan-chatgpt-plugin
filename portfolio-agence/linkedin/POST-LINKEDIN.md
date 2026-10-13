@@ -24,6 +24,8 @@ Une marque, ce n'est pas un logo. C'est tout ce que vos clients voient, partout,
 
 Vous avez un commerce ? Parlons-en en MP.
 
+(Projet de démonstration : enseigne fictive, visuels générés par IA.)
+
 #branding #marketing #restauration #communication
 ```
 
