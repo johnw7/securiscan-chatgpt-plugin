@@ -4,7 +4,7 @@
 
 Contenu : l’agence, les 6 expertises, puis l’étude de cas complète **SMASH HOUSE** (brief, identité, mises en situation, direction photo, site, commande en ligne, réseaux sociaux, print, livrables). Le document se termine par la méthode, trois formules d’accompagnement sans tarifs (sur devis) et une page de contact.
 
-**À personnaliser avant envoi :** remplacez `[VOTRE NOM]`, `[VOTRE TÉLÉPHONE]`, `[VOTRE E-MAIL]`, `[VOTRE SITE]`, `[VILLE]`, `[ANNÉE]` et `[VOTRE QR CODE]` dans `source/portfolio-agence.html`, puis régénérez le PDF :
+**Coordonnées :** téléphone et WhatsApp +33 6 13 24 96 80. Le QR code de la dernière page (`source/a/qr-whatsapp.svg`) ouvre une conversation WhatsApp (https://wa.me/33613249680). Pour modifier le texte, éditez `source/portfolio-agence.html`, puis régénérez le PDF :
 
 ```bash
 cd portfolio-agence/source

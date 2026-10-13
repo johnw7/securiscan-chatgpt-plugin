@@ -77,7 +77,7 @@ Premier échange offert, en message privé.
 **Premier commentaire (pour toutes les versions) :**
 
 ```
-📩 Pour en parler : [VOTRE LIEN DE RENDEZ-VOUS ou VOTRE E-MAIL]
+📲 Pour en parler sur WhatsApp : https://wa.me/33613249680 (+33 6 13 24 96 80)
 ```
 
 ---
