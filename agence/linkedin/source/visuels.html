@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; } body { margin: 0; background: #444; font-family: Inter, sans-serif; }
+  .b { position: relative; overflow: hidden; background: #010a2e; color: #fff; margin-bottom: 30px; }
+  .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px); background-size: 44px 44px; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(70px); }
+  .g { background: linear-gradient(135deg, #01daff, #0b58ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .k { font-family: 'Plus Jakarta Sans'; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; color: #01daff; display: flex; align-items: center; gap: 10px; margin: 0; }
+  .k::before { content: ''; width: 26px; height: 3px; border-radius: 3px; background: linear-gradient(135deg, #01daff, #0b58ff); }
+  h1 { font-family: 'Plus Jakarta Sans'; font-weight: 800; letter-spacing: -.04em; line-height: 1; margin: 0; }
+  .chip { border: 1px solid rgba(180,192,224,.25); border-radius: 999px; padding: 5px 12px; font-size: 14px; color: #dbe5ff; background: rgba(255,255,255,.04); }
+  img { display: block; }
+</style>
+</head>
+<body>
+
+<!-- Bannière de profil 1584×396 : la photo de profil couvre le coin bas-gauche, le texte commence après -->
+<section class="b" id="profil" style="width:1584px; height:396px">
+  <div class="grid"></div>
+  <div class="orb" style="width:520px; height:520px; right:-120px; top:-200px; background:#0b58ff; opacity:.6"></div>
+  <div class="orb" style="width:360px; height:360px; left:560px; bottom:-260px; background:#01daff; opacity:.3"></div>
+  <div style="position:absolute; left:470px; top:62px; width:700px">
+    <p class="k" style="font-size:14px">Agence marketing créative</p>
+    <h1 style="margin-top:16px; font-size:62px">On crée des marques<br>qui <span class="g">donnent envie.</span></h1>
+    <div style="display:flex; gap:8px; margin-top:22px; flex-wrap:wrap"><span class="chip">Branding</span><span class="chip">Sites &amp; commande en ligne</span><span class="chip">Social media</span><span class="chip">Photo</span><span class="chip">Print</span></div>
+    <p style="margin:18px 0 0; font-size:17px; font-weight:600; color:#b4c0e0">Restaurants · commerces · indépendants &nbsp;·&nbsp; <span style="color:#fff">WhatsApp +33 6 13 24 96 80</span></p>
+  </div>
+  <div style="position:absolute; right:60px; top:36px; width:330px; height:330px">
+    <img src="../../site/img/01.jpg" style="position:absolute; left:110px; top:0; width:190px; border-radius:14px; transform:rotate(6deg); box-shadow:0 24px 50px rgba(0,0,0,.5)">
+    <div style="position:absolute; left:0; top:150px; width:160px; height:160px; border-radius:36px; background:#ffc22b; display:grid; place-items:center; transform:rotate(-8deg); box-shadow:0 24px 50px rgba(0,0,0,.5)"><img src="../../site/img/smashhouse-logo-badge.svg" style="width:132px"></div>
+    <div style="position:absolute; left:20px; top:10px; width:110px; height:110px; border-radius:50%; overflow:hidden; border:4px solid rgba(255,255,255,.12); box-shadow:0 20px 40px rgba(0,0,0,.5)"><img src="../../site/img/bacon-bbq.jpg" style="width:100%; height:100%; object-fit:cover"></div>
+  </div>
+  <div style="position:absolute; left:70px; top:40px; display:flex; align-items:center; gap:10px">
+    <img src="../../site/img/edust-icon.svg" style="width:36px; height:36px">
+    <div style="line-height:1"><p style="margin:0; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:16px; letter-spacing:.08em">E-DUST</p><p style="margin:5px 0 0; font-family:'Plus Jakarta Sans'; font-weight:700; font-size:8.5px; letter-spacing:.42em; color:#01daff">SOLUTIONS</p></div>
+  </div>
+</section>
+
+<!-- Bannière de page entreprise 1128×191 -->
+<section class="b" id="page" style="width:1128px; height:191px">
+  <div class="grid" style="background-size:32px 32px"></div>
+  <div class="orb" style="width:380px; height:380px; right:-80px; top:-200px; background:#0b58ff; opacity:.6"></div>
+  <div style="position:absolute; left:300px; top:44px">
+    <p class="k" style="font-size:11px">Agence marketing créative</p>
+    <h1 style="margin-top:10px; font-size:40px">On crée des marques qui <span class="g">donnent envie.</span></h1>
+    <p style="margin:10px 0 0; font-size:14px; font-weight:600; color:#b4c0e0">Branding · Sites web · Social media · Photo · Print</p>
+  </div>
+</section>
+
+<!-- Logo carré 400×400 (page entreprise, avatar) -->
+<section class="b" id="logo" style="width:400px; height:400px; background:#021448; display:grid; place-items:center">
+  <div class="orb" style="width:300px; height:300px; right:-120px; bottom:-120px; background:#0b58ff; opacity:.7"></div>
+  <div style="position:relative; text-align:center">
+    <img src="../../site/img/edust-icon.svg" style="width:150px; height:150px; margin:0 auto; border-radius:34px; box-shadow:0 20px 50px rgba(1,218,255,.35)">
+    <p style="margin:26px 0 0; font-family:'Plus Jakarta Sans'; font-weight:800; font-size:40px; letter-spacing:.08em; line-height:1">E-DUST</p>
+    <p style="margin:10px 0 0; font-family:'Plus Jakarta Sans'; font-weight:700; font-size:15px; letter-spacing:.46em; color:#01daff">SOLUTIONS</p>
+  </div>
+</section>
+
+</body>
+</html>

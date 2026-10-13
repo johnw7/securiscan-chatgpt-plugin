@@ -1,0 +1,329 @@
+<title>E-DUST Solutions</title>
+<meta name="description" content="E-DUST Solutions, agence marketing créative : branding, sites web, réseaux sociaux, photo et print pour les restaurants et commerces.">
+<link rel="icon" href="img/edust-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  /* Layout : site sombre « nuit électrique », hero en collage, sections en bandes pleine largeur, contenu max 1200px */
+  :root {
+    color-scheme: dark;
+    --night: #010a2e;      /* fond principal */
+    --navy: #021448;       /* surfaces */
+    --navy-2: #0a1f5c;     /* surfaces relevées */
+    --electric: #0b58ff;   /* accent */
+    --cyan: #01daff;       /* accent clair */
+    --ink: #f4f7ff;        /* texte */
+    --soft: #b4c0e0;       /* texte secondaire */
+    --mute: #7d8fc4;       /* légendes */
+    --line: rgba(180, 192, 224, .16);
+    --grad: linear-gradient(135deg, #01daff 0%, #0b58ff 100%);
+    --display: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+    --body: Inter, 'Segoe UI', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+  body { background: var(--night); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 6px; }
+  .wrap { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: clamp(16px, 4vw, 40px); }
+  h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; margin: 0; text-wrap: balance; }
+  h2 { font-size: clamp(36px, 5.4vw, 68px); }
+  h3 { font-size: 22px; letter-spacing: -0.02em; line-height: 1.2; }
+  p { margin: 0; }
+  .g { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 800; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; color: var(--cyan); }
+  .eyebrow::before { content: ''; width: 32px; height: 3px; border-radius: 3px; background: var(--grad); }
+  .lead { color: var(--soft); font-size: clamp(17px, 1.6vw, 20px); max-width: 60ch; }
+  .btn { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; padding: 15px 26px; font-family: var(--display); font-weight: 700; font-size: 16px; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 12px 34px rgba(11, 88, 255, .45); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 44px rgba(11, 88, 255, .6); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--ink); background: rgba(255,255,255,.03); }
+  .btn-ghost:hover { border-color: var(--cyan); }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+  section { padding-block: clamp(72px, 10vw, 128px); position: relative; }
+
+  /* En-tête */
+  header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(1, 10, 46, .78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand img { width: 40px; height: 40px; }
+  .brand b { display: block; font-family: var(--display); font-weight: 800; font-size: 18px; letter-spacing: .08em; line-height: 1; }
+  .brand small { display: block; margin-top: 5px; font-family: var(--display); font-weight: 700; font-size: 9.5px; letter-spacing: .42em; color: var(--cyan); line-height: 1; }
+  nav { display: flex; gap: 28px; font-weight: 500; font-size: 15px; color: var(--soft); }
+  nav a { text-decoration: none; } nav a:hover { color: var(--ink); }
+  header .btn { padding: 11px 20px; font-size: 14px; }
+  @media (max-width: 860px) { nav { display: none; } }
+  @media (max-width: 420px) { header .btn span { display: none; } header .btn { padding: 11px; } }
+
+  /* Hero */
+  .hero { padding-block: clamp(56px, 8vw, 96px) clamp(72px, 9vw, 120px); overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse at 70% 40%, #000 30%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 30%, transparent 75%); }
+  .orb { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+  .hero h1 { font-size: clamp(48px, 7.4vw, 104px); }
+  .hero .lead { margin-top: 26px; }
+  .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 34px; }
+  .chip { border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 14px; color: var(--soft); background: rgba(255,255,255,.03); }
+  .collage { position: relative; aspect-ratio: 1 / 1.02; max-width: 100%; }
+  .collage > * { position: absolute; box-shadow: 0 34px 80px rgba(0,0,0,.5); }
+  .c-slide { left: 30%; top: 0; width: 48%; border-radius: 18px; transform: rotate(5deg); overflow: hidden; animation: float 7s ease-in-out infinite; }
+  .c-site { left: 0; top: 44%; width: 84%; border-radius: 12px; overflow: hidden; transform: rotate(-4deg); background: #fff; }
+  .c-site .bar { height: 18px; background: #e9edf5; display: flex; gap: 5px; align-items: center; padding: 0 9px; }
+  .c-site .bar i { width: 7px; height: 7px; border-radius: 50%; background: #c3cbdb; }
+  .c-badge { right: 0; bottom: 4%; width: 34%; aspect-ratio: 1; border-radius: 28%; background: #ffc22b; display: grid; place-items: center; transform: rotate(8deg); animation: float 8s ease-in-out -2s infinite; }
+  .c-badge img { width: 82%; }
+  .c-round { left: 2%; top: 4%; width: 30%; aspect-ratio: 1; border-radius: 50%; overflow: hidden; border: 5px solid rgba(255,255,255,.1); transform: rotate(-6deg); }
+  .c-round img { width: 100%; height: 100%; object-fit: cover; }
+  @keyframes float { 50% { translate: 0 -10px; } }
+  @media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } .collage { width: min(520px, 100%); margin-inline: auto; } }
+
+  /* Bandeau défilant */
+  .marquee { border-block: 1px solid var(--line); background: var(--navy); overflow: hidden; padding-block: 18px; }
+  .marquee .track { display: flex; gap: 48px; width: max-content; animation: scroll 32s linear infinite; font-family: var(--display); font-weight: 800; font-size: clamp(22px, 3vw, 34px); letter-spacing: -.02em; white-space: nowrap; }
+  .marquee .track span:nth-child(even) { color: transparent; -webkit-text-stroke: 1.5px var(--cyan); }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* Expertises */
+  .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 48px; }
+  .head > div { min-width: 0; }
+  .head h2 { margin-top: 18px; max-width: 16ch; }
+  .head .lead { max-width: 42ch; }
+  .services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 56px; background: var(--line); border: 1px solid var(--line); border-radius: 24px; overflow: hidden; }
+  .svc { background: var(--night); padding: 34px 30px 32px; display: flex; flex-direction: column; gap: 14px; min-height: 250px; transition: background .25s ease; }
+  .svc:hover { background: var(--navy); }
+  .svc .ico { width: 52px; height: 52px; border-radius: 16px; background: var(--grad); display: grid; place-items: center; box-shadow: 0 10px 26px rgba(11,88,255,.35); }
+  .svc .ico svg { width: 26px; height: 26px; }
+  .svc h3 { margin-top: auto; }
+  .svc p { color: var(--soft); font-size: 15.5px; }
+  .svc ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .svc li { font-family: var(--mono); font-size: 12px; color: var(--mute); border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; }
+  @media (max-width: 900px) { .services { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 560px) { .services { grid-template-columns: 1fr; } }
+
+  /* Réalisation */
+  .work { background: var(--navy); }
+  .case-hero { position: relative; margin-top: 52px; border-radius: 28px; overflow: hidden; min-height: 460px; display: flex; align-items: flex-end; }
+  .case-hero > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .case-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(1,10,46,.96) 0%, rgba(1,10,46,.8) 42%, rgba(1,10,46,.1) 80%); }
+  .case-hero .in { position: relative; z-index: 1; padding: clamp(24px, 4vw, 52px); max-width: 640px; }
+  .case-hero .logo { width: min(320px, 80%); border-radius: 12px; }
+  .case-hero h3 { font-size: clamp(30px, 4vw, 48px); letter-spacing: -.04em; line-height: 1.05; margin-top: 22px; }
+  .case-hero p { color: var(--soft); margin-top: 14px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .meta span { font-family: var(--mono); font-size: 12px; color: var(--ink); background: rgba(255,255,255,.08); border-radius: 6px; padding: 5px 10px; }
+  .gallery { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; margin-top: 16px; }
+  .tile { position: relative; border-radius: 22px; overflow: hidden; background: var(--navy-2); min-height: 260px; }
+  .tile img { width: 100%; height: 100%; object-fit: cover; }
+  .tile figcaption { position: absolute; left: 14px; bottom: 14px; font-family: var(--mono); font-size: 12px; background: rgba(1,10,46,.82); color: var(--ink); border-radius: 6px; padding: 5px 10px; }
+  .tile.s4 { grid-column: span 4; } .tile.s5 { grid-column: span 5; } .tile.s7 { grid-column: span 7; } .tile.s8 { grid-column: span 8; } .tile.s3 { grid-column: span 3; }
+  .tile.yellow { background: #ffc22b; display: grid; place-items: center; } .tile.yellow img { width: 70%; height: auto; }
+  .tile.light { background: #f5f7fb; }
+  .tile.light img { object-fit: contain; }
+  .slides { display: flex; gap: 12px; padding: 22px; height: 100%; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 60%, #0b58ff 0%, #021448 70%); }
+  .slides img { width: 31%; height: auto; border-radius: 10px; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  .slides img:nth-child(1) { transform: rotate(-6deg); } .slides img:nth-child(3) { transform: rotate(6deg); }
+  .phone-site { display: flex; gap: 16px; align-items: center; justify-content: center; padding: 22px; height: 100%; background: linear-gradient(160deg, #0a1f5c, #010a2e); }
+  .phone-site .desk { width: 72%; border-radius: 10px; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  .phone-site .mob { width: 22%; border-radius: 18px; border: 5px solid #05070f; overflow: hidden; box-shadow: 0 18px 40px rgba(0,0,0,.45); }
+  .demo-note { margin-top: 18px; font-size: 13.5px; color: var(--mute); }
+  @media (max-width: 860px) { .tile.s4, .tile.s5, .tile.s7, .tile.s8, .tile.s3 { grid-column: span 12; } .tile { min-height: 220px; } }
+
+  /* Méthode */
+  .steps { list-style: none; padding: 0; margin: 56px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; counter-reset: s; position: relative; }
+  .steps::before { content: ''; position: absolute; left: 24px; right: 24px; top: 23px; height: 3px; border-radius: 3px; background: var(--grad); }
+  .steps li { position: relative; counter-increment: s; min-width: 0; }
+  .steps li::before { content: counter(s); display: grid; place-items: center; width: 50px; height: 50px; border-radius: 50%; background: var(--navy); border: 3px solid var(--night); box-shadow: 0 0 0 2px var(--cyan); font-family: var(--display); font-weight: 800; font-size: 18px; }
+  .steps h3 { margin-top: 22px; }
+  .steps p { margin-top: 8px; color: var(--soft); font-size: 15.5px; }
+  .steps .when { display: inline-block; margin-top: 14px; font-family: var(--mono); font-size: 12px; color: var(--cyan); border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr; gap: 28px; } .steps::before { left: 24px; right: auto; top: 24px; bottom: 24px; width: 3px; height: auto; } .steps li { padding-left: 72px; } .steps li::before { position: absolute; left: 0; top: 0; } .steps h3 { margin-top: 10px; } }
+
+  /* Formules */
+  .offers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: 56px; }
+  .offer { border: 1px solid var(--line); border-radius: 24px; padding: 32px; background: rgba(255,255,255,.02); display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .offer .tag { font-family: var(--mono); font-size: 12px; color: var(--mute); text-transform: uppercase; letter-spacing: .08em; }
+  .offer h3 { font-size: 28px; }
+  .offer > p { color: var(--soft); }
+  .offer ul { list-style: none; padding: 0; margin: 6px 0 0; display: flex; flex-direction: column; gap: 10px; }
+  .offer li { display: flex; gap: 12px; align-items: baseline; font-size: 15.5px; }
+  .offer li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--grad); flex: none; translate: 0 -2px; }
+  .offer .price { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--line); font-family: var(--display); font-weight: 700; color: var(--cyan); }
+  .offer.star { background: var(--navy); border-color: rgba(1,218,255,.4); box-shadow: 0 30px 80px rgba(11,88,255,.25); }
+  .offer.star .tag { color: var(--cyan); }
+  @media (max-width: 900px) { .offers { grid-template-columns: 1fr; } }
+
+  /* Contact */
+  .contact .box { position: relative; overflow: hidden; border-radius: 32px; background: var(--grad); padding: clamp(28px, 5vw, 64px); display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; }
+  .contact .box::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 56px 56px; }
+  .contact .box > * { position: relative; min-width: 0; }
+  .contact h2 { color: #fff; font-size: clamp(40px, 6.4vw, 88px); }
+  .contact h2 span { color: var(--night); }
+  .contact .lead { color: #eaf6ff; margin-top: 18px; }
+  .phone-num { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .phone-num output { font-family: var(--display); font-weight: 800; font-size: clamp(26px, 3.4vw, 40px); letter-spacing: -.02em; color: #fff; user-select: all; }
+  .copy { border: 1px solid rgba(255,255,255,.55); background: rgba(255,255,255,.12); color: #fff; border-radius: 999px; padding: 8px 16px; font: 600 14px var(--body); cursor: pointer; }
+  .copy:hover { background: rgba(255,255,255,.22); }
+  .contact .btn-wa { margin-top: 24px; background: var(--night); color: #fff; }
+  .contact .btn-wa:hover { transform: translateY(-2px); }
+  .qr { width: 230px; background: #fff; border-radius: 22px; padding: 16px; text-align: center; box-shadow: 0 30px 70px rgba(2,20,72,.35); color: var(--navy); }
+  .qr p { margin-top: 8px; font-weight: 600; font-size: 13.5px; }
+  @media (max-width: 760px) { .contact .box { grid-template-columns: 1fr; } .qr { width: 200px; } }
+
+  footer { border-top: 1px solid var(--line); padding-block: 34px; color: var(--mute); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; align-items: center; }
+</style>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="E-DUST Solutions, accueil"><img src="img/edust-icon.svg" alt=""><span><b>E-DUST</b><small>SOLUTIONS</small></span></a>
+    <nav aria-label="Navigation principale"><a href="#expertises">Expertises</a><a href="#realisations">Réalisations</a><a href="#methode">Méthode</a><a href="#formules">Formules</a></nav>
+    <a class="btn btn-primary" href="https://wa.me/33613249680" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg><span>Discutons</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="orb" style="width:640px; height:640px; right:-160px; top:-160px; background:var(--electric); opacity:.5"></div>
+    <div class="orb" style="width:420px; height:420px; right:30%; bottom:-260px; background:var(--cyan); opacity:.3"></div>
+    <div class="wrap">
+      <div style="min-width:0">
+        <span class="eyebrow">Agence marketing créative</span>
+        <h1 style="margin-top:24px">On crée des marques qui <span class="g">donnent envie.</span></h1>
+        <p class="lead">Identité visuelle, site web, réseaux sociaux, photo et print. Tout ce qu’il faut pour qu’un restaurant ou un commerce se fasse remarquer, et qu’on revienne chez lui.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#contact">Parlons de votre projet</a>
+          <a class="btn btn-ghost" href="#realisations">Voir une réalisation</a>
+        </div>
+        <div class="chips"><span class="chip">Branding</span><span class="chip">Web &amp; commande en ligne</span><span class="chip">Social media</span><span class="chip">Direction photo</span><span class="chip">Print</span></div>
+      </div>
+      <div class="collage" aria-hidden="true">
+        <div class="c-round"><img src="img/bacon-bbq.jpg" alt=""></div>
+        <div class="c-slide"><img src="img/01.jpg" alt=""></div>
+        <div class="c-site"><div class="bar"><i></i><i></i><i></i></div><img src="img/ff-home.jpg" alt=""></div>
+        <div class="c-badge"><img src="img/smashhouse-logo-badge.svg" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Logo &amp; charte</span><span>Sites web</span><span>Commande en ligne</span><span>Carrousels</span><span>Reels</span><span>Direction photo</span><span>Flyers</span><span>Packaging</span><span>Fiche Google</span><span>Fidélité</span>
+      <span>Logo &amp; charte</span><span>Sites web</span><span>Commande en ligne</span><span>Carrousels</span><span>Reels</span><span>Direction photo</span><span>Flyers</span><span>Packaging</span><span>Fiche Google</span><span>Fidélité</span>
+    </div>
+  </div>
+
+  <section id="expertises">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Expertises</span><h2>Six métiers, <span class="g">une seule signature.</span></h2></div>
+        <p class="lead">Chaque expertise peut se prendre seule. Ensemble, elles donnent une image cohérente, du gobelet jusqu’au fil Instagram.</p>
+      </div>
+      <div class="services">
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18M3 12h18"/></svg></div><h3>Branding &amp; identité</h3><p>Un nom, un logo et une charte qui se reconnaissent de l’autre trottoir.</p><ul><li>logo</li><li>charte</li><li>typographies</li></ul></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></div><h3>Site web &amp; vente en ligne</h3><p>Des sites rapides, pensés pour le téléphone, avec commande en ligne sans commission.</p><ul><li>vitrine</li><li>click &amp; collect</li><li>back-office</li></ul></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".8" fill="#fff"/></svg></div><h3>Social media</h3><p>Une ligne éditoriale, des templates et un rythme de publication tenable.</p><ul><li>Instagram</li><li>TikTok</li><li>LinkedIn</li></ul></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div><h3>Photo &amp; vidéo</h3><p>Une direction artistique qui ouvre l’appétit, en photo comme en vidéo courte.</p><ul><li>shooting</li><li>Reels</li><li>retouche</li></ul></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V3h12v6M6 18H4v-7h16v7h-2M6 14h12v7H6z"/></svg></div><h3>Print &amp; packaging</h3><p>Flyers, menus, cartes fidélité, vitrine, sacs et gobelets à vos couleurs.</p><ul><li>flyers</li><li>menus</li><li>packaging</li></ul></article>
+        <article class="svc"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg></div><h3>Visibilité &amp; fidélisation</h3><p>Être trouvé sur Google, collecter des avis et faire revenir vos clients.</p><ul><li>Google</li><li>avis</li><li>SMS &amp; e-mail</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="realisations" class="work">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Réalisation</span><h2>Une marque de burgers, <span class="g">de zéro.</span></h2></div>
+        <p class="lead">SMASH HOUSE : nom, logo, photos, site de commande, réseaux sociaux et supports imprimés. Un projet complet pour montrer ce qu’on fait quand tout est pensé ensemble.</p>
+      </div>
+      <div class="case-hero">
+        <img src="img/hero.jpg" alt="Smash burger au cheddar fondant sur fond sombre">
+        <div class="in">
+          <img class="logo" src="img/smashhouse-logo-horizontal-fond-sombre.svg" alt="Logo SMASH HOUSE">
+          <h3>Se démarquer dans une rue où tout le monde vend des burgers.</h3>
+          <p>Une marque généreuse et rétro-street : moutarde et tomate, typographie massive, gros plans où le cheddar coule.</p>
+          <div class="meta"><span>identité</span><span>6 logos</span><span>20 visuels</span><span>site + commande</span><span>carrousel</span><span>vidéo 34 s</span><span>print</span></div>
+        </div>
+      </div>
+      <div class="gallery">
+        <figure class="tile s4 yellow" style="margin:0"><img src="img/smashhouse-logo-badge.svg" alt="Badge rond SMASH HOUSE"><figcaption>Logo principal</figcaption></figure>
+        <figure class="tile s8" style="margin:0"><div class="phone-site"><img class="desk" src="img/ff-menu.jpg" alt="Page carte du site SMASH HOUSE"><img class="mob" src="img/ff-m-home.jpg" alt="Accueil du site sur téléphone"></div><figcaption>Site &amp; commande en ligne</figcaption></figure>
+        <figure class="tile s7" style="margin:0"><div class="slides"><img src="img/04.jpg" alt="Slide de carrousel : personnalisation"><img src="img/01.jpg" alt="Slide de carrousel : couverture"><img src="img/08.jpg" alt="Slide de carrousel : appel à l’action"></div><figcaption>Carrousel réseaux sociaux</figcaption></figure>
+        <figure class="tile s5" style="margin:0"><img src="img/smash-classique.jpg" alt="Smash burger classique"><figcaption>Direction photo</figcaption></figure>
+        <figure class="tile s5 light" style="margin:0"><img src="img/print.jpg" alt="Flyer, carte de visite et carte de fidélité SMASH HOUSE"><figcaption>Print</figcaption></figure>
+        <figure class="tile s7 light" style="margin:0"><img src="img/packaging.jpg" alt="Sac kraft, gobelet, boîte burger et stickers SMASH HOUSE"><figcaption>Packaging</figcaption></figure>
+        <figure class="tile s3" style="margin:0"><img src="img/milkshake.jpg" alt="Milkshake vanille caramel"></figure>
+        <figure class="tile s3" style="margin:0"><img src="img/tacos-xl.jpg" alt="Tacos XL"></figure>
+        <figure class="tile s3" style="margin:0"><img src="img/frites-cheddar-bacon.jpg" alt="Frites cheddar bacon"></figure>
+        <figure class="tile s3" style="margin:0"><img src="img/double-cheese.jpg" alt="Double cheese burger"></figure>
+      </div>
+      <p class="demo-note">SMASH HOUSE est une enseigne de démonstration : visuels générés par IA, paiement simulé. Pour un client, on travaille avec vos vrais plats et vos vraies photos.</p>
+    </div>
+  </section>
+
+  <section id="methode">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Méthode</span><h2>Cinq étapes, <span class="g">zéro surprise.</span></h2></div>
+        <p class="lead">Vous validez chaque étape. Rien n’est publié ni imprimé sans votre accord, et tous les fichiers sources vous sont remis.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Écoute</h3><p>Un premier échange offert pour comprendre votre commerce, vos clients et vos objectifs.</p><span class="when">jour 1</span></li>
+        <li><h3>Stratégie</h3><p>Un plan d’action clair et un devis détaillé, priorisé selon votre budget.</p><span class="when">sous 48 h</span></li>
+        <li><h3>Création</h3><p>Des pistes créatives, puis la réalisation avec vos retours à chaque étape.</p><span class="when">2 à 6 semaines</span></li>
+        <li><h3>Lancement</h3><p>Mise en ligne, impression, publication, et une prise en main simple.</p><span class="when">jour J</span></li>
+        <li><h3>Suivi</h3><p>On mesure ce qui marche, on ajuste et on fait grandir votre marque.</p><span class="when">en continu</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="formules" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Formules</span><h2>Trois façons de <span class="g">vous accompagner.</span></h2></div>
+        <p class="lead">Chaque projet est chiffré sur mesure après notre premier échange.</p>
+      </div>
+      <div class="offers">
+        <article class="offer"><span class="tag">Pour démarrer</span><h3>Lancement de marque</h3><p>Pour ouvrir ou repartir de zéro avec une image forte.</p><ul><li>Logo et charte graphique</li><li>Cartes de visite et flyer</li><li>Fiche Google optimisée</li><li>Templates réseaux sociaux</li></ul><p class="price">Sur devis</p></article>
+        <article class="offer star"><span class="tag">Le plus complet</span><h3>Marque &amp; vente en ligne</h3><p>Tout ce qu’on a fait pour SMASH HOUSE.</p><ul><li>Tout le Lancement de marque</li><li>Site et commande en ligne sans commission</li><li>Direction photo et visuels produits</li><li>Kit réseaux : carrousels et vidéo</li><li>Supports print et carte fidélité</li></ul><p class="price">Sur devis</p></article>
+        <article class="offer"><span class="tag">Dans la durée</span><h3>Partenaire com’</h3><p>Votre service marketing externalisé, au mois.</p><ul><li>Publications et stories chaque semaine</li><li>Mises à jour du site et de la carte</li><li>Campagnes e-mail, SMS et pub locale</li><li>Bilan mensuel des résultats</li></ul><p class="price">Sur devis</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="box">
+        <div>
+          <span class="eyebrow" style="color:#fff">Parlons de votre projet</span>
+          <h2 style="margin-top:20px">À vous de <span>faire envie.</span></h2>
+          <p class="lead">Premier échange offert et sans engagement : 30 minutes pour regarder votre image actuelle et voir ce qu’on peut créer ensemble.</p>
+          <div class="phone-num"><output id="tel">+33 6 13 24 96 80</output><button class="copy" id="copy" type="button">Copier le numéro</button></div>
+          <a class="btn btn-wa" href="https://wa.me/33613249680" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>Écrire sur WhatsApp</a>
+        </div>
+        <div class="qr"><img src="img/qr-whatsapp.svg" alt="QR code vers une conversation WhatsApp au +33 6 13 24 96 80"><p>Scannez pour m’écrire sur WhatsApp</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/edust-icon.svg" alt="" style="width:32px; height:32px"><span><b style="font-size:15px">E-DUST</b><small>SOLUTIONS</small></span></a>
+    <span>Agence marketing créative · Téléphone &amp; WhatsApp : +33 6 13 24 96 80</span>
+    <span>© 2026 E-DUST Solutions</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('copy').addEventListener('click', async (e) => {
+    const btn = e.currentTarget, num = '+33613249680';
+    try { await navigator.clipboard.writeText(num); btn.textContent = 'Numéro copié'; }
+    catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('tel')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Numéro sélectionné'; }
+    setTimeout(() => { btn.textContent = 'Copier le numéro'; }, 2200);
+  });
+</script>
