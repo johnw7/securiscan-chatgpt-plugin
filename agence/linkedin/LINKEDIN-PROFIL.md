@@ -8,7 +8,8 @@ Fichiers à importer :
 | `banniere-profil-minimaliste.png` (1584×396) | Votre profil → icône crayon sur la bannière. Version haute définition : `banniere-profil-minimaliste-hd.png` |
 | `banniere-profil-creative.png` (1584×396) | Variante plus créative |
 | `banniere-profil-linkedin.png` (1584×396) | Variante plus sobre |
-| `banniere-page-entreprise.png` (1128×191) | Page entreprise E-DUST Solutions → image de couverture |
+| `banniere-page-entreprise-finale.png` (1128×191) | Page entreprise E-DUST Solutions → image de couverture (même style que la bannière de profil) |
+| `banniere-page-entreprise.png` (1128×191) | Ancienne variante de couverture |
 | `logo-edust-400.png` (400×400) | Page entreprise → logo |
 | `../../portfolio-agence/linkedin/portfolio-document-linkedin.pdf` | Profil → section « Sélection » |
 
@@ -118,20 +119,18 @@ Créez-la depuis « Pour les entreprises » → « Créer une page entreprise »
 - **Nom :** E-DUST Solutions
 - **Slogan (120 caractères max) :**
   ```
-  Agence marketing créative · On crée des marques qui donnent envie
+  Agence de communication digitale · Ce qui ne se voit pas ne se vend pas.
   ```
 - **Secteur :** Services de publicité ou Services de design
 - **Taille :** 1 à 10 employés
 - **Bouton :** « Nous contacter » → `https://wa.me/33613249680`
 - **Description :**
   ```
-  E-DUST Solutions est une agence marketing créative pour les restaurants, les commerces et les indépendants.
+  E-DUST Solutions est une agence de communication digitale pour les restaurants, les commerces et les indépendants.
 
   Nous créons des marques cohérentes et désirables, du logo jusqu'au fil Instagram : identité visuelle, sites web et commande en ligne, contenus pour les réseaux sociaux, direction photo, print et packaging, visibilité locale et fidélisation.
 
   Notre méthode : un premier échange offert, un devis sur mesure, une création validée étape par étape, puis un suivi des résultats. Nos clients restent propriétaires de tout ce que nous créons.
-
-  📲 WhatsApp : +33 6 13 24 96 80
   ```
 - **Spécialités :** Branding, Identité visuelle, Création de sites web, Commande en ligne, Social media, Direction photo, Print, Packaging, Marketing local, Restauration.
 
