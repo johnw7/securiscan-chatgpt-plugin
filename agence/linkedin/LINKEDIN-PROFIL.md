@@ -42,29 +42,29 @@ J'aide les entreprises et les marques à se faire remarquer · Branding, sites w
 ## 4. Infos (section « À propos »)
 
 ```
-Une marque qui donne envie, ça se voit partout : sur la devanture, sur le gobelet, sur le site et sur le fil Instagram.
+Ce qui ne se voit pas ne se vend pas.
 
-Je suis le fondateur d'E-DUST Solutions, une agence de communication digitale qui aide les entreprises, les marques et les entrepreneurs à se rendre visibles et désirables.
+Vous pouvez avoir le meilleur produit, le meilleur service ou la meilleure expertise de votre marché : si personne ne vous voit, personne ne vous choisit.
 
-Ce que je crée pour vous :
-→ Logo, charte graphique et identité complète
-→ Site vitrine ou site de commande en ligne, sans commission de plateforme
-→ Contenus pour les réseaux sociaux : carrousels, posts, vidéos courtes
-→ Direction photo de vos produits
-→ Flyers, menus, cartes de fidélité, packaging
-→ Fiche Google, avis clients et fidélisation
+Je suis le fondateur d'E-DUST Solutions, une agence de communication digitale. J'aide les entreprises, les marques et les entrepreneurs à devenir visibles, reconnaissables et désirables, en ligne comme hors ligne.
 
-Ma façon de travailler :
-1. Un premier échange offert pour comprendre votre activité
-2. Un plan clair et un devis sur mesure
-3. La création, avec vos retours à chaque étape
+Ce que nous faisons :
+→ Identité visuelle : logo, charte graphique, univers de marque
+→ Sites web : sites vitrines, landing pages, e-commerce
+→ Réseaux sociaux : stratégie, contenus, carrousels, vidéos courtes
+→ Création de contenu : photo, vidéo, visuels publicitaires
+→ Print : supports de communication, signalétique, packaging
+→ Visibilité : référencement local, publicité digitale, fidélisation
+
+Notre méthode :
+1. Un premier échange offert pour comprendre votre activité et vos objectifs
+2. Une stratégie claire et un devis sur mesure
+3. La création, validée avec vous à chaque étape
 4. Le lancement, puis le suivi des résultats
 
-Vous gardez la propriété de tout : logo, site, photos et comptes.
+Un seul interlocuteur, des créations sur mesure, et vous restez propriétaire de tout ce que nous réalisons.
 
-Un exemple concret ? Mon étude de cas SMASH HOUSE, une marque de burgers créée de zéro, est dans la section Sélection ci-dessous.
-
-📲 Parlons de votre projet sur WhatsApp : +33 6 13 24 96 80
+Votre projet mérite d'être vu. Écrivez-moi en message privé pour en parler.
 ```
 
 ## 5. Sélection (section « En vedette »)
