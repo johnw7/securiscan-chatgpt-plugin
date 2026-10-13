@@ -4,7 +4,8 @@ Fichiers à importer :
 
 | Fichier | Où le mettre |
 | --- | --- |
-| `banniere-profil-minimaliste.png` (1584×396) | **Bannière recommandée.** Votre profil → icône crayon sur la bannière. Version haute définition : `banniere-profil-minimaliste-hd.png` |
+| `ce-qui-ne-se-voit-pas/banniere-finale-sans-numero.png` (1584×396) | **Bannière choisie.** Votre profil → icône crayon sur la bannière. Version HD : `banniere-finale-sans-numero-hd.png` |
+| `banniere-profil-minimaliste.png` (1584×396) | Votre profil → icône crayon sur la bannière. Version haute définition : `banniere-profil-minimaliste-hd.png` |
 | `banniere-profil-creative.png` (1584×396) | Variante plus créative |
 | `banniere-profil-linkedin.png` (1584×396) | Variante plus sobre |
 | `banniere-page-entreprise.png` (1128×191) | Page entreprise E-DUST Solutions → image de couverture |
@@ -147,7 +148,7 @@ Créez-la depuis « Pour les entreprises » → « Créer une page entreprise »
 ## Checklist
 
 - [ ] Photo de profil professionnelle
-- [ ] Bannière `banniere-profil-minimaliste.png`
+- [ ] Bannière `ce-qui-ne-se-voit-pas/banniere-finale-sans-numero.png`
 - [ ] Titre du profil
 - [ ] Coordonnées et lien WhatsApp
 - [ ] Section À propos
