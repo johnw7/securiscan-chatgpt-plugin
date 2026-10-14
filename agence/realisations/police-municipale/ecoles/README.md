@@ -9,3 +9,10 @@ Six affiches (1080×1350) et une galerie (1920×1080), avec le personnage de ré
 - `source/` : sources HTML
 
 Chaque affiche porte la mention « document de démonstration non officiel · illustration générée par IA ».
+
+## Version A4 (impression)
+
+- `affiches-a4/01-traverser-A4.jpg` à `06-agent-ami-A4.jpg` : 2480×3508 px (A4 à 300 dpi)
+- `affiches-a4/campagne-ecoles-A4.pdf` : les 6 affiches, une par page A4, sans marge
+- Les 6 scènes (`img/e1.jpg` à `e6.jpg`) sont générées avec l'IA de Canva à partir du personnage de référence
+- Source : `source/affiches-a4.html`
