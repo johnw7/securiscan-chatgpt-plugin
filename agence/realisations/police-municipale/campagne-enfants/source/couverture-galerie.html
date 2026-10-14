@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --navy:#16226b; --nuit:#0a0f33; --bleu:#2b3a9c; --rouge:#e1131b; }
+  * { box-sizing: border-box; } body { margin: 0; background: #555; font-family: 'Public Sans', sans-serif; }
+  img { display: block; }
+  /* Couverture A4 plein cadre, même style que les affiches */
+  .p { width: 1240px; height: 1754px; position: relative; overflow: hidden; background: var(--nuit); color: #fff; }
+  .p .fg { position: absolute; left: 0; top: 0; width: 100%; height: auto; }
+  .gt { position: absolute; left: 0; right: 0; top: 0; height: 300px; background: linear-gradient(180deg, rgba(10,15,51,.88), rgba(10,15,51,0)); }
+  .gb { position: absolute; left: 0; right: 0; bottom: 0; height: 900px; background: linear-gradient(0deg, rgba(10,15,51,1) 0%, rgba(10,15,51,.97) 50%, rgba(10,15,51,.65) 74%, rgba(10,15,51,0) 100%); }
+  .head { position: absolute; left: 0; right: 0; top: 0; height: 170px; display: flex; align-items: center; justify-content: space-between; padding: 0 70px; }
+  .head .id { display: flex; align-items: center; gap: 20px; }
+  .head img { height: 100px; }
+  .head p { margin: 0; font: 900 30px/1.1 'Public Sans'; letter-spacing: .04em; text-transform: uppercase; }
+  .head small { display: block; margin-top: 6px; font: 600 20px 'Public Sans'; letter-spacing: 0; text-transform: none; color: #d5dbf3; }
+  .head b { padding: 8px 14px; background: var(--rouge); font: 900 20px 'Public Sans'; letter-spacing: .1em; text-transform: uppercase; }
+  .txt { position: absolute; left: 70px; right: 70px; top: 1000px; }
+  .k { margin: 0; font: 800 22px 'Public Sans'; letter-spacing: .22em; text-transform: uppercase; color: #9fb0ff; }
+  .t { margin: 14px 0 0; font: 900 86px/1 'Public Sans'; text-transform: uppercase; letter-spacing: -.01em; }
+  .t::after { content: ''; display: block; width: 120px; height: 10px; margin-top: 26px; background: var(--rouge); }
+  .list { margin: 34px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 40px; }
+  .list li { display: flex; align-items: center; gap: 16px; font: 600 27px 'Public Sans'; color: #eef1fb; }
+  .list span { flex: none; width: 44px; height: 44px; border-radius: 50%; background: #fff; display: grid; place-items: center; font: 900 21px 'Public Sans'; color: var(--navy); }
+  .foot { position: absolute; left: 70px; right: 70px; bottom: 34px; display: flex; align-items: flex-end; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.25); padding-top: 16px; }
+  .foot p { margin: 0; font: 600 15px/1.4 'Public Sans'; color: #aeb7dc; }
+  .foot .u { font: 700 20px 'Public Sans'; color: #d5dbf3; }
+  .foot .u b { font: 900 40px 'Public Sans'; color: #fff; margin-left: 10px; }
+  /* Galerie 1920×1080 */
+  .g { width: 1920px; height: 1080px; position: relative; overflow: hidden; background: var(--nuit); color: #fff; margin-top: 30px; }
+  .g .tri { position: absolute; left: 0; right: 0; top: 0; height: 10px; display: flex; } .g .tri i { flex: 1; }
+  .g .hd { position: absolute; left: 90px; right: 90px; top: 80px; display: flex; align-items: flex-end; justify-content: space-between; }
+  .g .hd .id { display: flex; align-items: center; gap: 22px; }
+  .g .hd img { height: 110px; }
+  .g .row { position: absolute; left: 90px; right: 90px; top: 390px; display: grid; grid-template-columns: repeat(7, 1fr); gap: 22px; }
+  .g .row img { width: 100%; border-radius: 8px; box-shadow: 0 24px 50px rgba(0,0,0,.5); }
+  .g .row p { margin: 14px 0 0; font: 700 17px 'Public Sans'; color: #c9d2ff; }
+  .g .row b { color: #fff; }
+</style>
+</head>
+<body>
+
+<section class="p" id="cv">
+  <img class="fg" src="../../ecoles/img/e6.jpg">
+  <div class="gt"></div><div class="gb"></div>
+  <div class="head"><div class="id"><img src="../../img/ecusson.png"><p>Police municipale<small>Votre commune</small></p></div><b>Prévention enfants</b></div>
+  <div class="txt">
+    <p class="k">Campagne de sensibilisation</p>
+    <p class="t">Grandir<br>en sécurité</p>
+    <ol class="list">
+      <li><span>1</span>Traverser en sécurité</li>
+      <li><span>2</span>Le casque à vélo</li>
+      <li><span>3</span>La trottinette</li>
+      <li><span>4</span>Face à un inconnu</li>
+      <li><span>5</span>Sur internet</li>
+      <li><span>6</span>Le 17</li>
+      <li><span>7</span>La police municipale, à vos côtés</li>
+    </ol>
+  </div>
+  <div class="foot"><p>Document de démonstration non officiel<br>Illustrations générées par IA</p><div class="u">En cas d'urgence<b>17 · 112</b></div></div>
+</section>
+
+<section class="g" id="g">
+  <div class="tri"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <div class="hd">
+    <div class="id"><img src="../../img/ecusson.png"><div><p style="margin:0; font:800 20px 'Public Sans'; letter-spacing:.22em; text-transform:uppercase; color:#9fb0ff">Police municipale · Campagne de sensibilisation</p><p style="margin:10px 0 0; font:900 76px/1 'Public Sans'; text-transform:uppercase">Grandir en sécurité</p></div></div>
+    <p style="margin:0; text-align:right; font:600 18px/1.5 'Public Sans'; color:#aeb7dc">7 affiches A4 pour les enfants<br>Document de démonstration non officiel · illustrations IA</p>
+  </div>
+  <div class="row">
+    <div><img src="../affiches/01-traverser-A4.jpg"><p><b>01</b> · Traverser</p></div>
+    <div><img src="../affiches/02-casque-A4.jpg"><p><b>02</b> · Le casque</p></div>
+    <div><img src="../affiches/03-trottinettes-A4.jpg"><p><b>03</b> · La trottinette</p></div>
+    <div><img src="../affiches/04-inconnu-A4.jpg"><p><b>04</b> · Les inconnus</p></div>
+    <div><img src="../affiches/05-internet-A4.jpg"><p><b>05</b> · Internet</p></div>
+    <div><img src="../affiches/06-urgence-17-A4.jpg"><p><b>06</b> · Le 17</p></div>
+    <div><img src="../affiches/07-confiance-A4.jpg"><p><b>07</b> · Confiance</p></div>
+  </div>
+  <div style="position:absolute; left:90px; right:90px; bottom:70px; display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,.2); padding-top:28px">
+    <p style="margin:0; font:800 30px 'Public Sans'">7 affiches · 7 règles simples · format A4 prêt à imprimer</p>
+    <p style="margin:0; font:700 22px 'Public Sans'; color:#d5dbf3">En cas d'urgence <b style="font:900 40px 'Public Sans'; color:#fff; margin-left:8px">17 · 112</b></p>
+  </div>
+</section>
+</body>
+</html>
