@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Version institutionnelle : sobre, rectangulaire, fond blanc. A4 portrait 1240×1754. */
+  @page { size: A4; margin: 0; }
+  :root { --navy:#16226b; --bleu:#2b3a9c; --rouge:#e1131b; --gris:#5b6178; --clair:#f2f4f9; }
+  * { box-sizing: border-box; } body { margin: 0; background: #555; font-family: 'Public Sans', sans-serif; }
+  img { display: block; }
+  .p { width: 1240px; height: 1754px; position: relative; overflow: hidden; background: #fff; color: var(--navy); page-break-after: always; }
+  .head { position: absolute; left: 0; right: 0; top: 0; height: 170px; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+  .head .id { display: flex; align-items: center; gap: 22px; }
+  .head img { height: 104px; }
+  .head p { margin: 0; font: 900 30px/1.1 'Public Sans'; letter-spacing: .04em; text-transform: uppercase; }
+  .head small { display: block; margin-top: 6px; font: 600 20px 'Public Sans'; letter-spacing: 0; text-transform: none; color: var(--gris); }
+  .head .them { text-align: right; font: 700 18px 'Public Sans'; letter-spacing: .18em; text-transform: uppercase; color: var(--gris); }
+  .head .them b { display: block; margin-top: 6px; font: 900 22px 'Public Sans'; letter-spacing: .1em; color: var(--rouge); }
+  .tri { position: absolute; left: 0; right: 0; height: 8px; display: flex; } .tri i { flex: 1; }
+  .ph { position: absolute; left: 0; top: 178px; width: 1240px; height: 820px; object-fit: cover; object-position: center 22%; }
+  .band { position: absolute; left: 0; right: 0; top: 998px; height: 300px; background: var(--navy); color: #fff; padding: 56px 80px 0; }
+  .band .k { margin: 0; font: 800 20px 'Public Sans'; letter-spacing: .22em; text-transform: uppercase; color: #9fb0ff; }
+  .band .t { margin: 18px 0 0; font: 900 66px/1.05 'Public Sans'; letter-spacing: -.01em; text-transform: uppercase; }
+  .band::after { content: ''; position: absolute; left: 80px; bottom: 0; width: 120px; height: 10px; background: var(--rouge); }
+  .ref { position: absolute; left: 80px; right: 80px; top: 1346px; }
+  .ref h3 { margin: 0 0 22px; font: 800 20px 'Public Sans'; letter-spacing: .2em; text-transform: uppercase; color: var(--gris); }
+  .ref ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+  .ref li { display: flex; align-items: center; gap: 24px; font: 600 31px/1.3 'Public Sans'; }
+  .ref li span { flex: none; width: 56px; height: 56px; border-radius: 6px; background: var(--clair); border-left: 6px solid var(--rouge); display: grid; place-items: center; font: 900 26px 'Public Sans'; color: var(--navy); }
+  .foot { position: absolute; left: 0; right: 0; bottom: 0; height: 110px; background: var(--clair); display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+  .foot p { margin: 0; font: 600 19px 'Public Sans'; color: var(--gris); }
+  .foot .u { font: 700 22px 'Public Sans'; color: var(--navy); }
+  .foot .u b { font: 900 40px 'Public Sans'; color: var(--rouge); margin-left: 10px; }
+</style>
+</head>
+<body>
+
+<template id="haut">
+  <div class="head"><div class="id"><img src="../../img/ecusson.png"><p>Police municipale<small>Votre commune</small></p></div><div class="them">Prévention écoles<b>__THEME__</b></div></div>
+  <div class="tri" style="top:170px"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+</template>
+<template id="bas">
+  <div class="foot"><p>Document de démonstration non officiel<br>Illustration générée par IA</p><div class="u">En cas d'urgence<b>17 · 112</b></div></div>
+</template>
+
+<section class="p" id="i1" data-theme="Sécurité routière">
+  <img class="ph" src="../img/e1.jpg">
+  <div class="band"><p class="k">Sur le chemin de l'école</p><p class="t">Traverser<br>en sécurité</p></div>
+  <div class="ref"><h3>Les bons réflexes</h3><ol>
+    <li><span>1</span>Je m'arrête au bord du trottoir.</li>
+    <li><span>2</span>Je regarde à gauche, à droite, puis à gauche.</li>
+    <li><span>3</span>Je traverse sur le passage piéton, sans courir.</li>
+  </ol></div>
+</section>
+
+<section class="p" id="i2" data-theme="À vélo">
+  <img class="ph" src="../img/e2.jpg" style="object-position:center 4%">
+  <div class="band"><p class="k">Obligatoire jusqu'à 12 ans</p><p class="t">Le casque,<br>toujours attaché</p></div>
+  <div class="ref"><h3>Les bons réflexes</h3><ol>
+    <li><span>1</span>Je porte mon casque, conducteur ou passager.</li>
+    <li><span>2</span>Je l'attache bien sous le menton.</li>
+    <li><span>3</span>Je vérifie mes freins et ma sonnette.</li>
+  </ol></div>
+</section>
+
+<section class="p" id="i3" data-theme="Dans la rue">
+  <img class="ph" src="../img/e3.jpg" style="object-position:center 30%">
+  <div class="band"><p class="k">Face à un inconnu</p><p class="t">Je dis non,<br>je préviens</p></div>
+  <div class="ref"><h3>Les bons réflexes</h3><ol>
+    <li><span>1</span>Je n'accepte ni bonbon, ni cadeau, ni trajet.</li>
+    <li><span>2</span>Je ne donne ni mon nom, ni mon adresse.</li>
+    <li><span>3</span>Je m'éloigne et je préviens un adulte de confiance.</li>
+  </ol></div>
+</section>
+
+<section class="p" id="i4" data-theme="Sur internet">
+  <img class="ph" src="../img/e4.jpg" style="object-position:center 42%">
+  <div class="band"><p class="k">Harcèlement en ligne</p><p class="t">Un message fait peur ?<br>J'en parle</p></div>
+  <div class="ref"><h3>Les bons réflexes</h3><ol>
+    <li><span>1</span>Je ne réponds pas aux messages méchants.</li>
+    <li><span>2</span>Je montre le message à un adulte de confiance.</li>
+    <li><span>3</span>Harcèlement en ligne : le 3018, gratuit et anonyme.</li>
+  </ol></div>
+</section>
+
+<section class="p" id="i5" data-theme="Urgence">
+  <img class="ph" src="../img/e5.jpg" style="object-position:center 6%">
+  <div class="band"><p class="k">Numéros d'urgence</p><p class="t">Le 17, pour les<br>vraies urgences</p></div>
+  <div class="ref"><h3>Les bons réflexes</h3><ol>
+    <li><span>1</span>Je reste calme et j'explique ce qui se passe.</li>
+    <li><span>2</span>Je donne mon nom et l'adresse où je suis.</li>
+    <li><span>3</span>Je ne raccroche pas avant qu'on me le dise.</li>
+  </ol></div>
+</section>
+
+<section class="p" id="i6" data-theme="Confiance">
+  <img class="ph" src="../img/e6.jpg">
+  <div class="band"><p class="k">À l'école et dans le quartier</p><p class="t">La police municipale,<br>à vos côtés</p></div>
+  <div class="ref"><h3>Les bons réflexes</h3><ol>
+    <li><span>1</span>Les agents sont là pour protéger les enfants.</li>
+    <li><span>2</span>Je peux leur demander de l'aide à tout moment.</li>
+    <li><span>3</span>Je les reconnais à leur uniforme.</li>
+  </ol></div>
+</section>
+
+<script>
+  const h = document.getElementById('haut').innerHTML, b = document.getElementById('bas').innerHTML;
+  document.querySelectorAll('.p').forEach((s) => s.insertAdjacentHTML('beforeend', h.replace('__THEME__', s.dataset.theme) + b));
+</script>
+</body>
+</html>

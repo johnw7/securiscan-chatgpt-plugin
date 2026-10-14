@@ -22,3 +22,10 @@ Chaque affiche porte la mention « document de démonstration non officiel · il
 - `affiches-stand/01-regarde-stand-A4.jpg` à `06-salut-stand-A4.jpg` : A4 à 300 dpi, un mot géant par affiche, lisible de loin
 - `affiches-stand/campagne-ecoles-stand-A4.pdf` : les 6 affiches en A4
 - Source : `source/affiches-stand.html`
+
+## Version institutionnelle
+
+- `affiches-institutionnel/01-traverser-institutionnel-A4.jpg` à `06-confiance-institutionnel-A4.jpg` : A4 à 300 dpi
+- `affiches-institutionnel/campagne-ecoles-institutionnel-A4.pdf` : les 6 affiches en A4
+- Fond blanc, scène rectangulaire, bandeau bleu marine, trois réflexes numérotés, numéros d'urgence
+- Source : `source/affiches-institutionnel.html`
