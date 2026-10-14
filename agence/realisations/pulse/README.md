@@ -20,8 +20,10 @@ Salle, planning et offres fictifs ; visuels générés par IA.
 
 ## Campagne d'ouverture
 
-- `portfolio-campagne-ouverture-pulse.pdf` : étude de cas en 11 pages (brief, grande idée, plan en 5 temps, teasing, révélation et offre, affichage, publicité Meta, jour J, livrables et suivi, contact).
+- `portfolio-campagne-ouverture-pulse.pdf` : étude de cas en 13 pages (brief, grande idée, plan en 5 temps, teasing, révélation et offre, affichage, publicité Meta, jour J, galerie de 12 formats créatifs, livrables et suivi, contact).
 - `campagne/` : 8 visuels de la campagne (teasing, story J-7, révélation, offre membres fondateurs, invitation opening night, pub Meta, affiche abribus 120×176, merci J+1).
 - Sources : `source/campagne.html` et `source/portfolio-campagne.html`.
 
 Ouverture fictive le samedi 9 janvier ; offre, adresse et chiffres de démonstration.
+
+- `galerie/` : 12 formats créatifs de la campagne (typographie photo, notifications, pass événement, humour, carte fondateur, couverture magazine, conversation, playlist, mosaïque stickers, proximité, compte à rebours, manifeste). Source : `source/galerie.html`.

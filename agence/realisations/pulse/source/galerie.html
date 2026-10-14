@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Playfair+Display:ital,wght@1,700;1,900&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#0a0b0d; --ink2:#15171b; --volt:#c8ff2e; --white:#f5f6f2; --mute:#8b8f98; }
+  * { box-sizing: border-box; } body { margin: 0; background: #444; font-family: Inter, sans-serif; }
+  img { display: block; }
+  .p { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 30px; }
+  .d { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: .86; margin: 0; text-transform: uppercase; }
+  .v { color: var(--volt); }
+  .cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .logo { display: flex; align-items: center; gap: 12px; font-family: 'Bebas Neue'; font-size: 36px; letter-spacing: .08em; }
+  .logo i { width: 42px; height: 42px; border-radius: 50%; background: var(--volt); display: grid; place-items: center; }
+  .logo i svg { width: 26px; height: 26px; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .stk { position: absolute; font: 900 30px Inter; text-transform: uppercase; letter-spacing: .04em; padding: 16px 26px; border-radius: 999px; }
+</style>
+</head>
+<body>
+<template id="pulse"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0b0d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2.5-6 4 12 2.5-6H22"/></svg></template>
+
+<!-- G1. Typo remplie de photo -->
+<section class="p" id="g1">
+  <p class="mono" style="position:absolute; left:72px; top:90px; margin:0; font-size:26px; color:var(--volt)">NOUVELLE SALLE · 1 200 M² · 7J/7</p>
+  <div style="position:absolute; left:0; right:0; top:250px; text-align:center">
+    <p class="d" style="font-size:500px; letter-spacing:-.01em; background:url(../img/p1.jpg) center 30%/cover; -webkit-background-clip:text; background-clip:text; color:transparent">PULSE</p>
+  </div>
+  <p class="d" style="position:absolute; left:0; right:0; top:720px; text-align:center; font-size:140px; color:transparent; -webkit-text-stroke:2px var(--volt)">Sweat · Lift · Repeat</p>
+  <p class="d" style="position:absolute; left:0; right:0; top:870px; text-align:center; font-size:140px; color:var(--volt)">Ressens le pulse.</p>
+  <div style="position:absolute; left:72px; right:72px; bottom:120px; display:flex; justify-content:space-between; align-items:flex-end">
+    <p style="margin:0; font:800 40px/1.2 Inter">Ouverture<br><span class="v">samedi 9 janvier</span></p>
+    <div class="logo"><i class="ic"></i>PULSE</div>
+  </div>
+</section>
+
+<!-- G2. Écran de verrouillage + notifications -->
+<section class="p" id="g2">
+  <img class="cover" src="../img/p6.jpg" style="filter:brightness(.45) blur(2px); transform:scale(1.05)">
+  <div style="position:absolute; left:0; right:0; top:110px; text-align:center">
+    <p style="margin:0; font:600 34px Inter; color:#e6e7e2">Samedi 9 janvier</p>
+    <p style="margin:0; font:300 200px/1 Inter; letter-spacing:-.04em">06:59</p>
+  </div>
+  <div style="position:absolute; left:70px; right:70px; top:520px; display:flex; flex-direction:column; gap:20px">
+    <div style="background:rgba(245,246,242,.82); backdrop-filter:blur(20px); border-radius:34px; padding:28px 30px; color:var(--ink); display:flex; gap:22px">
+      <div style="width:76px; height:76px; border-radius:18px; background:var(--ink); display:grid; place-items:center; flex:none"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#c8ff2e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2.5-6 4 12 2.5-6H22"/></svg></div>
+      <div><p style="margin:0; font:700 26px Inter; color:#55585f">PULSE · maintenant</p><p style="margin:6px 0 0; font:800 34px Inter">C'est aujourd'hui.</p><p style="margin:4px 0 0; font:500 30px/1.3 Inter">Les portes ouvrent à 7 h. Ton premier cours t'attend.</p></div>
+    </div>
+    <div style="background:rgba(245,246,242,.7); backdrop-filter:blur(20px); border-radius:34px; padding:24px 30px; color:var(--ink); display:flex; gap:22px; transform:scale(.96); opacity:.95">
+      <div style="width:66px; height:66px; border-radius:16px; background:var(--volt); display:grid; place-items:center; flex:none; font:900 30px Inter">%</div>
+      <div><p style="margin:0; font:700 24px Inter; color:#55585f">PULSE · il y a 2 h</p><p style="margin:6px 0 0; font:700 30px Inter">Plus que 12 places à -30 % à vie.</p></div>
+    </div>
+    <div style="background:rgba(245,246,242,.55); backdrop-filter:blur(20px); border-radius:34px; padding:22px 30px; color:var(--ink); transform:scale(.92); opacity:.85">
+      <p style="margin:0; font:700 22px Inter; color:#55585f">Rappel · hier</p><p style="margin:6px 0 0; font:700 28px Inter">Opening night : demain 19 h</p>
+    </div>
+  </div>
+  <p style="position:absolute; left:0; right:0; bottom:90px; text-align:center; margin:0; font:600 28px Inter; color:#e6e7e2">La seule notification qui compte ce samedi.</p>
+</section>
+
+<!-- G3. Billet / pass -->
+<section class="p" id="g3" style="background:var(--volt)">
+  <p class="d" style="position:absolute; left:72px; top:90px; font-size:120px; color:var(--ink)">Ton pass<br>est prêt.</p>
+  <div style="position:absolute; left:90px; right:90px; top:420px; height:700px; background:var(--ink); border-radius:36px; transform:rotate(-4deg); box-shadow:0 40px 80px rgba(0,0,0,.35); overflow:hidden">
+    <img src="../img/p3.jpg" style="width:100%; height:300px; object-fit:cover; filter:saturate(1.1)">
+    <div style="position:absolute; left:-30px; top:270px; width:60px; height:60px; border-radius:50%; background:var(--volt)"></div>
+    <div style="position:absolute; right:-30px; top:270px; width:60px; height:60px; border-radius:50%; background:var(--volt)"></div>
+    <div style="position:absolute; left:40px; right:40px; top:300px; border-top:4px dashed #2c2f36"></div>
+    <div style="padding:40px 50px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px">
+      <div style="grid-column:span 3"><p class="mono" style="margin:0; font-size:22px; color:var(--mute)">ÉVÉNEMENT</p><p class="d" style="font-size:96px; margin-top:6px">Opening <span class="v">night</span></p></div>
+      <div><p class="mono" style="margin:0; font-size:22px; color:var(--mute)">DATE</p><p style="margin:6px 0 0; font:800 36px Inter">09.01</p></div>
+      <div><p class="mono" style="margin:0; font-size:22px; color:var(--mute)">PORTES</p><p style="margin:6px 0 0; font:800 36px Inter">19:00</p></div>
+      <div><p class="mono" style="margin:0; font-size:22px; color:var(--mute)">ACCÈS</p><p style="margin:6px 0 0; font:800 36px Inter" class="v">VIP</p></div>
+    </div>
+    <div style="position:absolute; left:50px; right:50px; bottom:40px; height:60px; background:repeating-linear-gradient(90deg,#f5f6f2 0 4px,transparent 4px 9px,#f5f6f2 9px 11px,transparent 11px 18px)"></div>
+  </div>
+  <div style="position:absolute; left:72px; bottom:56px; color:var(--ink)" class="logo"><i class="ic" style="background:var(--ink)"></i>PULSE</div>
+</section>
+
+<!-- G4. Humour : moi à 6:59 / 7:00 -->
+<section class="p" id="g4">
+  <div style="position:absolute; inset:0 0 50% 0; background:#f5f6f2; color:var(--ink); padding:80px 72px">
+    <p class="mono" style="margin:0; font-size:30px; color:#6b6f78">06:59</p>
+    <p class="d" style="font-size:140px; margin-top:20px">« Je commence<br>lundi. »</p>
+  </div>
+  <div style="position:absolute; inset:50% 0 0 0">
+    <img class="cover" src="../img/p2.jpg" style="object-position:50% 25%"><div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(10,11,13,.85) 0%, rgba(10,11,13,0) 70%)"></div>
+    <div style="position:absolute; left:72px; top:80px">
+      <p class="mono" style="margin:0; font-size:30px" class="v"><span class="v">07:00</span></p>
+      <p class="d" style="font-size:140px; margin-top:20px">Lundi<br><span class="v">est là.</span></p>
+    </div>
+  </div>
+  <span class="stk" style="right:60px; top:610px; background:var(--volt); color:var(--ink); transform:rotate(-6deg)">Plus d'excuse</span>
+</section>
+
+<!-- G5. Carte membre fondateur -->
+<section class="p" id="g5" style="background:radial-gradient(circle at 50% 40%, #1d2a00 0%, #0a0b0d 60%)">
+  <p class="d" style="position:absolute; left:0; right:0; top:110px; text-align:center; font-size:110px">Il n'y en aura<br><span class="v">que 100.</span></p>
+  <div style="position:absolute; left:140px; right:140px; top:470px; height:500px; border-radius:40px; background:linear-gradient(135deg,#1a1c20 0%,#0a0b0d 55%,#232600 100%); border:1.5px solid rgba(200,255,46,.5); box-shadow:0 50px 100px rgba(0,0,0,.6), 0 0 120px rgba(200,255,46,.18); transform:rotate(-5deg); padding:50px">
+    <div style="display:flex; justify-content:space-between; align-items:center"><div class="logo"><i class="ic"></i>PULSE</div><p class="mono" style="margin:0; font-size:24px; color:var(--volt)">FOUNDER</p></div>
+    <div style="margin-top:70px; width:90px; height:66px; border-radius:12px; background:linear-gradient(135deg,#d9e7a0,#9fb24a)"></div>
+    <p class="mono" style="margin:40px 0 0; font-size:46px; letter-spacing:.12em">N° 001 / 100</p>
+    <div style="display:flex; justify-content:space-between; margin-top:24px"><p style="margin:0; font:700 26px Inter; color:var(--mute)">MEMBRE FONDATEUR</p><p style="margin:0; font:800 26px Inter" class="v">-30 % À VIE</p></div>
+  </div>
+  <p style="position:absolute; left:0; right:0; bottom:110px; text-align:center; margin:0; font:600 32px Inter">Réserve la tienne avant l'ouverture. Lien en bio.</p>
+</section>
+
+<!-- G6. Couverture magazine -->
+<section class="p" id="g6">
+  <img class="cover" src="../img/p1.jpg">
+  <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,11,13,.55) 0%, rgba(10,11,13,0) 28%, rgba(10,11,13,0) 60%, rgba(10,11,13,.85) 100%)"></div>
+  <div style="position:absolute; left:0; top:360px; width:560px; height:440px; background:linear-gradient(90deg, rgba(10,11,13,.85), rgba(10,11,13,0))"></div>
+  <p class="d" style="position:absolute; left:50px; right:50px; top:40px; font-size:300px; letter-spacing:.01em; color:var(--volt); text-align:center">PULSE</p>
+  <p class="mono" style="position:absolute; left:60px; top:330px; margin:0; font-size:22px">N°01 · JANVIER · ÉDITION OUVERTURE</p>
+  <div style="position:absolute; left:60px; top:440px; width:330px; text-shadow:0 2px 12px rgba(0,0,0,.6)">
+    <p style="margin:0; font:900 40px/1.05 Inter">Le guide</p><p style="margin:0; font:500 26px/1.3 Inter; color:#d9dce1">de ta première séance</p>
+    <p style="margin:40px 0 0; font:900 40px/1.05 Inter" class="v">Deadlift</p><p style="margin:0; font:500 26px/1.3 Inter; color:#d9dce1">la technique en 3 étapes</p>
+  </div>
+  <div style="position:absolute; left:60px; right:60px; bottom:80px">
+    <p style="margin:0; font:italic 900 88px/1 'Playfair Display'">Ressens le pulse.</p>
+    <p style="margin:16px 0 0; font:700 28px Inter; color:#d9dce1">1 200 m² · 7 j/7 · Cours collectifs · Coaching</p>
+  </div>
+</section>
+
+<!-- G7. Conversation -->
+<section class="p" id="g7" style="background:#f5f6f2; color:var(--ink)">
+  <div style="position:absolute; left:72px; top:70px; color:var(--ink)" class="logo"><i class="ic" style="background:var(--ink)"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; top:230px; display:flex; flex-direction:column; gap:22px; font:500 38px/1.3 Inter">
+    <div style="align-self:flex-start; max-width:720px; background:#e3e5dc; padding:26px 34px; border-radius:40px 40px 40px 10px">T'es dispo samedi soir ?</div>
+    <div style="align-self:flex-end; max-width:720px; background:var(--ink); color:#fff; padding:26px 34px; border-radius:40px 40px 10px 40px">Non. Opening night chez PULSE.</div>
+    <div style="align-self:flex-start; max-width:720px; background:#e3e5dc; padding:26px 34px; border-radius:40px 40px 40px 10px">Depuis quand tu vas à la salle ??</div>
+    <div style="align-self:flex-end; max-width:760px; background:var(--volt); color:var(--ink); padding:26px 34px; border-radius:40px 40px 10px 40px; font-weight:700">Depuis que j'ai eu -30 % à vie.</div>
+    <div style="align-self:flex-start; max-width:720px; background:#e3e5dc; padding:26px 34px; border-radius:40px 40px 40px 10px">… envoie le lien.</div>
+  </div>
+  <p class="d" style="position:absolute; left:72px; bottom:80px; font-size:96px">Envoie-le <span style="background:var(--ink); color:var(--volt); padding:0 14px">à ton binôme.</span></p>
+</section>
+
+<!-- G8. Lecteur de musique -->
+<section class="p" id="g8" style="background:linear-gradient(180deg,#1d2a00 0%,#0a0b0d 55%)">
+  <div style="position:absolute; left:120px; right:120px; top:110px; aspect-ratio:1; border-radius:28px; overflow:hidden; box-shadow:0 40px 90px rgba(0,0,0,.55)">
+    <img class="cover" src="../img/p3.jpg"><div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(10,11,13,0) 50%, rgba(10,11,13,.8))"></div>
+    <p class="d" style="position:absolute; left:40px; bottom:30px; font-size:110px">Opening<br><span class="v">night mix</span></p>
+  </div>
+  <div style="position:absolute; left:120px; right:120px; top:990px">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end"><div><p style="margin:0; font:800 40px Inter">Pulse Cycling · 45 min</p><p style="margin:6px 0 0; font:500 28px Inter; color:var(--mute)">PULSE Athletic Club</p></div><svg width="44" height="44" viewBox="0 0 24 24"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z" fill="#c8ff2e"/></svg></div>
+    <div style="margin-top:34px; height:8px; border-radius:4px; background:#2c2f36"><div style="width:62%; height:100%; border-radius:4px; background:var(--volt)"></div></div>
+    <div style="display:flex; justify-content:space-between; margin-top:10px" class="mono"><span style="font-size:22px; color:var(--mute)">27:54</span><span style="font-size:22px; color:var(--mute)">45:00</span></div>
+    <div style="display:flex; justify-content:center; align-items:center; gap:70px; margin-top:20px">
+      <svg width="50" height="50" viewBox="0 0 24 24" fill="#f5f6f2"><path d="M18 6v12l-8.5-6zM8 6v12H6V6z"/></svg>
+      <div style="width:120px; height:120px; border-radius:50%; background:var(--volt); display:grid; place-items:center"><svg width="46" height="46" viewBox="0 0 24 24" fill="#0a0b0d"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></div>
+      <svg width="50" height="50" viewBox="0 0 24 24" fill="#f5f6f2"><path d="M6 6v12l8.5-6zM16 6v12h2V6z"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- G9. Mosaïque stickers -->
+<section class="p" id="g9">
+  <div style="position:absolute; inset:0; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:10px">
+    <img src="../img/p1.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="../img/p3.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="../img/p4.jpg" style="width:100%; height:100%; object-fit:cover">
+    <img src="../img/p6.jpg" style="width:100%; height:100%; object-fit:cover">
+  </div>
+  <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) rotate(-4deg); background:var(--volt); color:var(--ink); padding:30px 60px; box-shadow:0 30px 60px rgba(0,0,0,.45)"><p class="d" style="font-size:150px">New in town.</p></div>
+  <span class="stk" style="left:60px; top:70px; background:var(--ink); color:var(--volt); transform:rotate(-8deg)">Open 7/7</span>
+  <span class="stk" style="right:60px; top:560px; background:#f5f6f2; color:var(--ink); transform:rotate(7deg)">1 200 m²</span>
+  <span class="stk" style="left:80px; bottom:420px; background:var(--ink); color:#fff; transform:rotate(5deg)">Coachs diplômés</span>
+  <span class="stk" style="right:70px; bottom:90px; background:var(--volt); color:var(--ink); transform:rotate(-5deg)">-30 % fondateurs</span>
+</section>
+
+<!-- G10. Carte / proximité -->
+<section class="p" id="g10" style="background:#0e1013">
+  <svg style="position:absolute; inset:0" width="1080" height="1350" viewBox="0 0 1080 1350" fill="none" stroke="#23262d" stroke-width="14" stroke-linecap="round">
+    <path d="M-20 300 C 300 260, 600 420, 1100 360"/><path d="M-20 820 C 260 760, 700 900, 1100 780"/><path d="M220 -20 C 260 400, 180 900, 300 1370"/><path d="M780 -20 C 700 500, 820 900, 760 1370"/><path d="M-20 1080 L 1100 1150"/>
+    <path d="M500 -20 C 520 300, 460 700, 540 1370" stroke-width="6" stroke="#1b1e24"/>
+  </svg>
+  <svg style="position:absolute; left:0; top:0" width="1080" height="1350" viewBox="0 0 1080 1350" fill="none"><path d="M260 1040 C 360 900, 420 820, 520 780 S 600 620, 640 560" stroke="#c8ff2e" stroke-width="8" stroke-dasharray="4 22" stroke-linecap="round"/></svg>
+  <div style="position:absolute; left:220px; top:1000px; width:80px; height:80px; border-radius:50%; background:#f5f6f2; border:10px solid #3a3e46"></div>
+  <p style="position:absolute; left:160px; top:1100px; margin:0; font:700 28px Inter; color:#c9ccd2">Toi</p>
+  <div style="position:absolute; left:560px; top:380px; width:170px; height:170px; border-radius:50% 50% 50% 0; transform:rotate(-45deg); background:var(--volt); box-shadow:0 0 0 30px rgba(200,255,46,.12), 0 0 0 70px rgba(200,255,46,.06)"></div>
+  <div style="position:absolute; left:603px; top:423px; width:84px; height:84px; border-radius:50%; background:var(--ink); display:grid; place-items:center"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c8ff2e" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2.5-6 4 12 2.5-6H22"/></svg></div>
+  <div style="position:absolute; left:72px; top:80px"><p class="d" style="font-size:150px">5 min<br><span class="v">à pied.</span></p></div>
+  <div style="position:absolute; right:72px; bottom:80px; text-align:right"><p style="margin:0; font:800 36px Inter">PULSE Athletic Club</p><p style="margin:6px 0 0; font:500 28px Inter; color:var(--mute)">12 rue de l'Énergie · ouvert 7 j/7</p></div>
+</section>
+
+<!-- G11. Compte à rebours typographique -->
+<section class="p" id="g11" style="background:var(--volt); color:var(--ink)">
+  <p class="d" style="position:absolute; left:-20px; top:-80px; font-size:900px; line-height:.8; color:transparent; -webkit-text-stroke:4px var(--ink); opacity:.25">3</p>
+  <p class="d" style="position:absolute; left:380px; top:300px; font-size:900px; line-height:.8; color:transparent; -webkit-text-stroke:4px var(--ink); opacity:.45">2</p>
+  <p class="d" style="position:absolute; right:-40px; bottom:-80px; font-size:900px; line-height:.8">1</p>
+  <div style="position:absolute; left:72px; bottom:110px; width:520px">
+    <p class="d" style="font-size:110px">Jours avant<br>l'ouverture.</p>
+    <p style="margin-top:20px; font:700 30px Inter">Active le rappel en story.</p>
+  </div>
+</section>
+
+<!-- G12. Manifeste -->
+<section class="p" id="g12">
+  <img class="cover" src="../img/p4.jpg" style="opacity:.35">
+  <div style="position:absolute; left:72px; right:72px; top:100px">
+    <p class="mono" style="margin:0; font-size:26px; color:var(--volt)">// MANIFESTE</p>
+    <p class="d" style="font-size:118px; margin-top:30px; line-height:.95">Ici, personne<br>ne te juge.<br>On t'entraîne.<br><span class="v">On t'encourage.</span><br>On te pousse.<br><span style="color:transparent; -webkit-text-stroke:2px var(--white)">Et tu reviens.</span></p>
+  </div>
+  <div style="position:absolute; left:72px; right:72px; bottom:70px; display:flex; justify-content:space-between; align-items:center"><div class="logo"><i class="ic"></i>PULSE</div><p style="margin:0; font:700 26px Inter; color:var(--mute)">Ouverture le 9 janvier</p></div>
+</section>
+
+<script>
+  const tpl = document.getElementById('pulse').innerHTML;
+  document.querySelectorAll('i.ic').forEach((i) => { i.innerHTML = tpl; });
+  document.querySelectorAll('i.ic[style*="background:var(--ink)"] path').forEach((p) => p.setAttribute('stroke', '#c8ff2e'));
+</script>
+</body>
+</html>
