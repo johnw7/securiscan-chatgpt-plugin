@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Affiches A4 portrait (1240×1754 px = 210×297 mm à 150 dpi, rendu ×2 pour 300 dpi). Scènes générées avec Canva. */
+  @page { size: A4; margin: 0; }
+  :root { --navy:#16226b; --bleu:#2b3a9c; --azur:#3d6bff; --rouge:#e1131b; --ciel:#eaf0ff; }
+  * { box-sizing: border-box; } body { margin: 0; background: #555; font-family: Nunito, sans-serif; }
+  img { display: block; }
+  .a4 { width: 1240px; height: 1754px; position: relative; overflow: hidden; background: var(--ciel); color: var(--navy); page-break-after: always; }
+  .tri { position: absolute; left: 0; right: 0; height: 14px; display: flex; } .tri i { flex: 1; }
+  .head { position: absolute; left: 60px; right: 60px; top: 56px; display: flex; align-items: center; justify-content: space-between; }
+  .head .id { display: flex; align-items: center; gap: 16px; }
+  .head .id img { height: 86px; }
+  .head .id p { margin: 0; font: 800 28px/1 'Baloo 2'; text-transform: uppercase; letter-spacing: .04em; }
+  .head .id small { display: block; margin-top: 4px; font: 700 18px Nunito; text-transform: none; letter-spacing: 0; color: #5a64a0; }
+  .num { padding: 16px 30px; border-radius: 999px; background: var(--navy); color: #fff; font: 900 24px Nunito; letter-spacing: .12em; text-transform: uppercase; }
+  .num b { color: #ff6b70; }
+  .ph { position: absolute; left: 50px; top: 186px; width: 1140px; height: 1080px; border-radius: 60px; object-fit: cover; object-position: center 18%; box-shadow: 0 30px 60px rgba(22,34,107,.25); }
+  .txt { position: absolute; left: 80px; right: 80px; top: 1310px; }
+  .t { margin: 0; font: 800 100px/.98 'Baloo 2'; letter-spacing: -.01em; }
+  .r { margin: 26px 0 0; display: inline-flex; align-items: center; gap: 18px; padding: 18px 34px 18px 20px; border-radius: 999px; background: var(--navy); color: #fff; font: 800 34px Nunito; }
+  .r i { width: 52px; height: 52px; border-radius: 50%; background: var(--rouge); display: grid; place-items: center; font: 900 30px Nunito; font-style: normal; }
+  .bas { position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 60px; }
+  .bas p { margin: 0; font: 700 20px Nunito; color: #c9d2ff; }
+  .bas .urg { font: 800 46px/1 'Baloo 2'; color: #fff; }
+  .bas .urg small { font: 700 20px Nunito; color: #c9d2ff; margin-right: 12px; }
+  .demo { position: absolute; left: 0; right: 0; bottom: 138px; margin: 0; text-align: center; font: 700 14px Nunito; color: rgba(22,34,107,.5); }
+  .rouge { color: var(--rouge); } .azur { color: var(--azur); }
+</style>
+</head>
+<body>
+
+<template id="cadre">
+  <div class="tri" style="top:0"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <div class="tri" style="bottom:120px; height:10px"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <div class="bas"><p>Parlez-en en classe et à la maison</p><div class="urg"><small>Urgence</small>17 · 112</div></div>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel · illustration générée par IA</p>
+</template>
+<template id="tete">
+  <div class="id"><img src="../../img/ecusson.png"><p>Police municipale<small>Prévention dans les écoles</small></p></div>
+</template>
+
+<section class="a4" id="e1">
+  <img class="ph" src="../img/e1.jpg">
+  <div class="head"><div class="tt"></div><span class="num">Règle <b>n°1</b> · Sur la route</span></div>
+  <div class="txt"><p class="t">Pour traverser,<br><span class="rouge">je regarde, j'écoute.</span></p><p class="r"><i>✓</i>Toujours sur le passage piéton</p></div>
+  <div class="slot"></div>
+</section>
+
+<section class="a4" id="e2">
+  <img class="ph" src="../img/e2.jpg">
+  <div class="head"><div class="tt"></div><span class="num">Règle <b>n°2</b> · À vélo</span></div>
+  <div class="txt"><p class="t">À vélo,<br><span class="azur">mon casque, je l'attache.</span></p><p class="r"><i>✓</i>Obligatoire jusqu'à 12 ans</p></div>
+  <div class="slot"></div>
+</section>
+
+<section class="a4" id="e3">
+  <img class="ph" src="../img/e3.jpg">
+  <div class="head"><div class="tt"></div><span class="num">Règle <b>n°3</b> · Dans la rue</span></div>
+  <div class="txt"><p class="t">Un inconnu me parle&nbsp;?<br><span class="rouge">Je dis non, je préviens.</span></p><p class="r"><i>✓</i>Je ne suis jamais un inconnu</p></div>
+  <div class="slot"></div>
+</section>
+
+<section class="a4" id="e4">
+  <img class="ph" src="../img/e4.jpg">
+  <div class="head"><div class="tt"></div><span class="num">Règle <b>n°4</b> · Sur internet</span></div>
+  <div class="txt"><p class="t">Un message fait peur&nbsp;?<br><span class="azur">J'en parle à un adulte.</span></p><p class="r"><i>✓</i>Le harcèlement, ça se dit</p></div>
+  <div class="slot"></div>
+</section>
+
+<section class="a4" id="e5">
+  <img class="ph" src="../img/e5.jpg">
+  <div class="head"><div class="tt"></div><span class="num" style="background:var(--rouge)">Règle <b style="color:#fff">n°5</b> · Urgence</span></div>
+  <div class="txt"><p class="t">Le <span class="rouge">17</span>, c'est pour<br>les vraies urgences.</p><p class="r"><i>✓</i>Je donne mon nom et où je suis</p></div>
+  <div class="slot"></div>
+</section>
+
+<section class="a4" id="e6">
+  <img class="ph" src="../img/e6.jpg">
+  <div class="head"><div class="tt"></div><span class="num">Règle <b>n°6</b> · Confiance</span></div>
+  <div class="txt"><p class="t">Un souci&nbsp;?<br><span class="azur">L'agent est là pour moi.</span></p><p class="r"><i>✓</i>Je peux toujours lui parler</p></div>
+  <div class="slot"></div>
+</section>
+
+<script>
+  const c = document.getElementById('cadre'), h = document.getElementById('tete');
+  document.querySelectorAll('.slot').forEach((s) => s.replaceWith(c.content.cloneNode(true)));
+  document.querySelectorAll('.tt').forEach((s) => s.replaceWith(h.content.cloneNode(true)));
+</script>
+</body>
+</html>
