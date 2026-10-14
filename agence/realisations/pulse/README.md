@@ -17,3 +17,11 @@ Réalisation de démonstration E-DUST Solutions : ligne éditoriale Instagram d'
 
 Charte : noir #0A0B0D, vert électrique #C8FF2E, blanc cassé #F5F6F2 ; titres Bebas Neue, textes Inter.
 Salle, planning et offres fictifs ; visuels générés par IA.
+
+## Campagne d'ouverture
+
+- `portfolio-campagne-ouverture-pulse.pdf` : étude de cas en 11 pages (brief, grande idée, plan en 5 temps, teasing, révélation et offre, affichage, publicité Meta, jour J, livrables et suivi, contact).
+- `campagne/` : 8 visuels de la campagne (teasing, story J-7, révélation, offre membres fondateurs, invitation opening night, pub Meta, affiche abribus 120×176, merci J+1).
+- Sources : `source/campagne.html` et `source/portfolio-campagne.html`.
+
+Ouverture fictive le samedi 9 janvier ; offre, adresse et chiffres de démonstration.

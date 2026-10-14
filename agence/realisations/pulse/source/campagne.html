@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#0a0b0d; --ink2:#15171b; --volt:#c8ff2e; --white:#f5f6f2; --mute:#8b8f98; }
+  * { box-sizing: border-box; } body { margin: 0; background: #444; font-family: Inter, sans-serif; }
+  img { display: block; }
+  .p { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 30px; }
+  .q { width: 1080px; height: 1080px; position: relative; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 30px; }
+  .s { width: 1080px; height: 1920px; position: relative; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 30px; }
+  .a { width: 1200px; height: 1800px; position: relative; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 30px; }
+  .d { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: .88; margin: 0; text-transform: uppercase; }
+  .v { color: var(--volt); }
+  .cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,13,.15) 30%, rgba(10,11,13,.93) 80%); }
+  .logo { display: flex; align-items: center; gap: 14px; font-family: 'Bebas Neue'; font-size: 40px; letter-spacing: .08em; }
+  .logo i { width: 46px; height: 46px; border-radius: 50%; background: var(--volt); display: grid; place-items: center; }
+  .logo i svg { width: 28px; height: 28px; }
+  .tag { display: inline-block; background: var(--volt); color: var(--ink); font: 800 22px Inter; letter-spacing: .14em; text-transform: uppercase; padding: 10px 18px; border-radius: 6px; }
+  .foot { position: absolute; left: 72px; right: 72px; bottom: 56px; display: flex; justify-content: space-between; font: 700 22px Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+  .pulse-line { position: absolute; left: 0; right: 0; }
+</style>
+</head>
+<body>
+<template id="pulse"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0b0d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2.5-6 4 12 2.5-6H22"/></svg></template>
+
+<!-- T1. Teasing : quelque chose se prépare -->
+<section class="p" id="t1">
+  <svg class="pulse-line" style="top:560px" width="1080" height="240" viewBox="0 0 1080 240" fill="none"><path d="M0 120 H380 L430 30 L500 210 L560 70 L600 120 H1080" stroke="#c8ff2e" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+  <div style="position:absolute; left:72px; right:72px; top:200px">
+    <p class="d" style="font-size:150px">Quelque chose<br>se prépare.</p>
+  </div>
+  <div style="position:absolute; left:72px; right:72px; bottom:180px">
+    <p style="margin:0; font:600 36px Inter; color:#c9ccd2">Bientôt dans ton quartier.</p>
+  </div>
+  <div class="foot"><span>@pulse.athletic</span><span>Teasing · J-21</span></div>
+</section>
+
+<!-- T2. Story compte à rebours -->
+<section class="s" id="t2">
+  <div style="position:absolute; left:72px; top:120px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:0; right:0; top:560px; text-align:center">
+    <p style="margin:0; font:700 34px Inter; letter-spacing:.3em; text-transform:uppercase; color:var(--mute)">Ouverture dans</p>
+    <p class="d v" style="font-size:520px; margin-top:20px">J-7</p>
+    <div style="margin:60px auto 0; width:760px; background:rgba(245,246,242,.96); border-radius:34px; padding:30px 36px; color:var(--ink); text-align:left">
+      <p style="margin:0; font:700 24px Inter; color:#6b6f78">Compte à rebours</p>
+      <p style="margin:8px 0 0; font:800 44px Inter">Ouverture PULSE</p>
+      <p style="margin:14px 0 0; font:600 26px Inter; color:#6b6f78">Active le rappel pour être prévenu</p>
+    </div>
+  </div>
+</section>
+
+<!-- T3. Révélation -->
+<section class="p" id="t3">
+  <img class="cover" src="../img/p1.jpg"><div class="shade"></div>
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; bottom:150px">
+    <span class="tag">Ouverture le 9 janvier</span>
+    <p class="d" style="font-size:190px; margin-top:30px">Ressens<br><span class="v">le pulse.</span></p>
+    <p style="margin-top:22px; font:600 32px Inter; color:#d9dce1">1 200 m² de muscu, cardio et cours collectifs. 7 jours sur 7.</p>
+  </div>
+  <div class="foot"><span>Pulse Athletic Club</span><span>@pulse.athletic</span></div>
+</section>
+
+<!-- T4. Offre membres fondateurs -->
+<section class="p" id="t4" style="background:var(--volt); color:var(--ink)">
+  <div style="position:absolute; left:72px; top:64px; color:var(--ink)" class="logo"><i class="ic" style="background:var(--ink)"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; top:250px">
+    <p style="margin:0; font:800 30px Inter; letter-spacing:.2em; text-transform:uppercase">Membres fondateurs</p>
+    <p class="d" style="font-size:330px; margin-top:20px">-30 %</p>
+    <p class="d" style="font-size:110px; margin-top:10px">À vie sur ton abonnement</p>
+    <div style="margin-top:56px; display:flex; gap:16px">
+      <span style="background:var(--ink); color:var(--volt); font:800 30px Inter; padding:22px 30px; border-radius:16px">100 places</span>
+      <span style="border:3px solid var(--ink); font:800 30px Inter; padding:19px 30px; border-radius:16px">Avant l'ouverture</span>
+    </div>
+  </div>
+  <div class="foot" style="color:rgba(10,11,13,.6)"><span>Réserve ta place, lien en bio</span><span>@pulse.athletic</span></div>
+</section>
+
+<!-- T5. Invitation soirée d'ouverture (story) -->
+<section class="s" id="t5">
+  <img class="cover" src="../img/p3.jpg" style="filter:brightness(.5)">
+  <div style="position:absolute; left:72px; top:120px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; top:600px; text-align:center">
+    <span class="tag">Tu es invité</span>
+    <p class="d" style="font-size:200px; margin-top:40px">Opening<br><span class="v">night</span></p>
+    <p style="margin-top:40px; font:700 40px Inter">Samedi 9 janvier · 19 h</p>
+    <p style="margin-top:16px; font:600 32px Inter; color:#d9dce1">Cours découverte, DJ set, coachs sur place</p>
+    <span style="display:inline-block; margin-top:70px; background:var(--volt); color:var(--ink); font:800 34px Inter; padding:28px 48px; border-radius:999px">Je m'inscris</span>
+  </div>
+</section>
+
+<!-- T6. Publicité Meta carrée -->
+<section class="q" id="t6">
+  <img class="cover" src="../img/p6.jpg"><div class="shade" style="background:linear-gradient(180deg, rgba(10,11,13,0) 35%, rgba(10,11,13,.92) 82%)"></div>
+  <div style="position:absolute; left:64px; top:56px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:64px; right:64px; bottom:80px">
+    <p class="d" style="font-size:130px">Ta nouvelle salle<br><span class="v">ouvre à 5 min.</span></p>
+    <p style="margin-top:20px; font:600 30px Inter; color:#d9dce1">Séance d'essai offerte · -30 % pour les 100 premiers</p>
+  </div>
+</section>
+
+<!-- T7. Affiche abribus 120×176 -->
+<section class="a" id="t7">
+  <img class="cover" src="../img/p2.jpg" style="object-position:50% 30%"><div class="shade" style="background:linear-gradient(180deg, rgba(10,11,13,.2) 30%, rgba(10,11,13,.95) 78%)"></div>
+  <div style="position:absolute; left:80px; top:80px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:80px; right:80px; bottom:120px">
+    <p class="d" style="font-size:230px">Ressens<br><span class="v">le pulse.</span></p>
+    <p style="margin-top:30px; font:700 44px Inter">Ouverture le 9 janvier</p>
+    <p style="margin-top:12px; font:600 34px Inter; color:#d9dce1">12 rue de l'Énergie · pulse-athletic.example</p>
+  </div>
+</section>
+
+<!-- T8. Merci J+1 -->
+<section class="p" id="t8">
+  <img class="cover" src="../img/p3.jpg"><div class="shade"></div>
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; bottom:150px">
+    <p class="d" style="font-size:180px">Merci d'avoir<br><span class="v">été là.</span></p>
+    <p style="margin-top:22px; font:600 32px Inter; color:#d9dce1">L'aventure ne fait que commencer. Rendez-vous lundi pour le premier cours.</p>
+  </div>
+  <div class="foot"><span>Pulse Athletic Club</span><span>J+1</span></div>
+</section>
+
+<script>
+  const tpl = document.getElementById('pulse').innerHTML;
+  document.querySelectorAll('i.ic').forEach((i) => { i.innerHTML = tpl; });
+  document.querySelectorAll('i.ic[style*="background:var(--ink)"] path').forEach((p) => p.setAttribute('stroke', '#c8ff2e'));
+</script>
+</body>
+</html>
