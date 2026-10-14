@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Campagne écoles : scènes générées avec Canva à partir du personnage de référence. Charte de l'écusson. */
+  :root { --navy:#16226b; --bleu:#2b3a9c; --azur:#3d6bff; --rouge:#e1131b; --ciel:#eaf0ff; --nuit:#0a0f33; }
+  * { box-sizing: border-box; } body { margin: 0; background: #555; font-family: Nunito, sans-serif; }
+  img { display: block; }
+  .e { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: var(--ciel); color: var(--navy); margin-bottom: 30px; }
+  .ph { position: absolute; left: 40px; top: 40px; width: 1000px; height: 820px; border-radius: 48px; object-fit: cover; object-position: center 12%; box-shadow: 0 24px 50px rgba(22,34,107,.25); }
+  .ph2 { position: absolute; left: 560px; top: 40px; width: 480px; height: 820px; border-radius: 48px; object-fit: cover; object-position: top; box-shadow: 0 24px 50px rgba(22,34,107,.25); }
+  .pan { position: absolute; left: 40px; top: 40px; width: 496px; height: 820px; border-radius: 48px; overflow: hidden; }
+  .num { position: absolute; left: 76px; top: 76px; padding: 14px 26px; border-radius: 999px; background: #fff; font: 900 24px Nunito; letter-spacing: .12em; text-transform: uppercase; color: var(--navy); box-shadow: 0 8px 20px rgba(0,0,0,.15); }
+  .num b { color: var(--rouge); }
+  .txt { position: absolute; left: 72px; right: 72px; top: 900px; }
+  .t { margin: 0; font: 800 78px/.98 'Baloo 2'; letter-spacing: -.01em; }
+  .r { margin: 22px 0 0; display: inline-flex; align-items: center; gap: 16px; padding: 16px 28px 16px 18px; border-radius: 999px; background: var(--navy); color: #fff; font: 800 30px Nunito; }
+  .r i { width: 46px; height: 46px; border-radius: 50%; background: var(--rouge); display: grid; place-items: center; font: 900 28px Nunito; font-style: normal; }
+  .bas { position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 56px; }
+  .bas .id { display: flex; align-items: center; gap: 16px; }
+  .bas .id img { height: 78px; }
+  .bas .id p { margin: 0; font: 800 26px/1 'Baloo 2'; text-transform: uppercase; letter-spacing: .04em; }
+  .bas .id small { display: block; margin-top: 4px; font: 700 16px Nunito; text-transform: none; letter-spacing: 0; color: #b9c2ec; }
+  .bas .urg { text-align: right; font: 700 16px Nunito; color: #b9c2ec; }
+  .bas .urg b { display: block; font: 800 38px/1 'Baloo 2'; color: #fff; }
+  .tri { position: absolute; left: 0; right: 0; bottom: 120px; height: 10px; display: flex; } .tri i { flex: 1; }
+  .demo { position: absolute; right: 40px; bottom: 138px; margin: 0; font: 700 12px Nunito; color: rgba(22,34,107,.5); }
+  .rouge { color: var(--rouge); } .azur { color: var(--azur); }
+</style>
+</head>
+<body>
+
+<template id="bas">
+  <div class="tri"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <div class="bas"><div class="id"><img src="../../img/ecusson.png"><p>Police municipale<small>Prévention dans les écoles</small></p></div><div class="urg">Urgence<b>17 · 112</b></div></div>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel · illustration générée par IA</p>
+</template>
+
+<!-- E1. Traverser -->
+<section class="e" id="e1">
+  <img class="ph" src="../img/e1.jpg">
+  <span class="num">Règle <b>n°1</b> · Sur la route</span>
+  <div class="txt">
+    <p class="t">Pour traverser,<br><span class="rouge">je regarde, j'écoute.</span></p>
+    <p class="r"><i>✓</i>Toujours sur le passage piéton</p>
+  </div>
+  <div class="slot"></div>
+</section>
+
+<!-- E2. Casque -->
+<section class="e" id="e2">
+  <img class="ph" src="../img/e2.jpg">
+  <span class="num">Règle <b>n°2</b> · À vélo</span>
+  <div class="txt">
+    <p class="t">À vélo,<br><span class="azur">mon casque, je l'attache.</span></p>
+    <p class="r"><i>✓</i>Obligatoire jusqu'à 12 ans</p>
+  </div>
+  <div class="slot"></div>
+</section>
+
+<!-- E3. Inconnu -->
+<section class="e" id="e3">
+  <div class="pan" style="background:var(--rouge)">
+    <div style="position:absolute; left:58px; top:200px; width:380px; height:380px; border-radius:50%; background:#fff; display:grid; place-items:center">
+      <svg width="210" height="230" viewBox="0 0 210 230" fill="#e1131b"><rect x="22" y="70" width="34" height="110" rx="17"/><rect x="62" y="20" width="34" height="150" rx="17"/><rect x="102" y="8" width="34" height="160" rx="17"/><rect x="142" y="30" width="34" height="140" rx="17"/><path d="M22 140 Q20 230 105 228 Q180 226 176 150 L176 120 L22 120 Z"/></svg>
+    </div>
+    <p style="position:absolute; left:0; right:0; top:620px; margin:0; text-align:center; font:800 92px/1 'Baloo 2'; color:#fff">NON&nbsp;!</p>
+  </div>
+  <img class="ph2" src="../img/ref-pied.jpg">
+  <span class="num">Règle <b>n°3</b> · Dans la rue</span>
+  <div class="txt">
+    <p class="t">Un inconnu me parle&nbsp;?<br><span class="rouge">Je dis non, je préviens.</span></p>
+    <p class="r"><i>✓</i>Je ne suis jamais un inconnu</p>
+  </div>
+  <div class="slot"></div>
+</section>
+
+<!-- E4. Internet -->
+<section class="e" id="e4">
+  <div class="pan" style="background:var(--azur)">
+    <div style="position:absolute; left:108px; top:120px; width:280px; height:520px; border-radius:44px; background:var(--nuit); padding:18px">
+      <div style="width:100%; height:100%; border-radius:30px; background:#fff; padding:36px 22px; display:flex; flex-direction:column; gap:22px">
+        <div style="align-self:flex-start; padding:16px 22px; border-radius:22px 22px 22px 4px; background:#eef0f6; font:800 34px 'Baloo 2'; color:var(--navy)">T'es nul…</div>
+        <div style="align-self:flex-start; padding:16px 22px; border-radius:22px 22px 22px 4px; background:#ffe1e2; font:800 34px 'Baloo 2'; color:var(--rouge)">?!</div>
+        <div style="align-self:flex-end; margin-top:auto; padding:16px 22px; border-radius:22px 22px 4px 22px; background:var(--navy); font:800 26px 'Baloo 2'; color:#fff">J'en parle</div>
+      </div>
+    </div>
+    <p style="position:absolute; left:0; right:0; top:690px; margin:0; text-align:center; font:800 54px/1 'Baloo 2'; color:#fff">Pas de secret.</p>
+  </div>
+  <img class="ph2" src="../img/ref-visage.jpg">
+  <span class="num">Règle <b>n°4</b> · Sur internet</span>
+  <div class="txt">
+    <p class="t">Un message fait peur&nbsp;?<br><span class="azur">J'en parle à un adulte.</span></p>
+    <p class="r"><i>✓</i>Le harcèlement, ça se dit</p>
+  </div>
+  <div class="slot"></div>
+</section>
+
+<!-- E5. Le 17 -->
+<section class="e" id="e5">
+  <div class="pan" style="background:var(--navy)">
+    <p style="position:absolute; left:0; right:0; top:120px; margin:0; text-align:center; font:800 400px/1 'Baloo 2'; color:#fff">17</p>
+    <p style="position:absolute; left:0; right:0; top:560px; margin:0; text-align:center"><span style="display:inline-block; padding:14px 30px; border-radius:999px; background:var(--rouge); font:800 40px 'Baloo 2'; color:#fff">ou le 112</span></p>
+  </div>
+  <img class="ph2" src="../img/ref-profil.jpg">
+  <span class="num" style="background:var(--rouge); color:#fff">Règle <b style="color:#fff">n°5</b> · Urgence</span>
+  <div class="txt">
+    <p class="t">Le <span class="rouge">17</span>, c'est pour<br>les vraies urgences.</p>
+    <p class="r"><i>✓</i>Je donne mon nom et où je suis</p>
+  </div>
+  <div class="slot"></div>
+</section>
+
+<!-- E6. Un ami de l'école -->
+<section class="e" id="e6">
+  <div class="pan" style="background:#fff">
+    <div style="position:absolute; left:0; right:0; top:0; height:16px; display:flex"><i style="flex:1; background:var(--bleu)"></i><i style="flex:1; background:#eef0f6"></i><i style="flex:1; background:var(--rouge)"></i></div>
+    <img src="../../img/ecusson.png" style="position:absolute; left:98px; top:150px; width:300px">
+    <p style="position:absolute; left:0; right:0; top:560px; margin:0; text-align:center; font:800 52px/1.05 'Baloo 2'; color:var(--navy)">Je le reconnais<br><span class="rouge">à son uniforme.</span></p>
+  </div>
+  <img class="ph2" src="../img/ref-dos.jpg">
+  <span class="num">Règle <b>n°6</b> · Confiance</span>
+  <div class="txt">
+    <p class="t">Un souci&nbsp;?<br><span class="azur">L'agent est là pour moi.</span></p>
+    <p class="r"><i>✓</i>Je peux toujours lui parler</p>
+  </div>
+  <div class="slot"></div>
+</section>
+
+<script>
+  const t = document.getElementById('bas');
+  document.querySelectorAll('.slot').forEach((s) => s.replaceWith(t.content.cloneNode(true)));
+</script>
+</body>
+</html>
