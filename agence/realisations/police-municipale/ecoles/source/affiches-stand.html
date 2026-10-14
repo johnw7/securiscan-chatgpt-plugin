@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Version stand : minimaliste, un mot géant par affiche, lisible de loin. A4 portrait 1240×1754. */
+  @page { size: A4; margin: 0; }
+  :root { --navy:#16226b; --nuit:#0d1650; --bleu:#2b3a9c; --azur:#3d6bff; --rouge:#e1131b; --ciel:#eaf0ff; }
+  * { box-sizing: border-box; } body { margin: 0; background: #555; font-family: Nunito, sans-serif; }
+  img { display: block; }
+  .s { width: 1240px; height: 1754px; position: relative; overflow: hidden; color: #fff; page-break-after: always; }
+  .top { position: absolute; left: 90px; right: 90px; top: 80px; display: flex; align-items: center; justify-content: space-between; font: 900 22px Nunito; letter-spacing: .22em; text-transform: uppercase; }
+  .top .id { display: flex; align-items: center; gap: 16px; }
+  .top img { height: 70px; }
+  .arch { position: absolute; left: 150px; top: 220px; width: 940px; height: 960px; border-radius: 470px 470px 0 0; overflow: hidden; }
+  .arch img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+  .mot { position: absolute; left: 0; right: 0; top: 1075px; margin: 0; text-align: center; font: 800 300px/1 'Baloo 2'; letter-spacing: -.035em; white-space: nowrap; }
+  .sub { position: absolute; left: 150px; right: 150px; top: 1420px; margin: 0; text-align: center; font: 800 44px/1.25 'Baloo 2'; }
+  .bas { position: absolute; left: 90px; right: 90px; bottom: 70px; display: flex; align-items: flex-end; justify-content: space-between; font: 800 22px Nunito; letter-spacing: .04em; }
+  .bas b { font: 800 44px/1 'Baloo 2'; letter-spacing: 0; }
+  .demo { position: absolute; left: 0; right: 0; bottom: 30px; margin: 0; text-align: center; font: 700 13px Nunito; opacity: .55; }
+  .tri { display: inline-flex; width: 90px; height: 8px; margin-bottom: 14px; } .tri i { flex: 1; }
+</style>
+</head>
+<body>
+
+<template id="cadre">
+  <div class="bas"><div><span class="tri"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></span><br>Police municipale · Prévention dans les écoles</div><div style="text-align:right">Urgence<br><b>17 · 112</b></div></div>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel · illustration générée par IA</p>
+</template>
+
+<!-- 01 Traverser -->
+<section class="s" id="s1" style="background:var(--azur)">
+  <div class="top"><div class="id"><img src="../../img/ecusson.png">Sur la route</div><span>01 / 06</span></div>
+  <div class="arch"><img src="../img/e1.jpg"></div>
+  <p class="mot" style="color:#fff"><span>Regarde.</span></p>
+  <p class="sub">À gauche, à droite, encore à gauche.<br>Puis je traverse sur le passage piéton.</p>
+  <div class="slot"></div>
+</section>
+
+<!-- 02 Vélo -->
+<section class="s" id="s2" style="background:var(--navy)">
+  <div class="top"><div class="id"><img src="../../img/ecusson.png">À vélo</div><span>02 / 06</span></div>
+  <div class="arch"><img src="../img/e2.jpg"></div>
+  <p class="mot" style="color:#7fa0ff"><span>Clic&nbsp;!</span></p>
+  <p class="sub">Mon casque, toujours attaché.<br>Même pour un petit tour.</p>
+  <div class="slot"></div>
+</section>
+
+<!-- 03 Inconnu -->
+<section class="s" id="s3" style="background:var(--rouge)">
+  <div class="top"><div class="id"><img src="../../img/ecusson.png">Dans la rue</div><span>03 / 06</span></div>
+  <div class="arch"><img src="../img/e3.jpg" style="object-position:center 30%"></div>
+  <p class="mot" style="color:#fff"><span>Non.</span></p>
+  <p class="sub">Un inconnu me parle ?<br>Je dis non et je préviens un adulte.</p>
+  <div class="slot"></div>
+</section>
+
+<!-- 04 Internet -->
+<section class="s" id="s4" style="background:#fff; color:var(--navy)">
+  <div class="top"><div class="id"><img src="../../img/ecusson.png">Sur internet</div><span>04 / 06</span></div>
+  <div class="arch"><img src="../img/e4.jpg"></div>
+  <p class="mot" style="color:var(--azur)"><span>Parle.</span></p>
+  <p class="sub">Un message te fait peur ?<br>Montre-le à un adulte. Ce n'est pas un secret.</p>
+  <div class="slot"></div>
+</section>
+
+<!-- 05 Le 17 -->
+<section class="s" id="s5" style="background:var(--nuit)">
+  <div class="top"><div class="id"><img src="../../img/ecusson.png">Urgence</div><span>05 / 06</span></div>
+  <div class="arch"><img src="../img/e5.jpg"></div>
+  <p class="mot" style="color:#ff3b42"><span>17</span></p>
+  <p class="sub">Pour les vraies urgences.<br>Je dis mon nom et où je suis.</p>
+  <div class="slot"></div>
+</section>
+
+<!-- 06 Confiance -->
+<section class="s" id="s6" style="background:var(--ciel); color:var(--navy)">
+  <div class="top"><div class="id"><img src="../../img/ecusson.png">Confiance</div><span>06 / 06</span></div>
+  <div class="arch"><img src="../img/e6.jpg"></div>
+  <p class="mot" style="color:var(--rouge)"><span>Salut&nbsp;!</span></p>
+  <p class="sub">L'agent de police municipale<br>est là pour toi. Tu peux lui parler.</p>
+  <div class="slot"></div>
+</section>
+
+<script>
+  const c = document.getElementById('cadre');
+  document.querySelectorAll('.slot').forEach((s) => s.replaceWith(c.content.cloneNode(true)));
+  // Ajuste le mot géant à la largeur disponible
+  document.fonts.ready.then(() => document.querySelectorAll('.mot').forEach((m) => {
+    let f = 300; m.style.fontSize = f + 'px';
+    const sp = m.querySelector('span');
+    while (sp.offsetWidth > 1080 && f > 120) { f -= 4; m.style.fontSize = f + 'px'; }
+  }));
+</script>
+</body>
+</html>

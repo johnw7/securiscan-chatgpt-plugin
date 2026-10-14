@@ -16,3 +16,9 @@ Chaque affiche porte la mention « document de démonstration non officiel · il
 - `affiches-a4/campagne-ecoles-A4.pdf` : les 6 affiches, une par page A4, sans marge
 - Les 6 scènes (`img/e1.jpg` à `e6.jpg`) sont générées avec l'IA de Canva à partir du personnage de référence
 - Source : `source/affiches-a4.html`
+
+## Version stand (minimaliste)
+
+- `affiches-stand/01-regarde-stand-A4.jpg` à `06-salut-stand-A4.jpg` : A4 à 300 dpi, un mot géant par affiche, lisible de loin
+- `affiches-stand/campagne-ecoles-stand-A4.pdf` : les 6 affiches en A4
+- Source : `source/affiches-stand.html`
