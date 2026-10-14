@@ -18,9 +18,8 @@
   .head .them { text-align: right; font: 700 18px 'Public Sans'; letter-spacing: .18em; text-transform: uppercase; color: var(--gris); }
   .head .them b { display: block; margin-top: 6px; font: 900 22px 'Public Sans'; letter-spacing: .1em; color: var(--rouge); }
   .tri { position: absolute; left: 0; right: 0; height: 8px; display: flex; } .tri i { flex: 1; }
-  .phw { position: absolute; left: 0; top: 178px; width: 1240px; height: 950px; overflow: hidden; background: var(--navy); }
-  .phw .bg { position: absolute; inset: -60px; width: calc(100% + 120px); height: calc(100% + 120px); object-fit: cover; filter: blur(34px) brightness(.75) saturate(1.1); }
-  .phw .fg { position: relative; height: 100%; width: auto; margin: 0 auto; box-shadow: 0 0 60px rgba(0,0,0,.35); }
+  .phw { position: absolute; left: 0; right: 0; top: 206px; height: 900px; display: flex; justify-content: center; }
+  .phw .fg { height: 100%; width: auto; border: 6px solid var(--navy); border-radius: 4px; }
   .band { position: absolute; left: 0; right: 0; top: 1128px; height: 236px; background: var(--navy); color: #fff; padding: 40px 80px 0; }
   .band .k { margin: 0; font: 800 20px 'Public Sans'; letter-spacing: .22em; text-transform: uppercase; color: #9fb0ff; }
   .band .t { margin: 14px 0 0; font: 900 56px/1.05 'Public Sans'; letter-spacing: -.01em; text-transform: uppercase; }
@@ -47,7 +46,7 @@
 </template>
 
 <section class="p" id="i1" data-theme="Sécurité routière">
-  <div class="phw"><img class="bg" src="../img/e1.jpg"><img class="fg" src="../img/e1.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e1.jpg"></div>
   <div class="band"><p class="k">Sur le chemin de l'école</p><p class="t">Traverser<br>en sécurité</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je m'arrête au bord du trottoir.</li>
@@ -57,7 +56,7 @@
 </section>
 
 <section class="p" id="i2" data-theme="À vélo">
-  <div class="phw"><img class="bg" src="../img/e2.jpg"><img class="fg" src="../img/e2.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e2.jpg"></div>
   <div class="band"><p class="k">Obligatoire jusqu'à 12 ans</p><p class="t">Le casque,<br>toujours attaché</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je porte mon casque, conducteur ou passager.</li>
@@ -67,7 +66,7 @@
 </section>
 
 <section class="p" id="i3" data-theme="Dans la rue">
-  <div class="phw"><img class="bg" src="../img/e3.jpg"><img class="fg" src="../img/e3.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e3.jpg"></div>
   <div class="band"><p class="k">Face à un inconnu</p><p class="t">Je dis non,<br>je préviens</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je n'accepte ni bonbon, ni cadeau, ni trajet.</li>
@@ -77,7 +76,7 @@
 </section>
 
 <section class="p" id="i4" data-theme="Sur internet">
-  <div class="phw"><img class="bg" src="../img/e4.jpg"><img class="fg" src="../img/e4.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e4.jpg"></div>
   <div class="band"><p class="k">Harcèlement en ligne</p><p class="t">Un message fait peur ?<br>J'en parle</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je ne réponds pas aux messages méchants.</li>
@@ -87,7 +86,7 @@
 </section>
 
 <section class="p" id="i5" data-theme="Urgence">
-  <div class="phw"><img class="bg" src="../img/e5.jpg"><img class="fg" src="../img/e5.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e5.jpg"></div>
   <div class="band"><p class="k">Numéros d'urgence</p><p class="t">Le 17, pour les<br>vraies urgences</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je reste calme et j'explique ce qui se passe.</li>
@@ -97,7 +96,7 @@
 </section>
 
 <section class="p" id="i6" data-theme="Confiance">
-  <div class="phw"><img class="bg" src="../img/e6.jpg"><img class="fg" src="../img/e6.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e6.jpg"></div>
   <div class="band"><p class="k">À l'école et dans le quartier</p><p class="t">La police municipale,<br>à vos côtés</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Les agents sont là pour protéger les enfants.</li>
