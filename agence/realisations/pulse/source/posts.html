@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* PULSE Athletic Club : noir profond, vert électrique, blanc ; titres Bebas Neue, textes Inter */
+  :root { --ink:#0a0b0d; --ink2:#15171b; --volt:#c8ff2e; --white:#f5f6f2; --mute:#8b8f98; }
+  * { box-sizing: border-box; } body { margin: 0; background: #444; font-family: Inter, sans-serif; }
+  img { display: block; }
+  .p { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 30px; }
+  .s { width: 1080px; height: 1920px; position: relative; overflow: hidden; background: var(--ink); color: var(--white); margin-bottom: 30px; }
+  .d { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: .88; letter-spacing: .005em; margin: 0; text-transform: uppercase; }
+  .v { color: var(--volt); }
+  .cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,11,13,.1) 30%, rgba(10,11,13,.92) 82%); }
+  .logo { display: flex; align-items: center; gap: 14px; font-family: 'Bebas Neue'; font-size: 40px; letter-spacing: .08em; }
+  .logo i { width: 46px; height: 46px; border-radius: 50%; background: var(--volt); display: grid; place-items: center; }
+  .logo i svg { width: 28px; height: 28px; }
+  .tag { display: inline-block; background: var(--volt); color: var(--ink); font: 800 22px Inter; letter-spacing: .14em; text-transform: uppercase; padding: 10px 18px; border-radius: 6px; }
+  .foot { position: absolute; left: 72px; right: 72px; bottom: 56px; display: flex; justify-content: space-between; align-items: center; font: 700 22px Inter; letter-spacing: .12em; text-transform: uppercase; color: var(--mute); }
+  .num { font-family: 'Bebas Neue'; font-size: 140px; line-height: .8; color: var(--volt); }
+</style>
+</head>
+<body>
+
+<template id="pulse"><svg viewBox="0 0 24 24" fill="none" stroke="#0a0b0d" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l2.5-6 4 12 2.5-6H22"/></svg></template>
+
+<!-- 1. Photo + slogan -->
+<section class="p" id="p1">
+  <img class="cover" src="../img/p1.jpg"><div class="shade"></div>
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; bottom:150px">
+    <p class="d" style="font-size:190px">No excuses.<br><span class="v">Just pulse.</span></p>
+  </div>
+  <div class="foot"><span>Pulse Athletic Club</span><span>@pulse.athletic</span></div>
+</section>
+
+<!-- 2. Typo motivation -->
+<section class="p" id="p2" style="background:var(--volt); color:var(--ink)">
+  <div style="position:absolute; left:72px; top:64px; color:var(--ink)" class="logo"><i class="ic" style="background:var(--ink)"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; top:300px">
+    <p class="d" style="font-size:230px">Lundi.</p>
+    <p class="d" style="font-size:118px; margin-top:20px">Le meilleur jour<br>pour commencer.</p>
+    <p style="margin-top:56px; font:600 34px/1.4 Inter; max-width:760px">Pas besoin d'être prêt. Il faut juste venir. Le reste, on s'en occupe.</p>
+  </div>
+  <div class="foot" style="color:rgba(10,11,13,.6)"><span>Pulse Athletic Club</span><span>Séance d'essai offerte</span></div>
+</section>
+
+<!-- 3. Planning de la semaine -->
+<section class="p" id="p3">
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <p class="d" style="position:absolute; left:72px; top:170px; font-size:150px">Planning<br><span class="v">de la semaine</span></p>
+  <div style="position:absolute; left:72px; right:72px; top:520px; display:flex; flex-direction:column; gap:14px">
+    <div style="display:grid; grid-template-columns:150px 1fr 170px; align-items:center; background:var(--ink2); border-radius:14px; padding:24px 30px; font:700 32px Inter"><span class="v">Lun</span><span>Cross Training</span><span style="color:var(--mute); text-align:right">18 h 30</span></div>
+    <div style="display:grid; grid-template-columns:150px 1fr 170px; align-items:center; background:var(--ink2); border-radius:14px; padding:24px 30px; font:700 32px Inter"><span class="v">Mar</span><span>Pulse Cycling</span><span style="color:var(--mute); text-align:right">12 h 15</span></div>
+    <div style="display:grid; grid-template-columns:150px 1fr 170px; align-items:center; background:var(--ink2); border-radius:14px; padding:24px 30px; font:700 32px Inter"><span class="v">Mer</span><span>Haltérophilie</span><span style="color:var(--mute); text-align:right">19 h 00</span></div>
+    <div style="display:grid; grid-template-columns:150px 1fr 170px; align-items:center; background:var(--ink2); border-radius:14px; padding:24px 30px; font:700 32px Inter"><span class="v">Jeu</span><span>Boxing HIIT</span><span style="color:var(--mute); text-align:right">18 h 30</span></div>
+    <div style="display:grid; grid-template-columns:150px 1fr 170px; align-items:center; background:var(--volt); color:var(--ink); border-radius:14px; padding:24px 30px; font:800 32px Inter"><span>Sam</span><span>Open Gym + Coaching</span><span style="text-align:right">10 h 00</span></div>
+  </div>
+  <div class="foot"><span>Réservation sur l'appli</span><span>@pulse.athletic</span></div>
+</section>
+
+<!-- 4–8. Carrousel « 3 erreurs » -->
+<section class="p" id="c1">
+  <img class="cover" src="../img/p4.jpg"><div class="shade" style="background:linear-gradient(180deg, rgba(10,11,13,.35), rgba(10,11,13,.9) 75%)"></div>
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; bottom:170px">
+    <span class="tag">Conseil coach</span>
+    <p class="d" style="font-size:168px; margin-top:30px">3 erreurs qui<br><span class="v">ruinent ta séance</span></p>
+  </div>
+  <div class="foot"><span>Glisse pour voir</span><span>1 / 5</span></div>
+</section>
+<section class="p" id="c2">
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; top:300px">
+    <p class="num">01</p>
+    <p class="d" style="font-size:130px; margin-top:40px">Sauter<br>l'échauffement</p>
+    <p style="margin-top:50px; font:500 36px/1.45 Inter; color:#c9ccd2; max-width:860px">Dix minutes suffisent pour préparer les articulations et éviter la blessure qui t'arrête trois semaines.</p>
+  </div>
+  <div class="foot"><span>Pulse Athletic Club</span><span>2 / 5</span></div>
+</section>
+<section class="p" id="c3">
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; top:300px">
+    <p class="num">02</p>
+    <p class="d" style="font-size:130px; margin-top:40px">Charger trop<br>trop vite</p>
+    <p style="margin-top:50px; font:500 36px/1.45 Inter; color:#c9ccd2; max-width:860px">La technique d'abord, la charge ensuite. Ta progression viendra de la régularité, pas de l'ego.</p>
+  </div>
+  <div class="foot"><span>Pulse Athletic Club</span><span>3 / 5</span></div>
+</section>
+<section class="p" id="c4">
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; top:300px">
+    <p class="num">03</p>
+    <p class="d" style="font-size:130px; margin-top:40px">Négliger<br>la récupération</p>
+    <p style="margin-top:50px; font:500 36px/1.45 Inter; color:#c9ccd2; max-width:860px">Le muscle se construit au repos. Sommeil, hydratation et étirements font partie de l'entraînement.</p>
+  </div>
+  <div class="foot"><span>Pulse Athletic Club</span><span>4 / 5</span></div>
+</section>
+<section class="p" id="c5" style="background:var(--volt); color:var(--ink)">
+  <div style="position:absolute; left:72px; top:64px; color:var(--ink)" class="logo"><i class="ic" style="background:var(--ink)"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; top:330px">
+    <p class="d" style="font-size:170px">Besoin d'un<br>coach ?</p>
+    <p style="margin-top:44px; font:600 38px/1.4 Inter; max-width:820px">Ta première séance avec un coach est offerte. Réserve-la en message privé.</p>
+    <span style="display:inline-block; margin-top:60px; background:var(--ink); color:var(--volt); font:800 30px Inter; letter-spacing:.08em; text-transform:uppercase; padding:24px 40px; border-radius:999px">Réserver ma séance</span>
+  </div>
+  <div class="foot" style="color:rgba(10,11,13,.6)"><span>Enregistre ce post</span><span>5 / 5</span></div>
+</section>
+
+<!-- 9. Photo coaching + offre -->
+<section class="p" id="p5">
+  <img class="cover" src="../img/p6.jpg"><div class="shade"></div>
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; bottom:150px">
+    <span class="tag">Offre de rentrée</span>
+    <p class="d" style="font-size:150px; margin-top:30px">Ta première<br>séance est <span class="v">offerte.</span></p>
+    <p style="margin-top:26px; font:600 32px Inter; color:#d9dce1">Coaching individuel · Accès illimité · Sans engagement le 1er mois</p>
+  </div>
+  <div class="foot"><span>Lien en bio</span><span>@pulse.athletic</span></div>
+</section>
+
+<!-- 10. Photo cours collectif -->
+<section class="p" id="p6">
+  <img class="cover" src="../img/p3.jpg"><div class="shade"></div>
+  <div style="position:absolute; left:72px; top:64px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; bottom:150px">
+    <span class="tag">Nouveau cours</span>
+    <p class="d" style="font-size:170px; margin-top:30px">Pulse <span class="v">Cycling</span></p>
+    <p style="margin-top:22px; font:600 32px Inter; color:#d9dce1">45 minutes. Lumières, musique, intensité. Tous les mardis midi.</p>
+  </div>
+  <div class="foot"><span>Places limitées</span><span>@pulse.athletic</span></div>
+</section>
+
+<!-- 11. Story sondage -->
+<section class="s" id="s1">
+  <img class="cover" src="../img/p2.jpg" style="filter:brightness(.55)">
+  <div style="position:absolute; left:72px; top:120px" class="logo"><i class="ic"></i>PULSE</div>
+  <div style="position:absolute; left:72px; right:72px; top:620px; text-align:center">
+    <p class="d" style="font-size:170px">Team <span class="v">cardio</span><br>ou team muscu ?</p>
+    <div style="margin:80px auto 0; width:820px; background:rgba(245,246,242,.96); border-radius:36px; padding:26px; display:grid; grid-template-columns:1fr 1fr; gap:20px; color:var(--ink); font:800 40px Inter">
+      <div style="background:#e8eadf; border-radius:22px; padding:34px 0">Cardio</div>
+      <div style="background:var(--volt); border-radius:22px; padding:34px 0">Muscu</div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. Couverture Reel -->
+<section class="s" id="s2">
+  <img class="cover" src="../img/p1.jpg">
+  <div class="shade" style="background:linear-gradient(180deg, rgba(10,11,13,0) 40%, rgba(10,11,13,.9) 80%)"></div>
+  <div style="position:absolute; left:72px; right:72px; bottom:330px; text-align:center">
+    <span class="tag">Reel</span>
+    <p class="d" style="font-size:200px; margin-top:34px">Deadlift :<br><span class="v">la bonne technique</span></p>
+    <p style="margin-top:30px; font:700 34px Inter; letter-spacing:.1em; text-transform:uppercase; color:#d9dce1">En 30 secondes</p>
+  </div>
+</section>
+
+<script>
+  const tpl = document.getElementById('pulse').innerHTML;
+  document.querySelectorAll('i.ic').forEach((i) => { i.innerHTML = tpl; });
+  document.querySelectorAll('i.ic[style*="background:var(--ink)"] path').forEach((p) => p.setAttribute('stroke', '#c8ff2e'));
+</script>
+</body>
+</html>
