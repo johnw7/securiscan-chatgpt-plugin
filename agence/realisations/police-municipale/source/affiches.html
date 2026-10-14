@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  /* Charte reprise de l'écusson : bleu marine, bleu France, blanc, rouge, argent */
+  :root { --navy:#16226b; --navy2:#0d1650; --bleu:#2b3a9c; --rouge:#e1131b; --blanc:#ffffff; --argent:#a7adb8; --nuit:#0a0f33; }
+  * { box-sizing: border-box; } body { margin: 0; background: #444; font-family: Inter, sans-serif; }
+  img { display: block; }
+  .a { width: 1080px; height: 1350px; position: relative; overflow: hidden; background: var(--navy); color: #fff; margin-bottom: 30px; }
+  .t { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; text-transform: uppercase; line-height: .9; letter-spacing: -.005em; margin: 0; }
+  .tri { position: absolute; display: flex; } .tri i { display: block; flex: 1; }
+  .bas { color: #fff; position: absolute; left: 0; right: 0; bottom: 0; height: 150px; background: var(--nuit); display: flex; align-items: center; justify-content: space-between; padding: 0 64px; }
+  .bas .id { display: flex; align-items: center; gap: 18px; }
+  .bas .id img { height: 92px; }
+  .bas .id p { margin: 0; font: 800 30px/1 'Barlow Condensed'; letter-spacing: .08em; text-transform: uppercase; }
+  .bas .id small { display: block; margin-top: 6px; font: 600 17px Inter; letter-spacing: .02em; text-transform: none; color: var(--argent); }
+  .urg { text-align: right; font: 600 18px Inter; color: var(--argent); }
+  .urg b { display: block; font: 900 44px/1 'Barlow Condensed'; color: #fff; letter-spacing: .02em; }
+  .demo { position: absolute; left: 64px; bottom: 158px; font: 500 13px Inter; color: rgba(255,255,255,.45); }
+  .light .demo { color: rgba(22,34,107,.45); }
+</style>
+</head>
+<body>
+
+<template id="bas">
+  <div class="bas"><div class="id"><img src="../img/ecusson.png"><p>Police municipale<small>Votre commune · à vos côtés</small></p></div><div class="urg">Urgence<b>17 · 112</b></div></div>
+</template>
+
+<!-- A1. Proches de vous -->
+<section class="a" id="a1">
+  <div class="tri" style="left:0; top:0; bottom:150px; width:36px; flex-direction:column"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <div style="position:absolute; right:-130px; top:120px; width:880px; height:1080px; border-radius:50%; background:radial-gradient(circle, rgba(43,58,156,.9) 0%, rgba(22,34,107,0) 65%)"></div>
+  <img src="../img/agent-dos.png" style="position:absolute; right:-70px; bottom:150px; height:1150px">
+  <div style="position:absolute; left:100px; top:110px; width:560px">
+    <p style="margin:0; font:800 24px Inter; letter-spacing:.24em; text-transform:uppercase; color:var(--argent)">Votre police municipale</p>
+    <p class="t" style="margin-top:28px; font-size:160px">Proches<br>de vous.</p>
+    <p class="t" style="margin-top:14px; font-size:110px; color:var(--rouge)">Chaque jour.</p>
+    <p style="margin:40px 0 0; font:500 30px/1.45 Inter; color:#d5d9ec; max-width:440px">Patrouilles, prévention, écoute : une présence de proximité pour la tranquillité de tous.</p>
+  </div>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel</p>
+  <div class="slot"></div>
+</section>
+
+<!-- A2. Opération Tranquillité Vacances -->
+<section class="a light" id="a2" style="background:#fff; color:var(--navy)">
+  <div class="tri" style="left:0; right:0; top:0; height:18px"><i style="background:var(--bleu)"></i><i style="background:#eef0f6"></i><i style="background:var(--rouge)"></i></div>
+  <div style="position:absolute; left:80px; top:110px">
+    <p style="margin:0; font:800 24px Inter; letter-spacing:.24em; text-transform:uppercase; color:var(--rouge)">Opération Tranquillité Vacances</p>
+    <p class="t" style="margin-top:26px; font-size:150px">Vous partez&nbsp;?</p>
+    <p class="t" style="margin-top:6px; font-size:150px; color:var(--bleu)">Nous veillons.</p>
+  </div>
+  <svg style="position:absolute; left:220px; top:560px" width="640" height="414" viewBox="0 0 680 440" fill="none" stroke="#16226b" stroke-width="14" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M90 200 L340 30 L590 200"/><path d="M140 170 V410 H540 V170"/><rect x="290" y="270" width="100" height="140" rx="6"/><rect x="180" y="230" width="80" height="70" rx="6"/><rect x="420" y="230" width="80" height="70" rx="6"/>
+    <circle cx="560" cy="80" r="44" stroke="#e1131b"/><path d="M560 56 V80 L578 92" stroke="#e1131b"/>
+  </svg>
+  <p style="position:absolute; left:80px; right:80px; top:1040px; margin:0; font:600 28px/1.4 Inter; color:#3a4378">Pendant votre absence, nos agents passent devant votre domicile. Inscription gratuite auprès de votre police municipale.</p>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel</p>
+  <div class="slot"></div>
+</section>
+
+<!-- A3. Vols dans les véhicules -->
+<section class="a" id="a3" style="background:var(--nuit)">
+  <svg style="position:absolute; left:90px; top:420px" width="900" height="520" viewBox="0 0 900 520" fill="none">
+    <path d="M40 420 C 60 300, 120 260, 220 240 L 340 110 C 360 90, 390 80, 420 80 H 640 C 680 80, 710 100, 730 130 L 820 240 C 860 260, 880 300, 880 420 Z" stroke="#a7adb8" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M370 130 H 640 L 720 240 H 300 Z" fill="rgba(43,58,156,.35)" stroke="#a7adb8" stroke-width="8" stroke-linejoin="round"/>
+    <circle cx="230" cy="430" r="62" fill="#0a0f33" stroke="#a7adb8" stroke-width="10"/><circle cx="690" cy="430" r="62" fill="#0a0f33" stroke="#a7adb8" stroke-width="10"/>
+    <rect x="450" y="168" width="110" height="64" rx="10" fill="#e1131b"/><path d="M478 168 C 478 140, 532 140, 532 168" stroke="#e1131b" stroke-width="8"/>
+    <circle cx="505" cy="200" r="150" stroke="#fff" stroke-width="4" stroke-dasharray="6 14" opacity=".8"/>
+  </svg>
+  <div style="position:absolute; left:80px; top:100px">
+    <p class="t" style="font-size:170px">Ce qui se voit</p>
+    <p class="t" style="font-size:170px; color:var(--rouge)">se vole.</p>
+  </div>
+  <p style="position:absolute; left:80px; right:80px; top:1000px; margin:0; font:600 30px/1.4 Inter; color:#d5d9ec">Sac, téléphone, GPS : ne laissez rien de visible dans votre véhicule, même pour quelques minutes.</p>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel</p>
+  <div class="slot"></div>
+</section>
+
+<!-- A4. Faux agents -->
+<section class="a" id="a4" style="background:linear-gradient(160deg,#16226b 0%,#0a0f33 70%)">
+  <div class="tri" style="right:0; top:0; bottom:150px; width:36px; flex-direction:column"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <img src="../img/agent-face.png" style="position:absolute; left:-110px; bottom:150px; height:1300px">
+  <div style="position:absolute; left:520px; right:80px; top:140px">
+    <p style="margin:0; font:800 22px Inter; letter-spacing:.22em; text-transform:uppercase; color:var(--argent)">Faux agents, faux démarcheurs</p>
+    <p class="t" style="margin-top:26px; font-size:128px">Un uniforme ne suffit pas.</p>
+    <div style="margin-top:40px; background:var(--rouge); padding:28px 30px; border-radius:6px">
+      <p class="t" style="font-size:66px">Demandez la carte professionnelle.</p>
+    </div>
+    <p style="margin:36px 0 0; font:500 27px/1.45 Inter; color:#d5d9ec">Un vrai agent la présente toujours. En cas de doute, ne laissez entrer personne et appelez le 17.</p>
+  </div>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel</p>
+  <div class="slot"></div>
+</section>
+
+<!-- A5. Écoles 30 -->
+<section class="a light" id="a5" style="background:#eef0f6; color:var(--navy)">
+  <div style="position:absolute; left:50%; top:130px; transform:translateX(-50%); width:620px; height:620px; border-radius:50%; background:#fff; border:62px solid var(--rouge); display:grid; place-items:center; box-shadow:0 40px 80px rgba(22,34,107,.2)">
+    <p class="t" style="font-size:330px; color:var(--navy); letter-spacing:-.03em">30</p>
+  </div>
+  <div style="position:absolute; left:80px; right:80px; top:830px; text-align:center">
+    <p class="t" style="font-size:96px">Abords des écoles :</p>
+    <p class="t" style="font-size:96px; color:var(--rouge)">chaque seconde compte.</p>
+    <p style="margin:24px 0 0; font:600 28px Inter; color:#3a4378">Levez le pied. Leur vie vaut plus que votre minute.</p>
+  </div>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel</p>
+  <div class="slot"></div>
+</section>
+
+<!-- A6. Urgence 17 -->
+<section class="a" id="a6" style="background:var(--navy)">
+  <p class="t" style="position:absolute; left:50px; top:40px; font-size:620px; line-height:.8; letter-spacing:-.04em">17</p>
+  <div style="position:absolute; left:80px; right:80px; top:640px">
+    <div style="display:flex; gap:24px; align-items:center"><span style="background:var(--rouge); font:900 54px 'Barlow Condensed'; padding:10px 26px; border-radius:6px">112</span><span style="font:600 28px Inter; color:#d5d9ec">numéro d'urgence européen</span></div>
+    <p class="t" style="margin-top:36px; font-size:120px">Une urgence&nbsp;?</p>
+    <p class="t" style="font-size:120px; color:#9fb0ff">Appelez.<br>Nous arrivons.</p>
+  </div>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel</p>
+  <div class="slot"></div>
+</section>
+
+<!-- A7. Calme nocturne -->
+<section class="a" id="a7" style="background:radial-gradient(circle at 75% 20%, #2b3a9c 0%, #0a0f33 60%)">
+  <svg style="position:absolute; right:110px; top:110px" width="260" height="260" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="#fff"/></svg>
+  <svg style="position:absolute; left:0; right:0; bottom:150px" width="1080" height="230" viewBox="0 0 1080 360" preserveAspectRatio="none" fill="#1a2466"><path d="M0 360 V220 H80 V140 H170 V200 H240 V90 H330 V170 H400 V120 H470 V230 H560 V60 H640 V180 H720 V140 H800 V210 H880 V100 H960 V190 H1080 V360 Z"/><g fill="#ffd36b" opacity=".9"><rect x="100" y="170" width="18" height="24"/><rect x="270" y="120" width="18" height="24"/><rect x="590" y="100" width="18" height="24"/><rect x="900" y="140" width="18" height="24"/></g></svg>
+  <div style="position:absolute; left:80px; top:330px">
+    <p class="t" style="font-size:170px">Le calme,</p>
+    <p class="t" style="font-size:170px; color:#9fb0ff">ça se partage.</p>
+    <p style="margin:30px 0 0; font:500 30px/1.45 Inter; color:#d5d9ec; max-width:700px">Après 22 h, pensez à vos voisins. Le respect fait aussi partie de la sécurité.</p>
+  </div>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel</p>
+  <div class="slot"></div>
+</section>
+
+<!-- A8. Signaler -->
+<section class="a light" id="a8" style="background:#fff; color:var(--navy)">
+  <div class="tri" style="left:0; right:0; top:0; height:18px"><i style="background:var(--bleu)"></i><i style="background:#eef0f6"></i><i style="background:var(--rouge)"></i></div>
+  <svg style="position:absolute; left:50%; top:160px; transform:translateX(-50%)" width="560" height="320" viewBox="0 0 560 320" fill="none"><path d="M20 160 C 120 30, 440 30, 540 160 C 440 290, 120 290, 20 160 Z" stroke="#16226b" stroke-width="16"/><circle cx="280" cy="160" r="82" fill="#2b3a9c"/><circle cx="280" cy="160" r="34" fill="#16226b"/><circle cx="305" cy="135" r="14" fill="#fff"/></svg>
+  <div style="position:absolute; left:80px; right:80px; top:560px; text-align:center">
+    <p class="t" style="font-size:150px">Un doute ?</p>
+    <p class="t" style="font-size:150px; color:var(--rouge)">Signalez-le.</p>
+    <p style="margin:30px auto 0; font:600 30px/1.45 Inter; color:#3a4378; max-width:820px">Véhicule suspect, dégradation, personne en difficulté : votre vigilance protège tout le quartier.</p>
+  </div>
+  <p class="demo">Proposition de campagne · document de démonstration non officiel</p>
+  <div class="slot"></div>
+</section>
+
+<script>
+  const t = document.getElementById('bas').innerHTML;
+  document.querySelectorAll('.slot').forEach((s) => { s.outerHTML = t; });
+</script>
+</body>
+</html>

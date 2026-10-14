@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#16226b; --bleu:#2b3a9c; --rouge:#e1131b; --argent:#a7adb8; --nuit:#0a0f33; }
+  * { box-sizing: border-box; } body { margin: 0; background: #333; font-family: Inter, sans-serif; }
+  img { display: block; }
+  .pl { width: 1920px; height: 1080px; position: relative; overflow: hidden; background: var(--nuit); color: #fff; margin-bottom: 30px; }
+  .t { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; text-transform: uppercase; line-height: .9; margin: 0; }
+  .k { margin: 0; font: 800 15px Inter; letter-spacing: .26em; text-transform: uppercase; color: var(--argent); }
+  .tri { position: absolute; display: flex; } .tri i { display: block; flex: 1; }
+  .po { width: 270px; border-radius: 8px; box-shadow: 0 26px 60px rgba(0,0,0,.55); }
+  .lab { margin: 10px 0 0; font: 600 14px Inter; color: #c9cee6; }
+</style>
+</head>
+<body>
+
+<!-- Planche 1 : galerie -->
+<section class="pl" id="g">
+  <div class="tri" style="left:0; right:0; top:0; height:10px"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <div style="position:absolute; left:100px; top:50%; transform:translateY(-50%); width:470px">
+    <img src="../img/ecusson.png" style="height:120px">
+    <p class="k" style="margin-top:36px">Campagne de sensibilisation</p>
+    <p class="t" style="margin-top:18px; font-size:92px">Proches<br>de vous.<br><span style="color:var(--rouge)">Chaque jour.</span></p>
+    <p style="margin:28px 0 0; font:500 19px/1.6 Inter; color:#c9cee6">Huit affiches pour une police municipale de proximité : prévention des vols, tranquillité vacances, sécurité aux abords des écoles, numéros d'urgence et vivre-ensemble. Direction artistique reprise de l'écusson : bleu, blanc, rouge et argent.</p>
+    <p style="margin:26px 0 0; font:500 13px Inter; color:#6c75a8">Proposition de campagne E-DUST Solutions · document de démonstration non officiel</p>
+  </div>
+  <div style="position:absolute; right:100px; top:50%; transform:translateY(-50%); display:grid; grid-template-columns:repeat(4,270px); gap:26px 24px">
+    <div><img class="po" src="../affiches/01-proches-de-vous.jpg"><p class="lab">Proximité</p></div>
+    <div><img class="po" src="../affiches/02-tranquillite-vacances.jpg"><p class="lab">Tranquillité vacances</p></div>
+    <div><img class="po" src="../affiches/03-vols-vehicules.jpg"><p class="lab">Vols dans les véhicules</p></div>
+    <div><img class="po" src="../affiches/04-faux-agents.jpg"><p class="lab">Faux agents</p></div>
+    <div><img class="po" src="../affiches/05-abords-ecoles.jpg"><p class="lab">Abords des écoles</p></div>
+    <div><img class="po" src="../affiches/06-urgence-17.jpg"><p class="lab">Numéros d'urgence</p></div>
+    <div><img class="po" src="../affiches/07-calme-nocturne.jpg"><p class="lab">Calme nocturne</p></div>
+    <div><img class="po" src="../affiches/08-signaler.jpg"><p class="lab">Signalement</p></div>
+  </div>
+</section>
+
+<!-- Planche 2 : en situation -->
+<section class="pl" id="s">
+  <div style="position:absolute; inset:0; background:linear-gradient(180deg,#0d1442 0%,#070b27 64%,#191c26 64%,#101219 100%)"></div>
+  <div style="position:absolute; left:0; right:0; top:690px; height:6px; background:#2a2f3a"></div>
+  <!-- abribus -->
+  <div style="position:absolute; left:90px; top:90px; width:600px; height:610px">
+    <div style="position:absolute; left:0; right:0; top:0; height:28px; background:#2f3540; border-radius:6px 6px 0 0"></div>
+    <div style="position:absolute; left:0; top:28px; width:12px; bottom:0; background:#3a414d"></div>
+    <div style="position:absolute; right:0; top:28px; width:12px; bottom:0; background:#3a414d"></div>
+    <div style="position:absolute; left:120px; top:56px; width:368px; height:460px; border:10px solid #3a414d; background:#000; box-shadow:0 0 90px rgba(120,140,255,.35)"><img src="../affiches/01-proches-de-vous.jpg" style="width:100%; height:100%; object-fit:cover"></div>
+    <div style="position:absolute; left:40px; right:40px; bottom:24px; height:16px; background:#2f3540; border-radius:4px"></div>
+  </div>
+  <p class="k" style="position:absolute; left:90px; top:730px">Abribus 120×176</p>
+  <!-- mur d'affiches -->
+  <div style="position:absolute; left:760px; top:120px; width:560px; height:570px; background:#d9d4c8; box-shadow:inset 0 0 80px rgba(0,0,0,.35)">
+    <img src="../affiches/03-vols-vehicules.jpg" style="position:absolute; left:28px; top:120px; width:245px; transform:rotate(-1.5deg); box-shadow:0 10px 24px rgba(0,0,0,.35)">
+    <img src="../affiches/04-faux-agents.jpg" style="position:absolute; left:288px; top:110px; width:245px; transform:rotate(1deg); box-shadow:0 10px 24px rgba(0,0,0,.35)">
+  </div>
+  <p class="k" style="position:absolute; left:760px; top:730px">Affichage A3 · mairie et commerces</p>
+  <!-- uniforme avant / après -->
+  <div style="position:absolute; left:1400px; top:120px; width:430px">
+    <p class="k">Uniforme · écusson intégré</p>
+    <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:14px">
+      <div><img src="../img/avant.jpg" style="width:100%; border-radius:8px"><p class="lab">Photo d'origine</p></div>
+      <div><img src="../img/apres.jpg" style="width:100%; border-radius:8px; outline:3px solid var(--rouge)"><p class="lab">Écusson remplacé</p></div>
+    </div>
+    <p class="k" style="margin-top:44px">Plan de diffusion</p>
+    <p style="margin:16px 0 0; font:500 17px/1.75 Inter; color:#c9cee6">Abribus et mobilier urbain<br>Affichage A3 en mairie, écoles et commerces<br>Réseaux sociaux de la commune, format 4:5<br>Flyers remis lors des patrouilles</p>
+  </div>
+  <div style="position:absolute; left:90px; right:90px; top:800px; display:flex; justify-content:space-between; align-items:flex-end">
+    <div><p class="t" style="font-size:80px">Une campagne,<br><span style="color:#9fb0ff">tous les supports.</span></p></div>
+    <div style="display:flex; align-items:center; gap:18px"><img src="../img/ecusson.png" style="height:96px"><p style="margin:0; font:500 13px/1.5 Inter; color:#6c75a8; max-width:330px">Proposition de campagne E-DUST Solutions · document de démonstration non officiel</p></div>
+  </div>
+</section>
+
+</body>
+</html>
