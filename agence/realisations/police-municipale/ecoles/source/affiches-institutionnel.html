@@ -4,49 +4,50 @@
 <meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-  /* Version institutionnelle : sobre, rectangulaire, fond blanc. A4 portrait 1240×1754. */
+  /* Version institutionnelle plein cadre : l'image couvre toute l'affiche. A4 portrait 1240×1754. */
   @page { size: A4; margin: 0; }
-  :root { --navy:#16226b; --bleu:#2b3a9c; --rouge:#e1131b; --gris:#5b6178; --clair:#f2f4f9; }
+  :root { --navy:#16226b; --nuit:#0a0f33; --bleu:#2b3a9c; --rouge:#e1131b; }
   * { box-sizing: border-box; } body { margin: 0; background: #555; font-family: 'Public Sans', sans-serif; }
   img { display: block; }
-  .p { width: 1240px; height: 1754px; position: relative; overflow: hidden; background: #fff; color: var(--navy); page-break-after: always; }
-  .head { position: absolute; left: 0; right: 0; top: 0; height: 170px; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
-  .head .id { display: flex; align-items: center; gap: 22px; }
-  .head img { height: 104px; }
-  .head p { margin: 0; font: 900 30px/1.1 'Public Sans'; letter-spacing: .04em; text-transform: uppercase; }
-  .head small { display: block; margin-top: 6px; font: 600 20px 'Public Sans'; letter-spacing: 0; text-transform: none; color: var(--gris); }
-  .head .them { text-align: right; font: 700 18px 'Public Sans'; letter-spacing: .18em; text-transform: uppercase; color: var(--gris); }
-  .head .them b { display: block; margin-top: 6px; font: 900 22px 'Public Sans'; letter-spacing: .1em; color: var(--rouge); }
-  .tri { position: absolute; left: 0; right: 0; height: 8px; display: flex; } .tri i { flex: 1; }
-  .phw { position: absolute; left: 0; right: 0; top: 206px; height: 900px; display: flex; justify-content: center; }
-  .phw .fg { height: 100%; width: auto; border: 6px solid var(--navy); border-radius: 4px; }
-  .band { position: absolute; left: 0; right: 0; top: 1128px; height: 236px; background: var(--navy); color: #fff; padding: 40px 80px 0; }
+  .p { width: 1240px; height: 1754px; position: relative; overflow: hidden; background: var(--nuit); color: #fff; page-break-after: always; }
+  .phw { position: absolute; inset: 0; }
+  .phw .fg { width: 100%; height: auto; }
+  .gt { position: absolute; left: 0; right: 0; top: 0; height: 300px; background: linear-gradient(180deg, rgba(10,15,51,.88), rgba(10,15,51,0)); }
+  .gb { position: absolute; left: 0; right: 0; bottom: 0; height: 780px; background: linear-gradient(0deg, rgba(10,15,51,1) 0%, rgba(10,15,51,.97) 48%, rgba(10,15,51,.65) 72%, rgba(10,15,51,0) 100%); }
+  .head { position: absolute; left: 0; right: 0; top: 0; height: 170px; display: flex; align-items: center; justify-content: space-between; padding: 0 70px; }
+  .head .id { display: flex; align-items: center; gap: 20px; }
+  .head img { height: 100px; filter: drop-shadow(0 6px 14px rgba(0,0,0,.4)); }
+  .head p { margin: 0; font: 900 30px/1.1 'Public Sans'; letter-spacing: .04em; text-transform: uppercase; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+  .head small { display: block; margin-top: 6px; font: 600 20px 'Public Sans'; letter-spacing: 0; text-transform: none; color: #d5dbf3; }
+  .head .them { text-align: right; font: 700 18px 'Public Sans'; letter-spacing: .18em; text-transform: uppercase; color: #d5dbf3; text-shadow: 0 2px 12px rgba(0,0,0,.4); }
+  .head .them b { display: inline-block; margin-top: 8px; padding: 8px 14px; background: var(--rouge); font: 900 20px 'Public Sans'; letter-spacing: .1em; color: #fff; text-shadow: none; }
+  .band { position: absolute; left: 70px; right: 70px; top: 1150px; }
   .band .k { margin: 0; font: 800 20px 'Public Sans'; letter-spacing: .22em; text-transform: uppercase; color: #9fb0ff; }
-  .band .t { margin: 14px 0 0; font: 900 56px/1.05 'Public Sans'; letter-spacing: -.01em; text-transform: uppercase; }
-  .band::after { content: ''; position: absolute; left: 80px; bottom: 0; width: 120px; height: 10px; background: var(--rouge); }
-  .ref { position: absolute; left: 80px; right: 80px; top: 1396px; }
-  .ref h3 { margin: 0 0 16px; font: 800 18px 'Public Sans'; letter-spacing: .2em; text-transform: uppercase; color: var(--gris); }
+  .band .t { margin: 12px 0 0; font: 900 64px/1.02 'Public Sans'; letter-spacing: -.01em; text-transform: uppercase; }
+  .band .t::after { content: ''; display: block; width: 110px; height: 9px; margin-top: 22px; background: var(--rouge); }
+  .ref { position: absolute; left: 70px; right: 70px; top: 1420px; }
+  .ref h3 { display: none; }
   .ref ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
-  .ref li { display: flex; align-items: center; gap: 24px; font: 600 28px/1.25 'Public Sans'; }
-  .ref li span { flex: none; width: 48px; height: 48px; border-radius: 6px; background: var(--clair); border-left: 6px solid var(--rouge); display: grid; place-items: center; font: 900 23px 'Public Sans'; color: var(--navy); }
-  .foot { position: absolute; left: 0; right: 0; bottom: 0; height: 110px; background: var(--clair); display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
-  .foot p { margin: 0; font: 600 19px 'Public Sans'; color: var(--gris); }
-  .foot .u { font: 700 22px 'Public Sans'; color: var(--navy); }
-  .foot .u b { font: 900 40px 'Public Sans'; color: var(--rouge); margin-left: 10px; }
+  .ref li { display: flex; align-items: center; gap: 20px; font: 600 27px/1.25 'Public Sans'; color: #eef1fb; }
+  .ref li span { flex: none; width: 44px; height: 44px; border-radius: 50%; background: #fff; display: grid; place-items: center; font: 900 22px 'Public Sans'; color: var(--navy); }
+  .foot { position: absolute; left: 70px; right: 70px; bottom: 34px; display: flex; align-items: flex-end; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.25); padding-top: 16px; }
+  .foot p { margin: 0; font: 600 15px/1.4 'Public Sans'; color: #aeb7dc; }
+  .foot .u { font: 700 20px 'Public Sans'; color: #d5dbf3; }
+  .foot .u b { font: 900 40px 'Public Sans'; color: #fff; margin-left: 10px; }
 </style>
 </head>
 <body>
 
 <template id="haut">
   <div class="head"><div class="id"><img src="../../img/ecusson.png"><p>Police municipale<small>Votre commune</small></p></div><div class="them">Prévention écoles<b>__THEME__</b></div></div>
-  <div class="tri" style="top:170px"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  
 </template>
 <template id="bas">
   <div class="foot"><p>Document de démonstration non officiel<br>Illustration générée par IA</p><div class="u">En cas d'urgence<b>17 · 112</b></div></div>
 </template>
 
 <section class="p" id="i1" data-theme="Sécurité routière">
-  <div class="phw"><img class="fg" src="../img/e1.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e1.jpg"></div><div class="gt"></div><div class="gb"></div>
   <div class="band"><p class="k">Sur le chemin de l'école</p><p class="t">Traverser<br>en sécurité</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je m'arrête au bord du trottoir.</li>
@@ -56,7 +57,7 @@
 </section>
 
 <section class="p" id="i2" data-theme="À vélo">
-  <div class="phw"><img class="fg" src="../img/e2.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e2.jpg"></div><div class="gt"></div><div class="gb"></div>
   <div class="band"><p class="k">Obligatoire jusqu'à 12 ans</p><p class="t">Le casque,<br>toujours attaché</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je porte mon casque, conducteur ou passager.</li>
@@ -66,7 +67,7 @@
 </section>
 
 <section class="p" id="i3" data-theme="Dans la rue">
-  <div class="phw"><img class="fg" src="../img/e3.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e3.jpg"></div><div class="gt"></div><div class="gb"></div>
   <div class="band"><p class="k">Face à un inconnu</p><p class="t">Je dis non,<br>je préviens</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je n'accepte ni bonbon, ni cadeau, ni trajet.</li>
@@ -76,7 +77,7 @@
 </section>
 
 <section class="p" id="i4" data-theme="Sur internet">
-  <div class="phw"><img class="fg" src="../img/e4.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e4.jpg"></div><div class="gt"></div><div class="gb"></div>
   <div class="band"><p class="k">Harcèlement en ligne</p><p class="t">Un message fait peur ?<br>J'en parle</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je ne réponds pas aux messages méchants.</li>
@@ -86,7 +87,7 @@
 </section>
 
 <section class="p" id="i5" data-theme="Urgence">
-  <div class="phw"><img class="fg" src="../img/e5.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e5.jpg"></div><div class="gt"></div><div class="gb"></div>
   <div class="band"><p class="k">Numéros d'urgence</p><p class="t">Le 17, pour les<br>vraies urgences</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Je reste calme et j'explique ce qui se passe.</li>
@@ -96,7 +97,7 @@
 </section>
 
 <section class="p" id="i6" data-theme="Confiance">
-  <div class="phw"><img class="fg" src="../img/e6.jpg"></div>
+  <div class="phw"><img class="fg" src="../img/e6.jpg"></div><div class="gt"></div><div class="gb"></div>
   <div class="band"><p class="k">À l'école et dans le quartier</p><p class="t">La police municipale,<br>à vos côtés</p></div>
   <div class="ref"><h3>Les bons réflexes</h3><ol>
     <li><span>1</span>Les agents sont là pour protéger les enfants.</li>
