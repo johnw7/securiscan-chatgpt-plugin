@@ -10,5 +10,5 @@ Montage : zooms lents, textes animés, transitions glissées (ffmpeg). Mention �
 ## Version avec dialogues
 
 - `permis-velo-police-municipale-dialogues.mp4` : 56 s, 1080×1920, personnages qui parlent avec bulles de dialogue animées, musique baissée sous les voix
-- Voix : synthèse neuronale Microsoft (Rémy pour l'agent, Éloïse pour Léa, Éloïse plus grave pour Tom, chœur pour les enfants), fichiers dans `voix/`
+- Voix : synthèse neuronale Microsoft (Henri pour l'agent, Éloïse pour Léa, Éloïse plus grave pour Tom, chœur pour les enfants), fichiers dans `voix/`
 - Script : `SCRIPT-DIALOGUES.md` · montage : `source/build_dialogues.py`, `source/render_dialogues.py`, bulles `source/bulles.html`
