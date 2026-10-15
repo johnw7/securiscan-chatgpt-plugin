@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Bulles de dialogue transparentes 1080×1920 */
+  * { box-sizing: border-box; } body { margin: 0; background: transparent; font-family: 'Public Sans', sans-serif; }
+  .b { width: 1080px; height: 1920px; position: relative; }
+  .bub { position: absolute; left: 70px; right: 70px; bottom: 660px; background: #fff; color: #16226b; border-radius: 34px; padding: 30px 38px 34px; box-shadow: 0 24px 60px rgba(10,15,51,.45); }
+  .bub::after { content: ''; position: absolute; top: -26px; width: 52px; height: 52px; background: #fff; transform: rotate(45deg); border-radius: 6px; }
+  .l::after { left: 120px; } .r::after { right: 120px; } .c::after { left: 50%; margin-left: -26px; }
+  .who { display: inline-block; padding: 8px 16px; border-radius: 999px; font: 900 22px 'Public Sans'; letter-spacing: .12em; text-transform: uppercase; color: #fff; }
+  .txt { margin: 16px 0 0; font: 800 46px/1.22 'Public Sans'; }
+  .bas { bottom: 300px; }
+</style></head>
+<body><div id="root"></div>
+<script>
+  const B = __DATA__;
+  const col = { 'Agent': '#16226b', 'Léa': '#e0407a', 'Tom': '#1f9d55', 'Les enfants': '#e1131b' };
+  const side = { 'Agent': 'l', 'Léa': 'r', 'Tom': 'r', 'Les enfants': 'c' };
+  document.getElementById('root').innerHTML = B.map(b => `<section class="b" id="${b.id}"><div class="bub ${b.side} ${b.id.startsWith('b6_') ? 'bas' : ''}"><span class="who" style="background:${col[b.who]}">${b.who}</span><p class="txt">${b.txt}</p></div></section>`).join('');
+</script></body></html>

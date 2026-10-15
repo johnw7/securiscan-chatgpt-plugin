@@ -1,0 +1,16 @@
+s0	agent	Bonjour les enfants ! Aujourd'hui, on passe le permis vélo. Vous êtes prêts ?
+s0	enfants	Ouiii !
+s1	agent	Règle numéro un : le casque, bien attaché. Il ne doit pas bouger.
+s1	lea	Comme ça ?
+s1	agent	Parfait, Léa !
+s2	tom	Et mon vélo, il est prêt ?
+s2	agent	On vérifie ensemble : les freins, la lumière…
+s2	tom	Et la sonnette ! Dring dring !
+s3	agent	Pour tourner, on regarde derrière, puis on tend le bras.
+s3	lea	Je tourne à gauche !
+s3	agent	Bravo, c'est exactement ça !
+s4	agent	Au stop, on s'arrête, pied à terre.
+s4	tom	Je regarde à gauche… à droite… c'est bon !
+s5	agent	Félicitations, Léa ! Voici ton permis vélo.
+s5	lea	Merci ! Je suis trop fière !
+s6	agent	Le permis vélo, avec la police municipale. Inscris-toi à l'école !
