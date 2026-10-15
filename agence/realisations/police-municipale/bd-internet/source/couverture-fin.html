@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&family=Public+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* Couverture et page de fin de la BD, A4 portrait 1240×1754 */
+  :root { --navy:#16226b; --nuit:#0a0f33; --bleu:#2b3a9c; --rouge:#e1131b; --jaune:#ffd23f; }
+  * { box-sizing: border-box; } body { margin: 0; background: #555; }
+  img { display: block; }
+  .page { width: 1240px; height: 1754px; position: relative; overflow: hidden; margin-bottom: 30px; }
+  .tri { position: absolute; left: 0; right: 0; height: 14px; display: flex; z-index: 3; } .tri i { flex: 1; }
+
+  /* COUVERTURE */
+  #cv { background: var(--nuit); }
+  #cv .bg { position: absolute; left: 0; top: 0; width: 100%; height: 1240px; object-fit: cover; object-position: 40% 30%; }
+  #cv .fade { position: absolute; left: 0; right: 0; top: 820px; height: 440px; background: linear-gradient(0deg, var(--nuit) 8%, rgba(10,15,51,0)); }
+  #cv .top { position: absolute; left: 60px; right: 60px; top: 50px; display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+  #cv .id { display: flex; align-items: center; gap: 18px; padding: 14px 22px 14px 14px; background: rgba(255,255,255,.94); border-radius: 18px; border: 4px solid #111; }
+  #cv .id img { height: 84px; }
+  #cv .id p { margin: 0; font: 900 26px/1.1 'Public Sans'; color: var(--navy); text-transform: uppercase; letter-spacing: .04em; }
+  #cv .id small { display: block; font: 700 18px 'Public Sans'; text-transform: none; letter-spacing: 0; color: #4a5080; }
+  #cv .age { width: 150px; height: 150px; border-radius: 50%; background: var(--jaune); border: 5px solid #111; display: grid; place-items: center; text-align: center; font: 400 44px/0.9 'Bangers'; color: #111; transform: rotate(8deg); box-shadow: 6px 6px 0 #111; }
+  #cv .age small { display: block; font: 400 24px 'Bangers'; }
+  #cv .notif { position: absolute; right: 70px; top: 360px; width: 380px; padding: 18px 22px; background: #1f2433; color: #fff; border: 4px solid #fff; border-radius: 22px; box-shadow: 0 16px 40px rgba(0,0,0,.45); font: 700 28px/1.2 'Public Sans'; transform: rotate(-3deg); z-index: 2; }
+  #cv .notif small { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font: 800 18px 'Public Sans'; letter-spacing: .06em; color: #ff8a8a; text-transform: uppercase; }
+  #cv .notif small i { width: 26px; height: 26px; border-radius: 50%; background: #7a7f8f; }
+  #cv .title { position: absolute; left: 60px; right: 60px; top: 1150px; z-index: 2; }
+  #cv .title .k { display: inline-block; padding: 10px 18px; background: var(--rouge); color: #fff; font: 400 34px 'Bangers'; letter-spacing: .06em; border: 4px solid #111; transform: rotate(-2deg); }
+  #cv .title h1 { margin: 18px 0 0; font: 400 172px/0.86 'Bangers'; color: #fff; letter-spacing: .01em; text-shadow: 7px 7px 0 var(--rouge), 12px 12px 0 #111; }
+  #cv .title h1 span { color: var(--jaune); }
+  #cv .title p { margin: 30px 0 0; font: 800 32px/1.3 'Public Sans'; color: #dfe4f7; }
+  #cv .demo { position: absolute; left: 0; right: 0; bottom: 26px; text-align: center; font: 600 15px 'Public Sans'; color: #7f8bd0; }
+
+  /* PAGE DE FIN */
+  #fin { background: #fffaf0; }
+  #fin .wrap { position: absolute; left: 60px; right: 60px; top: 70px; }
+  #fin h2 { margin: 0; font: 400 96px/0.9 'Bangers'; color: var(--navy); text-shadow: 4px 4px 0 var(--jaune); }
+  #fin .lead { margin: 18px 0 0; font: 700 28px/1.4 'Comic Neue'; color: #222; }
+  #fin .duo { margin-top: 44px; display: grid; grid-template-columns: 560px 1fr; gap: 30px; align-items: stretch; }
+  #fin .duo img { width: 100%; height: 500px; object-fit: cover; border: 6px solid #111; border-radius: 6px; }
+  #fin .reflexes { background: var(--navy); color: #fff; border: 6px solid #111; border-radius: 6px; padding: 26px 28px; }
+  #fin .reflexes h3 { margin: 0 0 16px; font: 400 44px 'Bangers'; color: var(--jaune); letter-spacing: .03em; }
+  #fin .reflexes li { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 22px; font: 700 27px/1.25 'Public Sans'; }
+  #fin .reflexes ol { margin: 0; padding: 0; list-style: none; }
+  #fin .reflexes span { flex: none; width: 38px; height: 38px; border-radius: 50%; background: var(--jaune); color: #111; display: grid; place-items: center; font: 400 24px 'Bangers'; }
+  #fin .parents { margin-top: 46px; background: #fff; border: 6px solid #111; border-radius: 6px; padding: 26px 30px; box-shadow: 8px 8px 0 var(--jaune); }
+  #fin .parents h3 { margin: 0 0 12px; font: 400 40px 'Bangers'; color: var(--rouge); letter-spacing: .03em; }
+  #fin .parents ul { margin: 0; padding-left: 26px; }
+  #fin .parents li { margin-bottom: 8px; font: 600 23px/1.35 'Public Sans'; color: #222; }
+  #fin .nums { margin-top: 46px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  #fin .num { border: 6px solid #111; border-radius: 6px; padding: 26px 20px; text-align: center; background: #fff; }
+  #fin .num b { display: block; font: 400 72px/1 'Bangers'; color: var(--rouge); }
+  #fin .num p { margin: 8px 0 0; font: 700 20px/1.3 'Public Sans'; color: #222; }
+  #fin .num.pm { background: var(--navy); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  #fin .num.pm img { height: 90px; }
+  #fin .num.pm p { color: #fff; }
+  #fin .band { position: absolute; left: 60px; right: 60px; bottom: 84px; padding: 26px 30px; background: var(--rouge); border: 6px solid #111; border-radius: 6px; box-shadow: 8px 8px 0 #111; text-align: center; font: 400 52px/1 'Bangers'; letter-spacing: .03em; color: #fff; transform: rotate(-1deg); }
+  #fin .band span { color: var(--jaune); }
+  #fin .foot { position: absolute; left: 60px; right: 60px; bottom: 30px; display: flex; justify-content: space-between; font: 600 15px 'Public Sans'; color: #6b6f80; }
+</style>
+</head>
+<body>
+
+<section class="page" id="cv">
+  <div class="tri" style="top:0"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <img class="bg" src="../img/p2.jpg">
+  <div class="fade"></div>
+  <div class="top"><div class="id"><img src="../../img/ecusson.png"><p>Police municipale<small>Votre commune</small></p></div><div class="age">8 – 11<small>ans</small></div></div>
+  <div class="notif"><small><i></i>Joueur_inconnu</small>Tu habites où ? Envoie-moi une photo de toi !</div>
+  <div class="title">
+    <span class="k">Une BD de prévention</span>
+    <h1>Lina et le<br><span>message inconnu</span></h1>
+    <p>Sur internet, tout le monde n'est pas ton ami.<br>Lina, elle, sait quoi faire.</p>
+  </div>
+  <p class="demo">Document de démonstration non officiel · illustrations générées par IA</p>
+</section>
+
+<section class="page" id="fin">
+  <div class="tri" style="top:0"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <div class="wrap">
+    <h2>Toi aussi,<br>fais comme Lina !</h2>
+    <p class="lead">Un inconnu te pose des questions sur internet ? Ce n'est jamais de ta faute, et tu as le droit d'en parler.</p>
+    <div class="duo">
+      <img src="../img/p6.jpg">
+      <div class="reflexes"><h3>Les 3 bons réflexes</h3><ol>
+        <li><span>1</span>Je ne donne jamais mon adresse, mon école ni mes photos.</li>
+        <li><span>2</span>Je bloque et je garde une capture d'écran.</li>
+        <li><span>3</span>J'en parle à un adulte de confiance.</li>
+      </ol></div>
+    </div>
+    <div class="parents"><h3>Pour les parents</h3><ul>
+      <li>Activez le contrôle parental sur les jeux, tablettes et téléphones.</li>
+      <li>Placez les écrans dans les pièces communes de la maison.</li>
+      <li>Parlez régulièrement avec votre enfant de ce qu'il fait en ligne.</li>
+      <li>En cas de message inquiétant : ne pas répondre, garder les preuves, signaler.</li>
+    </ul></div>
+    <div class="nums">
+      <div class="num"><b>3018</b><p>Harcèlement et danger en ligne<br>gratuit, anonyme</p></div>
+      <div class="num"><b>17</b><p>Police secours<br>en cas d'urgence</p></div>
+      <div class="num pm"><img src="../../img/ecusson.png"><p>Votre police municipale<br>est là pour vous</p></div>
+    </div>
+  </div>
+  <div class="band">Sur internet comme dans la rue, <span>on veille sur toi !</span></div>
+  <div class="foot"><span>Police municipale · Votre commune</span><span>Document de démonstration non officiel · illustrations générées par IA</span></div>
+</section>
+</body>
+</html>
