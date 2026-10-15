@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@700&family=Public+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* BD « Lina et le message inconnu » : planche A4 portrait 1240×1754 */
+  @page { size: A4; margin: 0; }
+  :root { --navy:#16226b; --bleu:#2b3a9c; --rouge:#e1131b; --jaune:#ffd23f; }
+  * { box-sizing: border-box; } body { margin: 0; background: #555; }
+  img { display: block; }
+  .page { width: 1240px; height: 1754px; position: relative; overflow: hidden; background: #fffaf0; }
+  .tri { position: absolute; left: 0; right: 0; top: 0; height: 12px; display: flex; } .tri i { flex: 1; }
+  .head { position: absolute; left: 50px; right: 50px; top: 38px; height: 170px; display: flex; align-items: center; gap: 26px; }
+  .head img { height: 130px; }
+  .head h1 { margin: 0; font: 400 92px/0.95 'Bangers'; letter-spacing: .02em; color: var(--navy); -webkit-text-stroke: 0; text-shadow: 4px 4px 0 var(--jaune); }
+  .head p { margin: 10px 0 0; font: 800 22px 'Public Sans'; letter-spacing: .14em; text-transform: uppercase; color: var(--rouge); }
+  .grid { position: absolute; left: 50px; right: 50px; top: 226px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .case { position: relative; height: 404px; border: 6px solid #111; border-radius: 6px; overflow: hidden; background: #ddd; }
+  .case > img { width: 100%; height: 100%; object-fit: cover; }
+  .num { position: absolute; right: 10px; bottom: 8px; width: 38px; height: 38px; border-radius: 50%; background: #111; color: #fff; display: grid; place-items: center; font: 400 24px 'Bangers'; }
+  .cap { position: absolute; left: 0; top: 0; padding: 10px 16px; background: var(--jaune); border: 0 solid #111; border-right-width: 4px; border-bottom-width: 4px; font: 700 23px/1.15 'Comic Neue'; color: #111; max-width: 70%; }
+  .bub { position: absolute; padding: 14px 20px; background: #fff; border: 4px solid #111; border-radius: 26px; font: 700 25px/1.18 'Comic Neue'; color: #111; }
+  .bub::after { content: ''; position: absolute; width: 26px; height: 26px; background: #fff; border-right: 4px solid #111; border-bottom: 4px solid #111; }
+  .bub.bl::after { left: 40px; bottom: -16px; transform: rotate(45deg); }
+  .bub.br::after { right: 40px; bottom: -16px; transform: rotate(45deg); }
+  .bub.tl::after { left: 40px; top: -16px; transform: rotate(225deg); }
+  .bub.tr::after { right: 40px; top: -16px; transform: rotate(225deg); }
+  .bub b { color: var(--navy); }
+  .think { border-radius: 50px; border-style: dashed; }
+  .think::after { display: none; }
+  .msg { position: absolute; padding: 12px 16px 14px; background: #1f2433; color: #fff; border-radius: 18px; border: 3px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,.35); font: 700 22px/1.2 'Public Sans'; }
+  .msg small { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font: 800 15px 'Public Sans'; letter-spacing: .06em; text-transform: uppercase; color: #ff8a8a; }
+  .msg small i { width: 22px; height: 22px; border-radius: 50%; background: #7a7f8f; display: inline-block; }
+  .ref { position: absolute; left: 50px; right: 50px; top: 1534px; height: 168px; border: 6px solid #111; border-radius: 6px; background: var(--navy); color: #fff; display: grid; grid-template-columns: 300px 1fr; }
+  .ref .l { background: var(--rouge); display: flex; flex-direction: column; justify-content: center; padding: 0 24px; font: 400 40px/1 'Bangers'; letter-spacing: .03em; }
+  .ref .l small { margin-top: 10px; font: 800 17px/1.3 'Public Sans'; letter-spacing: .02em; }
+  .ref ol { margin: 0; padding: 16px 26px; list-style: none; display: grid; gap: 6px; align-content: center; }
+  .ref li { display: flex; gap: 14px; align-items: center; font: 700 22px 'Public Sans'; }
+  .ref li span { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--jaune); color: #111; display: grid; place-items: center; font: 400 22px 'Bangers'; }
+  .foot { position: absolute; left: 50px; right: 50px; bottom: 16px; display: flex; justify-content: space-between; font: 600 14px 'Public Sans'; color: #6b6f80; }
+</style>
+</head>
+<body>
+<section class="page" id="bd">
+  <div class="tri"><i style="background:var(--bleu)"></i><i style="background:#fff"></i><i style="background:var(--rouge)"></i></div>
+  <div class="head"><img src="../../img/ecusson.png"><div><h1>Lina et le message inconnu</h1><p>Une BD de prévention de la police municipale</p></div></div>
+
+  <div class="grid">
+    <div class="case"><img src="../img/p1.jpg">
+      <div class="cap">Après l'école, Lina joue en ligne.</div>
+      <div class="msg" style="right:18px; top:70px; width:300px"><small><i></i>Joueur_inconnu</small>Salut ! Tu joues trop bien ! On devient amis ?</div>
+      <span class="num">1</span></div>
+    <div class="case"><img src="../img/p2.jpg">
+      <div class="cap">Quelques minutes plus tard…</div>
+      <div class="msg" style="right:18px; top:62px; width:290px"><small><i></i>Joueur_inconnu</small>Tu habites où ? Envoie-moi une photo de toi !</div>
+      <div class="bub think" style="left:20px; bottom:24px; width:250px">Hmm… Je ne le connais pas, moi…</div>
+      <span class="num">2</span></div>
+    <div class="case"><img src="../img/p3.jpg">
+      <div class="bub bl" style="left:18px; top:18px; width:340px"><b>Lina :</b> Maman ! Un inconnu me demande mon adresse et ma photo !</div>
+      <span class="num">3</span></div>
+    <div class="case"><img src="../img/p4.jpg">
+      <div class="bub br" style="right:18px; top:18px; width:350px"><b>Maman :</b> Tu as très bien fait de m'en parler. On bloque et on garde une capture.</div>
+      <span class="num">4</span></div>
+    <div class="case"><img src="../img/p5.jpg">
+      <div class="cap">Le lendemain, à l'école…</div>
+      <div class="bub br" style="right:18px; top:60px; width:330px"><b>Agent :</b> Bravo Lina ! Sur internet, on ne donne jamais son adresse ni ses photos à un inconnu.</div>
+      <span class="num">5</span></div>
+    <div class="case"><img src="../img/p6.jpg">
+      <div class="bub bl" style="left:18px; top:18px; width:300px"><b>Lina :</b> Je bloque, je garde une capture et j'en parle !</div>
+      <div class="bub br" style="right:18px; top:30px; width:190px"><b>Agent :</b> Exactement !</div>
+      <span class="num">6</span></div>
+  </div>
+
+  <div class="ref">
+    <div class="l">Les 3 bons réflexes<small>Danger ou harcèlement en ligne : <b style="font-size:22px">3018</b><br>Urgence : <b style="font-size:22px">17</b></small></div>
+    <ol>
+      <li><span>1</span>Je ne donne jamais mon adresse, mon école ni mes photos.</li>
+      <li><span>2</span>Je bloque et je garde une capture d'écran.</li>
+      <li><span>3</span>J'en parle à un adulte de confiance.</li>
+    </ol>
+  </div>
+  <div class="foot"><span>Police municipale · Votre commune</span><span>Document de démonstration non officiel · illustrations générées par IA</span></div>
+</section>
+</body>
+</html>
