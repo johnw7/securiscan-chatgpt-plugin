@@ -1,0 +1,134 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@page{size:297mm 210mm;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;font-family:Montserrat,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg{width:297mm;height:210mm;position:relative;overflow:hidden;page-break-after:always;background:#0b1f4d;color:#fff}
+.pg.light{background:#f4f6fb;color:#0b1f4d}
+.tri{position:absolute;left:0;right:0;bottom:0;height:3mm;display:flex}.tri i{flex:1}.tri i:nth-child(1){background:#2b5cc8}.tri i:nth-child(2){background:#fff}.tri i:nth-child(3){background:#e1323c}
+.light .tri i:nth-child(2){background:#dfe4ef}
+.kick{font-weight:800;letter-spacing:5px;font-size:11pt;color:#3fa9f5}
+.big{font-family:Anton;font-size:64pt;line-height:1;margin:4mm 0}
+.big b{color:#3fa9f5;font-weight:400}
+.foot{position:absolute;left:16mm;bottom:8mm;font-size:8pt;opacity:.7}
+.num{position:absolute;right:16mm;bottom:8mm;font-size:8pt;opacity:.7}
+.red{width:22mm;height:2mm;background:#e1323c;margin:6mm 0}
+p{font-size:11.5pt;line-height:1.55;margin:0 0 3mm}
+.lede{font-size:13pt;font-weight:600;color:#d5e2ff}
+img.p{display:block;height:100%;border-radius:2mm;box-shadow:0 4mm 10mm rgba(0,0,0,.35)}
+.tag{display:inline-block;background:#e1323c;color:#fff;font-weight:800;font-size:9pt;letter-spacing:2px;padding:2mm 4mm;border-radius:10mm}
+.card h3{font-family:Anton;font-weight:400;font-size:26pt;margin:2mm 0 4mm;line-height:1.05}
+.meta{display:grid;grid-template-columns:42mm 1fr;gap:2.5mm 4mm;font-size:10.5pt;margin-top:6mm}
+.meta dt{font-weight:800;color:#3fa9f5;letter-spacing:1px;font-size:9pt;padding-top:.5mm}
+.meta dd{margin:0}
+.light .meta dt{color:#1f6fd0}
+</style></head><body>
+
+<!-- 1 COUVERTURE -->
+<div class="pg">
+ <img src="p1.jpg" style="position:absolute;right:12mm;top:16mm;height:172mm;border-radius:2mm;box-shadow:0 6mm 16mm rgba(0,0,0,.5);transform:rotate(3deg);z-index:2">
+ <img src="p3.jpg" style="position:absolute;right:76mm;top:32mm;height:148mm;border-radius:2mm;box-shadow:0 6mm 16mm rgba(0,0,0,.5);transform:rotate(-5deg)">
+ <div style="position:absolute;left:16mm;top:26mm;width:98mm">
+  <div class="kick">PROPOSITION DE CAMPAGNE</div>
+  <div class="big" style="font-size:50pt">RECRUTEMENT<br><b>POLICE<br>MUNICIPALE</b></div>
+  <div class="red"></div>
+  <p class="lede">Une campagne d'affichage A4 / A3 et réseaux sociaux pour donner envie de rejoindre la police municipale de votre commune.</p>
+ </div>
+ <div class="foot">E-DUST Solutions · Agence créative digitale · Maquette de démonstration — personnages fictifs</div>
+ <div class="tri"><i></i><i></i><i></i></div>
+</div>
+
+<!-- 2 CONCEPT -->
+<div class="pg light">
+ <div style="position:absolute;left:16mm;top:18mm;width:120mm">
+  <div class="kick" style="color:#1f6fd0">LE CONCEPT</div>
+  <div class="big" style="font-size:44pt">MONTRER LE MÉTIER<br><b>TEL QU'IL EST VÉCU.</b></div>
+  <div class="red"></div>
+  <p>Des agents de terrain, souriants et accessibles, photographiés dans des situations réelles du quotidien : la mairie, le marché, le parc, l'école, la patrouille du soir.</p>
+  <p>Chaque affiche porte <b>un message court et fort</b>, et une signature commune qui installe la campagne dans la durée.</p>
+  <p>Une charte unique : bleu nuit, bleu ciel de la bande réfléchissante de l'uniforme, liseré tricolore, typographie condensée impactante.</p>
+ </div>
+ <div style="position:absolute;right:16mm;top:20mm;width:118mm" class="card">
+  <dl class="meta" style="margin-top:0">
+   <dt>OBJECTIF</dt><dd>Susciter des candidatures de gardien·ne·s-brigadier·e·s : lauréat·e·s du concours, mutations, détachements.</dd>
+   <dt>CIBLES</dt><dd>25–45 ans, profils de terrain, sécurité, armée, reconversion ; agents d'autres collectivités.</dd>
+   <dt>TON</dt><dd>Sérieux, institutionnel, humain et valorisant. Pas de dramatisation.</dd>
+   <dt>DIFFUSION</dt><dd>Affichage mairie et lieux publics (A4 / A3), panneaux, réseaux sociaux de la ville, journal municipal, site.</dd>
+   <dt>APPEL À L'ACTION</dt><dd>QR code vers la page candidature + « Candidatez auprès de la mairie ».</dd>
+   <dt>PERSONNALISATION</dt><dd>Blason et nom de la commune, QR code, coordonnées du service RH.</dd>
+  </dl>
+ </div>
+ <div class="foot">E-DUST Solutions · Campagne recrutement Police municipale</div><div class="num">2</div>
+ <div class="tri"><i></i><i></i><i></i></div>
+</div>
+
+<!-- 3 VUE D'ENSEMBLE -->
+<div class="pg">
+ <div style="position:absolute;left:16mm;top:14mm"><div class="kick">LA SÉRIE</div></div>
+ <div style="position:absolute;left:0;right:0;top:38mm;height:124mm;display:flex;justify-content:center;gap:9mm">
+  <img class="p" src="p1.jpg"><img class="p" src="p2.jpg"><img class="p" src="p3.jpg">
+ </div>
+ <div style="position:absolute;left:0;right:0;top:184mm;text-align:center;font-weight:700;font-size:10pt;color:#d5e2ff">3 affiches, 3 situations, des personnages différents — une seule signature</div>
+ <div class="num">3</div>
+ <div class="tri"><i></i><i></i><i></i></div>
+</div>
+
+<!-- 4-6 AFFICHES -->
+<div class="pg light">
+ <img src="p1.jpg" style="position:absolute;left:16mm;top:12mm;height:182mm;border-radius:2mm;box-shadow:0 4mm 12mm rgba(11,31,77,.3)">
+ <div class="card" style="position:absolute;left:160mm;top:26mm;width:120mm">
+  <span class="tag">AFFICHE 1</span>
+  <h3>ENGAGEZ-VOUS<br>POUR VOTRE VILLE.</h3>
+  <p>L'affiche manifeste de la campagne. Une agente accueille le regard, son collègue montre « POLICE MUNICIPALE » devant l'hôtel de ville : l'engagement au service de la commune.</p>
+  <dl class="meta"><dt>SCÈNE</dt><dd>Hôtel de ville, coucher de soleil</dd><dt>PERSONNAGES</dt><dd>Agente de face · agent de dos</dd><dt>USAGE</dt><dd>Visuel principal, lancement de campagne</dd></dl>
+ </div>
+ <div class="foot">E-DUST Solutions · Campagne recrutement Police municipale</div><div class="num">4</div>
+ <div class="tri"><i></i><i></i><i></i></div>
+</div>
+
+<div class="pg light">
+ <img src="p2.jpg" style="position:absolute;left:16mm;top:12mm;height:182mm;border-radius:2mm;box-shadow:0 4mm 12mm rgba(11,31,77,.3)">
+ <div class="card" style="position:absolute;left:160mm;top:26mm;width:120mm">
+  <span class="tag">AFFICHE 2</span>
+  <h3>AU CONTACT.<br>AU SERVICE.</h3>
+  <p>La proximité au cœur du métier. Un jeune agent échange avec une habitante sur le marché : la police municipale, c'est d'abord un visage familier du quartier.</p>
+  <dl class="meta"><dt>SCÈNE</dt><dd>Marché de centre-ville, matin</dd><dt>PERSONNAGES</dt><dd>Jeune agent · habitante</dd><dt>USAGE</dt><dd>Proximité, lien avec la population</dd></dl>
+ </div>
+ <div class="foot">E-DUST Solutions · Campagne recrutement Police municipale</div><div class="num">5</div>
+ <div class="tri"><i></i><i></i><i></i></div>
+</div>
+
+<div class="pg light">
+ <img src="p3.jpg" style="position:absolute;left:16mm;top:12mm;height:182mm;border-radius:2mm;box-shadow:0 4mm 12mm rgba(11,31,77,.3)">
+ <div class="card" style="position:absolute;left:160mm;top:26mm;width:120mm">
+  <span class="tag">AFFICHE 3</span>
+  <h3>VOTRE BUREAU ?<br>LA VILLE ENTIÈRE.</h3>
+  <p>Le terrain comme argument. Une agente de la brigade VTT dans un parc : un métier actif, en plein air, jamais routinier.</p>
+  <dl class="meta"><dt>SCÈNE</dt><dd>Parc urbain, après-midi</dd><dt>PERSONNAGE</dt><dd>Agente brigade VTT</dd><dt>USAGE</dt><dd>Attirer les profils sportifs et de terrain</dd></dl>
+ </div>
+ <div class="foot">E-DUST Solutions · Campagne recrutement Police municipale</div><div class="num">6</div>
+ <div class="tri"><i></i><i></i><i></i></div>
+</div>
+
+<!-- 7 DÉCLINAISONS & SUITE -->
+<div class="pg">
+ <div style="position:absolute;left:16mm;top:20mm;width:125mm">
+  <div class="kick">POUR ALLER PLUS LOIN</div>
+  <div class="big" style="font-size:42pt">LA CAMPAGNE<br><b>SE DÉCLINE.</b></div>
+  <div class="red"></div>
+  <p><b>Deux affiches supplémentaires</b> en préparation pour compléter la série :</p>
+  <p>· <b>PROTÉGER CEUX QUI COMPTENT.</b> — agent expérimenté devant une école<br>· <b>LE JOUR, LA NUIT, TOUJOURS PRÉSENTS.</b> — patrouille de soirée</p>
+ </div>
+ <div style="position:absolute;right:16mm;top:28mm;width:118mm">
+  <dl class="meta" style="margin-top:0">
+   <dt>FORMATS</dt><dd>Affiche A4 / A3 / 40×60, post Instagram & Facebook 4:5, story 9:16, bannière LinkedIn, kakémono.</dd>
+   <dt>VIDÉO</dt><dd>Reel de 20–30 s reprenant les situations de la série.</dd>
+   <dt>PERSONNALISATION</dt><dd>Blason, nom de la commune, QR code et contact RH intégrés sur l'ensemble des supports.</dd>
+   <dt>CONTACT</dt><dd>E-DUST Solutions — Tarik Belattar<br>tarikbelatta@gmail.com · 06 13 24 96 80</dd>
+  </dl>
+ </div>
+ <div class="foot">Visuels de démonstration · personnages fictifs générés par IA · aucun lien avec une collectivité existante</div>
+ <div class="tri"><i></i><i></i><i></i></div>
+</div>
+</body></html>
