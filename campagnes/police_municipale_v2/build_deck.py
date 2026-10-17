@@ -60,7 +60,7 @@ pages.append(f'''<div class="pg light">
    <dt>CIBLES</dt><dd>20–45 ans, profils de terrain, sport, sécurité, armée, reconversion ; agents d'autres collectivités.</dd>
    <dt>TON</dt><dd>Sérieux, institutionnel, humain et valorisant.</dd>
    <dt>FORMAT</dt><dd>A4 portrait (déclinable A3, 40×60, réseaux sociaux 4:5 et 9:16).</dd>
-   <dt>À PERSONNALISER</dt><dd>Blason et nom de la commune, QR code vers la page candidature, contact RH.</dd>
+   <dt>À PERSONNALISER</dt><dd>Nom de la commune à côté de l'écusson, QR code vers la page candidature, contact RH.</dd>
    <dt>CONDITIONS</dt><dd>Campagne offerte par E-DUST Solutions aux polices municipales.</dd>
   </dl>
  </div>
@@ -102,13 +102,13 @@ pages.append(f'''<div class="pg">
   <div class="kick">UNE CAMPAGNE OFFERTE</div>
   <div class="big" style="font-size:40pt">À VOTRE<br><b>COMMUNE.</b></div>
   <div class="red"></div>
-  <p>E-DUST Solutions offre cette campagne aux polices municipales qui recrutent. Nous l'adaptons à votre commune : blason, nom, QR code et contacts.</p>
-  <p>Les personnages sont fictifs et générés par IA. Aucun logo officiel n'est utilisé comme signature ; l'écusson apparaît uniquement sur l'uniforme.</p>
+  <p>E-DUST Solutions offre cette campagne aux polices municipales qui recrutent. Nous l'adaptons à votre commune : nom, QR code et contacts, sur les affiches comme sur les réseaux sociaux.</p>
+  <p>Les personnages sont fictifs et générés par IA. L'écusson Police municipale figure en en-tête de chaque visuel.</p>
  </div>
  <div style="position:absolute;right:16mm;top:28mm;width:118mm">
   <dl class="meta" style="margin-top:0">
-   <dt>INCLUS</dt><dd>20 affiches A4 HD (PDF impression + PNG), personnalisation commune, QR code.</dd>
-   <dt>DÉCLINAISONS</dt><dd>A3 / 40×60, posts 4:5, stories 9:16, bannière LinkedIn, reel vidéo.</dd>
+   <dt>INCLUS</dt><dd>20 affiches A4 HD (PDF impression + PNG), 82 déclinaisons réseaux sociaux, personnalisation commune, QR code.</dd>
+   <dt>DÉCLINAISONS</dt><dd>Posts 4:5 (2 versions), stories 9:16, visuels paysage LinkedIn/Facebook, bannière LinkedIn, couverture Facebook. Sur demande : A3 / 40×60, reel vidéo.</dd>
    <dt>CONTACT</dt><dd>E-DUST Solutions — Tarik Belattar<br>tarikbelatta@gmail.com · 06 13 24 96 80</dd>
   </dl>
  </div>
@@ -119,7 +119,7 @@ pages.append(f'''<div class="pg">
 open(f'{D}/deck.html', 'w').write(head + '\n'.join(pages) + '\n</body></html>')
 
 # planche récap : A3 paysage, 10 x 2
-cells = ''.join(f'<div class="c"><img src="p{i:02d}.jpg"><span>{i:02d} · {C[i-1][1]} {C[i-1][2]}</span></div>' for i in range(1, 21)) + '<div class="c" style="display:flex;flex-direction:column;justify-content:center;padding:4mm;border:1px dashed #3fa9f5;border-radius:1mm"><b style="font-family:Anton;font-weight:400;font-size:20pt;color:#3fa9f5;line-height:1.05">VOTRE<br>COMMUNE<br>ICI.</b><span style="font-size:7.5pt">Blason, nom, QR code et contact RH intégrés gratuitement.</span></div>'
+cells = ''.join(f'<div class="c"><img src="p{i:02d}.jpg"><span>{i:02d} · {C[i-1][1]} {C[i-1][2]}</span></div>' for i in range(1, 21)) + '<div class="c" style="display:flex;flex-direction:column;justify-content:center;padding:4mm;border:1px dashed #3fa9f5;border-radius:1mm"><b style="font-family:Anton;font-weight:400;font-size:20pt;color:#3fa9f5;line-height:1.05">VOTRE<br>COMMUNE<br>ICI.</b><span style="font-size:7.5pt">Nom de la commune, QR code et contact RH intégrés gratuitement.</span></div>'
 open(f'{D}/recap.html', 'w').write(f'''<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@600;800&display=swap" rel="stylesheet">
 <style>@page{{size:420mm 297mm;margin:0}}html,body{{margin:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
@@ -132,5 +132,5 @@ h1{{font-family:Anton;font-weight:400;font-size:34pt;margin:0;position:absolute;
 .f{{position:absolute;left:14mm;bottom:9mm;font-size:8pt;opacity:.75}}
 .tri{{position:absolute;left:0;right:0;bottom:0;height:3mm;display:flex}}.tri i{{flex:1}}.tri i:nth-child(1){{background:#2b5cc8}}.tri i:nth-child(2){{background:#fff}}.tri i:nth-child(3){{background:#e1323c}}
 </style></head><body><div class="pg"><h1>RECRUTEMENT POLICE MUNICIPALE · <b>20 AFFICHES</b></h1><div class="sub">CAMPAGNE OFFERTE · E-DUST SOLUTIONS</div>
-<div class="g">{cells}</div><div class="f">Visuels de démonstration · personnages fictifs générés par IA · à personnaliser : blason, nom de la commune, QR code, contact RH · tarikbelatta@gmail.com · 06 13 24 96 80</div>{TRI}</div></body></html>''')
+<div class="g">{cells}</div><div class="f">Visuels de démonstration · personnages fictifs générés par IA · à personnaliser : nom de la commune, QR code, contact RH · tarikbelatta@gmail.com · 06 13 24 96 80</div>{TRI}</div></body></html>''')
 print('ok')

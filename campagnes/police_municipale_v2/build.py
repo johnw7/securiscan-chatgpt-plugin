@@ -1,6 +1,8 @@
 import sys, os
 sys.path.insert(0, os.path.dirname(__file__))
 from concepts import C
+import base64
+ECU = 'data:image/png;base64,' + base64.b64encode(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'ecusson_police_municipale.png'), 'rb').read()).decode()
 H = '''<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 <style>html,body{margin:0;background:transparent}#poster{width:1240px;height:1754px;position:relative;overflow:hidden}svg{display:block}</style>
@@ -14,10 +16,9 @@ H = '''<!doctype html><html><head><meta charset="utf-8">
 <rect x="0" y="0" width="1240" height="660" fill="url(#top)"/>
 <rect x="0" y="1440" width="1240" height="160" fill="url(#bot)"/>
 <g font-family="Montserrat">
- <path d="M80 56 L136 56 L136 96 C136 118 120 131 108 137 C96 131 80 118 80 96Z" fill="none" stroke="#9fb7e8" stroke-width="2.5" stroke-dasharray="6 5"/>
- <text x="108" y="101" text-anchor="middle" font-size="10" font-weight="700" fill="#9fb7e8">BLASON</text>
- <text x="154" y="88" font-size="19" font-weight="800" fill="#fff" letter-spacing="3">VILLE DE</text>
- <text x="154" y="114" font-size="19" font-weight="600" fill="#9fb7e8" letter-spacing="3">VOTRE COMMUNE</text>
+ <image href="{ECU}" x="78" y="38" width="74" height="92"/>
+ <text x="168" y="84" font-size="19" font-weight="800" fill="#fff" letter-spacing="3">VILLE DE</text>
+ <text x="168" y="110" font-size="19" font-weight="600" fill="#9fb7e8" letter-spacing="3">VOTRE COMMUNE</text>
  <rect x="880" y="62" width="280" height="54" rx="27" fill="#e1323c"/>
  <circle cx="911" cy="89" r="7" fill="#fff"/>
  <text x="930" y="97" font-size="20" font-weight="800" fill="#fff" letter-spacing="2.5">ON RECRUTE !</text>
@@ -48,5 +49,5 @@ H = '''<!doctype html><html><head><meta charset="utf-8">
 </body></html>'''
 d = os.path.dirname(os.path.abspath(__file__))
 for i, (slug, l1, l2, tag, _) in enumerate(C, 1):
-    open(f'{d}/ov{i:02d}.html', 'w').write(H.replace('{L1}', l1).replace('{L2}', l2).replace('{TAG}', tag))
+    open(f'{d}/ov{i:02d}.html', 'w').write(H.replace('{L1}', l1).replace('{L2}', l2).replace('{TAG}', tag).replace('{ECU}', ECU))
 print(len(C))
