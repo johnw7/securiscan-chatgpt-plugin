@@ -48,6 +48,25 @@ VO_DYN = {
            (5.40, 6.90, "Donnons vie à vos idées.")],
 }
 
+# Version 2 bis : nouvelle voix (Piper « tom », débit rapide) — coupures sur le minutage mot à mot (Whisper)
+VO_TOM = {
+    'L2': [(0.00, 3.05, "Un nouveau poste, une nouvelle équipe,\nde nouveaux défis…"),
+           (3.05, 5.78, "Bienvenue dans votre nouvelle\naventure professionnelle !")],
+    'L3': [(0.00, 3.79, "Découvrez les équipes et les services\nqui vous accompagneront au quotidien.")],
+    'L4': [(0.00, 3.20, "Messagerie, agenda, documents\net espace RH :"),
+           (3.20, 5.31, "retrouvez tous les outils\npour bien démarrer.")],
+    'L5': [(0.00, 2.68, "Respect, confidentialité\net esprit d'équipe :"),
+           (2.68, 3.68, "quelques bonnes pratiques"),
+           (3.68, 6.30, "pour évoluer dans un environnement\nprofessionnel serein.")],
+    'L6': [(0.00, 1.18, "Vous n'êtes pas seul."),
+           (1.18, 4.83, "Votre manager et vos collègues sont là\npour vous accompagner à chaque étape.")],
+    'L7': [(0.00, 4.05, "Vous avez désormais toutes les premières\nclés pour réussir votre intégration."),
+           (4.05, 5.39, "Bienvenue dans l'équipe !")],
+    'L8': [(0.00, 3.65, "Chez E-DUST SOLUTIONS, nous transformons\nvos parcours d'intégration"),
+           (3.65, 6.05, "en expériences visuelles engageantes."),
+           (6.05, 7.56, "Donnons vie à vos idées.")],
+}
+
 # EDL : (scène, début, fin, temps local de départ, vitesse)
 CUTS = {
     'full': {
@@ -64,13 +83,13 @@ CUTS = {
     },
     # version 2 : voix plus dynamique, sans personnage
     'full_v2': {
-        'dur': 90, 'nochar': True, 'vodir': 'vo_dyn',
+        'dur': 90, 'nochar': True, 'vodir': 'vo_tom',
         'edl': [(1, 0, 3, 0, 1), (2, 3, 13, 0, 1), (3, 13, 25, 0, 1), (4, 25, 40, 0, 1),
                 (5, 40, 54, 0, 1), (6, 54, 68, 0, 1), (7, 68, 78, 0, 1), (8, 78, 90, 0, 1)],
         'vo': [('L2', 4.0), ('L3', 14.2), ('L4', 26.6), ('L5', 41.4), ('L6', 55.6), ('L7', 69.4), ('L8', 79.4)],
     },
     'short_v2': {
-        'dur': 30, 'nochar': True, 'vodir': 'vo_dyn',
+        'dur': 30, 'nochar': True, 'vodir': 'vo_tom',
         'edl': [(1, 0, 2, 0.6, 1), (2, 2, 9, 0.5, 1), (3, 9, 11.5, 4.0, 1), (4, 11.5, 14, 6.0, 1),
                 (6, 14, 16.5, 7.0, 1), (7, 16.5, 21, 1.0, 1), (8, 21, 30, 0, 12 / 9)],
         'vo': [('L2', 2.4), ('L7', 15.2), ('L8', 21.6)],
@@ -197,7 +216,7 @@ def build(cut):
         i1 = min(n, i0 + len(v))
         voice[i0:i1] += v[:i1 - i0]
         duck[max(0, i0 - int(.25 * SR)):min(n, i1 + int(.35 * SR))] = 1
-        cues_vo = (VO_DYN if C.get('vodir') == 'vo_dyn' else VO)[name]
+        cues_vo = {'vo_dyn': VO_DYN, 'vo_tom': VO_TOM}.get(C.get('vodir'), VO)[name]
         for j, (a, b, txt) in enumerate(cues_vo):
             tail = 0.25 if j == len(cues_vo) - 1 else 0
             cues.append((round(at + a, 3), round(min(dur, at + b + tail), 3), txt))

@@ -1,70 +1,70 @@
 1
-00:00:04,000 --> 00:00:06,680
+00:00:04,000 --> 00:00:07,050
 Un nouveau poste, une nouvelle équipe,
 de nouveaux défis…
 
 2
-00:00:06,680 --> 00:00:09,650
+00:00:07,050 --> 00:00:10,030
 Bienvenue dans votre nouvelle
 aventure professionnelle !
 
 3
-00:00:14,200 --> 00:00:17,720
+00:00:14,200 --> 00:00:18,240
 Découvrez les équipes et les services
 qui vous accompagneront au quotidien.
 
 4
-00:00:26,600 --> 00:00:30,100
+00:00:26,600 --> 00:00:29,800
 Messagerie, agenda, documents
 et espace RH :
 
 5
-00:00:30,100 --> 00:00:32,250
+00:00:29,800 --> 00:00:32,160
 retrouvez tous les outils
 pour bien démarrer.
 
 6
-00:00:41,400 --> 00:00:44,060
+00:00:41,400 --> 00:00:44,080
 Respect, confidentialité
 et esprit d'équipe :
 
 7
-00:00:44,060 --> 00:00:45,280
+00:00:44,080 --> 00:00:45,080
 quelques bonnes pratiques
 
 8
-00:00:45,280 --> 00:00:48,150
+00:00:45,080 --> 00:00:47,950
 pour évoluer dans un environnement
 professionnel serein.
 
 9
-00:00:55,600 --> 00:00:56,700
+00:00:55,600 --> 00:00:56,780
 Vous n'êtes pas seul.
 
 10
-00:00:56,700 --> 00:01:00,750
+00:00:56,780 --> 00:01:00,680
 Votre manager et vos collègues sont là
 pour vous accompagner à chaque étape.
 
 11
-00:01:09,400 --> 00:01:12,800
+00:01:09,400 --> 00:01:13,450
 Vous avez désormais toutes les premières
 clés pour réussir votre intégration.
 
 12
-00:01:12,800 --> 00:01:14,310
+00:01:13,450 --> 00:01:15,040
 Bienvenue dans l'équipe !
 
 13
-00:01:19,400 --> 00:01:22,600
+00:01:19,400 --> 00:01:23,050
 Chez E-DUST SOLUTIONS, nous transformons
 vos parcours d'intégration
 
 14
-00:01:22,600 --> 00:01:24,800
+00:01:23,050 --> 00:01:25,450
 en expériences visuelles engageantes.
 
 15
-00:01:24,800 --> 00:01:26,550
+00:01:25,450 --> 00:01:27,210
 Donnons vie à vos idées.
 
