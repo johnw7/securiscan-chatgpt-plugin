@@ -21,7 +21,7 @@ h1 small{font-size:33pt;letter-spacing:1.5px}
 .som{position:absolute;left:0;bottom:22mm;width:150mm;display:grid;grid-template-columns:1fr 1fr;gap:2.5mm 10mm;font-size:9pt}
 .som div{display:flex;justify-content:space-between;border-bottom:.25mm solid #cfd5e2;padding-bottom:1.4mm;font-weight:600}
 .som b{color:#1f6fd0;font-weight:800}
-.somt{position:absolute;left:0;bottom:44mm;font-weight:800;letter-spacing:.3em;font-size:8pt;color:#4a5a7c}
+.somt{position:absolute;left:0;bottom:50mm;font-weight:800;letter-spacing:.3em;font-size:8pt;color:#4a5a7c}
 .foot{position:absolute;left:0;bottom:0;width:150mm;font-size:8pt;color:#4a5a7c;line-height:1.55}
 .foot b{color:#0b1f4d}
 .right{position:absolute;right:0;top:0;bottom:0;width:104mm;background:#0b1f4d;overflow:hidden}
@@ -42,10 +42,12 @@ h1 small{font-size:33pt;letter-spacing:1.5px}
   <div class="sub">Rejoindre la police municipale, servir sa commune.</div>
   <div class="somt">SOMMAIRE</div>
   <div class="som">
-   <div><span>Présentation de la campagne</span><b>02</b></div>
-   <div><span>Planche récapitulative</span><b>27</b></div>
-   <div><span>Les 20 affiches A4</span><b>28</b></div>
-   <div><span>Déclinaisons réseaux sociaux</span><b>48</b></div>
+   <div><span>Le concept</span><b>02</b></div>
+   <div><span>Planche récapitulative</span><b>07</b></div>
+   <div><span>La série des 20 affiches</span><b>03</b></div>
+   <div><span>Déclinaisons réseaux sociaux</span><b>08</b></div>
+   <div><span>Affiches à la une</span><b>05</b></div>
+   <div><span>Offre et contact</span><b>11</b></div>
   </div>
   <div class="foot"><b>Conception : E-DUST Solutions</b> — Tarik Belattar · tarikbelatta@gmail.com · 06 13 24 96 80<br>Document de présentation · visuels de démonstration · personnages fictifs générés par IA</div>
  </div>

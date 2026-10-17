@@ -54,6 +54,14 @@ page(f'''<div style="position:absolute;left:16mm;top:24mm;width:90mm">
 <img class="sh" src="{post[0]}" style="position:absolute;left:111mm;top:16mm;height:92mm">
 <img class="sh" src="{land[9]}" style="position:absolute;left:111mm;top:126mm;height:39mm">''', 'DÉCLINAISONS')
 
+def cap(t, x, y):
+    return f'<div class="cap" style="position:absolute;left:{x}mm;top:{y}mm">{t}</div>'
+page(head('UN VISUEL, TOUS LES FORMATS', 'Exemple : affiche 12') +
+     f'<img class="sh" src="{story[11]}" style="position:absolute;left:16mm;top:26mm;height:150mm">' + cap('STORY / REEL 9:16', 16, 180) +
+     f'<img class="sh" src="{post[11]}" style="position:absolute;left:110mm;top:26mm;height:104mm">' + cap('POST 4:5', 110, 133) +
+     f'<img class="sh" src="{clair[11]}" style="position:absolute;left:200mm;top:26mm;height:104mm">' + cap('POST 4:5 · VERSION CLAIRE', 200, 133) +
+     f'<img class="sh" src="{land[11]}" style="position:absolute;left:110mm;top:144mm;height:42mm">' + cap('PAYSAGE 1200 × 630', 194, 160), 'FORMATS')
+
 for label, imgs, sub in [('POST 4:5 · INSTAGRAM, FACEBOOK, LINKEDIN', post, '1080 × 1350 px'),
                          ('POST 4:5 · VERSION CLAIRE', clair, 'Variante fond clair · 1080 × 1350 px')]:
     for part in (0, 1):

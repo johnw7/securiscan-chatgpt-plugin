@@ -18,7 +18,7 @@ META = [
  ("Centre de supervision urbaine", "Agente opératrice CSU", "Vidéoprotection, nouveaux métiers"),
  ("Centre sportif et d'entraînement", "Jeune agent athlétique", "Jeunes diplômés, sportifs"),
  ("Marché de Noël au crépuscule", "Agente, la cinquantaine", "Événements et fêtes"),
- ("Avenue bordée d'arbres", "Motard de la brigade", "Brigade motocycliste"),
+ ("Quartier résidentiel, fin d'après-midi", "Agent en îlotage à pied", "Proximité et prévention dans les quartiers"),
  ("Passage piéton en centre-ville", "Binôme agente / agent", "Sécurité routière"),
  ("Devant une boulangerie", "Agente, fin de vingtaine", "Lien avec les commerçants"),
  ("Place de centre ancien", "Tuteur expérimenté et jeune recrue", "Formation, tutorat"),
