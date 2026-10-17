@@ -129,7 +129,7 @@
  },
  "next": 21,
  "prompt_template": "Photorealistic recruitment campaign photograph, FULL-LENGTH WIDE SHOT: fictional French municipal police {SCENE}. Subjects shot from a distance, SMALL IN THE FRAME: ENTIRE BODY(IES) VISIBLE FROM HEAD TO SHOES, perfectly centered horizontally, the full figure occupies only about HALF of the image height: top of head at about 42% of the image height, shoes at about 92% with a strip of ground visible below, wide empty sky / background in the top 40% of the frame. Officers wear EXACTLY the uniform of the first reference image: dark navy blue jacket with a horizontal light-blue band across chest and arms, black duty belt with pouches, navy trousers with thin light-blue side stripe, black boots. Shoulder patch matching the second reference image. Cinematic, editorial advertising photography, sharp, real-looking people, not cartoon, no text added.",
- "last_update": "2026-10-17T06:47:29Z",
+ "last_update": "2026-10-17T06:50:54Z",
  "final_deliverables": [
   "AFFICHES_A4_impression_HD.pdf (export Canva pro, pages 2-21)",
   "PRESENTATION dossier campagne A4 paysage (couverture, concept, vue d'ensemble, 1 page par affiche, déclinaisons, contact E-DUST)",
@@ -144,5 +144,6 @@
   ]
  },
  "rule_fit": "span pieds-tête <= 0.53 de la hauteur image ; top = 1565 - pieds_frac*1860 ; tête doit rester >= 590",
- "note_layout": "Depuis l'affiche 04 : titres décalés (kicker y170, L1 y372, L2 y486) pour les capitales accentuées ; calques 04-20 régénérés."
+ "note_layout": "Depuis l'affiche 04 : titres décalés (kicker y170, L1 y372, L2 y486) pour les capitales accentuées ; calques 04-20 régénérés.",
+ "finale_done": true
 }

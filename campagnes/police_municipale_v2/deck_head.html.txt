@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+@page{size:297mm 210mm;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;font-family:Montserrat,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg{width:297mm;height:210mm;position:relative;overflow:hidden;page-break-after:always;background:#0b1f4d;color:#fff}
+.pg.light{background:#f4f6fb;color:#0b1f4d}
+.tri{position:absolute;left:0;right:0;bottom:0;height:3mm;display:flex}.tri i{flex:1}.tri i:nth-child(1){background:#2b5cc8}.tri i:nth-child(2){background:#fff}.tri i:nth-child(3){background:#e1323c}
+.light .tri i:nth-child(2){background:#dfe4ef}
+.kick{font-weight:800;letter-spacing:5px;font-size:11pt;color:#3fa9f5}
+.big{font-family:Anton;font-size:64pt;line-height:1;margin:4mm 0}
+.big b{color:#3fa9f5;font-weight:400}
+.foot{position:absolute;left:16mm;bottom:8mm;font-size:8pt;opacity:.7}
+.num{position:absolute;right:16mm;bottom:8mm;font-size:8pt;opacity:.7}
+.red{width:22mm;height:2mm;background:#e1323c;margin:6mm 0}
+p{font-size:11.5pt;line-height:1.55;margin:0 0 3mm}
+.lede{font-size:13pt;font-weight:600;color:#d5e2ff}
+img.p{display:block;height:100%;border-radius:2mm;box-shadow:0 4mm 10mm rgba(0,0,0,.35)}
+.tag{display:inline-block;background:#e1323c;color:#fff;font-weight:800;font-size:9pt;letter-spacing:2px;padding:2mm 4mm;border-radius:10mm}
+.card h3{font-family:Anton;font-weight:400;font-size:26pt;margin:2mm 0 4mm;line-height:1.05}
+.meta{display:grid;grid-template-columns:42mm 1fr;gap:2.5mm 4mm;font-size:10.5pt;margin-top:6mm}
+.meta dt{font-weight:800;color:#3fa9f5;letter-spacing:1px;font-size:9pt;padding-top:.5mm}
+.meta dd{margin:0}
+.light .meta dt{color:#1f6fd0}
+</style></head><body>
