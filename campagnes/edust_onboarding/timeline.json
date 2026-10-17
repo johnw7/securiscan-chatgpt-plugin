@@ -135,7 +135,8 @@
     87.81,
     "Donnons vie à vos idées."
    ]
-  ]
+  ],
+  "nochar": false
  },
  "short": {
   "dur": 30,
@@ -226,6 +227,238 @@
     29.91,
     "Donnons vie à vos idées."
    ]
-  ]
+  ],
+  "nochar": false
+ },
+ "full_v2": {
+  "dur": 90,
+  "edl": [
+   [
+    1,
+    0,
+    3,
+    0,
+    1
+   ],
+   [
+    2,
+    3,
+    13,
+    0,
+    1
+   ],
+   [
+    3,
+    13,
+    25,
+    0,
+    1
+   ],
+   [
+    4,
+    25,
+    40,
+    0,
+    1
+   ],
+   [
+    5,
+    40,
+    54,
+    0,
+    1
+   ],
+   [
+    6,
+    54,
+    68,
+    0,
+    1
+   ],
+   [
+    7,
+    68,
+    78,
+    0,
+    1
+   ],
+   [
+    8,
+    78,
+    90,
+    0,
+    1
+   ]
+  ],
+  "cues": [
+   [
+    4.0,
+    6.68,
+    "Un nouveau poste, une nouvelle équipe,\nde nouveaux défis…"
+   ],
+   [
+    6.68,
+    9.65,
+    "Bienvenue dans votre nouvelle\naventure professionnelle !"
+   ],
+   [
+    14.2,
+    17.72,
+    "Découvrez les équipes et les services\nqui vous accompagneront au quotidien."
+   ],
+   [
+    26.6,
+    30.1,
+    "Messagerie, agenda, documents\net espace RH :"
+   ],
+   [
+    30.1,
+    32.25,
+    "retrouvez tous les outils\npour bien démarrer."
+   ],
+   [
+    41.4,
+    44.06,
+    "Respect, confidentialité\net esprit d'équipe :"
+   ],
+   [
+    44.06,
+    45.28,
+    "quelques bonnes pratiques"
+   ],
+   [
+    45.28,
+    48.15,
+    "pour évoluer dans un environnement\nprofessionnel serein."
+   ],
+   [
+    55.6,
+    56.7,
+    "Vous n'êtes pas seul."
+   ],
+   [
+    56.7,
+    60.75,
+    "Votre manager et vos collègues sont là\npour vous accompagner à chaque étape."
+   ],
+   [
+    69.4,
+    72.8,
+    "Vous avez désormais toutes les premières\nclés pour réussir votre intégration."
+   ],
+   [
+    72.8,
+    74.31,
+    "Bienvenue dans l'équipe !"
+   ],
+   [
+    79.4,
+    82.6,
+    "Chez E-DUST SOLUTIONS, nous transformons\nvos parcours d'intégration"
+   ],
+   [
+    82.6,
+    84.8,
+    "en expériences visuelles engageantes."
+   ],
+   [
+    84.8,
+    86.55,
+    "Donnons vie à vos idées."
+   ]
+  ],
+  "nochar": true
+ },
+ "short_v2": {
+  "dur": 30,
+  "edl": [
+   [
+    1,
+    0,
+    2,
+    0.6,
+    1
+   ],
+   [
+    2,
+    2,
+    9,
+    0.5,
+    1
+   ],
+   [
+    3,
+    9,
+    11.5,
+    4.0,
+    1
+   ],
+   [
+    4,
+    11.5,
+    14,
+    6.0,
+    1
+   ],
+   [
+    6,
+    14,
+    16.5,
+    7.0,
+    1
+   ],
+   [
+    7,
+    16.5,
+    21,
+    1.0,
+    1
+   ],
+   [
+    8,
+    21,
+    30,
+    0,
+    1.3333333333333333
+   ]
+  ],
+  "cues": [
+   [
+    2.4,
+    5.08,
+    "Un nouveau poste, une nouvelle équipe,\nde nouveaux défis…"
+   ],
+   [
+    5.08,
+    8.05,
+    "Bienvenue dans votre nouvelle\naventure professionnelle !"
+   ],
+   [
+    15.2,
+    18.6,
+    "Vous avez désormais toutes les premières\nclés pour réussir votre intégration."
+   ],
+   [
+    18.6,
+    20.11,
+    "Bienvenue dans l'équipe !"
+   ],
+   [
+    21.6,
+    24.8,
+    "Chez E-DUST SOLUTIONS, nous transformons\nvos parcours d'intégration"
+   ],
+   [
+    24.8,
+    27.0,
+    "en expériences visuelles engageantes."
+   ],
+   [
+    27.0,
+    28.75,
+    "Donnons vie à vos idées."
+   ]
+  ],
+  "nochar": true
  }
 }

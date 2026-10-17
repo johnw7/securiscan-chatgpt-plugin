@@ -29,6 +29,25 @@ VO = {
            (6.45, 8.36, "Donnons vie à vos idées.")],
 }
 
+# Version 2 : voix off accélérée (×1,2, plus de punch) — coupures recalées sur les nouvelles pauses
+VO_DYN = {
+    'L2': [(0.00, 2.68, "Un nouveau poste, une nouvelle équipe,\nde nouveaux défis…"),
+           (2.68, 5.40, "Bienvenue dans votre nouvelle\naventure professionnelle !")],
+    'L3': [(0.00, 3.27, "Découvrez les équipes et les services\nqui vous accompagneront au quotidien.")],
+    'L4': [(0.00, 3.50, "Messagerie, agenda, documents\net espace RH :"),
+           (3.50, 5.40, "retrouvez tous les outils\npour bien démarrer.")],
+    'L5': [(0.00, 2.66, "Respect, confidentialité\net esprit d'équipe :"),
+           (2.66, 3.88, "quelques bonnes pratiques"),
+           (3.88, 6.50, "pour évoluer dans un environnement\nprofessionnel serein.")],
+    'L6': [(0.00, 1.10, "Vous n'êtes pas seul."),
+           (1.10, 4.90, "Votre manager et vos collègues sont là\npour vous accompagner à chaque étape.")],
+    'L7': [(0.00, 3.40, "Vous avez désormais toutes les premières\nclés pour réussir votre intégration."),
+           (3.40, 4.66, "Bienvenue dans l'équipe !")],
+    'L8': [(0.00, 3.20, "Chez E-DUST SOLUTIONS, nous transformons\nvos parcours d'intégration"),
+           (3.20, 5.40, "en expériences visuelles engageantes."),
+           (5.40, 6.90, "Donnons vie à vos idées.")],
+}
+
 # EDL : (scène, début, fin, temps local de départ, vitesse)
 CUTS = {
     'full': {
@@ -43,11 +62,24 @@ CUTS = {
                 (6, 14, 16.5, 7.0, 1), (7, 16.5, 21, 1.0, 1), (8, 21, 30, 0, 12 / 9)],
         'vo': [('L2', 2.5), ('L7', 15.0), ('L8', 21.3)],
     },
+    # version 2 : voix plus dynamique, sans personnage
+    'full_v2': {
+        'dur': 90, 'nochar': True, 'vodir': 'vo_dyn',
+        'edl': [(1, 0, 3, 0, 1), (2, 3, 13, 0, 1), (3, 13, 25, 0, 1), (4, 25, 40, 0, 1),
+                (5, 40, 54, 0, 1), (6, 54, 68, 0, 1), (7, 68, 78, 0, 1), (8, 78, 90, 0, 1)],
+        'vo': [('L2', 4.0), ('L3', 14.2), ('L4', 26.6), ('L5', 41.4), ('L6', 55.6), ('L7', 69.4), ('L8', 79.4)],
+    },
+    'short_v2': {
+        'dur': 30, 'nochar': True, 'vodir': 'vo_dyn',
+        'edl': [(1, 0, 2, 0.6, 1), (2, 2, 9, 0.5, 1), (3, 9, 11.5, 4.0, 1), (4, 11.5, 14, 6.0, 1),
+                (6, 14, 16.5, 7.0, 1), (7, 16.5, 21, 1.0, 1), (8, 21, 30, 0, 12 / 9)],
+        'vo': [('L2', 2.4), ('L7', 15.2), ('L8', 21.6)],
+    },
 }
 
 
-def load_vo(name):
-    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'{D}/vo/{name}.mp3', '-f', 'f32le', '-ac', '1', '-ar', str(SR), '-'],
+def load_vo(name, vodir='vo'):
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'{D}/{vodir}/{name}.mp3', '-f', 'f32le', '-ac', '1', '-ar', str(SR), '-'],
                          capture_output=True, check=True).stdout
     return np.frombuffer(raw, np.float32).copy()
 
@@ -147,22 +179,27 @@ def build(cut):
     dur = C['dur']
     n = int(dur * SR)
     # énergie : intro calme, montée progressive, pic sur conclusion et pub
-    if cut == 'full':
+    if cut.startswith('full'):
         energy = lambda x: .3 if x < 3 else .55 if x < 13 else .7 if x < 68 else .85
     else:
         energy = lambda x: .35 if x < 2 else .7 if x < 16.5 else .85
+    if C.get('nochar'):
+        # version 2 : arrangement plus rythmé (kick + charleston dès l'arrivée)
+        base = energy
+        energy = lambda x: min(1, base(x) + .2)
     mus = music(dur, energy)
     voice = np.zeros(n)
     duck = np.zeros(n)
     cues = []
     for name, at in C['vo']:
-        v = load_vo(name)
+        v = load_vo(name, C.get('vodir', 'vo'))
         i0 = int(at * SR)
         i1 = min(n, i0 + len(v))
         voice[i0:i1] += v[:i1 - i0]
         duck[max(0, i0 - int(.25 * SR)):min(n, i1 + int(.35 * SR))] = 1
-        for j, (a, b, txt) in enumerate(VO[name]):
-            tail = 0.25 if j == len(VO[name]) - 1 else 0
+        cues_vo = (VO_DYN if C.get('vodir') == 'vo_dyn' else VO)[name]
+        for j, (a, b, txt) in enumerate(cues_vo):
+            tail = 0.25 if j == len(cues_vo) - 1 else 0
             cues.append((round(at + a, 3), round(min(dur, at + b + tail), 3), txt))
     # lissage de la courbe de ducking
     k = int(.25 * SR)
@@ -193,7 +230,7 @@ def build(cut):
     with open(f'{D}/srt/sous-titres_{cut}.srt', 'w', encoding='utf-8') as f:
         for i, (a, b, txt) in enumerate(cues, 1):
             f.write(f'{i}\n{srt_time(a)} --> {srt_time(b)}\n{txt}\n\n')
-    return {'dur': dur, 'edl': C['edl'], 'cues': cues}
+    return {'dur': dur, 'edl': C['edl'], 'cues': cues, 'nochar': C.get('nochar', False)}
 
 
 if __name__ == '__main__':
