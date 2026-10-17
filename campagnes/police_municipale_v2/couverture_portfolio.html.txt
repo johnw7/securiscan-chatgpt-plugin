@@ -1,0 +1,60 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+<style>
+@page{size:297mm 210mm;margin:0}
+*{box-sizing:border-box}
+html,body{margin:0;font-family:Montserrat,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.pg{width:297mm;height:210mm;position:relative;overflow:hidden;background:#fbfaf7;color:#0b1f4d}
+.flag{position:absolute;left:0;top:0;bottom:0;width:7mm;display:flex;flex-direction:column}
+.flag i{flex:1}.flag i:nth-child(1){background:#1b3f9c}.flag i:nth-child(2){background:#fff;border-right:.3mm solid #e6e3dc}.flag i:nth-child(3){background:#d52b2f}
+.left{position:absolute;left:24mm;top:20mm;width:150mm;bottom:16mm}
+.top{display:flex;align-items:center;gap:6mm}
+.top img{height:34mm;filter:drop-shadow(0 1.2mm 2mm rgba(11,31,77,.25))}
+.top .t1{font-weight:800;letter-spacing:.32em;font-size:9pt;color:#1f6fd0}
+.top .t2{font-weight:600;font-size:10pt;margin-top:1.5mm;color:#4a5a7c;letter-spacing:.06em}
+.rule{height:.5mm;background:#0b1f4d;width:150mm;margin:9mm 0 7mm;opacity:.9}
+.kick{font-weight:800;letter-spacing:.3em;font-size:10pt;color:#d52b2f}
+h1{font-family:Anton;font-weight:400;font-size:56pt;line-height:.98;margin:4mm 0 0;letter-spacing:.5px}
+h1 span{color:#1f6fd0}
+h1 small{font-size:33pt;letter-spacing:1.5px}
+.sub{font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:16pt;color:#38476a;margin-top:6mm}
+.som{position:absolute;left:0;bottom:22mm;width:150mm;display:grid;grid-template-columns:1fr 1fr;gap:2.5mm 10mm;font-size:9pt}
+.som div{display:flex;justify-content:space-between;border-bottom:.25mm solid #cfd5e2;padding-bottom:1.4mm;font-weight:600}
+.som b{color:#1f6fd0;font-weight:800}
+.somt{position:absolute;left:0;bottom:44mm;font-weight:800;letter-spacing:.3em;font-size:8pt;color:#4a5a7c}
+.foot{position:absolute;left:0;bottom:0;width:150mm;font-size:8pt;color:#4a5a7c;line-height:1.55}
+.foot b{color:#0b1f4d}
+.right{position:absolute;right:0;top:0;bottom:0;width:104mm;background:#0b1f4d;overflow:hidden}
+.right .glow{position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(63,169,245,.28),transparent 60%)}
+.ph{position:absolute;border-radius:1.2mm;box-shadow:0 4mm 10mm rgba(0,0,0,.45);border:.6mm solid rgba(255,255,255,.9)}
+.date{position:absolute;right:10mm;bottom:9mm;color:#fff;font-weight:700;font-size:8.5pt;letter-spacing:.25em;text-align:right;opacity:.85}
+.tri{position:absolute;left:0;right:0;bottom:0;height:2.2mm;display:flex}.tri i{flex:1}.tri i:nth-child(1){background:#1b3f9c}.tri i:nth-child(2){background:#fff}.tri i:nth-child(3){background:#d52b2f}
+</style></head><body>
+<div class="pg">
+ <div class="flag"><i></i><i></i><i></i></div>
+ <div class="left">
+  <div class="top"><img src="ecu.png">
+   <div><div class="t1">POLICE MUNICIPALE</div><div class="t2">Ville de · Votre commune</div></div>
+  </div>
+  <div class="rule"></div>
+  <div class="kick">PORTFOLIO DE CAMPAGNE</div>
+  <h1><small>CAMPAGNE DE RECRUTEMENT</small><br><span>POLICE MUNICIPALE</span></h1>
+  <div class="sub">Rejoindre la police municipale, servir sa commune.</div>
+  <div class="somt">SOMMAIRE</div>
+  <div class="som">
+   <div><span>Présentation de la campagne</span><b>02</b></div>
+   <div><span>Planche récapitulative</span><b>27</b></div>
+   <div><span>Les 20 affiches A4</span><b>28</b></div>
+   <div><span>Déclinaisons réseaux sociaux</span><b>48</b></div>
+  </div>
+  <div class="foot"><b>Conception : E-DUST Solutions</b> — Tarik Belattar · tarikbelatta@gmail.com · 06 13 24 96 80<br>Document de présentation · visuels de démonstration · personnages fictifs générés par IA</div>
+ </div>
+ <div class="right"><div class="glow"></div>
+  <img class="ph" src="a12.jpg" style="left:44mm;top:14mm;height:98mm;transform:rotate(3deg)">
+  <img class="ph" src="a01.jpg" style="left:8mm;top:28mm;height:92mm;transform:rotate(-4deg)">
+  <img class="ph" src="a20.jpg" style="left:50mm;top:104mm;height:76mm;transform:rotate(-2deg)">
+  <img class="ph" src="a10.jpg" style="left:12mm;top:118mm;height:68mm;transform:rotate(4deg)">
+  <div class="date">OCTOBRE 2026</div>
+  <div class="tri"><i></i><i></i><i></i></div>
+ </div>
+</div></body></html>
