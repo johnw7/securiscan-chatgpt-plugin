@@ -58,6 +58,26 @@ html,body{width:100vw;height:100vh;overflow:hidden;background:#0b141a;font-famil
 #end .addr{font-weight:800;font-size:calc(3.8*var(--u));line-height:1.4}
 #end .tel{background:var(--red);color:#fff;font-weight:900;font-size:calc(5.6*var(--u));padding:calc(1.4*var(--u)) calc(4.4*var(--u));border-radius:999px}
 #end .cr{position:absolute;bottom:2vh;left:5vw;right:5vw;font-weight:500;font-size:calc(1.9*var(--u));opacity:.6}
+
+/* couverture */
+#cover{position:absolute;inset:0;z-index:60;background:#e63c1e;overflow:hidden}
+#cover .dots{position:absolute;inset:0;background-image:radial-gradient(rgba(33,37,39,.16) 28%,transparent 30%);background-size:calc(3.2*var(--u)) calc(3.2*var(--u))}
+#cover .burst{position:absolute;left:50%;top:58%;width:220vmax;height:220vmax;transform:translate(-50%,-50%);background:repeating-conic-gradient(rgba(251,247,205,.14) 0 9deg,transparent 9deg 22deg);-webkit-mask-image:radial-gradient(closest-side,#000 15%,transparent 65%)}
+#cover .lab{position:absolute;left:0;right:0;text-align:center;z-index:3}
+#cover .lab .label svg path{fill:#212527}
+#cover .ttl{position:absolute;left:5vw;right:5vw;text-align:center;font-family:Oswald;font-size:calc(8.6*var(--u));line-height:1.02;color:#fbf7cd;text-transform:uppercase;text-shadow:calc(.8*var(--u)) calc(.8*var(--u)) 0 #212527;z-index:3}
+#cover .ttl em{font-style:normal;color:#212527;background:#fbf7cd;padding:0 .15em;text-shadow:none;display:inline-block;transform:rotate(-2deg)}
+#mock{position:absolute;left:50%;top:50%;width:calc(46*var(--u));aspect-ratio:9/18.5;background:#111;border-radius:calc(6*var(--u));padding:calc(1.6*var(--u));box-shadow:calc(1.6*var(--u)) calc(1.6*var(--u)) 0 #212527,0 calc(3*var(--u)) calc(8*var(--u)) rgba(0,0,0,.4);z-index:2}
+#mock .scr{position:relative;width:100%;height:100%;border-radius:calc(4.6*var(--u));overflow:hidden;background:#efe7dc}
+#mock .hd{height:13%;background:#1f2c34;display:flex;align-items:flex-end;gap:calc(1.2*var(--u));padding:0 calc(2*var(--u)) calc(1.4*var(--u));color:#fff;font-family:Inter;font-weight:700;font-size:calc(2.4*var(--u))}
+#mock .hd i{width:calc(5*var(--u));height:calc(5*var(--u));border-radius:50%;background:#e63c1e;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:calc(2.6*var(--u))}
+#mock .bb{margin:calc(1.4*var(--u)) calc(1.6*var(--u)) 0;padding:calc(1*var(--u)) calc(1.4*var(--u));border-radius:calc(1.4*var(--u));font-family:Inter;font-size:calc(2.3*var(--u));line-height:1.3;max-width:80%;box-shadow:0 1px 1px rgba(0,0,0,.12)}
+#mock .bb.i{background:#fff}#mock .bb.o{background:#d9fdd3;margin-left:auto}
+#mock .bb b{display:block;font-size:.8em;color:#d63384}
+#mock .bb img{display:block;width:100%;border-radius:calc(1*var(--u));margin-bottom:calc(.5*var(--u))}
+#cover .pill{position:absolute;left:50%;display:flex;align-items:center;gap:calc(1.6*var(--u));font-family:Oswald;font-size:calc(4*var(--u));letter-spacing:.06em;background:#fbf7cd;color:#212527;border-radius:999px;padding:calc(1*var(--u)) calc(3.4*var(--u)) calc(1*var(--u)) calc(1.2*var(--u));white-space:nowrap;z-index:3;box-shadow:calc(.8*var(--u)) calc(.8*var(--u)) 0 #212527}
+#cover .pill i{font-style:normal;width:calc(6*var(--u));height:calc(6*var(--u));border-radius:50%;background:#212527;color:#fff;display:flex;align-items:center;justify-content:center;font-size:calc(2.6*var(--u));padding-left:.15em}
+#cover .stk{position:absolute;z-index:4;width:calc(20*var(--u));height:calc(20*var(--u));display:flex;align-items:center;justify-content:center;text-align:center;font-family:Oswald;font-size:calc(3.6*var(--u));line-height:1;color:#fbf7cd;background:#212527;clip-path:polygon(50% 0%,61% 12%,75% 6%,79% 21%,94% 25%,88% 39%,100% 50%,88% 61%,94% 75%,79% 79%,75% 94%,61% 88%,50% 100%,39% 88%,25% 94%,21% 79%,6% 75%,12% 61%,0% 50%,12% 39%,6% 25%,21% 21%,25% 6%,39% 12%)}
 </style></head><body>
 <div id="phone"><div id="wall"></div>
  <div id="status"><span>19:02</span><span>●●●● 5G ▮</span></div>
@@ -66,11 +86,20 @@ html,body{width:100vw;height:100vh;overflow:hidden;background:#0b141a;font-famil
  <div id="input"><div class="fld">Message</div><div class="mic">🎙️</div></div>
 </div>
 <div id="hook">Le groupe quand quelqu'un propose <em>Les Fistons</em> 😂</div>
+<div id="cover"><div class="dots"></div><div class="burst"></div>
+ <div class="lab"><div class="label"><svg viewBox="0 0 400 200" preserveAspectRatio="none"><path d="M30 20 Q60 20 70 4 L330 4 Q340 20 370 20 Q396 20 396 46 Q380 60 380 100 Q380 140 396 154 Q396 180 370 180 Q340 180 330 196 L70 196 Q60 180 30 180 Q4 180 4 154 Q20 140 20 100 Q20 60 4 46 Q4 20 30 20Z" fill="#212527" stroke="#fbf7cd" stroke-width="5"/></svg><div class="t">LES FISTONS</div><div class="s">bistroquet · Saint-Germain-en-Laye</div></div></div>
+ <div class="ttl">Le groupe quand<br>quelqu'un propose<br><em>Les Fistons</em> 😂</div>
+ <div id="mock"><div class="scr"><div class="hd"><i>🍻</i>Les Copains 🍻</div>
+  <div class="bb i"><b>Sarah</b>Ce soir on se fait un resto ? 🍽️</div>
+  <div class="bb o">J'ai LA bonne adresse 👀</div>
+  <div class="bb o"><img src="assets/entrecote.jpg">Les Fistons 🔥</div></div></div>
+ <div class="stk">CONV'<br>DE<br>GROUPE</div>
+ <div class="pill"><i>▶</i>REGARDE LA CONV'</div></div>
 <div id="end"><div class="label"><svg viewBox="0 0 400 200" preserveAspectRatio="none"><path d="M30 20 Q60 20 70 4 L330 4 Q340 20 370 20 Q396 20 396 46 Q380 60 380 100 Q380 140 396 154 Q396 180 370 180 Q340 180 330 196 L70 196 Q60 180 30 180 Q4 180 4 154 Q20 140 20 100 Q20 60 4 46 Q4 20 30 20Z" fill="#e63c1e" stroke="#212527" stroke-width="7"/></svg><div class="t">LES FISTONS</div><div class="s">bistroquet · ouvert 7j/7</div></div>
  <div class="addr">📍 22 place Charles de Gaulle<br>Saint-Germain-en-Laye</div><div class="tel">Réserve 👉 01 39 73 06 34</div>
  <div class="cr">Exemple de format UGC · E-DUST Solutions · photos : site du restaurant (J. Célice / C. Sautet) · conversation fictive</div></div>
 <script>
-window.DUR=27;const END=24.4;const A='assets/';const es=x=>x*x*(3-2*x);
+const COVER=2.5;window.DUR=27+COVER;const END=24.4;const A='assets/';const es=x=>x*x*(3-2*x);
 const C={Sarah:'#d63384',Mehdi:'#1f8ef1',Lucas:'#e8a317'};
 // [temps, sens, auteur, contenu html, heure, type, réaction]
 const MS=[
@@ -96,7 +125,7 @@ MS.forEach(m=>{const e=document.createElement('div');e.className='m '+m[1]+(m[5]
  e.innerHTML=(m[1]=='in'?`<span class="who" style="color:${C[m[2]]}">${m[2]}</span>`:'')+m[3]+`<span class="h">${m[4]}${m[1]=='out'?' <b>✓✓</b>':''}</span>`+(m[6]?`<span class="react">${m[6]}</span>`:'');
  if(m[1]=='in'&&m[0]>0){const ty=document.createElement('div');ty.className='ty';ty.innerHTML='<i></i><i></i><i></i>';e.appendChild(ty);m.ty=ty;}
  M.appendChild(e);m.el=e;});
-function render(t){
+function renderChat(t){
  measure();
  const vH=Q('#view').clientHeight;
  // défilement : la conversation remonte quand un message arrive
@@ -119,6 +148,25 @@ function render(t){
  const hk=Q('#hook');hk.style.top=(R45?52:58)+'vh';hk.style.opacity=t<1.5?1:1-seg(t,1.5,1.8);hk.style.transform=`scale(${1+.02*Math.sin(t*4)})`;
  // carte de fin
  const en=Q('#end');en.style.opacity=seg(t,END,END+.35);en.querySelector('.label').style.transform=`scale(${.6+.4*eb(seg(t,END+.1,END+.6))})`;
+}
+function render(T){
+ measure();const t=Math.max(0,T-COVER);renderChat(t);
+ Q('#hook').style.display='none';
+ const cv=Q('#cover');const vh=H/100;
+ // le téléphone grossit jusqu'à remplir l'écran, puis on bascule dans la conversation
+ const z=eio(seg(T,COVER-.7,COVER));
+ cv.style.opacity=T<COVER?1:0;
+ cv.querySelector('.burst').style.transform=`translate(-50%,-50%) rotate(${T*8}deg)`;
+ const lab=cv.querySelector('.lab'),ttl=cv.querySelector('.ttl'),pl=cv.querySelector('.pill'),st=cv.querySelector('.stk');
+ lab.style.top=(R45?2.5:3.5)+'vh';lab.style.transform=`scale(${R45?.78:.85})`;lab.style.transformOrigin='50% 0';ttl.style.top=(R45?17:17)+'vh';pl.style.top=(R45?88:89)+'vh';
+ const mk=Q('#mock');const mkTop=R45?65:61;const sc0=R45?.78:1;
+ const full=Math.max(W/(46*U),H/(46*U*18.5/9))*1.08;
+ mk.style.transform=`translate(-50%,-50%) translateY(${mix(mkTop-50,0,z)*vh}px) scale(${mix(sc0,full,z)}) rotate(${mix(-4,0,z)+Math.sin(T*2)*(1-z)}deg)`;
+ const fo=1-seg(T,COVER-.75,COVER-.5);[lab,ttl,pl].forEach(e=>e.style.opacity=fo);
+ let fl=Q('#cvflash');if(!fl){fl=document.createElement('div');fl.id='cvflash';fl.style.cssText='position:absolute;inset:0;background:#fff;z-index:70;pointer-events:none';document.body.appendChild(fl);}
+ fl.style.opacity=Math.max(0,1-Math.abs(T-COVER)/.12)*.85;
+ st.style.left=(R45?70:69)+'vw';st.style.top=(R45?52:50)+'vh';st.style.opacity=fo;st.style.transform=`rotate(${-12+Math.sin(T*3)*8}deg) scale(${1+.04*Math.sin(T*5)})`;
+ pl.style.transform=`translateX(-50%) scale(${1+.03*Math.sin(T*5)})`;
 }
 window.render=render;
 </script></body></html>
