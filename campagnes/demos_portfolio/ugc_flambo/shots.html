@@ -1,0 +1,42 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Lexend+Deca:wght@600;800&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box}html,body{width:1080px;height:1080px;overflow:hidden;font-family:'Lexend Deca'}
+.v{position:absolute;inset:0;display:none;overflow:hidden}
+.rays{position:absolute;left:50%;top:50%;width:2600px;height:2600px;transform:translate(-50%,-50%);background:repeating-conic-gradient(rgba(255,122,0,.35) 0 7deg,transparent 7deg 18deg)}
+svg{overflow:visible}
+.card{position:absolute;left:80px;right:80px;background:#FFF4E0;border-radius:36px;padding:30px 40px;display:flex;align-items:center;gap:28px;box-shadow:0 14px 0 #FF7A00}
+.card .n{font-family:'Lilita One';font-size:58px;color:#1a1110;line-height:1}.card .d{font-weight:600;font-size:26px;color:#6b4b36;margin-top:6px}
+.card .p{margin-left:auto;font-family:'Lilita One';font-size:62px;color:#fff;background:#E2321F;border-radius:24px;padding:8px 24px}
+</style></head><body>
+<div class="v" id="burger" style="background:#FFC21A"><div class="rays"></div><svg id="b1" viewBox="0 0 400 380" style="position:absolute;left:140px;top:170px;width:800px"></svg></div>
+<div class="v" id="menu" style="background:radial-gradient(70% 50% at 50% 40%,#4a2410,#1a1110 75%)">
+ <div style="position:absolute;top:70px;left:0;right:0;text-align:center;font-family:'Lilita One';font-size:110px;color:#FFC21A">LA CARTE</div>
+ <div class="card" style="top:260px"><div style="font-size:80px">🍔</div><div><div class="n">LE CLASSIC</div><div class="d">Steak smashé, cheddar, salade</div></div><div class="p">8,90 €</div></div>
+ <div class="card" style="top:480px"><div style="font-size:80px">🔥</div><div><div class="n">DOUBLE SMASH</div><div class="d">2 steaks, double cheddar</div></div><div class="p">11,90 €</div></div>
+ <div class="card" style="top:700px"><div style="font-size:80px">🍗</div><div><div class="n">CHICKEN CRISPY</div><div class="d">Poulet croustillant, sauce maison</div></div><div class="p">9,90 €</div></div>
+ <div style="position:absolute;bottom:60px;left:0;right:0;text-align:center;font-weight:800;font-size:34px;color:#1a1110"><span style="background:#FFC21A;padding:12px 30px;border-radius:999px">🍟 + 🥤 EN MENU : + 3,50 €</span></div></div>
+<div class="v" id="combo" style="background:#E2321F"><div class="rays" style="background:repeating-conic-gradient(rgba(255,194,26,.25) 0 7deg,transparent 7deg 18deg)"></div>
+ <svg id="b2" viewBox="0 0 400 380" style="position:absolute;left:250px;top:300px;width:580px"></svg>
+ <svg viewBox="0 0 200 260" style="position:absolute;left:60px;top:430px;width:260px"><g fill="#FFD23A" stroke="#C98A00" stroke-width="3">${''}</g></svg>
+ <div id="fries" style="position:absolute;left:40px;top:420px"></div><div id="drink" style="position:absolute;right:40px;top:380px"></div>
+ <div style="position:absolute;top:70px;left:0;right:0;text-align:center;font-family:'Lilita One';font-size:96px;color:#fff;text-shadow:0 8px 0 #1a1110">LE MENU QUI CLAQUE</div></div>
+<script>
+function hash(n){const x=Math.sin(n*127.1+311.7)*43758.5453;return x-Math.floor(x)}
+function wave(y0,y1,x0,x1,amp,n){let d=`M${x0} ${y1}`;const st=(x1-x0)/n;for(let i=0;i<=n;i++){const x=x0+i*st;d+=` Q${x-st/2} ${y0-amp*(i%2?1:-.4)} ${x} ${y0}`;}return d+` L${x1} ${y1} Z`}
+let seeds='';for(let i=0;i<22;i++){const a=hash(i)*Math.PI,x=200+Math.cos(a)*(40+hash(i+3)*120)*(hash(i+5)>.5?1:-1),y=130+hash(i+7)*70;seeds+=`<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="5" ry="2.6" fill="#FFF1D0"/>`;}
+let spots='';for(let i=0;i<26;i++){spots+=`<ellipse cx="${(50+hash(i+20)*300).toFixed(0)}" cy="${(268+hash(i+40)*28).toFixed(0)}" rx="${(3+hash(i)*6).toFixed(1)}" ry="2" fill="${i%3?'#3a1a09':'#7d4120'}"/>`;}
+const B=(k)=>`<defs><linearGradient id="gb${k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0B04E"/><stop offset="1" stop-color="#B66E1B"/></linearGradient><linearGradient id="gt${k}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7BD5A"/><stop offset=".7" stop-color="#D98A2B"/><stop offset="1" stop-color="#A9631A"/></linearGradient></defs>
+<ellipse cx="200" cy="362" rx="190" ry="16" fill="rgba(0,0,0,.25)"/>
+<path d="M40 318Q40 300 62 298L338 298Q360 300 360 318L352 340Q348 354 328 354L72 354Q52 354 48 340Z" fill="url(#gb${k})"/>
+<rect x="28" y="262" width="344" height="40" rx="20" fill="#5B2C12"/>${spots}
+<path d="M24 256L376 256L368 272L334 272L325 300L315 272L254 272L244 304L232 272L152 272L142 292L132 272L36 272Z" fill="#FFC21A"/>
+<ellipse cx="128" cy="248" rx="98" ry="12" fill="#C9281B"/><ellipse cx="128" cy="246" rx="86" ry="8" fill="#F04A34"/><ellipse cx="275" cy="248" rx="98" ry="12" fill="#C9281B"/><ellipse cx="275" cy="246" rx="86" ry="8" fill="#F04A34"/>
+<path d="${wave(226,242,18,382,9,14)}" fill="#4CAF2E"/><path d="${wave(230,240,26,374,6,12)}" fill="#7ED957"/><path d="${wave(219,227,40,360,5,10)}" fill="#FF8A1F"/>
+<path d="M34 212Q38 104 200 98Q362 104 366 212Q366 226 350 226L50 226Q34 226 34 212Z" fill="url(#gt${k})"/><path d="M70 150Q120 112 190 110" stroke="#FFD98a" stroke-width="7" stroke-linecap="round" fill="none" opacity=".6"/>${seeds}`;
+document.getElementById('b1').innerHTML=B(1);document.getElementById('b2').innerHTML=B(2);
+// frites + boisson
+let fr='';for(let i=0;i<11;i++){const x=40+i*14+(hash(i)*8-4),h=120+hash(i+3)*60;fr+=`<rect x="${x}" y="${150-h}" width="16" height="${h+40}" rx="4" fill="#FFD23A" stroke="#D99A00" stroke-width="3" transform="rotate(${(hash(i+9)-.5)*14} ${x+8} 150)"/>`;}
+document.getElementById('fries').innerHTML=`<svg width="300" height="420" viewBox="0 0 220 300">${fr}<path d="M20 140 L200 140 L180 290 L40 290 Z" fill="#E2321F" stroke="#1a1110" stroke-width="5"/><path d="M20 140 Q110 190 200 140" fill="#FFF4E0" stroke="#1a1110" stroke-width="4"/><text x="110" y="250" text-anchor="middle" font-family="Lilita One" font-size="40" fill="#FFF4E0">FLAMBO</text></svg>`;
+document.getElementById('drink').innerHTML=`<svg width="260" height="460" viewBox="0 0 160 300"><rect x="96" y="0" width="12" height="90" rx="5" fill="#1a1110" transform="rotate(12 100 90)"/><path d="M20 70 L140 70 L124 290 L36 290 Z" fill="#FFF4E0" stroke="#1a1110" stroke-width="5"/><rect x="14" y="56" width="132" height="22" rx="8" fill="#1a1110"/><path d="M30 150 L130 150 L126 210 L34 210Z" fill="#FFC21A"/><text x="80" y="192" text-anchor="middle" font-family="Lilita One" font-size="26" fill="#1a1110">FLAMBO</text></svg>`;
+const v=location.hash.slice(1)||'burger';document.getElementById(v).style.display='block';
+</script></body></html>
