@@ -1,0 +1,209 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>BOOST RUSH</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Lexend+Deca:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E3171B;--red2:#ff3b30;--u:min(1vw,.7vh);--ch:62vh}
+body.r45{--ch:60vh}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#000;font-family:'Lexend Deca',sans-serif;color:#fff}
+#stage{position:absolute;inset:0;overflow:hidden}
+#bg{position:absolute;inset:-10%;background:radial-gradient(60% 45% at 50% 50%,rgba(227,23,27,.0),transparent 70%),#000}
+#fx{position:absolute;inset:0;width:100%;height:100%;z-index:6;pointer-events:none}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:30}
+#redflash{position:absolute;inset:0;background:var(--red);opacity:0;z-index:1;mix-blend-mode:normal}
+.abs{position:absolute;left:50%;top:50%}
+#bigtiger{width:min(150vw,120vh);transform:translate(-50%,-50%);opacity:0;z-index:2}
+#bigtiger img{width:100%;display:block}
+#bigtiger .eyes{position:absolute;inset:0}
+#bigbolt{height:150vh;transform:translate(-50%,-50%);opacity:0;z-index:4;filter:drop-shadow(0 0 4vh rgba(255,40,40,.9))}
+/* canette */
+#canw{height:var(--ch);aspect-ratio:1216/3004;z-index:5}
+#glow{position:absolute;left:50%;top:52%;width:240%;height:80%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(227,23,27,.55),rgba(227,23,27,.15) 55%,transparent);opacity:0}
+#can{position:absolute;inset:0}
+#can img{position:absolute;inset:0;width:100%;height:100%}
+#sheen{position:absolute;inset:0;-webkit-mask-image:url(assets/canette_nue.png);-webkit-mask-size:100% 100%;background:linear-gradient(100deg,transparent 40%,rgba(255,255,255,.28) 48%,rgba(255,255,255,.05) 54%,transparent 60%);background-size:300% 100%;background-repeat:no-repeat}
+#rim{position:absolute;inset:0;-webkit-mask-image:url(assets/canette_nue.png);-webkit-mask-size:100% 100%;background:linear-gradient(90deg,rgba(255,40,40,.55),transparent 18%,transparent 82%,rgba(255,40,40,.55));mix-blend-mode:screen;opacity:0}
+#shadow{position:absolute;left:50%;bottom:-2%;width:120%;height:6%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(227,23,27,.45),transparent);filter:blur(1vh)}
+.mist{position:absolute;border-radius:50%;background:radial-gradient(closest-side,rgba(220,230,240,.35),transparent);filter:blur(2.5vh);opacity:0;z-index:4}
+/* textes */
+.t{position:absolute;left:0;right:0;text-align:center;z-index:12;font-family:Anton;text-transform:uppercase;line-height:.95;letter-spacing:.01em}
+.t span{display:inline-block}
+.t{text-shadow:0 calc(.6*var(--u)) calc(3*var(--u)) rgba(0,0,0,.9),0 0 calc(1.2*var(--u)) rgba(0,0,0,.9)}
+.big{font-size:calc(17*var(--u))}
+.mid{font-size:calc(12*var(--u))}
+.red{color:var(--red)}
+.stroke{-webkit-text-stroke:calc(.35*var(--u)) #fff;color:transparent}
+.brush{font-family:'Permanent Marker';text-transform:uppercase;letter-spacing:.02em}
+.shadowtxt{text-shadow:0 0 calc(3*var(--u)) rgba(227,23,27,.8)}
+#benef .ico{width:calc(20*var(--u));height:calc(20*var(--u));margin:0 auto calc(2*var(--u));display:block}
+#benef svg{width:100%;height:100%;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 calc(1.5*var(--u)) rgba(227,23,27,.9))}
+.bar{position:absolute;left:0;height:calc(2.2*var(--u));background:var(--red);z-index:11;transform-origin:0 50%}
+.sub{font-family:'Lexend Deca';font-weight:600;text-transform:none;letter-spacing:.02em;font-size:calc(3.6*var(--u));line-height:1.3}
+/* packshot */
+#badge{position:absolute;width:calc(17*var(--u));height:calc(17*var(--u));border-radius:50%;background:var(--red);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:Anton;font-size:calc(5.4*var(--u));line-height:.9;z-index:13;box-shadow:0 0 calc(4*var(--u)) rgba(227,23,27,.8);transform:rotate(-12deg)}
+#badge small{font-family:'Lexend Deca';font-weight:800;font-size:calc(2*var(--u));letter-spacing:.2em}
+#cta{position:absolute;left:50%;z-index:13;background:#fff;color:#000;font-family:Anton;font-size:calc(5.4*var(--u));letter-spacing:.04em;padding:calc(1.6*var(--u)) calc(5*var(--u));border-radius:999px;white-space:nowrap;box-shadow:0 0 0 calc(.6*var(--u)) var(--red),0 0 calc(5*var(--u)) rgba(227,23,27,.8)}
+#web{position:absolute;left:0;right:0;text-align:center;font-weight:600;font-size:calc(2.5*var(--u));letter-spacing:.12em;opacity:.8;z-index:13}
+#legal{position:absolute;left:5vw;right:5vw;bottom:2.2vh;text-align:center;font-size:calc(1.85*var(--u));line-height:1.35;color:rgba(255,255,255,.7);z-index:20}
+</style></head><body>
+<div id="stage">
+ <div id="bg"></div><div id="redflash"></div>
+ <div class="abs" id="bigtiger"><img src="assets/tigre_seul.png"></div>
+ <img class="abs" id="bigbolt" src="assets/eclair_seul.png">
+ <div class="mist" id="m1"></div><div class="mist" id="m2"></div><div class="mist" id="m3"></div>
+ <div class="abs" id="canw">
+  <div id="glow"></div><div id="shadow"></div>
+  <div id="can">
+   <img id="l_can" src="assets/canette_nue.png">
+   <img id="l_drops" src="assets/gouttes.png">
+   <img id="l_tiger" src="assets/tigre.png">
+   <img id="l_bolt" src="assets/eclair.png">
+   <img id="l_boost" src="assets/txt_boost.png">
+   <img id="l_rush" src="assets/txt_rush.png">
+   <img id="l_fuel" src="assets/txt_fuel.png">
+   <div id="rim"></div><div id="sheen"></div>
+  </div>
+ </div>
+ <canvas id="fx"></canvas>
+
+ <div class="t big" id="t_rev" style="top:12vh"><span>RÉVEILLE</span><br><span class="red">LE TIGRE.</span></div>
+
+ <div id="benef">
+  <div class="t" id="b1"><div class="ico" data-i="bolt"></div><div class="big">ÉNERGIE</div></div>
+  <div class="t" id="b2"><div class="ico" data-i="target"></div><div class="mid">CONCENTRATION</div></div>
+  <div class="t" id="b3"><div class="ico" data-i="run"></div><div class="big">ENDURANCE</div></div>
+ </div>
+ <div class="bar" id="bar1"></div><div class="bar" id="bar2"></div>
+
+ <div class="t brush" id="t_dep" style="font-size:calc(11.5*var(--u))"><span>DÉPASSE</span> <span>TES</span><br><span class="red">LIMITES.</span></div>
+
+ <div id="badge"><span>500</span><small>ML</small></div>
+ <div class="t big shadowtxt" id="t_pack" style="font-size:calc(9*var(--u))"><span>RÉVEILLE</span> <span class="red">LE TIGRE.</span></div>
+ <div id="cta">PRENDS TA CANETTE ⚡</div>
+ <div id="web">SITE WEB · À COMPLÉTER</div>
+ <div id="legal">Teneur élevée en caféine. Déconseillé aux enfants et aux femmes enceintes ou allaitantes.<br>Visuel conceptuel.</div>
+ <div id="flash"></div>
+</div>
+<script>
+const SVG={bolt:'<path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12z"/>',
+ target:'<circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="3.2"/><path d="M12 1v5M12 18v5M1 12h5M18 12h5"/>',
+ run:'<circle cx="15.5" cy="4" r="2"/><path d="M8 9.5l3.5-2.5 3.5 1 2 3.5 3 1M11.5 7l-2 6 4 3-1.5 6M9.5 13l-3 3.5H3M1 8h4M0 11h3.5M2 14h2"/>'};
+document.querySelectorAll('.ico[data-i]').forEach(e=>e.innerHTML=`<svg viewBox="0 0 24 24">${SVG[e.dataset.i]}</svg>`);
+const Q=s=>document.querySelector(s),QA=s=>[...document.querySelectorAll(s)];
+const cl=x=>Math.max(0,Math.min(1,x)),seg=(t,a,b)=>cl((t-a)/(b-a));
+const eo=x=>1-Math.pow(1-x,3),eio=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eb=x=>{const c1=2.2,c3=c1+1;return x<=0?0:x>=1?1:1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+const BEAT=60/128,B=n=>n*BEAT,BAR=4*BEAT;
+let U=10,W=0,H=0,R45=false;
+const k6pre=t=>eio(seg(t,B(35.6),B(36.4)));
+function hash(n){const x=Math.sin(n*127.1+311.7)*43758.5453;return x-Math.floor(x)}
+// impacts (temps -> intensité) pour le tremblement de caméra et les gerbes d'étincelles
+const IMP=[[B(1),1],[B(8),.6],[B(10),.5],[B(12),.6],[B(13),.35],[B(14),.5],[B(15),.4],[B(16),.6],[B(17),.6],[B(20),.8],[B(24),.8],[B(28),.8],[B(28)+.0,0],[B(36),.9],[B(37),.4],[B(38),.4],[B(39),.6],[B(44),.7]];
+function shake(t){let s=0;for(const[a,k] of IMP){const d=t-a;if(d>=0&&d<.35)s+=k*Math.exp(-d*14)}return s}
+function slam(el,t,t0,from=1.8,d=.28){const p=seg(t,t0,t0+d);el.style.opacity=t<t0?0:cl(p*3);el.style.transform=`scale(${from+(1-from)*eo(p)})`;}
+function render(t){
+ W=innerWidth;H=innerHeight;U=Math.min(W/100,H*.7/100);
+ const vh=H/100,vw=W/100;
+ // tremblement global
+ const sk=shake(t);Q('#stage').style.transform=`translate(${(hash(Math.floor(t*30))-.5)*sk*3*U}px,${(hash(Math.floor(t*30)+9)-.5)*sk*3*U}px) rotate(${(hash(Math.floor(t*30)+3)-.5)*sk*.8}deg)`;
+ // flash blanc sur l'éclair + coupures franches
+ const fl=Math.max(Math.exp(-Math.max(0,t-B(1))*9)*(t>=B(1)?1:0)*(1-seg(t,B(1)+.05,B(1)+.07)*0)*.95,
+  t>=B(8)?Math.exp(-(t-B(8))*10)*.7:0, t>=B(28)?Math.exp(-(t-B(28))*12)*.5:0, t>=B(36)?Math.exp(-(t-B(36))*10)*.6:0);
+ Q('#flash').style.opacity=fl;
+ // flashs rouges sur les bénéfices
+ Q('#redflash').style.opacity=[B(16),B(20),B(24)].reduce((m,a)=>Math.max(m,t>=a?Math.exp(-(t-a)*7)*.55:0),0);
+ // fond : lueur rouge pulsée sur le beat
+ const pulse=t>=B(8)?Math.exp(-((t-B(8))%BEAT)*5):0;
+ Q('#bg').style.background=`radial-gradient(60% 45% at 50% 52%,rgba(227,23,27,${(.12+.22*pulse)*seg(t,B(7),B(8))}),transparent 70%),#000`;
+
+ // ---------- S1-S2 : éclair + tigre ----------
+ const bb=Q('#bigbolt');const bp=t>=B(1)?1:0;bb.style.opacity=bp*(1-seg(t,B(1)+.15,B(1)+.6))*(.7+.3*hash(Math.floor(t*40)));
+ bb.style.transform=`translate(-50%,-50%) rotate(8deg) scale(${1+.1*seg(t,B(1),B(3))})`;
+ const tg=Q('#bigtiger');
+ let to=0;if(t>=B(1)&&t<B(2))to=.25+.6*hash(Math.floor(t*24));if(t>=B(2))to=.35+.65*eo(seg(t,B(2),B(4)));to*=1-seg(t,B(7.5),B(8));
+ tg.style.opacity=to;tg.style.transform=`translate(-50%,-${R45?50:55}%) scale(${1.0+.25*seg(t,B(1),B(8))})`;
+ tg.style.filter=`drop-shadow(0 0 ${2*vh}px rgba(227,23,27,${.4+.4*pulse})) brightness(${.55+.45*seg(t,B(3),B(7))})`;
+ const tr=Q('#t_rev');const s1=tr.children[0],s2=tr.children[2];
+ slam(s1,t,B(4));slam(s2,t,B(6));tr.style.opacity=1-seg(t,B(7.6),B(8));
+ tr.style.top=R45?'8vh':'10vh';
+
+ // ---------- S3 : canette (B8 -> B16) ----------
+ const cw=Q('#canw');
+ let cx=0,cy=0,cs=1,cr=0,co=0;
+ if(t>=B(8)){const p=eb(seg(t,B(8),B(8)+.45));co=1;cy=(1-p)*70;cs=.8+.2*p;cr=(1-p)*-8;}
+ // S4 bénéfices : la canette passe en bas, légèrement inclinée
+ const k4=eio(seg(t,B(15.5),B(16.2)))-eio(seg(t,B(27.6),B(28.2)));
+ cy+=k4*(R45?24:21);cs*=1-k4*.38;cr+=k4*(Math.sin(t*2)*3);
+ // S5 : poussée vers l'avant
+ const k5=seg(t,B(28),B(36));const k5i=eio(seg(t,B(27.8),B(28.4)))*(1-k6pre(t));cs*=(1+.06*k5)*(1-k5i*(R45?.14:.06));cy+=k5i*(R45?9:7);
+ // S6 packshot : légèrement plus petite, centrée un peu plus bas
+ const k6=eio(seg(t,B(35.6),B(36.4)));cs*=1-k6*(R45?.2:.12);cy+=k6*(R45?6:4);
+ const fl6=Math.sin(t*2.2)*.8*seg(t,B(36),B(37));
+ cw.style.opacity=co;cw.style.transform=`translate(-50%,-50%) translate(${cx*vw}px,${(cy+fl6)*vh}px) scale(${cs}) rotate(${cr}deg)`;
+ // calques qui se tamponnent sur la canette
+ const lay=[['#l_tiger',B(10)],['#l_bolt',B(12)],['#l_boost',B(13)],['#l_rush',B(14)],['#l_fuel',B(15)]];
+ for(const[sel,a] of lay){const e=Q(sel);const p=seg(t,a,a+.22);e.style.opacity=t<a?0:cl(p*2);e.style.transform=`scale(${1.35-.35*eo(p)})`;e.style.transformOrigin=sel=='#l_fuel'?'50% 85%':sel=='#l_tiger'||sel=='#l_bolt'?'50% 33%':'50% 63%';
+  if(sel=='#l_bolt')e.style.filter=`drop-shadow(0 0 ${(1+2*Math.exp(-Math.max(0,t-a)*4))*U}px rgba(255,40,40,.9))`;}
+ // reflet qui balaie (impression de rotation)
+ const sw=[[B(9),B(11)],[B(17),B(19)],[B(29),B(31.5)],[B(37),B(39.5)]];let spos=-1;for(const[a,b] of sw)if(t>=a&&t<b)spos=seg(t,a,b);
+ Q('#sheen').style.backgroundPosition=`${spos<0?-200:(1-spos)*150-25}% 0`;
+ Q('#glow').style.opacity=seg(t,B(8),B(9))*(.55+.45*pulse);
+ Q('#rim').style.opacity=seg(t,B(8),B(10))*(.5+.5*pulse);
+ Q('#l_drops').style.opacity=seg(t,B(28),B(30))*.95;
+
+ // ---------- S4 : bénéfices (B16 -> B28) ----------
+ const BEN=[['#b1',B(16)],['#b2',B(20)],['#b3',B(24)]];
+ BEN.forEach(([sel,a],i)=>{const e=Q(sel);const p=eb(seg(t,a,a+.32));const out=seg(t,a+BAR-.2,a+BAR);
+  e.style.top=R45?'9vh':'11vh';e.style.opacity=t<a?0:(1-out);e.style.transform=`scale(${1.7-.7*p}) translateX(${out*-30}vw)`;
+  QA(sel+' svg *').forEach(g=>{let L=60;try{L=g.getTotalLength()}catch(x){};g.style.strokeDasharray=L;g.style.strokeDashoffset=L*(1-eo(seg(t,a+.05,a+.7)))});});
+ const b1=Q('#bar1'),b2=Q('#bar2');const inB=t>=B(16)&&t<B(28);
+ const bi=Math.floor((t-B(16))/BAR),ba=B(16)+bi*BAR;
+ b1.style.opacity=b2.style.opacity=inB?1:0;
+ b1.style.top=(R45?51:46)+'vh';b2.style.top=(R45?53.2:48)+'vh';
+ b1.style.width=`${eo(seg(t,ba+.1,ba+.45))*100}vw`;b2.style.left=`${100-eo(seg(t,ba+.18,ba+.55))*100}vw`;b2.style.width='100vw';b2.style.background='#fff';b2.style.height=`${.6*U}px`;
+
+ // ---------- S5 : DÉPASSE TES LIMITES (B28 -> B36) ----------
+ const td=Q('#t_dep');td.style.top=R45?'6vh':'8vh';td.style.opacity=1-seg(t,B(35.6),B(36));
+ const ds=td.querySelectorAll('span');slam(ds[0],t,B(28),2);slam(ds[1],t,B(30),2);slam(ds[2],t,B(32),2.2);
+ ['#m1','#m2','#m3'].forEach((s,i)=>{const e=Q(s);const a=seg(t,B(28),B(30))*(1-seg(t,B(43),B(46)));const x=(i-1)*28+Math.sin(t*.5+i)*6;
+  e.style.opacity=a*.9;e.style.width=`${70+i*10}vw`;e.style.height=`${18+i*4}vh`;e.style.left=`${15+x-i*5}vw`;e.style.top=`${(R45?62:66)+i*4-((t*2+i*7)%8)}vh`;});
+
+ // ---------- S6 : packshot (B36 -> fin) ----------
+ const tp=Q('#t_pack');tp.style.top=R45?'5vh':'8vh';const ps=tp.querySelectorAll('span');slam(ps[0],t,B(36),1.6);slam(ps[1],t,B(37),1.6);
+ const bd=Q('#badge');const pb=eb(seg(t,B(38),B(38)+.4));bd.style.opacity=cl(pb*2);bd.style.transform=`rotate(-12deg) scale(${pb})`;
+ bd.style.left=R45?'69vw':'68vw';bd.style.top=R45?'27vh':'26vh';
+ const ct=Q('#cta');const pc=eb(seg(t,B(39),B(39)+.4));ct.style.opacity=cl(pc*2);ct.style.top=R45?'80vh':'82vh';
+ const cg=.5+.5*Math.sin(t*7);ct.style.transform=`translateX(-50%) scale(${pc*(1+.03*cg*seg(t,B(40),B(41)))})`;
+ const wb=Q('#web');wb.style.top=R45?'88.6vh':'88.8vh';wb.style.opacity=seg(t,B(40),B(41))*.8;
+ Q('#legal').style.opacity=seg(t,B(38),B(39));
+
+ drawFX(t);
+}
+// ---------- particules (canvas) ----------
+const cv=Q('#fx'),cx=cv.getContext('2d');
+function drawFX(t){
+ if(cv.width!==W){cv.width=W;cv.height=H}
+ cx.clearRect(0,0,W,H);
+ // étincelles sur les impacts
+ for(const[a,k] of IMP){const d=t-a;if(d<0||d>1.2||k<=0)continue;
+  const n=Math.round(40*k);for(let i=0;i<n;i++){const ang=hash(a*100+i)*Math.PI*2,sp=(.4+hash(a*50+i*3)*1.2)*W*.9;
+   const x=W/2+Math.cos(ang)*sp*d*(1-d*.35),y=H*.5+Math.sin(ang)*sp*d*(1-d*.35)+H*.25*d*d;
+   const al=(1-d/1.2);cx.fillStyle=i%3?`rgba(255,${60+Math.floor(hash(i)*120)},40,${al})`:`rgba(255,255,255,${al})`;
+   cx.beginPath();cx.arc(x,y,(1.5+hash(i*7)*3)*U/10*(1-d/1.4),0,7);cx.fill();}}
+ // traits de vitesse pendant ENDURANCE
+ const sv=seg(t,B(24),B(24.5))*(1-seg(t,B(27.6),B(28)));
+ if(sv>0){for(let i=0;i<46;i++){const y=hash(i)*H,len=(.2+hash(i+5)*.5)*W,sp=(1+hash(i+9)*2)*W*1.4;const x=W-((t*sp+hash(i+3)*W*3)%(W*2));
+   cx.strokeStyle=i%4?`rgba(255,255,255,${.35*sv})`:`rgba(227,23,27,${.7*sv})`;cx.lineWidth=(1+hash(i+2)*3)*U/8;cx.beginPath();cx.moveTo(x,y);cx.lineTo(x+len,y);cx.stroke();}}
+ // braises qui montent (fin)
+ const ev=seg(t,B(28),B(30));
+ if(ev>0){for(let i=0;i<70;i++){const sp=(.05+hash(i+1)*.1)*H;const y=H-((t*sp+hash(i+4)*H*2)%(H*1.2));const x=hash(i+8)*W+Math.sin(t*1.5+i)*W*.02;
+   const al=ev*(.3+.7*hash(i+6))*(.5+.5*Math.sin(t*5+i));cx.fillStyle=`rgba(255,${80+Math.floor(hash(i)*100)},50,${al})`;cx.beginPath();cx.arc(x,y,(1+hash(i+2)*2.5)*U/10,0,7);cx.fill();}}
+}
+async function init(aspect){
+ R45=aspect==='45';document.body.classList.toggle('r45',R45);
+ await document.fonts.ready;
+ await Promise.all([...document.images].map(i=>i.complete?1:new Promise(r=>{i.onload=i.onerror=r})));
+ return 20;
+}
+window.init=init;window.render=render;
+</script></body></html>
