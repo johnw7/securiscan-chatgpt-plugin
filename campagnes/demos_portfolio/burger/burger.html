@@ -1,0 +1,156 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>FLAMBO BURGER — démo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Lexend+Deca:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="../common.js"></script>
+<style>
+:root{--y:#FFC21A;--o:#FF7A00;--r:#E2321F;--k:#1a1110;--c:#FFF4E0;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#000;font-family:'Lexend Deca',sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden}
+.L{position:absolute;opacity:0}
+#bgY{position:absolute;inset:0;background:var(--y)}
+#rays{position:absolute;left:50%;top:50%;width:260vmax;height:260vmax;transform:translate(-50%,-50%);background:repeating-conic-gradient(rgba(255,122,0,.35) 0 7deg,transparent 7deg 18deg);-webkit-mask-image:radial-gradient(closest-side,#000 25%,transparent 75%)}
+#bgD{position:absolute;inset:0;background:radial-gradient(70% 45% at 50% 55%,#4a2410,#1a1110 70%);clip-path:circle(0% at 50% 50%)}
+#mega{left:50%;font-family:'Lilita One';font-size:calc(40*var(--u));color:transparent;-webkit-text-stroke:calc(.7*var(--u)) var(--k);white-space:nowrap;line-height:1}
+#bw{position:absolute;left:50%;top:50%;width:min(86vw,56vh);z-index:5}
+#bw svg{width:100%;display:block;overflow:visible}
+#shadow{position:absolute;left:50%;bottom:-3%;width:90%;height:9%;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(0,0,0,.45),transparent)}
+.steam{position:absolute;width:calc(3*var(--u));height:calc(18*var(--u));border-radius:50%;border-left:calc(1*var(--u)) solid rgba(255,255,255,.55);filter:blur(calc(.8*var(--u)));opacity:0;z-index:6}
+.lab{z-index:7;display:flex;align-items:center;gap:calc(1.4*var(--u));font-weight:800;font-size:calc(3.4*var(--u));color:#fff;white-space:nowrap}
+.lab i{display:block;width:calc(7*var(--u));height:calc(.5*var(--u));background:var(--y)}
+.lab b{background:var(--y);color:var(--k);padding:calc(.6*var(--u)) calc(1.6*var(--u));border-radius:calc(1*var(--u));font-weight:800}
+.T{position:absolute;left:0;right:0;text-align:center;font-family:'Lilita One';line-height:.95;z-index:9}
+#smash{font-size:calc(22*var(--u));color:var(--y);-webkit-text-stroke:calc(.5*var(--u)) var(--k);text-shadow:0 calc(1.2*var(--u)) 0 var(--r)}
+#ing{font-size:calc(9*var(--u));color:var(--y);text-shadow:0 calc(.6*var(--u)) 0 var(--r)}
+#ing small{display:block;font-family:'Lexend Deca';font-weight:800;font-size:calc(2.6*var(--u));letter-spacing:.4em;color:#fff;text-shadow:none;margin-bottom:calc(1*var(--u))}
+#tagline{font-size:calc(8*var(--u));color:#fff;text-shadow:0 calc(.6*var(--u)) 0 var(--r)}
+#logo{left:0;right:0;display:flex;align-items:center;justify-content:center;gap:calc(1.5*var(--u));z-index:9}
+#logo svg{width:calc(10*var(--u));height:calc(12*var(--u))}
+#logo .w{font-family:'Lilita One';font-size:calc(11*var(--u));line-height:.85;color:var(--k)}
+#logo .w small{display:block;font-size:.42em;letter-spacing:.32em;color:var(--r)}
+#badge{width:calc(18*var(--u));height:calc(18*var(--u));border-radius:50%;background:var(--r);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-family:'Lilita One';font-size:calc(4*var(--u));line-height:.95;z-index:9;box-shadow:0 0 0 calc(.8*var(--u)) #fff}
+#ktag{font-size:calc(7.6*var(--u));color:var(--k)}
+.card{left:7vw;right:7vw;z-index:9;background:var(--c);border-radius:calc(3*var(--u));padding:calc(2.2*var(--u)) calc(3*var(--u));display:flex;align-items:center;gap:calc(2.4*var(--u));box-shadow:0 calc(1.2*var(--u)) 0 var(--o)}
+.card .n{font-family:'Lilita One';font-size:calc(5.4*var(--u));color:var(--k);line-height:1}
+.card .d{font-weight:600;font-size:calc(2.5*var(--u));color:#6b4b36;margin-top:calc(.5*var(--u))}
+.card .p{margin-left:auto;font-family:'Lilita One';font-size:calc(6*var(--u));color:#fff;background:var(--r);border-radius:calc(2*var(--u));padding:calc(.8*var(--u)) calc(2*var(--u));white-space:nowrap}
+.card .em{font-size:calc(7*var(--u))}
+#menuh{font-size:calc(9*var(--u));color:var(--y)}
+#combo{left:7vw;right:7vw;z-index:9;text-align:center;font-weight:800;font-size:calc(3.2*var(--u));color:var(--k);background:var(--y);border-radius:999px;padding:calc(1.2*var(--u))}
+#cta{left:50%;z-index:9;background:var(--r);color:#fff;font-family:'Lilita One';font-size:calc(6.4*var(--u));padding:calc(1.8*var(--u)) calc(6*var(--u));border-radius:999px;white-space:nowrap;box-shadow:0 calc(1*var(--u)) 0 var(--k)}
+#modes{left:0;right:0;text-align:center;z-index:9;font-weight:800;font-size:calc(3*var(--u));color:var(--k);letter-spacing:.06em}
+#disc{left:4vw;right:4vw;bottom:1.6vh;text-align:center;z-index:20;font-weight:600;font-size:calc(1.9*var(--u));opacity:.7}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:30}
+</style></head><body>
+<div id="stage">
+ <div id="bgY"><div id="rays"></div></div>
+ <div id="bgD"></div>
+ <div class="L" id="mega">SMASH</div>
+ <div id="bw"><div id="shadow"></div><svg id="burger" viewBox="0 0 400 380"></svg></div>
+ <div class="steam" id="s1"></div><div class="steam" id="s2"></div><div class="steam" id="s3"></div>
+ <div class="L lab" id="lab0"><i></i><b>Brioche toastée</b></div>
+ <div class="L lab" id="lab1"><b>Steak smashé</b><i></i></div>
+ <div class="L lab" id="lab2"><i></i><b>Cheddar fondant</b></div>
+ <div class="L lab" id="lab3"><b>Tomate fraîche</b><i></i></div>
+ <div class="L lab" id="lab4"><i></i><b>Salade croquante</b></div>
+ <div class="L lab" id="lab5"><b>Sauce maison</b><i></i></div>
+ <div class="L T" id="ing"><small></small><span></span></div>
+ <div class="L T" id="smash">SMASH !</div>
+ <div class="L T" id="tagline">LE SMASH<br>QUI CLAQUE.</div>
+ <div class="L T" id="menuh">LA CARTE</div>
+ <div class="L card" id="c1"><span class="em">🍔</span><div><div class="n">LE CLASSIC</div><div class="d">Steak smashé, cheddar, salade, tomate</div></div><div class="p">8,90 €</div></div>
+ <div class="L card" id="c2"><span class="em">🔥</span><div><div class="n">DOUBLE SMASH</div><div class="d">2 steaks, double cheddar, sauce maison</div></div><div class="p">11,90 €</div></div>
+ <div class="L card" id="c3"><span class="em">🍗</span><div><div class="n">CHICKEN CRISPY</div><div class="d">Poulet croustillant, salade, sauce maison</div></div><div class="p">9,90 €</div></div>
+ <div class="L" id="combo">🍟 + 🥤 EN MENU : + 3,50 €</div>
+ <div class="L" id="logo"><svg viewBox="0 0 40 48"><path d="M20 2c3 9 14 13 14 27a14 14 0 01-28 0c0-7 4-11 6-15 1 5 3 7 5 8-1-8 1-14 3-20z" fill="#E2321F"/><path d="M20 22c2 5 7 7 7 14a7 7 0 01-14 0c0-4 3-6 4-9 1 3 2 4 3 4 0-4 0-6 0-9z" fill="#FFC21A"/></svg><div class="w">FLAMBO<small>BURGER</small></div></div>
+ <div class="L" id="badge">NOU-<br>VEAU</div>
+ <div class="L T" id="ktag">LE SMASH QUI CLAQUE.</div>
+ <div class="L" id="cta">COMMANDE MAINTENANT</div>
+ <div class="L" id="modes">SUR PLACE · À EMPORTER · LIVRAISON</div>
+ <div class="L" id="disc">Démo conceptuelle — marque fictive · Création E-DUST Solutions</div>
+ <div id="flash"></div>
+</div>
+<script>
+window.DUR=15;
+// ---------- burger en SVG : 7 couches (bas -> haut), Y = centre final de chaque couche ----------
+const NS='http://www.w3.org/2000/svg';
+function wave(y0,y1,x0,x1,amp,n){let d=`M${x0} ${y1}`;const st=(x1-x0)/n;for(let i=0;i<=n;i++){const x=x0+i*st;d+=` Q${x-st/2} ${y0-amp*(i%2?1:-.4)} ${x} ${y0}`;}d+=` L${x1} ${y1} Z`;return d}
+let seeds='';for(let i=0;i<22;i++){const a=hash(i)*Math.PI,x=200+Math.cos(a)*(40+hash(i+3)*120)*(hash(i+5)>.5?1:-1),y=130+hash(i+7)*70;seeds+=`<ellipse cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" rx="5" ry="2.6" transform="rotate(${(hash(i+9)*80-40).toFixed(0)} ${x.toFixed(1)} ${y.toFixed(1)})" fill="#FFF1D0"/>`;}
+let spots='';for(let i=0;i<26;i++){spots+=`<ellipse cx="${(50+hash(i+20)*300).toFixed(0)}" cy="${(268+hash(i+40)*28).toFixed(0)}" rx="${(3+hash(i)*6).toFixed(1)}" ry="2" fill="${i%3?'#3a1a09':'#7d4120'}"/>`;}
+const LAYERS=[
+ {id:'bunb',y:326,svg:`<defs><linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0B04E"/><stop offset="1" stop-color="#B66E1B"/></linearGradient></defs><path d="M40 318Q40 300 62 298L338 298Q360 300 360 318L352 340Q348 354 328 354L72 354Q52 354 48 340Z" fill="url(#gb)"/>`},
+ {id:'patty',y:282,svg:`<rect x="28" y="262" width="344" height="40" rx="20" fill="#5B2C12"/>${spots}<path d="M40 268Q200 258 360 268" stroke="#8a4a24" stroke-width="3" fill="none"/>`},
+ {id:'cheese',y:266,svg:`<path d="M24 256L376 256L368 272L334 272L325 300L315 272L254 272L244 304L232 272L152 272L142 292L132 272L36 272Z" fill="#FFC21A"/><path d="M30 258L370 258" stroke="#FFE07a" stroke-width="3"/>`},
+ {id:'tomato',y:248,svg:`<ellipse cx="128" cy="248" rx="98" ry="12" fill="#C9281B"/><ellipse cx="128" cy="246" rx="86" ry="8" fill="#F04A34"/><ellipse cx="275" cy="248" rx="98" ry="12" fill="#C9281B"/><ellipse cx="275" cy="246" rx="86" ry="8" fill="#F04A34"/>`},
+ {id:'salad',y:232,svg:`<path d="${wave(226,242,18,382,9,14)}" fill="#4CAF2E"/><path d="${wave(230,240,26,374,6,12)}" fill="#7ED957"/>`},
+ {id:'sauce',y:222,svg:`<path d="${wave(219,227,40,360,5,10)}" fill="#FF8A1F"/>`},
+ {id:'bunt',y:165,svg:`<defs><linearGradient id="gt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7BD5A"/><stop offset=".7" stop-color="#D98A2B"/><stop offset="1" stop-color="#A9631A"/></linearGradient></defs><path d="M34 212Q38 104 200 98Q362 104 366 212Q366 226 350 226L50 226Q34 226 34 212Z" fill="url(#gt)"/><path d="M70 150Q120 112 190 110" stroke="#FFD98a" stroke-width="7" stroke-linecap="round" fill="none" opacity=".6"/>${seeds}`},
+];
+const svg=Q('#burger');
+LAYERS.forEach(l=>{const g=document.createElementNS(NS,'g');g.id='L_'+l.id;g.innerHTML=l.svg;svg.appendChild(g);l.g=g;});
+const DROP=[2.0,2.5,3.0,3.5,4.0,4.5,5.0];
+const IMP=[[2.0,.25],[2.5,.3],[3.0,.25],[3.5,.25],[4.0,.25],[4.5,.25],[5.0,1.1],[11,.6]];
+function render(t){
+ measure();const vh=H/100,vw=W/100;
+ const sk=shake(t,IMP),f=Math.floor(t*30);
+ Q('#stage').style.transform=`translate(${(hash(f)-.5)*sk*3*U}px,${(hash(f+9)-.5)*sk*3*U}px)`;
+ // ---- fonds : jaune (miniature / packshot), sombre (construction / menu) ----
+ const dIn=eio(seg(t,1.4,2.0)),dOut=eio(seg(t,10.8,11.4));
+ Q('#bgD').style.clipPath=`circle(${(t<11?dIn:1-dOut)*150}% at 50% 55%)`;
+ Q('#rays').style.transform=`translate(-50%,-50%) rotate(${t*8}deg)`;
+ const kv=t<1.5||t>=11;
+ // ---- burger : pose (centre en vh, échelle) ----
+ let by=R45?50:47,bs=t>=1.5&&t<11?(R45?.72:.8):1;
+ if(t>=1.4&&t<2){bs=1-.0*seg(t,1.4,2);}
+ const toMenu=eio(seg(t,6.4,7.0))*(1-eio(seg(t,10.8,11.4)));
+ by=mix(by,R45?20:21,toMenu);bs=mix(bs,R45?.5:.52,toMenu);
+ if(t>=11){by=R45?50:50;bs=mix(.5,1,eb(seg(t,11,11.6)))*(R45?.8:.86);}
+ if(t<1.5){bs=R45?.84:.92;by=R45?52:50;}
+ const bw=Q('#bw');bw.style.transform=`translate(-50%,-50%) translateY(${(by-50)*vh}px) scale(${bs*(1+.015*Math.sin(t*3))})`;
+ // couches : en miniature et packshot tout est posé ; sinon elles tombent une à une
+ LAYERS.forEach((l,i)=>{let dy=0,sy=1,o=1;
+  if(t>=1.5&&t<11){const a=DROP[i];
+   if(t<1.9){dy=-eio(seg(t,1.5,1.9))*(900+i*120);}       // le burger s'envole
+   else if(t<a){o=0;dy=-900}
+   else{const p=seg(t,a,a+.42);dy=-(1-bounce(p))*700;const land=seg(t,a+.18,a+.32)-seg(t,a+.32,a+.5);sy=1-.12*cl(land);}}
+  l.g.style.opacity=o;l.g.setAttribute('transform',`translate(0 ${dy}) translate(200 ${l.y}) scale(1 ${sy}) translate(-200 ${-l.y})`);});
+ // ombre
+ Q('#shadow').style.opacity=t>=1.5&&t<2.05?0:1;
+ // vapeur
+ ['#s1','#s2','#s3'].forEach((s,i)=>{const e=Q(s);const r=bw.getBoundingClientRect();const ph=((t*.8+i*.33)%1);
+  const on=(t>=5.0&&t<6.6)||t<1.5||t>=11.4;e.style.left=(r.left+r.width*(.3+i*.2))+'px';e.style.top=(r.top-ph*18*U-4*U)+'px';e.style.opacity=on?(Math.sin(ph*Math.PI)*.8):0;e.style.transform=`rotate(${Math.sin(t*2+i)*12}deg)`;});
+ // étiquettes d'ingrédients
+ const rect=Q('#burger').getBoundingClientRect();
+ LAYERS.slice(0,6).forEach((l,i)=>{const e=Q('#lab'+i);const a=DROP[i]+.25;const left=i%2==0;
+  const y=rect.top+rect.height*(l.y/380);const p=eb(seg(t,a,a+.35));
+  e.style.top=(y-e.offsetHeight/2)+'px';
+  if(left)e.style.left=(rect.right-rect.width*.04)+'px';else e.style.left=(rect.left+rect.width*.04-e.offsetWidth)+'px';
+  e.style.flexDirection='row';
+  set(e,0);});
+ const NAMES=['BRIOCHE TOASTÉE','STEAK SMASHÉ','CHEDDAR FONDANT','TOMATE FRAÎCHE','SALADE CROQUANTE','SAUCE MAISON'];
+ let k=-1;for(let i=0;i<6;i++)if(t>=DROP[i]+.15)k=i;
+ const ig=Q('#ing');ig.style.top=(R45?77:74)+'vh';
+ if(k>=0&&t<5.0){ig.querySelector('small').textContent=String(k+1).padStart(2,'0')+' / 06';ig.querySelector('span').textContent=NAMES[k];
+  const a=DROP[k]+.15,p=eb(seg(t,a,a+.3));set(ig,cl(p*2),`scale(${.7+.3*p})`);}else set(ig,0);
+ // labels alternés à gauche / à droite : texte côté extérieur
+ // SMASH !
+ const sm=Q('#smash');const S=slam(t,5.0,2.2,.25);sm.style.top=(R45?6:9)+'vh';set(sm,S.o*win(t,5,6.4,.01,.25),`scale(${S.s}) rotate(-6deg)`);
+ const tl=Q('#tagline');tl.style.top=(R45?78:76)+'vh';const tp=eb(seg(t,5.5,5.9));set(tl,cl(tp*2)*win(t,5.5,6.4,.01,.2),`scale(${.6+.4*tp})`);
+ // menu
+ const mh=Q('#menuh');mh.style.top=(R45?36:39)+'vh';const mp=eb(seg(t,6.9,7.3));set(mh,cl(mp*2)*win(t,6.9,10.9,.01,.2),`scale(${.5+.5*mp})`);
+ [['#c1',7.3],['#c2',7.8],['#c3',8.3]].forEach(([s,a],i)=>{const e=Q(s);e.style.top=((R45?47:49)+i*(R45?13:11.5))+'vh';const p=eb(seg(t,a,a+.45));
+  set(e,cl(p*2)*win(t,a,10.9,.01,.2),`translateX(${(1-p)*(i%2?1:-1)*100}vw) rotate(${(1-p)*(i%2?4:-4)}deg)`);});
+ const cb=Q('#combo');cb.style.top=(R45?86:84)+'vh';const cp=eb(seg(t,9.0,9.4));set(cb,cl(cp*2)*win(t,9,10.9,.01,.2),`scale(${cp})`);
+ // ---- miniature + packshot ----
+ const kvO=t<1.5?1-seg(t,1.35,1.5):seg(t,11.2,11.5);
+ const mg=Q('#mega');mg.style.top=(R45?24:28)+'vh';set(mg,kvO*.9,`translateX(-50%) translateX(${Math.sin(t)*2}vw)`);
+ const lg=Q('#logo');lg.style.top=(R45?4:6)+'vh';const lp=t>=11?eb(seg(t,11.4,11.8)):1;set(lg,kvO,`scale(${lp})`);
+ const bd=Q('#badge');bd.style.left=(R45?72:70)+'vw';bd.style.top=(R45?22:24)+'vh';const bp=t>=11?eb(seg(t,11.7,12.1)):1;set(bd,kvO,`rotate(${-12+Math.sin(t*3)*5}deg) scale(${bp})`);
+ const kt=Q('#ktag');kt.style.top=(R45?76:75)+'vh';set(kt,t<1.5?1-seg(t,1.35,1.5):0);
+ const ct=Q('#cta');ct.style.top=(R45?78:77)+'vh';const cpp=eb(seg(t,12.2,12.6));set(ct,t>=11?cl(cpp*2):0,`translateX(-50%) scale(${cpp*(1+.04*(.5+.5*Math.sin(t*7))*seg(t,12.8,13.2))})`);
+ const md=Q('#modes');md.style.top=(R45?87.5:85.5)+'vh';set(md,t>=11?seg(t,12.8,13.2):0);
+ Q('#disc').style.color=(t<1.5||t>=11.3)?'#1a1110':'#fff';set(Q('#disc'),1);
+ Q('#flash').style.opacity=t>=5?Math.exp(-(t-5)*10)*.6:0;
+}
+window.render=render;
+</script></body></html>

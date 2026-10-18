@@ -1,0 +1,171 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>KLAIRO — vidéo explicative (démo)</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script src="../common.js"></script>
+<style>
+:root{--i:#4F46E5;--i2:#7C83FF;--ink:#0F172A;--mut:#64748B;--g:#16A34A;--r:#EF4444;--a:#F59E0B;--bg:#F5F7FF;--u:min(1vw,.7vh);--top:12vh;--bot:92vh}
+body.r45{--top:10vh;--bot:93vh}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink)}
+#stage{position:absolute;inset:0;overflow:hidden}
+.sc{position:absolute;inset:0;opacity:0;overflow:hidden}
+.light{background:radial-gradient(80% 40% at 100% 0%,rgba(124,131,255,.18),transparent 60%),radial-gradient(70% 40% at 0% 100%,rgba(79,70,229,.10),transparent 60%),var(--bg)}
+.dark{background:radial-gradient(90% 60% at 80% 0%,#7C83FF,transparent 60%),linear-gradient(160deg,#4F46E5,#2E2A9E);color:#fff}
+.col{position:absolute;left:7vw;right:7vw;top:var(--top);bottom:calc(100vh - var(--bot));display:flex;flex-direction:column;align-items:center;justify-content:space-evenly;text-align:center}
+.k{font-weight:800;font-size:calc(2.3*var(--u));letter-spacing:.3em;color:var(--i)}
+.dark .k{color:#C7CAFF}
+.h{font-weight:800;font-size:calc(7*var(--u));line-height:1.08;letter-spacing:-.02em}
+.h em{font-style:normal;color:var(--i)}.dark .h em{color:#C7F9D9}
+.s{font-weight:600;font-size:calc(3.6*var(--u));line-height:1.35;color:var(--mut)}
+.dark .s{color:#E0E2FF}
+.logo{display:flex;align-items:center;gap:calc(1.6*var(--u));font-weight:800;font-size:calc(7*var(--u));letter-spacing:-.02em}
+.logo i{width:calc(9*var(--u));height:calc(9*var(--u));border-radius:calc(2.4*var(--u));background:linear-gradient(135deg,var(--i2),var(--i));display:flex;align-items:center;justify-content:center;box-shadow:0 calc(1*var(--u)) calc(3*var(--u)) rgba(79,70,229,.35)}
+.dark .logo i{background:#fff}
+.logo i svg{width:60%;height:60%;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.dark .logo i svg{stroke:var(--i)}
+.mini{position:absolute;left:6vw;top:4vh;transform:scale(.55);transform-origin:0 0;z-index:5}
+/* cartes facture */
+.inv{color:var(--ink);background:#fff;border-radius:calc(2.4*var(--u));box-shadow:0 calc(1.4*var(--u)) calc(4*var(--u)) rgba(15,23,42,.12);display:flex;align-items:center;gap:calc(2*var(--u));padding:calc(2*var(--u)) calc(2.6*var(--u));text-align:left}
+.inv .ic{flex:none;width:calc(7*var(--u));height:calc(7*var(--u));border-radius:calc(1.6*var(--u));background:#EEF0FF;display:flex;align-items:center;justify-content:center;font-size:calc(3.6*var(--u))}
+.inv .t{font-weight:800;font-size:calc(3*var(--u))}
+.inv .d{font-weight:600;font-size:calc(2.2*var(--u));color:var(--mut);margin-top:calc(.3*var(--u))}
+.inv .am{margin-left:auto;font-weight:800;font-size:calc(3.2*var(--u));white-space:nowrap}
+.pill{font-weight:800;font-size:calc(2.1*var(--u));padding:calc(.6*var(--u)) calc(1.6*var(--u));border-radius:999px;white-space:nowrap}
+.late{background:#FEE2E2;color:var(--r)}.paid{background:#DCFCE7;color:var(--g)}.sent{background:#FEF3C7;color:#B45309}
+#stack{position:relative;width:100%;height:calc(44*var(--u))}
+#stack .inv{position:absolute;left:4%;right:4%}
+#dash{width:100%;background:#fff;border-radius:calc(3*var(--u));box-shadow:0 calc(2*var(--u)) calc(6*var(--u)) rgba(15,23,42,.14);overflow:hidden;text-align:left}
+#dash .bar{display:flex;align-items:center;gap:calc(1.2*var(--u));padding:calc(2*var(--u)) calc(2.6*var(--u));background:linear-gradient(90deg,var(--i),var(--i2));color:#fff;font-weight:800;font-size:calc(2.6*var(--u))}
+#dash .bar span{margin-left:auto;font-weight:600;opacity:.85}
+#dash .rows{padding:calc(1.4*var(--u)) calc(2*var(--u));display:flex;flex-direction:column;gap:calc(1.2*var(--u))}
+#dash .inv{box-shadow:none;border:calc(.25*var(--u)) solid #E8EAF6;padding:calc(1.4*var(--u)) calc(2*var(--u))}
+#dash .foot{display:flex;justify-content:space-between;align-items:center;padding:calc(1.6*var(--u)) calc(2.6*var(--u));border-top:calc(.25*var(--u)) solid #EEF0FF;font-weight:700;font-size:calc(2.6*var(--u));color:var(--mut)}
+#dash .foot b{font-size:calc(4.6*var(--u));color:var(--g)}
+#steph{display:flex;flex-direction:column;align-items:center;gap:calc(1.4*var(--u))}
+.chip{background:var(--i);color:#fff;font-weight:800;font-size:calc(2.4*var(--u));letter-spacing:.2em;padding:calc(.8*var(--u)) calc(2.4*var(--u));border-radius:999px}
+#mails{display:flex;gap:calc(2*var(--u));width:100%;justify-content:center}
+.mail{flex:1;background:#fff;border-radius:calc(2*var(--u));box-shadow:0 calc(1*var(--u)) calc(3*var(--u)) rgba(15,23,42,.1);padding:calc(1.6*var(--u));text-align:left;position:relative}
+.mail b{display:block;font-size:calc(3.2*var(--u));color:var(--i);font-weight:800}
+.mail span{display:block;font-weight:600;font-size:calc(2.2*var(--u));color:var(--mut);margin-top:calc(.4*var(--u))}
+.ben{display:flex;align-items:center;gap:calc(2.4*var(--u));background:#fff;border-radius:calc(2.6*var(--u));padding:calc(2.2*var(--u)) calc(3*var(--u));box-shadow:0 calc(1*var(--u)) calc(3*var(--u)) rgba(15,23,42,.08);width:100%;text-align:left;font-weight:800;font-size:calc(3.6*var(--u))}
+.ben .ic{flex:none;width:calc(9*var(--u));height:calc(9*var(--u));border-radius:calc(2.2*var(--u));background:linear-gradient(135deg,var(--i2),var(--i));display:flex;align-items:center;justify-content:center;font-size:calc(4.6*var(--u))}
+#chart{width:100%;background:#fff;border-radius:calc(2.6*var(--u));box-shadow:0 calc(1*var(--u)) calc(3*var(--u)) rgba(15,23,42,.08);padding:calc(2*var(--u)) calc(2.6*var(--u));text-align:left}
+#chart .lt{font-weight:800;font-size:calc(2.6*var(--u));color:var(--mut)}
+#chart svg{width:100%;height:calc(18*var(--u));display:block;margin-top:calc(1*var(--u))}
+.cta{background:#fff;color:var(--i);font-weight:800;font-size:calc(4.6*var(--u));padding:calc(2*var(--u)) calc(6*var(--u));border-radius:999px;box-shadow:0 calc(1.2*var(--u)) calc(4*var(--u)) rgba(0,0,0,.25)}
+#stamp{position:absolute;right:3%;top:-40%;border:calc(.8*var(--u)) solid var(--g);color:var(--g);font-weight:800;font-size:calc(5*var(--u));padding:calc(.4*var(--u)) calc(2*var(--u));border-radius:calc(1.4*var(--u));transform:rotate(-10deg);background:rgba(255,255,255,.9)}
+#disc{position:absolute;left:4vw;right:4vw;bottom:1.6vh;text-align:center;font-weight:600;font-size:calc(1.9*var(--u));opacity:.6;z-index:20}
+#plane{position:absolute;font-size:calc(7*var(--u));z-index:6;opacity:0}
+</style></head><body>
+<div id="stage">
+ <!-- S0 miniature -->
+ <section class="sc dark" id="s0"><div class="col">
+  <div class="logo"><i><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></i>klairo</div>
+  <div class="h" style="font-size:calc(10.5*var(--u))">Factures<br><em>impayées ?</em></div>
+  <div style="position:relative;width:100%"><div class="inv" style="padding:calc(3*var(--u))"><div class="ic">🧾</div><div><div class="t">Facture #2041</div><div class="d">Échéance dépassée de 21 jours</div></div><div class="am">2 480 €</div></div><div id="stamp">PAYÉE ✓</div></div>
+  <div class="s" style="font-size:calc(4.4*var(--u))">Et si elles se relançaient<br><b style="color:#fff">toutes seules ?</b></div>
+ </div></section>
+ <!-- S1 problème -->
+ <section class="sc light" id="s1"><div class="col">
+  <div><div class="k">LE PROBLÈME</div><div class="h" style="margin-top:calc(1.2*var(--u))" id="p_h">Vous êtes<br><em>chef d'entreprise.</em></div></div>
+  <div id="stack"></div>
+  <div class="h" style="font-size:calc(6*var(--u))" id="p_c"><em id="p_n">0</em> factures en retard</div>
+  <div class="s" style="font-size:calc(4.2*var(--u));color:var(--ink);font-weight:800" id="p_w"><span>Relancer.</span> <span>Vérifier.</span> <span style="color:var(--r)">Relancer encore…</span></div>
+ </div></section>
+ <!-- S2 bascule -->
+ <section class="sc dark" id="s2"><div class="col">
+  <div class="h" id="q">Et si tout ça<br>se faisait <em>tout seul ?</em></div>
+  <div id="rev" style="display:flex;flex-direction:column;align-items:center;gap:calc(3*var(--u))"><div class="logo" style="font-size:calc(13*var(--u))"><i style="width:calc(16*var(--u));height:calc(16*var(--u));border-radius:calc(4*var(--u))"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></i>klairo</div>
+   <div class="s" style="font-size:calc(4.2*var(--u))">Vos relances de factures,<br><b style="color:#fff">en pilote automatique.</b></div></div>
+ </div></section>
+ <!-- S3 fonctionnement -->
+ <section class="sc light" id="s3"><div class="col">
+  <div id="steph"><div class="chip">ÉTAPE <span id="sn">1</span> / 3</div><div class="h" style="font-size:calc(6.4*var(--u))" id="st">Connectez vos factures</div></div>
+  <div id="mails">
+   <div class="mail"><b>J+3</b><span>Petit rappel 🙂</span></div>
+   <div class="mail"><b>J+7</b><span>Relance courtoise</span></div>
+   <div class="mail"><b>J+15</b><span>Dernier rappel</span></div>
+  </div>
+  <div id="dash"><div class="bar">▦ Tableau de bord <span>klairo</span></div><div class="rows"></div><div class="foot">Encaissé ce mois-ci <b id="cash">0 €</b></div></div>
+ </div></section>
+ <!-- S4 bénéfices -->
+ <section class="sc light" id="s4"><div class="col">
+  <div><div class="k">LES BÉNÉFICES</div><div class="h" style="margin-top:calc(1.2*var(--u))">Plus de temps.<br><em>Plus de trésorerie.</em></div></div>
+  <div class="ben"><div class="ic">⏱️</div>Du temps gagné chaque semaine</div>
+  <div class="ben"><div class="ic">💶</div>Une trésorerie plus saine</div>
+  <div class="ben"><div class="ic">🤝</div>Des relances toujours courtoises</div>
+  <div id="chart"><div class="lt">Trésorerie (illustration)</div><svg viewBox="0 0 300 80" preserveAspectRatio="none"><defs><linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4F46E5" stop-opacity=".35"/><stop offset="1" stop-color="#4F46E5" stop-opacity="0"/></linearGradient></defs><path id="area" d="M0 70 C40 66 60 60 90 58 S140 46 170 40 S230 22 300 8 L300 80 L0 80Z" fill="url(#ga)"/><path id="line" d="M0 70 C40 66 60 60 90 58 S140 46 170 40 S230 22 300 8" fill="none" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"/></svg></div>
+ </div></section>
+ <!-- S5 appel à l'action -->
+ <section class="sc dark" id="s5"><div class="col">
+  <div class="logo" style="font-size:calc(12*var(--u))"><i style="width:calc(14*var(--u));height:calc(14*var(--u))"><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></i>klairo</div>
+  <div class="h" style="font-size:calc(8*var(--u))">Vos factures,<br><em>payées à temps.</em></div>
+  <div class="cta">Demandez votre démo →</div>
+  <div class="s">Pour les TPE, PME et indépendants</div>
+ </div></section>
+ <div class="mini logo" id="mini"><i><svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></i>klairo</div>
+ <div id="plane">✉️</div>
+ <div id="disc">Démo conceptuelle — marque fictive · Création E-DUST Solutions</div>
+</div>
+<script>
+window.DUR=45;
+// pile de factures en retard (problème)
+const ST=[['Atelier Morel','Échéance +12 j','1 250 €'],['SARL Dumas','Échéance +30 j','3 480 €'],['Garage Lopez','Échéance +8 j','640 €'],['Studio Nalia','Échéance +21 j','2 100 €'],['Boulangerie Petit','Échéance +45 j','890 €'],['Cabinet Ferrand','Échéance +17 j','4 200 €']];
+Q('#stack').innerHTML=ST.map(r=>`<div class="inv"><div class="ic">🧾</div><div><div class="t">${r[0]}</div><div class="d">${r[1]}</div></div><div class="am">${r[2]}</div><span class="pill late">En retard</span></div>`).join('');
+const RW=[['Atelier Morel','1 250 €'],['SARL Dumas','3 480 €'],['Studio Nalia','2 100 €'],['Cabinet Ferrand','4 200 €']];
+Q('#dash .rows').innerHTML=RW.map(r=>`<div class="inv"><div class="ic">🧾</div><div><div class="t">${r[0]}</div><div class="d">Facture importée</div></div><div class="am">${r[1]}</div><span class="pill late">En retard</span></div>`).join('');
+const SC=[['#s0',-1,2.5],['#s1',2.5,9],['#s2',9,12],['#s3',12,27],['#s4',27,37],['#s5',37,46]];
+function rise(el,t,t0,d=.6,dy=4){const p=eo(seg(t,t0,t0+d));set(el,p,`translateY(${(1-p)*dy*U}px)`)}
+function pop(el,t,t0,d=.5){const p=seg(t,t0,t0+d);set(el,cl(p*2.5),`scale(${.85+.15*eb(p)})`)}
+function render(t){
+ measure();
+ // scènes : fondu enchaîné + léger glissement
+ SC.forEach(([s,a,b],k)=>{const e=Q(s);const X=.3;let o=Math.min(k?seg(t,a-X/2,a+X/2):1,1-seg(t,b-X/2,b+X/2));e.style.opacity=o;
+  e.style.transform=`translateY(${(1-seg(t,a-X/2,a+X/2))*(k?3:0)*U}px)`;e.style.zIndex=k;});
+ const dark=(t<2.5)||(t>=9&&t<12)||t>=37;
+ const mi=Q('#mini');mi.style.opacity=(t>=2.6&&t<9)||(t>=12&&t<37)?1:0;
+ Q('#disc').style.color=dark?'#fff':'#0F172A';
+ // ---- S0 miniature ----
+ Q('#stamp').style.transform=`rotate(-10deg) scale(${1+.04*Math.sin(t*4)})`;
+ // ---- S1 problème ----
+ const c1=Q('#s1 .col').children;rise(c1[0],t,2.7);
+ QA('#stack .inv').forEach((e,i)=>{const a=3.3+i*.42;const p=seg(t,a,a+.35);const y=8+i*2.6;
+  set(e,cl(p*3)*(1-.55*seg(t,6.2,6.8)*(i<4?1:0)),`translateY(${(y-(1-eo(p))*30)*U}px) rotate(${(hash(i)-.5)*7}deg) scale(${.9+i*.02})`);});
+ const n=Math.min(12,Math.floor(seg(t,3.3,6.0)*12+.0001)+(t>=3.3?0:0));Q('#p_n').textContent=t<3.3?0:Math.max(1,Math.round(seg(t,3.3,5.9)*12));
+ pop(c1[2],t,3.4);
+ QA('#p_w span').forEach((e,i)=>{const a=6.4+i*.6;const p=eb(seg(t,a,a+.35));e.style.display='inline-block';set(e,cl(p*2),`scale(${.7+.3*p})`)});
+ c1[3].style.opacity=t>=6.3?1:0;
+ // 2e temps : la phrase du haut change
+ const ph=Q('#p_h');if(t>=7.6){ph.innerHTML='Des heures perdues<br><em style="color:var(--r)">chaque semaine.</em>';}else ph.innerHTML="Vous êtes<br><em>chef d'entreprise.</em>";
+ if(t>=7.6){const p=eb(seg(t,7.6,7.95));ph.style.transform=`scale(${.85+.15*p})`;}else ph.style.transform='';
+ // ---- S2 bascule ----
+ const q=Q('#q'),rv=Q('#rev');rise(q,t,9.2);q.style.opacity=Math.min(+q.style.opacity,1-seg(t,10.4,10.7));
+ const rp=eb(seg(t,10.6,11.2));set(rv,cl(rp*2),`scale(${.6+.4*rp})`);q.style.display=t<10.6?'block':'none';rv.style.display=t>=10.6?'flex':'none';
+ // ---- S3 étapes ----
+ const step=t<17?1:t<22?2:3;Q('#sn').textContent=step;
+ Q('#st').textContent=['Connectez vos factures','Klairo relance au bon moment','Vous êtes payé'][step-1];
+ const sa=[12,17,22][step-1];const sp=eb(seg(t,sa,sa+.4));Q('#steph').style.transform=`scale(${.8+.2*sp})`;Q('#steph').style.opacity=cl(sp*2);
+ pop(Q('#dash'),t,12.3,.6);
+ QA('#dash .rows .inv').forEach((e,i)=>{const a=13.2+i*.6;const p=eo(seg(t,a,a+.45));set(e,p,`translateX(${(1-p)*-40}vw)`);
+  const pl=e.querySelector('.pill');const paidAt=22.8+i*.8;const sentAt=18.0+i*.25;
+  if(t>=paidAt){pl.className='pill paid';pl.textContent='Payée ✓';const k=eb(seg(t,paidAt,paidAt+.3));pl.style.transform=`scale(${.7+.3*k})`;}
+  else if(t>=sentAt){pl.className='pill sent';pl.textContent='Relancée';pl.style.transform='';}
+  else{pl.className='pill late';pl.textContent='En retard';pl.style.transform='';}
+  e.querySelector('.d').textContent=t>=paidAt?'Réglée':t>=sentAt?'Relance envoyée':'Facture importée';});
+ QA('.mail').forEach((e,i)=>{const a=17.6+i*1.1;const p=eb(seg(t,a,a+.4));set(e,cl(p*2)*(1-seg(t,21.6,22)),`translateY(${(1-p)*3*U}px) scale(${.8+.2*p})`)});
+ Q('#mails').style.visibility=t>=17&&t<22.2?'visible':'hidden';
+ const amounts=[1250,3480,2100,4200];let cash=0;amounts.forEach((v,i)=>{cash+=v*eo(seg(t,22.8+i*.8,23.5+i*.8))});
+ Q('#cash').textContent=Math.round(cash).toLocaleString('fr-FR')+' €';Q('#dash .foot').style.opacity=t>=22.3?1:.35;
+ // avion de papier qui part de la carte vers les mails
+ const pl=Q('#plane');const pp=seg(t,17.6,19.4);const dr=Q('#dash').getBoundingClientRect();
+ if(pp>0&&pp<1){pl.style.opacity=Math.sin(pp*Math.PI);pl.style.left=(dr.left+dr.width*(.1+.8*pp))+'px';pl.style.top=(dr.top-Math.sin(pp*Math.PI)*12*U-4*U)+'px';pl.style.transform=`rotate(${-20+40*pp}deg)`;}else pl.style.opacity=0;
+ // ---- S4 bénéfices ----
+ const c4=Q('#s4 .col').children;rise(c4[0],t,27.3);
+ [1,2,3].forEach((j,i)=>{const e=c4[j];const a=28.2+i*.7;const p=eb(seg(t,a,a+.45));set(e,cl(p*2),`translateX(${(1-p)*(i%2?1:-1)*40}vw)`)});
+ pop(c4[4],t,30.6,.6);const lp=eio(seg(t,31,34));const ln=Q('#line');const L=ln.getTotalLength();ln.style.strokeDasharray=L;ln.style.strokeDashoffset=L*(1-lp);Q('#area').style.opacity=lp;
+ // ---- S5 CTA ----
+ const c5=Q('#s5 .col').children;pop(c5[0],t,37.3,.6);rise(c5[1],t,37.9);pop(c5[2],t,38.6,.5);rise(c5[3],t,39.2);
+ if(t>=39.2)c5[2].style.transform=`scale(${1+.03*Math.sin(t*5)})`;
+}
+window.render=render;
+</script></body></html>

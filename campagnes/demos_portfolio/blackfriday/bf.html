@@ -1,0 +1,119 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>STUDIO LUMA — Black Friday (démo)</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<script src="../common.js"></script>
+<style>
+:root{--n:#D4FF3A;--p:#FF2E88;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#000;font-family:'Space Grotesk',sans-serif;color:#fff}
+#stage{position:absolute;inset:0;overflow:hidden}
+#bg{position:absolute;inset:0;background:#000}
+.L{position:absolute;opacity:0}
+.A{font-family:Anton;text-transform:uppercase;line-height:.86;white-space:nowrap}
+.C{left:0;right:0;text-align:center}
+.ol{color:transparent;-webkit-text-stroke:calc(.5*var(--u)) #fff}
+.neon{color:var(--n);text-shadow:0 0 calc(4*var(--u)) rgba(212,255,58,.55)}
+.tape{left:50%;top:50%;width:200vw;height:calc(9*var(--u));background:var(--n);color:#000;display:flex;align-items:center;font-family:Anton;font-size:calc(6*var(--u));white-space:nowrap;overflow:hidden}
+.tape span{display:block;padding-left:2vw}
+.tape.pk{background:var(--p);color:#fff}
+#brand{font-weight:700;letter-spacing:.5em;font-size:calc(2.8*var(--u))}
+#count{font-size:calc(70*var(--u))}
+.tile{width:calc(40*var(--u));border-radius:calc(3*var(--u));overflow:hidden;background:#111;border:calc(.4*var(--u)) solid #333;text-align:center;padding-bottom:calc(2*var(--u))}
+.tile .im{height:calc(26*var(--u));display:flex;align-items:center;justify-content:center;font-size:calc(17*var(--u));background:radial-gradient(circle at 50% 60%,#2a2a2a,#111 70%)}
+.tile .nm{font-weight:700;font-size:calc(3*var(--u));letter-spacing:.08em;margin-top:calc(1.4*var(--u))}
+.tile .pr{display:flex;justify-content:center;align-items:baseline;gap:calc(2*var(--u));margin-top:calc(.8*var(--u))}
+.tile s{color:#888;font-size:calc(3.4*var(--u))}
+.tile b{font-family:Anton;font-weight:400;font-size:calc(7*var(--u));color:var(--n)}
+.tile .tag{position:absolute;top:calc(1.6*var(--u));right:calc(1.6*var(--u));background:var(--p);font-family:Anton;font-size:calc(3.6*var(--u));padding:calc(.4*var(--u)) calc(1.4*var(--u));border-radius:calc(1*var(--u))}
+#clock{font-family:Anton;font-size:calc(13*var(--u));letter-spacing:.04em}
+#clockl{font-weight:700;letter-spacing:.3em;font-size:calc(2.6*var(--u));display:flex;justify-content:center;gap:calc(7.2*var(--u))}
+#cta{left:50%;background:var(--n);color:#000;font-family:Anton;font-size:calc(7*var(--u));padding:calc(1.6*var(--u)) calc(7*var(--u));border-radius:999px;white-space:nowrap;box-shadow:0 0 calc(6*var(--u)) rgba(212,255,58,.6)}
+#disc{left:4vw;right:4vw;bottom:1.6vh;text-align:center;font-size:calc(1.9*var(--u));opacity:.65;z-index:20}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:30}
+#fx{position:absolute;inset:0;width:100%;height:100%;z-index:3}
+</style></head><body>
+<div id="stage">
+ <div id="bg"></div>
+ <canvas id="fx"></canvas>
+ <div class="L tape" id="tp1"><span></span></div>
+ <div class="L tape pk" id="tp2"><span></span></div>
+ <!-- miniature / packshot -->
+ <div class="L C" id="brand">STUDIO LUMA</div>
+ <div class="L C A" id="kBlack" style="font-size:calc(30*var(--u))">BLACK</div>
+ <div class="L C A ol" id="kFriday" style="font-size:calc(30*var(--u))">FRIDAY</div>
+ <div class="L C A neon" id="k50" style="font-size:calc(33*var(--u))">-50%</div>
+ <div class="L C A" id="kDates" style="font-size:calc(6.4*var(--u))">DU 24 AU 28 NOV.</div>
+ <!-- compte à rebours -->
+ <div class="L C A" id="count">3</div>
+ <!-- -50 % -->
+ <div class="L C A neon" id="big50" style="font-size:calc(40*var(--u))">-50%</div>
+ <div class="L C A" id="site" style="font-size:calc(9*var(--u))">SUR TOUT LE SITE</div>
+ <!-- produits -->
+ <div class="L tile" id="t1"><span class="tag">-50%</span><div class="im">👟</div><div class="nm">SNEAKERS URBAN</div><div class="pr"><s>120 €</s><b>60 €</b></div></div>
+ <div class="L tile" id="t2"><span class="tag">-50%</span><div class="im">👜</div><div class="nm">SAC CABAS</div><div class="pr"><s>90 €</s><b>45 €</b></div></div>
+ <div class="L tile" id="t3"><span class="tag">-50%</span><div class="im">🎧</div><div class="nm">CASQUE SANS FIL</div><div class="pr"><s>160 €</s><b>80 €</b></div></div>
+ <div class="L C A" id="jours" style="font-size:calc(11*var(--u))">4 JOURS <span class="neon">SEULEMENT</span></div>
+ <div class="L C" id="clock">03:23:59:59</div>
+ <div class="L C" id="clockl"><span>J</span><span>H</span><span>MIN</span><span>S</span></div>
+ <div class="L" id="cta">J'EN PROFITE →</div>
+ <div class="L" id="disc">Démo conceptuelle — marque fictive · Création E-DUST Solutions</div>
+ <div id="flash"></div>
+</div>
+<script>
+window.DUR=10;
+const BT=60/140,b=n=>n*BT;
+Q('#tp1 span').textContent='BLACK FRIDAY ✦ -50% ✦ '.repeat(10);Q('#tp2 span').textContent='STUDIO LUMA ✦ BLACK FRIDAY ✦ '.repeat(10);
+const IMP=[[b(3),.5],[b(4),.6],[b(5),.7],[b(6),1.2],[b(10),.6],[b(11),.6],[b(12),.6],[b(14),.6],[b(16),1.0],[b(18),.5]];
+function render(t){
+ measure();const vh=H/100,f=Math.floor(t*30);
+ const sk=shake(t,IMP);Q('#stage').style.transform=`translate(${(hash(f)-.5)*sk*3*U}px,${(hash(f+9)-.5)*sk*3*U}px) rotate(${(hash(f+3)-.5)*sk}deg)`;
+ // fonds : noir, flashs blanc / néon sur le compte à rebours
+ let bg='#000';if(t>=b(3)&&t<b(6)){const k=Math.floor((t-b(3))/BT);bg=['#fff','#000','#D4FF3A'][k];}
+ Q('#bg').style.background=bg;
+ Q('#flash').style.opacity=[b(6),b(16)].reduce((m,a)=>Math.max(m,t>=a?Math.exp(-(t-a)*12)*.8:0),0);
+ // ---- miniature (0 -> b3) et packshot (b16 -> fin) ----
+ const kv=t<b(3)?1:0,pk=t>=b(16)?1:0;
+ const br=Q('#brand');br.style.top=(R45?4:5.5)+'vh';set(br,kv||pk?1:0);
+ const kb=Q('#kBlack'),kf=Q('#kFriday'),k5=Q('#k50'),kd=Q('#kDates');
+ const s0=R45?.82:1;
+ kb.style.top=(R45?10:13)+'vh';kf.style.top=(R45?32:31)+'vh';k5.style.top=(R45?52:50)+'vh';kd.style.top=(R45?79:76)+'vh';
+ const pkIn=p=>t>=b(16)?eb(seg(t,b(16)+p,b(16)+p+.3)):1;
+ set(kb,kv||pk?cl(pkIn(0)*2):0,`scale(${s0*pkIn(0)}) translateX(${Math.sin(t*2)*1}vw)`);
+ set(kf,kv||pk?cl(pkIn(.1)*2):0,`scale(${s0*pkIn(.1)}) translateX(${-Math.sin(t*2)*1}vw)`);
+ set(k5,kv||pk?cl(pkIn(.2)*2):0,`scale(${s0*pkIn(.2)*(1+.03*Math.sin(t*9))}) rotate(-4deg)`);
+ set(kd,kv?1:0);
+ const ct=Q('#cta');ct.style.top=(R45?80:76)+'vh';const cp=eb(seg(t,b(18),b(18)+.35));set(ct,pk?cl(cp*2):0,`translateX(-50%) scale(${cp*(1+.04*(.5+.5*Math.sin(t*8))*seg(t,b(19),b(20)))})`);
+ // bandes diagonales
+ const tapesOn=(t<b(3))||(t>=b(6)&&t<b(10))||(t>=b(16));
+ const t1=Q('#tp1'),t2=Q('#tp2');
+ t1.style.top=(R45?(t<b(3)||t>=b(16)?92:30):(t<b(3)||t>=b(16)?88:30))+'vh';t2.style.top=(R45?72:70)+'vh';
+ set(t1,tapesOn?1:0,`translate(-50%,-50%) rotate(-9deg) translateX(${-((t*40)%60)}vw)`);
+ set(t2,(t>=b(6)&&t<b(10))?1:0,`translate(-50%,-50%) rotate(7deg) translateX(${((t*40)%60)-30}vw)`);
+ // compte à rebours 3-2-1
+ const cn=Q('#count');cn.style.top=(R45?18:28)+'vh';
+ if(t>=b(3)&&t<b(6)){const k=Math.floor((t-b(3))/BT);cn.textContent=3-k;const S=slam(t,b(3+k),1.6,.2);set(cn,S.o,`scale(${S.s})`);cn.style.color=k==0?'#000':k==1?'#fff':'#000';}else set(cn,0);
+ // -50 %
+ const g=Q('#big50');g.style.top=(R45?20:28)+'vh';const S5=slam(t,b(6),2.4,.25);set(g,t>=b(6)&&t<b(10)?S5.o:0,`scale(${S5.s}) rotate(-6deg)`);
+ const st=Q('#site');st.style.top=(R45?58:56)+'vh';const Ss=slam(t,b(8),1.8,.2);set(st,t>=b(8)&&t<b(10)?Ss.o:0,`scale(${Ss.s})`);
+ // produits
+ [['#t1',b(10)],['#t2',b(11)],['#t3',b(12)]].forEach(([s,a],i)=>{const e=Q(s);
+  const pos=R45?[[6,14],[54,14],[30,52]]:[[4,18],[56,18],[30,50]];
+  e.style.left=pos[i][0]+'vw';e.style.top=pos[i][1]+'vh';const p=eb(seg(t,a,a+.3));
+  set(e,t>=a&&t<b(14)?cl(p*2):0,`scale(${(R45?.9:1.12)*(.5+.5*p)}) rotate(${(1-p)*(i-1)*10}deg)`);});
+ // 4 jours + chrono
+ const jr=Q('#jours');jr.style.top=(R45?18:24)+'vh';const Sj=slam(t,b(14),1.8,.22);set(jr,t>=b(14)&&t<b(16)?Sj.o:0,`scale(${Sj.s})`);
+ const ck=Q('#clock'),cl2=Q('#clockl');ck.style.top=(R45?44:46)+'vh';cl2.style.top=(R45?60:58)+'vh';
+ const rem=Math.max(0,4*86400-1-Math.floor((t-b(14))*7919));const d=Math.floor(rem/86400),h=Math.floor(rem/3600)%24,mi=Math.floor(rem/60)%60,se=rem%60;
+ ck.textContent=[d,h,mi,se].map(x=>String(x).padStart(2,'0')).join(':');
+ set(ck,t>=b(14.5)&&t<b(16)?1:0);set(cl2,t>=b(14.5)&&t<b(16)?1:0);
+ Q('#disc').style.color=bg=='#fff'||bg=='#D4FF3A'?'#000':'#fff';
+ drawFX(t);
+}
+const cv=Q('#fx'),cx=cv.getContext('2d');
+function drawFX(t){if(cv.width!==W){cv.width=W;cv.height=H}cx.clearRect(0,0,W,H);
+ // confettis néon sur les impacts forts
+ for(const[a,k] of IMP){const d=t-a;if(d<0||d>1||k<.9)continue;for(let i=0;i<60;i++){const ang=hash(a*99+i)*Math.PI*2,sp=(.3+hash(i+a))*W;
+  const x=W/2+Math.cos(ang)*sp*d,y=H*.45+Math.sin(ang)*sp*d+H*.5*d*d;cx.fillStyle=i%3==0?'#D4FF3A':i%3==1?'#FF2E88':'#fff';cx.globalAlpha=1-d;
+  cx.save();cx.translate(x,y);cx.rotate(d*12*hash(i));cx.fillRect(-U*.8,-U*.4,U*1.6,U*.8);cx.restore();}}cx.globalAlpha=1;}
+window.render=render;
+</script></body></html>
