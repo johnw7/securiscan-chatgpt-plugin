@@ -1,0 +1,127 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>Les Fistons — exemples UGC</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800;900&family=Oswald:wght@700&family=Yellowtail&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="../demos_portfolio/common.js"></script>
+<style>
+:root{--ink:#212527;--red:#e63c1e;--cream:#fbf7cd;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#000;font-family:Montserrat,sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden}
+.shot{position:absolute;inset:0;overflow:hidden;opacity:0}
+.shot img{position:absolute;left:50%;top:50%;max-width:none}
+#shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),transparent 22%,transparent 60%,rgba(0,0,0,.45));z-index:5}
+#bars{position:absolute;left:3vw;right:3vw;top:1.6vh;display:flex;gap:calc(.8*var(--u));z-index:20}
+#bars i{flex:1;height:calc(.55*var(--u));background:rgba(255,255,255,.35);border-radius:9px;overflow:hidden}
+#bars i b{display:block;height:100%;background:#fff;width:0}
+#hook{position:absolute;left:5vw;right:5vw;text-align:center;z-index:12;font-weight:900;font-size:calc(6.6*var(--u));line-height:1.12;color:#fff;-webkit-text-stroke:calc(.35*var(--u)) #000;paint-order:stroke fill;text-shadow:0 calc(.5*var(--u)) calc(2*var(--u)) rgba(0,0,0,.6)}
+#cap{position:absolute;left:6vw;right:6vw;text-align:center;z-index:12;font-weight:900;font-size:calc(7.6*var(--u));line-height:1.18;color:#fff;-webkit-text-stroke:calc(.45*var(--u)) #000;paint-order:stroke fill;text-shadow:0 calc(.6*var(--u)) calc(2.4*var(--u)) rgba(0,0,0,.55)}
+#cap span{display:inline-block;margin:0 .06em;padding:0 .1em;border-radius:calc(1*var(--u))}
+#cap span.on{background:var(--red);-webkit-text-stroke:0;color:#fff;text-shadow:none}
+.num{position:absolute;left:50%;z-index:13;width:calc(20*var(--u));height:calc(20*var(--u));border-radius:50%;background:var(--red);color:#fff;font-family:Oswald;font-size:calc(13*var(--u));display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 calc(1*var(--u)) #fff,0 calc(1*var(--u)) calc(4*var(--u)) rgba(0,0,0,.5)}
+.emo{position:absolute;z-index:14;font-size:calc(14*var(--u));filter:drop-shadow(0 calc(1*var(--u)) calc(2*var(--u)) rgba(0,0,0,.5))}
+#loc{position:absolute;left:6vw;z-index:14;background:#fff;color:#111;font-weight:800;font-size:calc(3.2*var(--u));padding:calc(1.2*var(--u)) calc(2.6*var(--u));border-radius:calc(1.6*var(--u));box-shadow:0 calc(.8*var(--u)) calc(2.4*var(--u)) rgba(0,0,0,.35);white-space:nowrap}
+#loc small{display:block;font-weight:600;font-size:.72em;color:#666;margin-top:.15em}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;z-index:30}
+/* fin de vidéo */
+#end{position:absolute;inset:0;background:var(--ink);z-index:40;opacity:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3*var(--u));text-align:center;color:var(--cream)}
+.label{position:relative;display:inline-block;padding:calc(2.2*var(--u)) calc(7*var(--u))}
+.label svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.label .t{position:relative;font-family:Oswald;font-size:calc(12*var(--u));line-height:.95;color:var(--cream);text-shadow:calc(.5*var(--u)) calc(.5*var(--u)) 0 var(--ink)}
+.label .s{position:relative;font-family:Yellowtail;font-size:calc(5*var(--u));color:var(--cream)}
+#end .addr{font-weight:800;font-size:calc(3.8*var(--u));line-height:1.4}
+#end .tel{background:var(--red);color:#fff;font-weight:900;font-size:calc(5.6*var(--u));padding:calc(1.4*var(--u)) calc(4.4*var(--u));border-radius:999px}
+#end .cr{position:absolute;bottom:2vh;left:5vw;right:5vw;font-weight:600;font-size:calc(1.9*var(--u));opacity:.6}
+/* conversation */
+#chat{position:absolute;inset:0;z-index:8;background:#efe7dc;opacity:0;font-family:Inter,sans-serif}
+#chat .top{position:absolute;left:0;right:0;top:0;height:11vh;background:#1f2c34;display:flex;align-items:flex-end;padding:0 4vw 1.6vh;gap:calc(2.4*var(--u));color:#fff}
+#chat .av{width:calc(9*var(--u));height:calc(9*var(--u));border-radius:50%;background:linear-gradient(135deg,#f6a,#fa6);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:calc(4*var(--u))}
+#chat .nm{font-weight:700;font-size:calc(4*var(--u))}#chat .st{font-size:calc(2.6*var(--u));opacity:.7}
+#msgs{position:absolute;left:4vw;right:4vw;top:13vh;bottom:4vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;gap:calc(1.6*var(--u))}
+.m{max-width:74%;padding:calc(1.6*var(--u)) calc(2.4*var(--u));border-radius:calc(2.4*var(--u));font-size:calc(4.2*var(--u));line-height:1.3;color:#111;box-shadow:0 calc(.3*var(--u)) calc(.6*var(--u)) rgba(0,0,0,.12);transform-origin:left bottom}
+.m.in{background:#fff;align-self:flex-start;border-top-left-radius:calc(.6*var(--u))}
+.m.out{background:#d9fdd3;align-self:flex-end;border-top-right-radius:calc(.6*var(--u));transform-origin:right bottom}
+.m img{display:block;width:100%;border-radius:calc(1.6*var(--u));margin-bottom:calc(1*var(--u))}
+.m .h{display:block;text-align:right;font-size:.6em;color:#777;margin-top:.2em}
+.typing{align-self:flex-start;background:#fff;border-radius:calc(2.4*var(--u));padding:calc(1.8*var(--u)) calc(2.6*var(--u));display:flex;gap:calc(.9*var(--u))}
+.typing i{width:calc(1.4*var(--u));height:calc(1.4*var(--u));border-radius:50%;background:#999}
+#chatTitle{position:absolute;left:7vw;right:7vw;z-index:12;text-align:center;font-weight:900;font-size:calc(6.2*var(--u));line-height:1.2;color:#fff;background:#111;padding:calc(2.4*var(--u)) calc(3*var(--u));border-radius:calc(3*var(--u));box-shadow:0 calc(1.4*var(--u)) calc(4*var(--u)) rgba(0,0,0,.35)}
+</style></head><body>
+<div id="stage">
+ <div id="shots"></div><div id="shade"></div>
+ <div id="chat"><div class="top"><div class="av">J</div><div><div class="nm">Julie 🍷</div><div class="st">en ligne</div></div></div><div id="msgs"></div></div>
+ <div id="bars"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+ <div id="hook"></div><div id="cap"></div><div id="chatTitle"></div>
+ <div class="num" id="num" style="opacity:0"></div>
+ <div class="emo" id="e1" style="opacity:0"></div><div class="emo" id="e2" style="opacity:0"></div>
+ <div id="loc" style="opacity:0">📍 Les Fistons<small>Saint-Germain-en-Laye</small></div>
+ <div id="flash"></div>
+ <div id="end"><div class="label"><svg viewBox="0 0 400 200" preserveAspectRatio="none"><path d="M30 20 Q60 20 70 4 L330 4 Q340 20 370 20 Q396 20 396 46 Q380 60 380 100 Q380 140 396 154 Q396 180 370 180 Q340 180 330 196 L70 196 Q60 180 30 180 Q4 180 4 154 Q20 140 20 100 Q20 60 4 46 Q4 20 30 20Z" fill="#e63c1e" stroke="#212527" stroke-width="7"/></svg><div class="t">LES FISTONS</div><div class="s">bistroquet · ouvert 7j/7</div></div>
+  <div class="addr">📍 22 place Charles de Gaulle<br>Saint-Germain-en-Laye</div><div class="tel">Réserve 👉 01 39 73 06 34</div>
+  <div class="cr">Exemple de format UGC · E-DUST Solutions · photos : site du restaurant (J. Célice / C. Sautet)</div></div>
+</div>
+<script>
+const V=(location.hash||'#pov').slice(1);
+const es=x=>x*x*(3-2*x);
+const A='assets/';
+// ---- scénarios ----
+const CFG={
+ pov:{dur:15,hook:'POV : tu cherchais un vrai bon resto à Saint-Germain…',hookEnd:3.2,
+  shots:[[0,3.2,'entrecote','in'],[3.2,5.4,'facade','panL'],[5.4,7.8,'entrecote','punch'],[7.8,10.2,'vins','panR'],[10.2,12.5,'amis','panL']],
+  caps:[[3.3,5.4,'et tu tombes sur Les Fistons 😍'],[5.5,7.8,'entrecôte maturée 300 g + sauce poivre qui tue 🔥'],[7.9,10.2,'un bon verre au pied du château 🍷'],[10.3,12.5,'bref. tu reviens la semaine pro.']],
+  emo:[[5.6,'🥩',72,30],[8.0,'🍷',14,28],[10.4,'😮‍💨',70,26]],loc:[0,12.5]},
+ raisons:{dur:15,hook:'3 raisons de filer aux Fistons 👇',hookEnd:2.6,
+  shots:[[0,2.6,'facade','in'],[2.6,5.6,'entrecote','punch'],[5.6,8.6,'salle','panR'],[8.6,12.5,'amis','panL']],
+  caps:[[2.7,5.6,'des viandes de race, maturées & tracées 🥩'],[5.7,8.6,'une ambiance brocante au pied du château 🏰'],[8.7,11.2,'ouvert 7j/7 et after work dès 17h30 🍻'],[11.2,12.5,'tu viens quand ? 😏']],
+  nums:[[2.6,'1'],[5.6,'2'],[8.6,'3']],emo:[[11.3,'👀',70,28]],loc:[0,2.6]},
+ chat:{dur:14,title:'Quand ta pote te demande où manger ce soir 😏',
+  msgs:[[0,'in','On mange où ce soir ? 🤔','19:02'],[0,'out','Les Fistons ?? 🥩','19:02'],[1.4,'in','C\'est quoi ?','19:03'],[2.8,'out','<img src="'+A+'entrecote.jpg">Entrecôte maturée 300 g + sauce poivre qui tue 🔥','19:03'],
+   [5.0,'out','Et une ambiance de dingue au pied du château 🏰','19:03'],[6.6,'in','Ok vendu 🤤 tu réserves ?','19:04'],[8.2,'out','C\'est fait 😎 01 39 73 06 34','19:04'],[9.6,'in','La meilleure 🫶','19:05']]}};
+const C=CFG[V];window.DUR=C.dur;
+const END=C.dur-2.5;
+// ---- plans plein écran ----
+const ST=Q('#shots');(C.shots||[]).forEach((s,i)=>{const d=document.createElement('div');d.className='shot';d.innerHTML=`<img src="${A}${s[2]}.jpg">`;ST.appendChild(d);s.el=d;});
+// ---- conversation ----
+if(V=='chat'){Q('#chat').style.opacity=1;const M=Q('#msgs');C.msgs.forEach(m=>{const e=document.createElement('div');e.className='m '+m[1];e.innerHTML=`${m[2]}<span class="h">${m[3]}${m[1]=='out'?' ✓✓':''}</span>`;M.appendChild(e);m.el=e;
+ if(m[0]>0&&m[1]=='in'){const ty=document.createElement('div');ty.className='typing';ty.innerHTML='<i></i><i></i><i></i>';M.insertBefore(ty,e);m.ty=ty;}});}
+function capWords(el,text,t,a,b,first){const w=text.split(' ');if(el.dataset.t!==text){el.dataset.t=text;el.innerHTML=w.map(x=>`<span>${x}</span>`).join('');}
+ const sp=el.querySelectorAll('span');const step=Math.min(.32,(b-a-.4)/w.length);
+ sp.forEach((s,i)=>{const ti=first?-1:a+i*step;const p=eb(seg(t,ti,ti+.18));s.style.opacity=cl(p*3);s.style.transform=`scale(${.6+.4*p})`;
+  s.classList.toggle('on',!first&&t>=ti&&(i==w.length-1?t<b:t<a+(i+1)*step));});}
+function render(t){
+ measure();const vh=H/100,vw=W/100;
+ const f=Math.floor(t*30);
+ // caméra à l'épaule
+ const hx=(Math.sin(t*1.7)+Math.sin(t*3.1)*.5)*U*.5,hy=(Math.cos(t*1.3)+Math.sin(t*2.7)*.5)*U*.5,hr=Math.sin(t*1.1)*.35;
+ (C.shots||[]).forEach((s,i)=>{const [a,b,n,mode]=s;const on=t>=a&&t<b;s.el.style.opacity=on?1:0;if(!on)return;
+  const img=s.el.querySelector('img');const iw=img.naturalWidth,ih=img.naturalHeight;const cover=Math.max(W/iw,H/ih);const p=seg(t,a,b);
+  let sc=cover*1.04,ox=0;const ex=(iw*sc-W)/2;
+  if(mode=='panL')ox=mix(ex,-ex,es(p));if(mode=='panR')ox=mix(-ex,ex,es(p));
+  if(mode=='in')sc*=1+.08*p;if(mode=='punch')sc*=1.18-.14*eo(seg(t,a,a+.35))+.05*p;
+  img.style.width=(iw*sc)+'px';img.style.height=(ih*sc)+'px';
+  img.style.transform=`translate(-50%,-50%) translate(${ox+hx}px,${hy}px) rotate(${hr}deg)`;});
+ // flash de coupe
+ let fl=0;(C.shots||[]).forEach(s=>{if(s[0]>0){const d=t-s[0];if(d>=0&&d<.12)fl=Math.max(fl,.5*(1-d/.12))}});Q('#flash').style.opacity=fl;
+ // barres de progression façon story
+ QA('#bars b').forEach((b,i)=>{b.style.width=(cl((t/END)*3-i)*100)+'%'});Q('#bars').style.opacity=t<END?1:0;
+ // accroche (visible dès l'image 0 = miniature)
+ const hk=Q('#hook');if(C.hook){hk.textContent=C.hook;hk.style.top=(R45?16:20)+'vh';hk.style.opacity=t<C.hookEnd?1:0;hk.style.transform=`scale(${1+.02*Math.sin(t*4)})`;}
+ // sous-titres mot par mot
+ const cp=Q('#cap');cp.style.top=(R45?60:62)+'vh';const cur=(C.caps||[]).find(c=>t>=c[0]&&t<c[1]);
+ if(cur){cp.style.opacity=1;capWords(cp,cur[2],t,cur[0],cur[1],false);}else cp.style.opacity=0;
+ // numéros
+ const nm=Q('#num');const nc=(C.nums||[]).filter(n=>t>=n[0]).pop();if(nc&&t<END){nm.textContent=nc[1];const p=eb(seg(t,nc[0],nc[0]+.35));nm.style.top=(R45?34:40)+'vh';nm.style.opacity=cl(p*2);nm.style.transform=`translateX(-50%) scale(${.3+.7*p}) rotate(${(1-p)*-30}deg)`;}else nm.style.opacity=0;
+ // émojis qui sautent
+ const es2=(C.emo||[]).filter(e=>t>=e[0]&&t<e[0]+2.2);[Q('#e1'),Q('#e2')].forEach((el,i)=>{const e=es2[i];if(!e){el.style.opacity=0;return}const p=eb(seg(t,e[0],e[0]+.35));
+  el.textContent=e[1];el.style.left=e[2]+'vw';el.style.top=e[3]+'vh';el.style.opacity=cl(p*2)*(1-seg(t,e[0]+1.9,e[0]+2.2));el.style.transform=`scale(${p}) rotate(${Math.sin(t*6)*10}deg)`;});
+ // pastille de lieu
+ const lc=Q('#loc');if(C.loc){lc.style.top=(R45?78:76)+'vh';lc.style.opacity=t>=C.loc[0]&&t<C.loc[1]?1:0;lc.style.transform=`rotate(-3deg) scale(${1+.02*Math.sin(t*3)})`;}
+ // conversation
+ if(V=='chat'){const ct=Q('#chatTitle');ct.textContent=C.title;ct.style.top=(R45?50:56)+'vh';ct.style.opacity=t<1.2?1:1-seg(t,1.2,1.5);
+  C.msgs.forEach((m,i)=>{const a=m[0];if(m.ty){const on=t>=a-1.0&&t<a;m.ty.style.display=on?'flex':'none';m.ty.querySelectorAll('i').forEach((d,k)=>d.style.transform=`translateY(${Math.sin(t*12-k)*U*.5}px)`)}
+   const p=a==0?1:eb(seg(t,a,a+.3));m.el.style.display=t>=a?'block':'none';m.el.style.transform=`scale(${.6+.4*p})`;m.el.style.opacity=cl(p*2);});
+  const M=Q('#msgs');const ov=Math.max(0,M.scrollHeight-M.clientHeight);M.scrollTop=ov;}
+ // carte de fin
+ const en=Q('#end');en.style.opacity=seg(t,END,END+.35);const lb=en.querySelector('.label');const p=eb(seg(t,END+.1,END+.6));lb.style.transform=`scale(${.6+.4*p})`;
+}
+window.render=render;
+</script></body></html>
