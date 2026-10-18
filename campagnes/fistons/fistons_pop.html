@@ -1,0 +1,103 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>Les Fistons — version « pop & énergique »</title>
+<!-- Charte restaurant-lesfistons.fr : #212527 · #e63c1e · #fbf7cd · #f3f1ea -->
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Yellowtail&family=Lato:wght@700;900&display=swap" rel="stylesheet">
+<script src="../demos_portfolio/common.js"></script>
+<style>
+:root{--ink:#212527;--red:#e63c1e;--cream:#fbf7cd;--off:#f3f1ea;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:var(--red);font-family:Lato,sans-serif}
+#stage{position:absolute;inset:0;overflow:hidden}
+.sc{position:absolute;inset:0;opacity:0;overflow:hidden}
+.red{background:var(--red);--fg:var(--cream);--dot:rgba(33,37,39,.16);--burst:rgba(251,247,205,.16);--sh:var(--ink)}
+.cream{background:var(--cream);--fg:var(--ink);--dot:rgba(230,60,30,.18);--burst:rgba(230,60,30,.14);--sh:var(--red)}
+.dark{background:var(--ink);--fg:var(--cream);--dot:rgba(251,247,205,.08);--burst:rgba(230,60,30,.25);--sh:var(--red)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(var(--dot) 28%,transparent 30%);background-size:calc(3.2*var(--u)) calc(3.2*var(--u))}
+.burst{position:absolute;left:50%;top:50%;width:220vmax;height:220vmax;background:repeating-conic-gradient(var(--burst) 0 9deg,transparent 9deg 22deg);-webkit-mask-image:radial-gradient(closest-side,#000 20%,transparent 70%)}
+.stk{position:absolute;left:50%;top:50%;border:calc(1.6*var(--u)) solid var(--off);border-radius:calc(1.4*var(--u));box-shadow:calc(1.8*var(--u)) calc(1.8*var(--u)) 0 var(--ink);background:var(--off);overflow:hidden;z-index:5}
+.dark .stk{box-shadow:calc(1.8*var(--u)) calc(1.8*var(--u)) 0 var(--red)}
+.stk img{display:block;width:100%;height:auto}
+.blk{position:absolute;left:4vw;right:4vw;text-align:center;z-index:10}
+.big{font-family:Oswald;font-weight:700;font-size:calc(15*var(--u));line-height:.92;text-transform:uppercase;color:var(--fg);text-shadow:calc(.9*var(--u)) calc(.9*var(--u)) 0 var(--sh)}
+.big span{display:inline-block}
+.scr{font-family:Yellowtail;font-size:calc(8*var(--u));color:var(--fg);line-height:1.05;text-shadow:calc(.4*var(--u)) calc(.4*var(--u)) 0 var(--sh)}
+.badge{position:absolute;z-index:12;width:calc(22*var(--u));height:calc(22*var(--u));display:flex;align-items:center;justify-content:center;text-align:center;font-family:Oswald;font-weight:700;font-size:calc(4*var(--u));line-height:1;color:var(--ink);background:var(--cream);clip-path:polygon(50% 0%,61% 12%,75% 6%,79% 21%,94% 25%,88% 39%,100% 50%,88% 61%,94% 75%,79% 79%,75% 94%,61% 88%,50% 100%,39% 88%,25% 94%,21% 79%,6% 75%,12% 61%,0% 50%,12% 39%,6% 25%,21% 21%,25% 6%,39% 12%)}
+.cream .badge{background:var(--red);color:var(--cream)}
+.tape{position:absolute;left:50%;width:220vw;height:calc(7*var(--u));background:var(--ink);color:var(--cream);display:flex;align-items:center;font-family:Oswald;font-weight:700;font-size:calc(4*var(--u));letter-spacing:.08em;white-space:nowrap;z-index:15;overflow:hidden}
+.tape span{display:block}
+.pill{position:absolute;left:50%;display:flex;align-items:center;gap:calc(1.6*var(--u));font-family:Oswald;font-weight:700;font-size:calc(3.8*var(--u));letter-spacing:.1em;background:var(--cream);color:var(--ink);border-radius:999px;padding:calc(1*var(--u)) calc(3.4*var(--u)) calc(1*var(--u)) calc(1.2*var(--u));white-space:nowrap;z-index:20;box-shadow:calc(.8*var(--u)) calc(.8*var(--u)) 0 var(--ink)}
+.pill i{font-style:normal;width:calc(6*var(--u));height:calc(6*var(--u));border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:calc(2.6*var(--u));padding-left:.15em;color:#fff}
+.info{font-family:Oswald;font-weight:500;font-size:calc(5.4*var(--u));line-height:1.3;color:var(--fg)}
+.phone{display:inline-block;margin-top:calc(2.4*var(--u));background:var(--cream);color:var(--ink);font-family:Oswald;font-weight:700;font-size:calc(6.4*var(--u));padding:calc(1.2*var(--u)) calc(4.4*var(--u));border-radius:999px;box-shadow:calc(.9*var(--u)) calc(.9*var(--u)) 0 var(--ink)}
+.dark .phone{box-shadow:calc(.9*var(--u)) calc(.9*var(--u)) 0 var(--red)}
+.logoCard{display:inline-block;background:#fff;border-radius:calc(2*var(--u));padding:calc(1.6*var(--u)) calc(2.6*var(--u));width:min(72vw,52vh);box-shadow:calc(1.2*var(--u)) calc(1.2*var(--u)) 0 var(--ink)}
+.logoCard img{display:block;width:100%}
+#iris{position:absolute;left:50%;top:50%;border-radius:50%;z-index:40;pointer-events:none}
+#credit{position:absolute;left:4vw;right:4vw;bottom:1.6vh;text-align:center;font-size:calc(1.7*var(--u));z-index:50}
+</style></head><body>
+<div id="stage"><div id="scenes"></div><div id="iris"></div>
+<div id="credit">Proposition E-DUST Solutions pour Les Fistons · photos : site du restaurant (J. Célice / C. Sautet)</div></div>
+<script>
+window.DUR=35;
+const A='assets/';const COL={red:'#e63c1e',cream:'#fbf7cd',dark:'#212527'};
+const S=[
+ {id:'kv',th:'red',a:-1,b:2.2,p:[['entrecote',1]]},
+ {id:'s1',th:'cream',a:2.2,b:6,p:[['facade',1.5],['terrasse',2.4]],big:'LE BISTROQUET',scr:'de Saint-Germain-en-Laye',bd:'TOUT<br>NOUVEAU !'},
+ {id:'s2',th:'red',a:6,b:9.6,p:[['chateau',1.5]],big:'AU PIED DU CHÂTEAU',scr:'une adresse historique'},
+ {id:'s3',th:'dark',a:9.6,b:13.4,p:[['entrecote',1]],big:'VIANDES DE RACE',scr:'maturées & tracées',bd:'MIAM !'},
+ {id:'s4',th:'cream',a:13.4,b:17,p:[['confit',1.5],['tataki',1.5]],big:'FAIT MAISON',scr:'généreux & de saison',bd:'DE<br>SAISON !'},
+ {id:'s5',th:'red',a:17,b:20.6,p:[['vins',1.5],['vins2',1.5]],big:'GRANDS VINS',scr:'à partager',bd:'SANTÉ !'},
+ {id:'s6',th:'dark',a:20.6,b:24.2,p:[['salle',1],['salle2',2.4]],big:'AMBIANCE BROCANTE',scr:'authentique & chaleureuse'},
+ {id:'s7',th:'cream',a:24.2,b:27.6,p:[['amis',1.5],['burger',2.4]],big:'AFTER WORK',scr:'dès 17h30 en semaine',bd:'OUVERT<br>7J/7'},
+ {id:'s8',th:'red',a:27.6,b:30.8,p:[]},
+ {id:'s9',th:'dark',a:30.8,b:36,p:[]}];
+const TAPE='LES FISTONS ★ BISTROQUET ★ VIANDES DE RACE ★ GRANDS VINS ★ AFTER WORK ★ '.repeat(3);
+const root=Q('#scenes');
+S.forEach(s=>{const e=document.createElement('section');e.className='sc '+s.th;e.id=s.id;
+ let h=`<div class="dots"></div><div class="burst"></div>`;
+ s.p.forEach(([n],j)=>{h+=`<div class="stk c${j}"><img src="${A}${n}.jpg"></div>`});
+ if(s.big)h+=`<div class="blk top"><div class="big">${s.big.split(' ').map(x=>`<span>${x}</span>`).join(' ')}</div></div><div class="blk bot"><div class="scr">${s.scr}</div></div>`;
+ if(s.bd)h+=`<div class="badge">${s.bd}</div>`;
+ h+=`<div class="tape"><span>${TAPE}</span></div>`;
+ e.innerHTML=h;root.appendChild(e);});
+Q('#kv').insertAdjacentHTML('beforeend',`<div class="blk top"><div class="big" style="font-size:calc(17*var(--u))"><span>LES</span> <span>FISTONS</span></div><div class="scr" style="margin-top:calc(1*var(--u))">le bistroquet de Saint-Germain-en-Laye</div></div>
+ <div class="badge" id="kvb">VIANDES<br>DE RACE</div><div class="pill" id="kvp"><i>▶</i>DÉCOUVREZ LE FILM</div>`);
+Q('#s8').insertAdjacentHTML('beforeend',`<div class="blk mid"><div class="big" style="font-size:calc(16*var(--u))"><span>LES</span> <span>FISTONS</span></div><div class="scr">ouvert 7j/7</div>
+ <div class="info" style="margin-top:calc(3*var(--u))">22 place Charles de Gaulle<br>Saint-Germain-en-Laye</div><div class="phone">RÉSERVEZ · 01 39 73 06 34</div></div>`);
+Q('#s9').insertAdjacentHTML('beforeend',`<div class="blk top"><div class="big" style="font-size:calc(10*var(--u))"><span>ET</span> <span>SI</span> <span>CETTE</span> <span>VIDÉO</span><br><span>ÉTAIT</span> <span>LA</span> <span>VÔTRE ?</span></div><div class="scr" style="margin-top:calc(1.4*var(--u))">pensée pour Les Fistons</div></div>
+ <div class="blk mid"><div class="logoCard"><img src="../edust_onboarding/assets/edust-solutions-logo.png"></div><div class="info" style="font-size:calc(3.6*var(--u));margin-top:calc(2.4*var(--u))">Films de marque · Reels · Motion design</div></div>
+ <div class="blk bot"><div class="phone" style="font-size:calc(5*var(--u))">PARLONS-EN ☕</div><div class="info" style="font-size:calc(3*var(--u));margin-top:calc(1.6*var(--u))">Tarik Belattar · tarikbelatta@gmail.com · 06 13 24 96 80</div></div>`);
+function render(t){
+ measure();const vh=H/100,vw=W/100;
+ let cur=0;S.forEach((s,k)=>{if(t>=s.a)cur=k});
+ // iris : un cercle de la couleur suivante s'ouvre, la scène change dessous, puis il se referme en dévoilant
+ const ir=Q('#iris');let io=0;
+ for(let k=1;k<S.length;k++){const a=S[k].a;if(t>a-.45&&t<a+.45){const p=seg(t,a-.45,a+.45);const R=Math.hypot(W,H);
+   const r=p<.5?eio(p*2)*R:R*(1-eio((p-.5)*2));ir.style.width=ir.style.height=(2*r)+'px';ir.style.transform='translate(-50%,-50%)';ir.style.background=COL[S[k].th];
+   ir.style.boxShadow=`0 0 0 ${1.4*U}px ${COL[S[k-1].th=='dark'?'cream':'dark']}`;io=1;}}
+ ir.style.opacity=io;
+ S.forEach((s,k)=>{const e=Q('#'+s.id);e.style.opacity=k==cur?1:0;if(k!=cur)return;const lt=t-s.a,ph=seg(t,s.a,s.b);
+  e.querySelector('.burst').style.transform=`translate(-50%,-50%) rotate(${t*7}deg)`;
+  const tp=e.querySelector('.tape');tp.style.top=(R45?88:86)+'vh';tp.style.transform=`translateX(-50%) rotate(-5deg) translateX(${-((t*6)%60)}vw)`;
+  if(s.id=='s9'||s.id=='s8')tp.style.display='none';
+  const sts=[...e.querySelectorAll('.stk')];
+  sts.forEach((c,j)=>{const r=s.p[j][1];const main=j==0;let w=r>=2?(R45?80:90):r>=1.4?(R45?72:84):(R45?56:72);if(!main)w=r>=2?(R45?58:70):(R45?44:56);c.style.width=w+'vw';
+   let cx=0,cy=s.id=='kv'?(R45?6:4):(R45?0:-1);if(sts.length>1){cy=main?(R45?-6:-8):(R45?16:14);cx=main?-4:6;}
+   const a=s.a+(main?(s.id=='kv'?-9:.05):.5);const p=s.id=='kv'?1:eb(seg(t,a,a+.55));
+   c.style.transform=`translate(-50%,-50%) translate(${(cx+Math.sin(lt*.5+j)*.6)*vw}px,${cy*vh}px) rotate(${(main?-4:5)+(1-p)*(main?-25:25)+Math.sin(lt*.6+j)*1}deg) scale(${(.3+.7*p)*(.97+.04*ph)})`;c.style.opacity=cl(p*3);});
+  const t1=e.querySelector('.blk.top'),b1=e.querySelector('.blk.bot'),m1=e.querySelector('.blk.mid');
+  if(t1)t1.style.top=(s.id=='kv'?(R45?4:6):s.id=='s9'?(R45?6:8):(R45?3.5:6))+'vh';
+  if(b1)b1.style.top=(s.id=='s9'?(R45?75:78):sts.length>1?(R45?76:75):(R45?74:72))+'vh';
+  if(m1)m1.style.top=(s.id=='s9'?(R45?40:44):(R45?18:24))+'vh';
+  if(s.id!='kv'){[t1,m1].forEach(bk=>{if(!bk)return;bk.querySelectorAll('.big span').forEach((x,i)=>{const p=eb(seg(t,s.a+.15+i*.18,s.a+.55+i*.18));x.style.opacity=cl(p*2);x.style.transform=`scale(${.3+.7*p}) rotate(${(1-p)*(i%2?8:-8)}deg)`});
+    bk.querySelectorAll('.scr,.info,.phone,.logoCard').forEach((x,i)=>{const p=eb(seg(t,s.a+.9+i*.25,s.a+1.3+i*.25));x.style.opacity=cl(p*2);x.style.transform=`scale(${.6+.4*p})`})});
+   if(b1){const p=eb(seg(t,s.a+1.0,s.a+1.4));b1.style.opacity=cl(p*2);b1.style.transform=`scale(${.7+.3*p})`;}}
+  const bd=e.querySelector('.badge');if(bd){const p=eb(seg(t,s.a+1.3,s.a+1.7));bd.style.left=(R45?70:68)+'vw';bd.style.top=(sts.length>1?(R45?36:38):(R45?24:26))+'vh';
+   bd.style.opacity=s.id=='kv'?1:cl(p*2);bd.style.transform=`rotate(${-12+Math.sin(t*3)*8}deg) scale(${(s.id=='kv'?1:p)*(1+.05*Math.sin(t*5))})`;}
+ });
+ const kb=Q('#kvb');kb.style.left=(R45?70:68)+'vw';kb.style.top=(R45?26:26)+'vh';
+ const kp=Q('#kvp');kp.style.top=(R45?78:79)+'vh';kp.style.transform=`translateX(-50%) scale(${1+.03*Math.sin(t*5)})`;
+ const th=S[cur].th;Q('#credit').style.color=th=='cream'?'rgba(33,37,39,.7)':'rgba(251,247,205,.8)';
+}
+window.render=render;
+</script></body></html>
