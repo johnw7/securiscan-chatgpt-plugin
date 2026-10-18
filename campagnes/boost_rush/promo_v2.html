@@ -132,7 +132,7 @@ const MQ='BOOST RUSH ✕ '.repeat(8);Q('#mq1').textContent=MQ;Q('#mq2').textCont
 function win(t,a,b,fi=.08,fo=.08){return Math.min(seg(t,a,a+fi),1-seg(t,b-fo,b))}
 function show(el,o,tr=''){el.style.opacity=o;if(tr!==null)el.style.transform=tr}
 function slam(t,t0,from=1.8,d=.26){const p=seg(t,t0,t0+d);return{o:t<t0?0:cl(p*3),s:from+(1-from)*eo(p)}}
-const IMP=[[0,.6],[B(12),.8],[B(14),.8],[B(16),.8],[B(18),.9],[B(24),1.2],[B(28),.7],[B(30),.7],[B(32),.7],[B(40),1.3],[B(44),.8],[B(46),.4],[B(47),.4]];
+const IMP=[[B(12),.8],[B(14),.8],[B(16),.8],[B(18),.9],[B(24),1.2],[B(28),.7],[B(30),.7],[B(32),.7],[B(40),1.3],[B(44),.8],[B(46),.4],[B(47),.4]];
 function shake(t){let s=0;for(const[a,k] of IMP){const d=t-a;if(d>=0&&d<.35)s+=k*Math.exp(-d*14)}return s}
 
 // poses de la canette : [t, x(vw), y(vh), échelle, rotation, opacité]
@@ -159,7 +159,7 @@ function render(t){
  Q('#bg').style.background=bg;
  const darkText=t>=B(30)&&t<B(32);
  // flash
- Q('#flash').style.opacity=Math.max(t<.25?(1-t/.25)*.8:0,...[B(18),B(24),B(40),B(44)].map(a=>t>=a?Math.exp(-(t-a)*10)*.85:0));
+ Q('#flash').style.opacity=Math.max(0,...[B(18),B(24),B(40),B(44)].map(a=>t>=a?Math.exp(-(t-a)*10)*.85:0));
  // bandes cinéma pendant l'histoire
  const lb=(eio(seg(t,B(4),B(5)))-eio(seg(t,B(19.5),B(20))))*(R45?7:9);QA('#bars i').forEach(e=>e.style.height=lb+'vh');
 
