@@ -1,0 +1,124 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>Les Fistons — UGC conversation de groupe</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@700&family=Yellowtail&display=swap" rel="stylesheet">
+<script src="../demos_portfolio/common.js"></script>
+<style>
+:root{--ink:#212527;--red:#e63c1e;--cream:#fbf7cd;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#0b141a;font-family:Inter,sans-serif}
+#phone{position:absolute;inset:0;background:#efe7dc;overflow:hidden}
+#wall{position:absolute;inset:0;background-image:radial-gradient(rgba(120,100,70,.10) 1.2px,transparent 1.6px),radial-gradient(rgba(120,100,70,.07) 1px,transparent 1.4px);background-size:calc(5*var(--u)) calc(5*var(--u)),calc(3.2*var(--u)) calc(3.2*var(--u));background-position:0 0,calc(1.6*var(--u)) calc(2*var(--u))}
+#status{position:absolute;left:0;right:0;top:0;height:4.2vh;background:#1f2c34;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;font-weight:600;font-size:calc(2.8*var(--u));z-index:6}
+#head{position:absolute;left:0;right:0;top:4.2vh;height:8.4vh;background:#1f2c34;color:#fff;display:flex;align-items:center;gap:calc(2.2*var(--u));padding:0 3.5vw;z-index:6}
+#head .bk{font-size:calc(5*var(--u));opacity:.9}
+#head .av{width:calc(9*var(--u));height:calc(9*var(--u));border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;font-size:calc(4.6*var(--u))}
+#head .nm{font-weight:700;font-size:calc(4*var(--u))}#head .st{font-size:calc(2.5*var(--u));opacity:.7;margin-top:.2em}
+#head .ic{margin-left:auto;display:flex;gap:calc(4*var(--u));font-size:calc(4.4*var(--u));opacity:.9}
+#view{position:absolute;left:0;right:0;top:12.6vh;bottom:8.2vh;overflow:hidden}
+#msgs{position:absolute;left:3.5vw;right:3.5vw;top:0;display:flex;flex-direction:column;gap:calc(1.5*var(--u));padding:calc(2*var(--u)) 0}
+.day{align-self:center;background:#fff;color:#555;font-size:calc(2.5*var(--u));font-weight:600;padding:calc(.8*var(--u)) calc(2.4*var(--u));border-radius:calc(1.4*var(--u));box-shadow:0 1px 1px rgba(0,0,0,.1)}
+.m{position:relative;max-width:76%;padding:calc(1.3*var(--u)) calc(2.2*var(--u)) calc(1.1*var(--u));border-radius:calc(2.2*var(--u));font-size:calc(4*var(--u));line-height:1.3;color:#111;box-shadow:0 calc(.3*var(--u)) calc(.5*var(--u)) rgba(0,0,0,.13);visibility:hidden}
+.m.in{background:#fff;align-self:flex-start;border-top-left-radius:calc(.5*var(--u));transform-origin:left top}
+.m.out{background:#d9fdd3;align-self:flex-end;border-top-right-radius:calc(.5*var(--u));transform-origin:right top}
+.m .who{display:block;font-weight:700;font-size:.8em;margin-bottom:.15em}
+.m .h{display:block;text-align:right;font-size:.58em;color:#7a8a8f;margin-top:.15em}
+.m .h b{color:#53bdeb;font-weight:700}
+.m img{display:block;width:100%;border-radius:calc(1.4*var(--u));margin-bottom:calc(.8*var(--u))}
+.m.ph{width:66%;padding:calc(.6*var(--u))}
+.m.ph .cap{padding:0 calc(1.2*var(--u))}
+.react{position:absolute;bottom:calc(-2.6*var(--u));background:#fff;border-radius:999px;padding:calc(.3*var(--u)) calc(1*var(--u));font-size:calc(3*var(--u));box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.m.out .react{right:calc(2*var(--u))}.m.in .react{left:calc(2*var(--u))}
+.ty{position:absolute;left:0;top:0;visibility:visible;background:#fff;border-radius:calc(2.2*var(--u));padding:calc(1.8*var(--u)) calc(2.6*var(--u));display:none;gap:calc(.9*var(--u));box-shadow:0 1px 1px rgba(0,0,0,.1)}
+.ty i{width:calc(1.4*var(--u));height:calc(1.4*var(--u));border-radius:50%;background:#9aa}
+.voice{display:flex;align-items:center;gap:calc(1.6*var(--u));width:calc(56*var(--u))}
+.voice .pl{width:0;height:0;border-left:calc(3*var(--u)) solid #54656f;border-top:calc(1.9*var(--u)) solid transparent;border-bottom:calc(1.9*var(--u)) solid transparent}
+.voice .wv{flex:1;display:flex;align-items:center;gap:calc(.4*var(--u));height:calc(6*var(--u))}
+.voice .wv s{flex:1;background:#8696a0;border-radius:9px;text-decoration:none}
+.voice .wv s.p{background:#00a884}
+.voice .du{font-size:.62em;color:#667781}
+.voice .me{width:calc(8*var(--u));height:calc(8*var(--u));border-radius:50%;background:var(--ink);color:var(--cream);font-family:Oswald;font-size:calc(3*var(--u));display:flex;align-items:center;justify-content:center}
+.doc{display:flex;align-items:center;gap:calc(1.8*var(--u));background:rgba(0,0,0,.05);border-radius:calc(1.4*var(--u));padding:calc(1.6*var(--u));margin-bottom:calc(.6*var(--u))}
+.doc .pdf{width:calc(7*var(--u));height:calc(8.4*var(--u));background:#e5252a;color:#fff;border-radius:calc(.8*var(--u));display:flex;align-items:flex-end;justify-content:center;font-weight:800;font-size:calc(2*var(--u));padding-bottom:calc(.8*var(--u))}
+.doc .dn{font-weight:600;font-size:.82em;line-height:1.25}.doc .dn small{display:block;font-weight:400;color:#667781;font-size:.8em}
+.map{position:relative;height:calc(24*var(--u));border-radius:calc(1.4*var(--u));overflow:hidden;margin-bottom:calc(.8*var(--u));background:#e8eef1}
+.map .rd{position:absolute;background:#fff;box-shadow:0 0 0 calc(.2*var(--u)) #d6dde2}
+.map .gr{position:absolute;background:#cfe8c4;border-radius:calc(1*var(--u))}
+.map .pin{position:absolute;left:50%;top:44%;font-size:calc(8*var(--u));transform:translate(-50%,-80%)}
+.loc{font-weight:700;font-size:.9em}.loc small{display:block;font-weight:400;color:#667781;font-size:.75em}
+#input{position:absolute;left:0;right:0;bottom:0;height:8.2vh;display:flex;align-items:center;gap:calc(1.6*var(--u));padding:0 2.6vw;z-index:6}
+#input .fld{flex:1;height:calc(10*var(--u));background:#fff;border-radius:999px;display:flex;align-items:center;padding:0 calc(3*var(--u));font-size:calc(3.6*var(--u));color:#8a9a9f;box-shadow:0 1px 1px rgba(0,0,0,.1)}
+#input .mic{width:calc(10*var(--u));height:calc(10*var(--u));border-radius:50%;background:#00a884;display:flex;align-items:center;justify-content:center;font-size:calc(4.6*var(--u))}
+#hook{position:absolute;left:6vw;right:6vw;z-index:20;text-align:center;font-weight:900;font-size:calc(6.4*var(--u));line-height:1.18;color:#fff;background:#111;padding:calc(2.4*var(--u)) calc(3*var(--u));border-radius:calc(3*var(--u));box-shadow:0 calc(1.4*var(--u)) calc(5*var(--u)) rgba(0,0,0,.4)}
+#hook em{font-style:normal;color:#ff7a5c}
+#end{position:absolute;inset:0;background:var(--ink);z-index:40;opacity:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3*var(--u));text-align:center;color:var(--cream);font-family:Inter}
+.label{position:relative;display:inline-block;padding:calc(2.2*var(--u)) calc(7*var(--u))}
+.label svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.label .t{position:relative;font-family:Oswald;font-size:calc(12*var(--u));line-height:.95;color:var(--cream);text-shadow:calc(.5*var(--u)) calc(.5*var(--u)) 0 var(--ink)}
+.label .s{position:relative;font-family:Yellowtail;font-size:calc(5*var(--u));color:var(--cream)}
+#end .addr{font-weight:800;font-size:calc(3.8*var(--u));line-height:1.4}
+#end .tel{background:var(--red);color:#fff;font-weight:900;font-size:calc(5.6*var(--u));padding:calc(1.4*var(--u)) calc(4.4*var(--u));border-radius:999px}
+#end .cr{position:absolute;bottom:2vh;left:5vw;right:5vw;font-weight:500;font-size:calc(1.9*var(--u));opacity:.6}
+</style></head><body>
+<div id="phone"><div id="wall"></div>
+ <div id="status"><span>19:02</span><span>●●●● 5G ▮</span></div>
+ <div id="head"><span class="bk">←</span><div class="av">🍻</div><div><div class="nm">Les Copains 🍻</div><div class="st" id="st">Sarah, Mehdi, Lucas, Vous</div></div><div class="ic"><span>📹</span><span>📞</span><span>⋮</span></div></div>
+ <div id="view"><div id="msgs"><div class="day">AUJOURD'HUI</div></div></div>
+ <div id="input"><div class="fld">Message</div><div class="mic">🎙️</div></div>
+</div>
+<div id="hook">Le groupe quand quelqu'un propose <em>Les Fistons</em> 😂</div>
+<div id="end"><div class="label"><svg viewBox="0 0 400 200" preserveAspectRatio="none"><path d="M30 20 Q60 20 70 4 L330 4 Q340 20 370 20 Q396 20 396 46 Q380 60 380 100 Q380 140 396 154 Q396 180 370 180 Q340 180 330 196 L70 196 Q60 180 30 180 Q4 180 4 154 Q20 140 20 100 Q20 60 4 46 Q4 20 30 20Z" fill="#e63c1e" stroke="#212527" stroke-width="7"/></svg><div class="t">LES FISTONS</div><div class="s">bistroquet · ouvert 7j/7</div></div>
+ <div class="addr">📍 22 place Charles de Gaulle<br>Saint-Germain-en-Laye</div><div class="tel">Réserve 👉 01 39 73 06 34</div>
+ <div class="cr">Exemple de format UGC · E-DUST Solutions · photos : site du restaurant (J. Célice / C. Sautet) · conversation fictive</div></div>
+<script>
+window.DUR=27;const END=24.4;const A='assets/';const es=x=>x*x*(3-2*x);
+const C={Sarah:'#d63384',Mehdi:'#1f8ef1',Lucas:'#e8a317'};
+// [temps, sens, auteur, contenu html, heure, type, réaction]
+const MS=[
+ [0,'in','Sarah','Ce soir on se fait un resto ? 🍽️','19:02'],
+ [0,'in','Mehdi','Oui mais un vrai, pas un truc fade 😅','19:02'],
+ [1.6,'out','','J\'ai LA bonne adresse 👀','19:03'],
+ [3.0,'out','',`<img src="${A}entrecote.jpg"><div class="cap">Les Fistons, à Saint-Germain 🔥</div>`,'19:03','ph','😍'],
+ [4.8,'in','Lucas','😳😳 c\'est quoi cette entrecôte','19:03'],
+ [6.2,'out','','Maturée 300 g + sauce poivre qui tue 🥩','19:03'],
+ [7.6,'out','',`<div class="voice"><div class="me">LF</div><div class="pl"></div><div class="wv">${Array.from({length:30},(_,i)=>`<s style="height:${20+70*Math.abs(Math.sin(i*1.7)*Math.cos(i*.6))}%"></s>`).join('')}</div><div class="du">0:07</div></div>`,'19:04','voice'],
+ [9.2,'in','Sarah','Et l\'ambiance ?','19:04'],
+ [10.6,'out','',`<img src="${A}salle.jpg"><div class="cap">Brocante, banquettes cuir, au pied du château 🏰</div>`,'19:04','ph','❤️'],
+ [12.4,'out','',`<div class="doc"><div class="pdf">PDF</div><div class="dn">03-2026-Carte-les-Fistons.pdf<small>PDF · la carte du moment</small></div></div>La carte 👆`,'19:05'],
+ [13.9,'in','Mehdi','Ok je suis chaud 🤤🤤','19:05'],
+ [15.2,'out','',`<img src="${A}vins.jpg"><div class="cap">Et ils ont une cave de dingue 🍷</div>`,'19:05','ph','🔥'],
+ [17.0,'out','',`<div class="map"><div class="gr" style="left:6%;top:8%;width:30%;height:30%"></div><div class="gr" style="left:64%;top:58%;width:30%;height:34%"></div><div class="rd" style="left:0;right:0;top:44%;height:12%"></div><div class="rd" style="left:40%;top:0;bottom:0;width:10%"></div><div class="rd" style="left:0;right:0;top:78%;height:7%"></div><div class="pin">📍</div></div><div class="loc">Les Fistons<small>22 place Charles de Gaulle, Saint-Germain-en-Laye</small></div>`,'19:06','ph'],
+ [18.6,'out','','Je réserve 👉 01 39 73 06 34 ✅','19:06'],
+ [20.0,'in','Sarah','20h ? 🥂','19:06'],
+ [21.3,'in','Lucas','GO 🔥🔥🔥','19:07'],
+ [22.6,'in','Mehdi','Meilleur groupe 🫶','19:07','', '😂']];
+const M=Q('#msgs');
+MS.forEach(m=>{const e=document.createElement('div');e.className='m '+m[1]+(m[5]=='ph'?' ph':'');
+ e.innerHTML=(m[1]=='in'?`<span class="who" style="color:${C[m[2]]}">${m[2]}</span>`:'')+m[3]+`<span class="h">${m[4]}${m[1]=='out'?' <b>✓✓</b>':''}</span>`+(m[6]?`<span class="react">${m[6]}</span>`:'');
+ if(m[1]=='in'&&m[0]>0){const ty=document.createElement('div');ty.className='ty';ty.innerHTML='<i></i><i></i><i></i>';e.appendChild(ty);m.ty=ty;}
+ M.appendChild(e);m.el=e;});
+function render(t){
+ measure();
+ const vH=Q('#view').clientHeight;
+ // défilement : la conversation remonte quand un message arrive
+ const bottomOf=m=>m.el.offsetTop+m.el.offsetHeight+U*3;
+ let prevT=0,curT=0,a0=0;MS.forEach(m=>{const tgt=Math.max(0,bottomOf(m)-vH);const startAt=m[1]=='in'&&m[0]>0?m[0]-1.0:m[0];if(t>=startAt){prevT=curT;curT=tgt;a0=startAt}});
+ const off=mix(prevT,curT,es(seg(t,a0,a0+.35)));M.style.transform=`translateY(${-off}px)`;
+ // apparition des messages (et « en train d'écrire… »)
+ let typing=null;
+ MS.forEach(m=>{const a=m[0],e=m.el;const shown=t>=a;
+  if(m.ty){const on=t>=a-1.0&&t<a;m.ty.style.display=on?'flex':'none';if(on){typing=m[2];m.ty.querySelectorAll('i').forEach((d,k)=>d.style.transform=`translateY(${Math.sin(t*12-k*1.2)*U*.5}px)`)}}
+  const p=a<=0?1:eb(seg(t,a,a+.3));
+  e.querySelectorAll(':scope > *:not(.ty)').forEach(c=>c.style.visibility=shown?'visible':'hidden');e.style.visibility=shown?'visible':'hidden';
+  if(m.ty)m.ty.style.visibility='visible';
+  e.style.transform=`scale(${shown?.7+.3*p:1})`;e.style.opacity=shown?cl(p*2):1;
+  const r=e.querySelector('.react');if(r){const rp=eb(seg(t,a+1.0,a+1.3));r.style.transform=`scale(${rp})`;}
+  if(m[5]=='voice'&&shown){const pr=seg(t,a+.4,a+7);e.querySelectorAll('.wv s').forEach((s,i)=>s.classList.toggle('p',i/30<pr));}
+ });
+ Q('#st').textContent=typing?`${typing} écrit…`:'Sarah, Mehdi, Lucas, Vous';
+ // accroche (image 0 = miniature)
+ const hk=Q('#hook');hk.style.top=(R45?52:58)+'vh';hk.style.opacity=t<1.5?1:1-seg(t,1.5,1.8);hk.style.transform=`scale(${1+.02*Math.sin(t*4)})`;
+ // carte de fin
+ const en=Q('#end');en.style.opacity=seg(t,END,END+.35);en.querySelector('.label').style.transform=`scale(${.6+.4*eb(seg(t,END+.1,END+.6))})`;
+}
+window.render=render;
+</script></body></html>
