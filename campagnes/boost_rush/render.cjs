@@ -8,7 +8,7 @@ const fs = require('fs');
 
 const [cut, aspect, mode, out, ...rest] = process.argv.slice(2);
 const W = 1080, H = aspect === '45' ? 1350 : 1920;
-const URL = 'http://127.0.0.1:8765/campagnes/boost_rush/promo.html';
+const URL = 'http://127.0.0.1:8765/campagnes/boost_rush/' + (process.env.PAGE || 'promo.html');
 
 (async () => {
   const browser = await chromium.launch();
