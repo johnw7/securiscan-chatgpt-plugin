@@ -1,0 +1,75 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>Bannière LinkedIn aux couleurs du site — E-DUST Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=DM+Sans:wght@500;600;700;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+/* 1584x396 ; la photo de profil couvre le coin bas gauche (~0-420 px) : rien d'important à cet endroit */
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1584px;height:396px;overflow:hidden;font-family:"DM Sans",sans-serif;color:#fff;position:relative;
+ background:radial-gradient(60% 140% at 85% 40%,#0b3fbf 0%,#06205f 38%,#020d30 70%);}
+.paper{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:26px 26px}
+/* texte */
+.txt{position:absolute;left:440px;top:34px;width:480px;z-index:5}
+.tag{display:inline-flex;align-items:center;gap:8px;background:rgba(1,218,255,.12);border:1px solid rgba(1,218,255,.45);color:#01DAFF;font-weight:800;font-size:12px;letter-spacing:.09em;padding:7px 14px;border-radius:999px;}
+.tag i{width:9px;height:9px;border-radius:50%;background:#01DAFF;box-shadow:0 0 10px #01DAFF}
+h1{font-size:46px;line-height:1.02;font-family:Manrope,sans-serif;font-weight:800;letter-spacing:-.045em;margin:16px 0 10px}
+h1 .hl{position:relative;display:inline-block;z-index:0}
+h1 .hl:after{content:'';position:absolute;left:-6px;right:-6px;bottom:4px;height:22px;background:#0B58FF;z-index:-1;transform:rotate(-1.5deg);border-radius:4px}
+h1 .pk{color:#01DAFF}
+.s{font-size:16px;font-weight:600;color:#c3cde6}
+.chips{display:flex;gap:8px;margin-top:14px}
+.chips span{font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+/* téléphone principal + ring light */
+.ring{position:absolute;left:1088px;top:-8px;width:300px;height:300px;border-radius:50%;border:16px solid #fff;box-shadow:0 0 40px rgba(255,255,255,.95),inset 0 0 30px rgba(255,255,255,.9);opacity:.95}
+.phone{position:absolute;left:1158px;top:26px;width:160px;height:300px;border-radius:24px;overflow:hidden;border:6px solid #0b1c34;background:#000;z-index:4;box-shadow:0 22px 50px rgba(0,0,0,.55),0 0 0 2px rgba(1,218,255,.35);transform:rotate(-3deg)}
+.phone img{width:100%;height:100%;object-fit:cover;display:block}
+.live{position:absolute;left:10px;top:10px;background:#0B58FF;color:#fff;font-size:10px;font-weight:900;padding:3px 7px;border-radius:5px;letter-spacing:.06em}
+.views{position:absolute;right:8px;top:10px;background:rgba(0,0,0,.55);color:#fff;font-size:10px;font-weight:700;padding:3px 7px;border-radius:5px}
+.tripod{position:absolute;left:1232px;top:318px;width:4px;height:90px;background:#cbd8e8;z-index:3}
+.tripod:before,.tripod:after{content:'';position:absolute;top:30px;width:4px;height:70px;background:#cbd8e8}
+.tripod:before{left:-24px;transform:rotate(20deg)}.tripod:after{left:24px;transform:rotate(-20deg)}
+/* notifications */
+.nt{position:absolute;z-index:6;display:flex;align-items:center;gap:10px;background:#fff;border-radius:14px;padding:9px 14px 9px 9px;box-shadow:0 12px 28px rgba(0,0,0,.35);font-size:13px;font-weight:600;color:#0b1c34;white-space:nowrap}
+.nt i{font-style:normal;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.nt b{display:block;font-size:11px;color:#60708b;font-weight:700}
+.n1{left:922px;top:22px;transform:rotate(-3deg)}
+.n2{right:34px;top:34px;transform:rotate(3deg)}
+.n3{right:14px;top:138px;}
+.n4{left:890px;top:300px;transform:rotate(2deg)}
+.n5{right:30px;top:250px;transform:rotate(2deg)}
+/* polaroïds secondaires */
+.pol{position:absolute;z-index:3;background:#fff;padding:6px 6px 22px;box-shadow:0 12px 28px rgba(0,0,0,.4)}
+.pol img{display:block;width:86px;height:120px;object-fit:cover}
+.pol span{color:#0b1c34;position:absolute;left:0;right:0;bottom:3px;text-align:center;font-family:Caveat;font-size:15px}
+.q1{left:1010px;top:110px;transform:rotate(-9deg)}
+/* doodles */
+.dd{position:absolute;z-index:7;font-family:Caveat;font-size:28px;color:#01DAFF}
+.spark{position:absolute;z-index:7;font-size:24px}
+svg.doodle{position:absolute;z-index:6}
+.url{position:absolute;left:440px;bottom:20px;z-index:6;font-size:13px;font-weight:800;letter-spacing:.06em;color:#fff}
+.url span{color:#01DAFF}
+</style></head><body>
+<div class="paper"></div>
+
+<div class="txt">
+ <span class="tag"><i></i>CRÉATEUR DE CONTENU · COMMUNICATION DIGITALE</span>
+ <h1>Je crée les vidéos<br>qui font <span class="hl">scroller</span>…<br><span class="pk">et acheter.</span></h1>
+ <div class="s">Vidéos UGC, réseaux sociaux &amp; communication digitale<br>pour les commerces et les marques.</div>
+ <div class="chips"><span>#UGC</span><span>#Reels</span><span>#CommunicationDigitale</span></div>
+</div>
+
+<div class="ring"></div>
+<div class="tripod"></div>
+<div class="pol q1"><img src="../../livraison/portfolio_site/videos/pov-mariage.jpg"><span>POV mariage</span></div>
+<div class="phone"><img src="../../livraison/portfolio_site/videos/pov-patisserie.jpg"><span class="live">● REC</span><span class="views">▶ 48,2 k</span></div>
+
+<div class="nt n1"><i style="background:#e8f0ff">📈</i><div><b>Reels · il y a 2 h</b>Votre vidéo a dépassé 48 k vues</div></div>
+<div class="nt n2"><i style="background:#e8f0ff">❤️</i><div><b>Instagram</b>+2 340 j'aime</div></div>
+<div class="nt n3"><i style="background:#e8f0ff">💬</i><div><b>lea_m a commenté</b>« Elle est où cette pâtisserie ?? »</div></div>
+<div class="nt n5"><i style="background:#e8f0ff">🛒</i><div><b>Boutique</b>+38 commandes cette semaine</div></div>
+
+<div class="dd" style="left:1300px;top:344px;transform:rotate(-3deg)">tout ça, sans tournage ✌️</div>
+<svg class="doodle" style="left:1250px;top:330px;transform:scaleX(-1)" width="60" height="40" viewBox="0 0 60 40" fill="none"><path d="M4 30 C 20 36, 40 30, 52 10" stroke="#01DAFF" stroke-width="3" stroke-linecap="round"/><path d="M42 10 L53 8 L54 20" stroke="#01DAFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<div class="spark" style="left:1060px;top:10px">✨</div>
+<div class="spark" style="left:1545px;top:120px">⭐</div>
+<div class="url">EDUST-SOLUTIONS<span>.FR</span> · Saint-Germain-en-Laye</div>
+</body></html>
