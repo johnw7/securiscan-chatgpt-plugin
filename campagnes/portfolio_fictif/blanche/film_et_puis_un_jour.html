@@ -1,0 +1,170 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>ATELIER BLANCHE — « Et puis un jour… » (film émotionnel, démo fictive)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@600;700&family=Parisienne&family=Antic+Didone&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<style>
+:root{--u:min(1vw,.7vh);--or:#e6c486}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#140e0b;color:#fff;font-family:Montserrat,sans-serif}
+#room{position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 42%,#4a3527 0%,#24180f 55%,#110b08 100%)}
+#rays{position:absolute;inset:0;mix-blend-mode:screen;pointer-events:none}
+#floor{position:absolute;left:0;right:0;bottom:0;height:22vh;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.45))}
+#mirror{position:absolute;left:50%;top:0;transform-origin:50% 50%}
+#mirror svg{display:block;width:100%;height:100%;overflow:visible}
+.bk{position:absolute;border-radius:50%;pointer-events:none;z-index:8;background:radial-gradient(circle,rgba(255,228,170,.6),rgba(255,228,170,0) 70%)}
+.sp{position:absolute;z-index:9;pointer-events:none;width:calc(2.2*var(--u));height:calc(2.2*var(--u));background:radial-gradient(circle,#fff 0,#ffe7b0 30%,rgba(255,231,176,0) 70%);border-radius:50%}
+#vign{position:absolute;inset:0;z-index:10;pointer-events:none;background:radial-gradient(75% 65% at 50% 45%,transparent 50%,rgba(8,5,3,.85))}
+#flash{position:absolute;inset:0;z-index:11;pointer-events:none;background:radial-gradient(circle at 50% 42%,#fff8e8,rgba(255,240,210,.0) 70%);opacity:0}
+#sub{position:absolute;left:6vw;right:6vw;z-index:20;text-align:center;font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:calc(7.4*var(--u));line-height:1.15;text-shadow:0 2px 16px rgba(0,0,0,.9)}
+#sub b{font-weight:600;color:var(--or)}
+#chap{position:absolute;left:0;right:0;z-index:20;text-align:center;font-weight:700;font-size:calc(2.5*var(--u));letter-spacing:.38em;color:rgba(230,196,134,.85)}
+/* signature */
+#sig{position:absolute;inset:0;z-index:40;opacity:0;background:radial-gradient(70% 55% at 50% 45%,#fffaf1,#f1e6d4);color:#3a2b20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(4*var(--u));text-align:center;padding:0 8vw}
+#sig .lg{font-family:'Antic Didone';font-size:calc(8*var(--u));letter-spacing:.14em;line-height:1}
+#sig .lg small{display:block;font-family:Parisienne;letter-spacing:0;font-size:.62em;color:#a8814a;margin-top:.2em}
+#sig .ln{width:calc(16*var(--u));height:1px;background:#a8814a}
+#sig .q{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-size:calc(6.6*var(--u));line-height:1.2}
+#sig .cr{position:absolute;bottom:2.4vh;left:6vw;right:6vw;font-size:calc(1.8*var(--u));color:rgba(58,43,32,.55)}
+/* couverture (image 0) */
+#cv{position:absolute;inset:0;z-index:30;pointer-events:none}
+#cv .t{position:absolute;left:0;right:0;text-align:center;font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:calc(11*var(--u));color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.9)}
+#cv .t b{font-weight:600;color:var(--or)}
+#cv .b{position:absolute;left:0;right:0;text-align:center;font-family:'Antic Didone';font-size:calc(4.4*var(--u));letter-spacing:.16em}
+#cv .b small{display:block;font-family:Parisienne;letter-spacing:0;font-size:.85em;color:var(--or)}
+#cv .k{position:absolute;left:0;right:0;text-align:center;font-weight:700;font-size:calc(2.6*var(--u));letter-spacing:.38em;color:var(--or)}
+</style></head><body>
+<div id="room"></div><div id="rays"></div><div id="floor"></div>
+<div id="mirror"><svg viewBox="-40 -70 380 610">
+ <defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6dc9a"/><stop offset=".35" stop-color="#b8893f"/><stop offset=".6" stop-color="#f1d28c"/><stop offset="1" stop-color="#8a6128"/></linearGradient>
+  <radialGradient id="glass" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#5b4636"/><stop offset=".6" stop-color="#2b1f17"/><stop offset="1" stop-color="#1a120d"/></radialGradient>
+  <radialGradient id="halo" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff3d6" stop-opacity=".55"/><stop offset="1" stop-color="#fff3d6" stop-opacity="0"/></radialGradient>
+  <linearGradient id="dress" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3e6d2"/></linearGradient>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="inner"><rect x="0" y="0" width="300" height="480" rx="14"/></clipPath>
+ </defs>
+ <!-- cadre doré -->
+ <path d="M-26 -10 Q-26 -40 4 -40 L110 -40 Q130 -66 150 -66 Q170 -66 190 -40 L296 -40 Q326 -40 326 -10 L326 496 Q326 516 300 516 L0 516 Q-26 516 -26 496 Z" fill="url(#gold)"/>
+ <path d="M-14 -4 Q-14 -28 8 -28 L112 -28 Q130 -50 150 -50 Q170 -50 188 -28 L292 -28 Q314 -28 314 -4 L314 492 Q314 504 296 504 L4 504 Q-14 504 -14 492 Z" fill="none" stroke="#6e4a1c" stroke-width="2" opacity=".6"/>
+ <circle cx="150" cy="-47" r="9" fill="#fbe7b5" stroke="#8a6128" stroke-width="2"/>
+ <g fill="#fbe7b5" opacity=".9"><circle cx="-20" cy="-34" r="4"/><circle cx="320" cy="-34" r="4"/><circle cx="-20" cy="510" r="4"/><circle cx="320" cy="510" r="4"/></g>
+ <rect x="0" y="0" width="300" height="480" rx="14" fill="url(#glass)"/>
+ <g clip-path="url(#inner)">
+  <ellipse id="halo" cx="150" cy="250" rx="160" ry="230" fill="url(#halo)"/>
+  <!-- photo (réalité) : entière, centrée -->
+  <image id="ph1" href="assets/bouquet2.jpg" x="0" y="0" width="300" height="480" preserveAspectRatio="xMidYMid meet" opacity="0"/>
+  <image id="ph2" href="assets/plage.jpg" x="0" y="0" width="300" height="480" preserveAspectRatio="xMidYMid meet" opacity="0"/>
+  <!-- silhouette (rêve) -->
+  <g id="fig" filter="url(#glow)">
+   <path id="veil" fill="#fffaf0" fill-opacity=".45" stroke="#f6dc9a" stroke-opacity=".6" stroke-width="1"/>
+   <path id="skirt" fill="url(#dress)" stroke="#e6c486" stroke-width="1.6"/>
+   <path id="body" fill="url(#dress)" stroke="#e6c486" stroke-width="1.6"/>
+   <path id="arms" fill="none" stroke="#f7ead6" stroke-width="7" stroke-linecap="round"/>
+   <circle id="head" fill="#f7ead6" stroke="#e6c486" stroke-width="1.4"/>
+   <path id="hair" fill="#e6c486" opacity=".9"/>
+   <path id="eyes" fill="none" stroke="#7a5a3a" stroke-width="1.6" stroke-linecap="round"/>
+  </g>
+  <rect x="0" y="0" width="300" height="480" fill="url(#halo)" opacity=".18"/>
+  <path d="M30 0 L120 0 L20 480 L-60 480 Z" fill="#fff" opacity=".05"/>
+ </g>
+</svg></div>
+<div id="vign"></div><div id="flash"></div>
+<div id="chap"></div><div id="sub"></div>
+<div id="cv"><div class="k">UN FILM · ATELIER BLANCHE</div><div class="t">Et puis <b>un jour…</b></div><div class="b">ATELIER BLANCHE<small>robes de mariée</small></div></div>
+<div id="sig"><div class="lg">ATELIER BLANCHE<small>robes de mariée</small></div><div class="ln"></div><div class="q">Certains rêves<br>grandissent avec nous.</div>
+ <div class="cr">Démo conceptuelle · marque fictive · photos Unsplash · voix de synthèse · création E-DUST Solutions</div></div>
+<script>
+window.DUR=40;
+// ---------- silhouettes (repère du miroir : 300 x 480, sol à y = 462) ----------
+// jupe : 7 points côté gauche (de la taille à l'ourlet), symétrisés ; la forme est interpolée d'une robe à l'autre
+const SK={
+ girl:[[132,262],[124,300],[112,345],[98,390],[80,430],[58,458],[40,470]],      // robe trop grande, qui traîne au sol
+ princess:[[132,214],[118,250],[96,300],[72,350],[50,400],[34,440],[26,462]],
+ mermaid:[[134,214],[124,258],[125,305],[130,350],[126,395],[104,436],[78,462]],
+ boho:[[133,214],[126,260],[116,310],[104,360],[92,405],[80,440],[70,462]],
+ sheath:[[134,214],[125,258],[126,310],[128,360],[129,405],[129,440],[128,462]]};
+const lerp=(a,b,p)=>a.map((q,i)=>[mix(q[0],b[i][0],p),mix(q[1],b[i][1],p)]);
+function smooth(pts){let d=`M${pts[0][0]},${pts[0][1]}`;for(let i=0;i<pts.length-1;i++){const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+ d+=` C${p1[0]+(p2[0]-p0[0])/6},${p1[1]+(p2[1]-p0[1])/6} ${p2[0]-(p3[0]-p1[0])/6},${p2[1]-(p3[1]-p1[1])/6} ${p2[0]},${p2[1]}`}return d}
+function skirtPath(L,wave,t){
+ const pts=L.map((p,i)=>[p[0]+Math.sin(t*2.2+i*.9)*wave*i/6,p[1]]);
+ const R=pts.map(p=>[300-p[0],p[1]]).reverse();
+ const hem=[[150,pts[6][1]+6]];
+ return smooth([...pts,...hem,...R])+' Z';}
+// adulte : taille y≈214 ; enfant : taille y≈262 (corps plus petit, tête plus grosse)
+function figure(k,shape,wave,t,veil,eyes){
+ // k = 0 enfant, 1 adulte
+ const hx=150,hy=mix(196,108,k),hr=mix(17,15,k),wy=mix(262,214,k),sy=mix(222,150,k);
+ Q('#head').setAttribute('cx',hx);Q('#head').setAttribute('cy',hy);Q('#head').setAttribute('r',hr);
+ Q('#hair').setAttribute('d',`M${hx-hr-1},${hy} Q${hx-hr},${hy-hr-6} ${hx},${hy-hr-3} Q${hx+hr},${hy-hr-6} ${hx+hr+1},${hy} Q${hx+hr+6},${hy+mix(28,40,k)} ${hx+hr-2},${hy+mix(30,52,k)} L${hx+hr-6},${hy+4} Q${hx},${hy-hr+6} ${hx-hr+6},${hy+4} L${hx-hr+2},${hy+mix(30,52,k)} Q${hx-hr-6},${hy+mix(28,40,k)} ${hx-hr-1},${hy} Z`);
+ const sw=mix(26,24,k); // demi-largeur des épaules
+ Q('#body').setAttribute('d',`M${hx-6},${hy+hr} L${hx+6},${hy+hr} L${hx+7},${sy-4} Q${hx+sw},${sy-2} ${hx+sw-4},${sy+12} Q${hx+19},${(sy+wy)/2} ${hx+16},${wy+2} L${hx-16},${wy+2} Q${hx-19},${(sy+wy)/2} ${hx-sw+4},${sy+12} Q${hx-sw},${sy-2} ${hx-7},${sy-4} Z`);
+ const al=mix(70,92,k);
+ Q('#arms').setAttribute('d',`M${hx-sw+4},${sy+8} Q${hx-sw-8},${sy+al*.55} ${hx-20},${sy+al} M${hx+sw-4},${sy+8} Q${hx+sw+8},${sy+al*.55} ${hx+20},${sy+al}`);
+ Q('#skirt').setAttribute('d',skirtPath(shape,wave,t));
+ // voile
+ Q('#veil').setAttribute('d',`M${hx-hr+2},${hy-hr+2} Q${hx-60-wave*4},${hy+120} ${hx-mix(70,80,k)},462 L${hx+mix(70,80,k)},462 Q${hx+60+wave*4},${hy+120} ${hx+hr-2},${hy-hr+2} Z`);
+ Q('#veil').style.opacity=veil;
+ // yeux : ouverts (sourire) ou fermés
+ const ey=hy+1;Q('#eyes').setAttribute('d',eyes>.5?`M${hx-8},${ey} q3,-3 6,0 M${hx+2},${ey} q3,-3 6,0 M${hx-5},${hy+8} q5,4 10,0`:`M${hx-8},${ey} q3,2 6,0 M${hx+2},${ey} q3,2 6,0 M${hx-5},${hy+8} q5,4 10,0`);
+}
+// étapes du rêve : [début du tour, forme d'arrivée, k d'arrivée]
+const STEPS=[[5.2,'princess',1],[10.2,'mermaid',1],[15.2,'boho',1],[20.2,'sheath',1]];
+const SPIN=1.3;
+function dreamState(t){
+ let shape=SK.girl,k=0,spin=0;
+ if(t>=25&&t<29.6){return{shape:SK.girl,k:0,spin:0,eyes:t<27.2?1:0}}
+ let prevName='girl',prevK=0;
+ for(const [s,name,kk] of STEPS){if(t<s)break;const p=eio(seg(t,s,s+SPIN));shape=lerp(SK[prevName],SK[name],p);k=mix(prevK,kk,p);if(t<s+SPIN)spin=seg(t,s,s+SPIN);prevName=name;prevK=kk;}
+ if(t>=20.2+SPIN)shape=SK.sheath;
+ return{shape,k,spin,eyes:1};}
+// particules
+for(let i=0;i<16;i++){const b=document.createElement('div');b.className='bk';document.body.appendChild(b);}
+for(let i=0;i<40;i++){const b=document.createElement('div');b.className='sp';document.body.appendChild(b);}
+const SUBS=[[.9,4.8,'Tu l\'imagines comment,<br><b>ce jour-là ?</b>','LA PETITE FILLE'],[5.7,9.9,'Comme dans<br><b>un conte de fées ?</b>','LE RÊVE DE PRINCESSE'],
+ [10.6,14.9,'Élégante…<br><b>inoubliable ?</b>','LE RÊVE D\'ÉLÉGANCE'],[15.3,19.9,'Libre, légère…<br><b>amoureuse ?</b>','LE RÊVE DE LIBERTÉ'],
+ [20.6,24.8,'Ou simplement…<br><b>toi ?</b>','LE RÊVE D\'ÊTRE SOI'],[26.4,29.8,'<b>Et puis un jour…</b>','LE TEMPS PASSE'],
+ [31,37.6,'Sans même t\'en rendre compte…<br>tu es devenue <b>la femme<br>dont tu rêvais.</b>','LE RÊVE DEVIENT RÉALITÉ']];
+function render(t){
+ measure();
+ // miroir
+ const mh=H*(R45?.66:.6),mw=mh*380/610;const m=Q('#mirror');m.style.width=mw+'px';m.style.height=mh+'px';
+ const zoom=1+.05*seg(t,0,25)+.06*eio(seg(t,29.6,38));
+ m.style.transform=`translateX(-50%) translateY(${H*(R45?.06:.09)}px) scale(${zoom})`;
+ // rêve (silhouette) / réalité (photos)
+ const real=seg(t,29.3,30.3);
+ const st=dreamState(t);const turn=Math.cos(st.spin*Math.PI*2);
+ figure(st.k,st.shape,t>=15.2&&t<20.4?6:1.2,t,(t>1.4&&t<25)||t>=25?(t<1.4?0:t<25?(st.k>.5&&t>20.2+SPIN?.0:1)*seg(t,1.4,2.2):1):0,st.eyes);
+ if(t>=20.2+SPIN&&t<25)Q('#veil').style.opacity=.0;
+ const fig=Q('#fig');fig.setAttribute('transform',`translate(150 0) scale(${Math.abs(turn)<.08?.08:turn} 1) translate(-150 0)`);
+ // retour à la petite fille (25-26) : fondu rêveur
+ const back=t>=24.6&&t<25.6?Math.abs(Math.cos((t-24.6)/1*Math.PI)):1;
+ fig.style.opacity=(1-real)*(t>=24.6&&t<26?.35+.65*back:1);
+ Q('#ph1').setAttribute('opacity',real*(1-seg(t,34.2,35.2)));Q('#ph2').setAttribute('opacity',seg(t,34.2,35.2));
+ const pz=1+.06*seg(t,30,38);['#ph1','#ph2'].forEach(s=>Q(s).setAttribute('transform',`translate(150 240) scale(${pz}) translate(-150 -240)`));
+ Q('#halo').setAttribute('opacity',.6+.4*Math.sin(t*1.3));
+ // éclairs de transformation + étincelles en spirale
+ let fl=0;STEPS.forEach(([s])=>{fl=Math.max(fl,Math.exp(-((t-(s+SPIN/2))**2)/.08))});fl=Math.max(fl,Math.exp(-((t-29.7)**2)/.12)*1.2);
+ Q('#flash').style.opacity=fl*.75;
+ const cx=W/2,cy=H*(R45?.06:.09)+mh*.62;
+ QA('.sp').forEach((p,i)=>{let a=0;let o=0,x=0,y=0;
+  for(const s of [...STEPS.map(x=>x[0]),28.9]){const d=t-s;if(d>-.05&&d<2.2){const r=(.05+d*.18)*W*(.6+hash(i)*.8),ang=hash(i+7)*6.28+d*(3+hash(i)*2);
+   x=cx+Math.cos(ang)*r;y=cy-d*H*.06*(1+hash(i+2))+Math.sin(ang)*r*.5;o=Math.max(o,(1-d/2.2)*(d<.15?d/.15:1))}}
+  if(t>30&&t<38){const d=(t-30+hash(i)*8)%8;x=W*(.15+hash(i+4)*.7);y=H*(.85-d*.09);o=Math.max(o,.6*Math.sin(d/8*Math.PI))}
+  p.style.left=x+'px';p.style.top=y+'px';p.style.opacity=o;p.style.transform=`scale(${.5+hash(i+1)})`});
+ QA('.bk').forEach((b,i)=>{const r=(2+hash(i)*6)*U;const x=(hash(i+3)*100+t*(.6+hash(i))*(i%2?1:-1)+300)%110-5,y=(hash(i+5)*100-t*(.8+hash(i+9))+400)%110-5;
+  b.style.width=b.style.height=r*2+'px';b.style.left=x+'vw';b.style.top=y+'vh';b.style.opacity=(.25+.3*Math.sin(t*1.1+i))*(1-seg(t,38,38.6))});
+ const lx=50+25*Math.sin(t*.3);Q('#rays').style.background=`linear-gradient(${115+8*Math.sin(t*.2)}deg,transparent 30%,rgba(255,214,150,${.10+.06*Math.sin(t*.7)}) ${lx-8}%,transparent ${lx+12}%),radial-gradient(40% 30% at 50% 38%,rgba(255,220,160,${.12+.18*real}),transparent 70%)`;
+ // texte
+ const cur=SUBS.find(s=>t>=s[0]&&t<s[1]);const sb=Q('#sub'),ch=Q('#chap');
+ sb.style.top=(R45?78:76)+'vh';ch.style.top=(R45?3:5)+'vh';
+ if(cur){const p=eo(seg(t,cur[0],cur[0]+.9)),q=1-seg(t,cur[1]-.4,cur[1]);sb.innerHTML=cur[2];sb.style.opacity=Math.min(p,q);sb.style.transform=`translateY(${(1-p)*1.6}vh)`;sb.style.letterSpacing=(1-p)*.06+'em';
+  ch.textContent=cur[3];ch.style.opacity=Math.min(p,q)*.9}else{sb.style.opacity=0;ch.style.opacity=0}
+ // couverture : visible sur la toute première image, puis s'efface
+ const cv=Q('#cv');const co=1-seg(t,.35,1.1);cv.style.opacity=co;
+ if(co>0){cv.querySelector('.k').style.top=(R45?3.5:5.5)+'vh';cv.querySelector('.t').style.top=(R45?74:76)+'vh';cv.querySelector('.b').style.top=(R45?88:89)+'vh';sb.style.opacity=Math.min(+sb.style.opacity||0,1-co);ch.style.opacity=0}
+ // signature
+ const sg=Q('#sig');sg.style.opacity=seg(t,37.7,38.5);[...sg.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eo(seg(t,38+i*.25,38.9+i*.25));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*1.5}vh)`});
+}
+window.render=render;
+</script></body></html>
