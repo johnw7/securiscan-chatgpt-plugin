@@ -17,7 +17,7 @@ get cafe      LA_FABRIQUE_COOKIE_BOISSONS_CHAUDES_2025___MARY_DEVINAT_59.jpg
 get eloy      LFC_07_2026_COOKIE_ELOI_SPINNLER___MARY_DEVINAT_13.jpg
 get minis     MINICOOKIESDIVERS_9604867f-fcf8-493f-9c6f-e9a770e06d12.jpg
 get pistache  LFC_Juillet_Studio_2025_Sebastien_Dray_65.jpg
-get noisette  LFCJuillet_2025_Sebastien_Dray_85_0087b079-c4de-4cf3-83ce-f9e3e2339289.jpg
+get noisette  LFCJuillet_2025_Sebastien_Dray_64.jpg
 get boutique  Ouverture_boutique_Lyon.png
 curl -sSfL --retry 4 -A "Mozilla/5.0" -o /tmp/lfc_logo.png "$B/logo-checkouts_49c2b5a4-565c-4485-a062-b8137052c671.png"
 convert /tmp/lfc_logo.png -trim +repage -fill '#2E4B9B' -colorize 100 assets/logo_bleu.png
