@@ -1,0 +1,120 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>ATELIER BLANCHE — Reel émotion (démo fictive)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@600;700;800&family=Parisienne&family=Antic+Didone&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<style>
+:root{--u:min(1vw,.7vh);--or:#e9c98f}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#120d0b;color:#fff;font-family:Montserrat,sans-serif}
+#bg{position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 45%,#3a2a22,#120d0b 75%)}
+.sh{position:absolute;left:0;top:0;opacity:0;border-radius:calc(1.4*var(--u));overflow:hidden;box-shadow:0 calc(4*var(--u)) calc(12*var(--u)) rgba(0,0,0,.7)}
+.sh img{display:block;width:100%;height:100%}
+/* lumière dorée, particules */
+#leak{position:absolute;inset:0;z-index:12;pointer-events:none;mix-blend-mode:screen}
+.bk{position:absolute;border-radius:50%;z-index:13;pointer-events:none;background:radial-gradient(circle,rgba(255,226,170,.55),rgba(255,226,170,0) 70%)}
+#vign{position:absolute;inset:0;z-index:14;pointer-events:none;background:radial-gradient(70% 60% at 50% 46%,transparent 50%,rgba(10,6,4,.8))}
+#heart{position:absolute;inset:0;z-index:15;pointer-events:none;background:radial-gradient(70% 60% at 50% 46%,transparent 40%,rgba(160,20,40,.55));opacity:0}
+/* texte */
+#txt{position:absolute;left:7vw;right:7vw;z-index:20;text-align:center;font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:calc(8*var(--u));line-height:1.12;text-shadow:0 2px 18px rgba(0,0,0,.85),0 0 40px rgba(0,0,0,.6)}
+#txt b{font-weight:600;color:var(--or)}
+#small{position:absolute;left:0;right:0;z-index:20;text-align:center;font-weight:700;font-size:calc(2.6*var(--u));letter-spacing:.35em;color:rgba(255,255,255,.75)}
+#white{position:absolute;inset:0;z-index:30;background:#fbf6ee;opacity:0}
+/* révélation */
+#rev{position:absolute;inset:0;z-index:31;opacity:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(4*var(--u));text-align:center;padding:0 9vw;color:#2a1f1a}
+#rev .l{font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:calc(8*var(--u));line-height:1.12}
+#rev .l b{font-weight:600;color:#a8814a}
+/* fin E-DUST */
+#end{position:absolute;inset:0;z-index:45;opacity:0;background:radial-gradient(60% 50% at 50% 40%,#0b3fbf,#061a52 45%,#020d30 80%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3.6*var(--u));text-align:center;padding:0 8vw;font-family:Manrope}
+#end .lc{background:#fff;border-radius:calc(2*var(--u));padding:calc(1.6*var(--u)) calc(2.6*var(--u));width:min(70vw,50vh)}#end .lc img{display:block;width:100%}
+#end .q{font-weight:800;font-size:calc(7.4*var(--u));line-height:1.06;letter-spacing:-.03em}
+#end .q em{font-style:normal;color:#01DAFF}
+#end .s{font-family:Montserrat;font-weight:600;font-size:calc(3.3*var(--u));color:#aab6d5;letter-spacing:.06em}
+#end .c{background:#01DAFF;color:#071018;font-weight:800;font-size:calc(4.8*var(--u));padding:calc(1.6*var(--u)) calc(5*var(--u));border-radius:999px}
+#end .w{font-weight:800;font-size:calc(3.6*var(--u))}
+#end .cr{position:absolute;bottom:2.4vh;left:6vw;right:6vw;font-family:Montserrat;font-size:calc(1.9*var(--u));color:rgba(255,255,255,.5)}
+/* couverture */
+#cover{position:absolute;inset:0;z-index:60;overflow:hidden;background:radial-gradient(80% 60% at 50% 55%,#4a3326,#120d0b 78%)}
+#cover .ph{position:absolute;left:50%;top:50%;border-radius:calc(1.4*var(--u));overflow:hidden;box-shadow:0 calc(4*var(--u)) calc(12*var(--u)) rgba(0,0,0,.7)}
+#cover .ph img{display:block;width:100%;height:100%}
+#cover .k{position:absolute;left:0;right:0;text-align:center;font-weight:700;font-size:calc(2.8*var(--u));letter-spacing:.35em;color:var(--or)}
+#cover .t{position:absolute;left:6vw;right:6vw;text-align:center;font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:calc(8.6*var(--u));line-height:1.08;text-shadow:0 4px 20px rgba(0,0,0,.8)}
+#cover .t b{font-weight:600;color:var(--or)}
+#cover .br{position:absolute;left:0;right:0;text-align:center;font-family:'Antic Didone';font-size:calc(4.6*var(--u));letter-spacing:.14em}
+#cover .br small{display:block;font-family:Parisienne;letter-spacing:0;font-size:.85em;color:var(--or)}
+#cover .pill{position:absolute;left:50%;display:flex;align-items:center;gap:calc(1.6*var(--u));font-weight:800;font-size:calc(3.4*var(--u));letter-spacing:.06em;background:#fbf6ee;color:#2a1f1a;border-radius:999px;padding:calc(1.1*var(--u)) calc(3.6*var(--u)) calc(1.1*var(--u)) calc(1.2*var(--u));white-space:nowrap}
+#cover .pill i{font-style:normal;width:calc(6*var(--u));height:calc(6*var(--u));border-radius:50%;background:#a8814a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:calc(2.6*var(--u));padding-left:.15em}
+</style></head><body>
+<div id="bg"></div><div id="stage"></div><div id="leak"></div><div id="vign"></div><div id="heart"></div>
+<div id="small"></div><div id="txt"></div>
+<div id="white"></div>
+<div id="rev"><div class="l" id="rv1"></div></div>
+<div id="end"><div class="lc"><img src="../../edust_onboarding/assets/edust-solutions-logo.png"></div>
+ <div class="q">Vos clients ne veulent pas une pub.<br><em>Ils veulent ressentir.</em></div>
+ <div class="s">UGC · POV · REELS — SANS TOURNAGE</div>
+ <div class="c">Écrivez-moi « POV »</div>
+ <div class="w">edust-solutions.fr</div>
+ <div class="cr">Démo conceptuelle · « Atelier Blanche » est une marque fictive · photos Unsplash · création E-DUST Solutions</div></div>
+<div id="cover"><div class="ph"><img src="assets/robe.jpg"></div>
+ <div class="k">POV · FUTURE MARIÉE</div>
+ <div class="t">Tu te souviens<br>de la première fois<br>où tu l'as <b>imaginée</b> ?</div>
+ <div class="br">ATELIER BLANCHE<small>robes de mariée</small></div>
+ <div class="pill"><i>▶</i>REGARDE JUSQU'AU BOUT</div></div>
+<script>
+const COVER=2.4,A='assets/';
+// [image, début, fin, texte (**…** = doré), noir et blanc ?, battement de cœur ?, petit sur-titre]
+const SC=[
+ ['voile',0,3.4,'Tu te souviens ?',1,0,'IL Y A LONGTEMPS'],
+ ['plage',3.4,6.8,'Petite, tu en rêvais déjà.',1,0,''],
+ ['robe',6.8,10.2,'Aujourd\'hui,<br>c\'est **pour de vrai.**',0,0,'AUJOURD\'HUI'],
+ ['bouquet2',10.2,13.6,'Ton cœur bat<br>**plus fort.**',0,1,''],
+ ['alliances',13.6,16.6,'Tu penses à lui.',0,0,''],
+ ['allee',16.6,19.6,'Tu imagines déjà<br>**le jour J.**',0,0,''],
+ ['sortie',19.6,23.4,'Ta mère te regarde.<br>Puis, tout bas :<br>**« C\'est elle. »**',0,1,''],
+ ['couple',23.4,27.4,'Et tu sais.',0,0,'']];
+const WH=27.0,REV=27.6,END=33.8;window.DUR=COVER+END+4.4;
+const st=Q('#stage');
+SC.forEach(s=>{const d=document.createElement('div');d.className='sh';d.innerHTML=`<img src="${A}${s[0]}.jpg">`;st.appendChild(d);s.el=d;});
+for(let i=0;i<14;i++){const b=document.createElement('div');b.className='bk';document.body.appendChild(b);}
+function fit(img,mw,mh){const ar=img.naturalWidth/img.naturalHeight||1;let w=mw,h=w/ar;if(h>mh){h=mh;w=h*ar}return[w,h]}
+const fmt=x=>x.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+// battement de cœur : double pulsation
+function beat(t){const ph=t%1.1;return Math.exp(-((ph-.08)**2)/.004)+.6*Math.exp(-((ph-.32)**2)/.004)}
+function render(T){
+ measure();const t=T-COVER;
+ // couverture (image 0 = miniature)
+ const cv=Q('#cover');cv.style.display=T<COVER+.6?'block':'none';
+ if(T<COVER+.6){const im=cv.querySelector('.ph img');const[w,h]=fit(im,W*.7,H*(R45?.38:.42));const ph=cv.querySelector('.ph');
+  ph.style.width=w+'px';ph.style.height=h+'px';ph.style.transform=`translate(-50%,-50%) translateY(${.07*H}px) scale(${1+.02*T})`;
+  cv.querySelector('.k').style.top=(R45?5:7)+'vh';const ct=cv.querySelector('.t');ct.style.top=(R45?10:12.5)+'vh';ct.style.transform=`scale(${R45?.84:1})`;ct.style.transformOrigin='50% 0';
+  cv.querySelector('.br').style.top=(R45?78.5:80)+'vh';const pl=cv.querySelector('.pill');pl.style.top=(R45?89:90)+'vh';pl.style.transform=`translateX(-50%) scale(${1+.03*Math.sin(T*5)})`;
+  cv.style.opacity=1-seg(T,COVER-.1,COVER+.6);}
+ // plans : fondus lents, poussée lente, souvenirs en noir et blanc puis la couleur revient
+ let hb=0;
+ SC.forEach((s,i)=>{const a=s[1],b=s[2];const o=t<-.6?0:Math.min(seg(t,a-.5,a+.5),1-seg(t,b-.5,b+.5));
+  const im=s.el.querySelector('img');const[w,h]=fit(im,W*.86,H*(R45?.5:.52));
+  let sc=1+.07*seg(t,a-.5,b+.5);if(s[5]&&t>a&&t<b){const k=beat(t-a)*.025;sc+=k;hb=Math.max(hb,beat(t-a))}
+  s.el.style.width=w+'px';s.el.style.height=h+'px';s.el.style.opacity=t>=WH?o*(1-seg(t,WH,WH+.6)):o;
+  s.el.style.transform=`translate(${(W-w)/2}px,${(H-h)/2-.09*H}px) scale(${sc})`;
+  s.el.style.filter=s[4]?'grayscale(1) sepia(.35) contrast(1.05) brightness(.95)':(i==2?`grayscale(${1-seg(t,a-.2,a+1.4)}) sepia(.12) saturate(1.08)`:'sepia(.12) saturate(1.08) brightness(1.03)');});
+ Q('#heart').style.opacity=hb*.55;
+ // texte : apparition lente
+ const cur=SC.find(s=>t>=s[1]&&t<s[2]);const tx=Q('#txt'),sm=Q('#small');
+ tx.style.top=(R45?72:72)+'vh';sm.style.top=(R45?8:9)+'vh';
+ if(cur&&t<WH){const p=eo(seg(t,cur[1]+.25,cur[1]+1.4)),q=1-seg(t,cur[2]-.4,cur[2]);tx.innerHTML=fmt(cur[3]);tx.style.opacity=Math.min(p,q);tx.style.transform=`translateY(${(1-p)*2}vh)`;tx.style.letterSpacing=(1-p)*.08+'em';
+  sm.textContent=cur[6];sm.style.opacity=Math.min(p,q)*.9}else{tx.style.opacity=0;sm.style.opacity=0}
+ // lumière dorée qui glisse + particules
+ const lx=50+30*Math.sin(t*.35),ly=30+15*Math.cos(t*.27);
+ Q('#leak').style.background=`radial-gradient(45% 35% at ${lx}% ${ly}%,rgba(255,190,110,.32),transparent 70%),radial-gradient(35% 30% at ${100-lx}% ${80-ly}%,rgba(255,140,120,.18),transparent 70%)`;
+ QA('.bk').forEach((b,i)=>{const r=(2+hash(i)*7)*U,sp=.03+hash(i+9)*.05;const x=(hash(i+3)*100+t*sp*40*(i%2?1:-1)+300)%110-5,y=(hash(i+5)*100-t*sp*60+400)%110-5;
+  b.style.width=b.style.height=r*2+'px';b.style.left=x+'vw';b.style.top=y+'vh';b.style.opacity=(t>-.5&&t<WH+.5?.35+.4*Math.sin(t*1.3+i):0)});
+ // fondu au blanc, puis révélation douce
+ Q('#white').style.opacity=t<WH?0:Math.min(seg(t,WH,WH+.6),1-seg(t,END-.1,END+.3));
+ const rv=Q('#rev');rv.style.opacity=t<REV?0:Math.min(seg(t,REV,REV+.4),1-seg(t,END-.1,END+.3));
+ const l=Q('#rv1');const ph=t<REV+3?0:1;
+ l.innerHTML=ph?'Cette vidéo n\'a<br>jamais été tournée.<br><b>Juste des photos.<br>Et de l\'émotion.</b>':'Ce frisson,<br><b>vos clientes le cherchent.</b>';
+ const lp=eo(seg(t,ph?REV+3:REV+.2,ph?REV+4:REV+1.2));l.style.opacity=Math.min(lp,ph?1:1-seg(t,REV+2.6,REV+3));l.style.transform=`translateY(${(1-lp)*2}vh)`;
+ // fin E-DUST
+ const en=Q('#end');en.style.opacity=seg(t,END,END+.4);[...en.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eb(seg(t,END+.2+i*.2,END+.6+i*.2));c.style.opacity=cl(p*2);c.style.transform=`scale(${.75+.25*p})`;});
+}
+window.render=render;
+</script></body></html>
