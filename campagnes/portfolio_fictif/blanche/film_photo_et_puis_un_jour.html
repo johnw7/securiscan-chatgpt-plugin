@@ -1,0 +1,111 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>ATELIER BLANCHE — « Et puis un jour… » montage photo (démo fictive)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@600;700&family=Parisienne&family=Antic+Didone&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<style>
+:root{--u:min(1vw,.7vh);--or:#e6c486}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#140e0b;color:#fff;font-family:Montserrat,sans-serif}
+#bg{position:absolute;inset:0;background:radial-gradient(75% 60% at 50% 42%,#3d2b21,#140e0b 78%)}
+#stage{position:absolute;inset:0;perspective:1400px}
+.sh{position:absolute;left:0;top:0;opacity:0;border-radius:calc(1.2*var(--u));overflow:hidden;box-shadow:0 calc(4*var(--u)) calc(12*var(--u)) rgba(0,0,0,.7);backface-visibility:hidden}
+.sh img{display:block;width:100%;height:100%}
+.sh.mir{border-radius:calc(1.6*var(--u));overflow:visible}
+.sh.mir img{border-radius:calc(.8*var(--u))}
+.sh.mir:before{content:'';position:absolute;inset:calc(-2.4*var(--u));border-radius:calc(2.6*var(--u));z-index:-1;
+ background:linear-gradient(135deg,#f7df9e,#a87b35 30%,#f3d58f 55%,#7d5826 80%,#e9c77e);box-shadow:0 calc(4*var(--u)) calc(14*var(--u)) rgba(0,0,0,.75),inset 0 0 0 calc(.5*var(--u)) rgba(90,60,20,.55)}
+.sh.mir:after{content:'';position:absolute;inset:0;border-radius:calc(.8*var(--u));background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.16) 42%,transparent 55%);pointer-events:none}
+#leak{position:absolute;inset:0;z-index:12;pointer-events:none;mix-blend-mode:screen}
+.bk{position:absolute;border-radius:50%;z-index:13;pointer-events:none;background:radial-gradient(circle,rgba(255,226,170,.55),rgba(255,226,170,0) 70%)}
+.sp{position:absolute;z-index:14;pointer-events:none;width:calc(2.4*var(--u));height:calc(2.4*var(--u));background:radial-gradient(circle,#fff 0,#ffe7b0 30%,rgba(255,231,176,0) 70%);border-radius:50%}
+#vign{position:absolute;inset:0;z-index:15;pointer-events:none;background:radial-gradient(72% 62% at 50% 45%,transparent 50%,rgba(10,6,4,.82))}
+#flash{position:absolute;inset:0;z-index:16;pointer-events:none;background:radial-gradient(circle at 50% 42%,#fff8e8 0,rgba(255,240,210,.85) 30%,rgba(255,240,210,0) 75%);opacity:0}
+#sub{position:absolute;left:6vw;right:6vw;z-index:20;text-align:center;font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:calc(7.4*var(--u));line-height:1.15;text-shadow:0 2px 16px rgba(0,0,0,.9),0 0 30px rgba(0,0,0,.6)}
+#sub b{font-weight:600;color:var(--or)}
+#chap{position:absolute;left:0;right:0;z-index:20;text-align:center;font-weight:700;font-size:calc(2.5*var(--u));letter-spacing:.38em;color:rgba(230,196,134,.9);text-shadow:0 1px 8px rgba(0,0,0,.8)}
+#sig{position:absolute;inset:0;z-index:40;opacity:0;background:radial-gradient(70% 55% at 50% 45%,#fffaf1,#f1e6d4);color:#3a2b20;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(4*var(--u));text-align:center;padding:0 8vw}
+#sig .lg{font-family:'Antic Didone';font-size:calc(8*var(--u));letter-spacing:.14em;line-height:1}
+#sig .lg small{display:block;font-family:Parisienne;letter-spacing:0;font-size:.62em;color:#a8814a;margin-top:.2em}
+#sig .ln{width:calc(16*var(--u));height:1px;background:#a8814a}
+#sig .q{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-size:calc(6.6*var(--u));line-height:1.2}
+#sig .cr{position:absolute;bottom:2.4vh;left:6vw;right:6vw;font-size:calc(1.8*var(--u));color:rgba(58,43,32,.55)}
+#cv{position:absolute;inset:0;z-index:30;pointer-events:none}
+#cv .t{position:absolute;left:0;right:0;text-align:center;font-family:'Cormorant Garamond';font-style:italic;font-weight:600;font-size:calc(11.5*var(--u));color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.95)}
+#cv .t b{font-weight:600;color:var(--or)}
+#cv .b{position:absolute;left:0;right:0;text-align:center;font-family:'Antic Didone';font-size:calc(4.4*var(--u));letter-spacing:.16em;text-shadow:0 2px 10px rgba(0,0,0,.8)}
+#cv .b small{display:block;font-family:Parisienne;letter-spacing:0;font-size:.85em;color:var(--or)}
+#cv .k{position:absolute;left:0;right:0;text-align:center;font-weight:700;font-size:calc(2.6*var(--u));letter-spacing:.38em;color:var(--or)}
+</style></head><body>
+<div id="bg"></div><div id="stage"></div><div id="leak"></div><div id="vign"></div><div id="flash"></div>
+<div id="chap"></div><div id="sub"></div>
+<div id="cv"><div class="k">UN FILM · ATELIER BLANCHE</div><div class="t">Et puis <b>un jour…</b></div><div class="b">ATELIER BLANCHE<small>robes de mariée</small></div></div>
+<div id="sig"><div class="lg">ATELIER BLANCHE<small>robes de mariée</small></div><div class="ln"></div><div class="q">Certains rêves<br>grandissent avec nous.</div>
+ <div class="cr">Démo conceptuelle · marque fictive · photos CC0 (rawpixel, StockSnap) · voix de synthèse · création E-DUST Solutions</div></div>
+<script>
+window.DUR=40;const A='assets/film/';
+// [image, début, fin, filtre, miroir ?, entrée ('fade'|'spin'), poussée]
+const SC=[
+ ['fillette',0,3.0,'sepia(.55) contrast(1.05) brightness(1.05)',1,'fade',.07],
+ ['robe_enfant',2.6,5.4,'sepia(.35) brightness(1.05)',1,'fade',.06],
+ ['tourne',5.0,7.0,'sepia(.15) saturate(1.05)',0,'fade',.05],
+ ['princesse2',6.9,8.6,'sepia(.1) saturate(1.05)',0,'spin',.05],
+ ['princesse',8.4,10.3,'sepia(.1) saturate(1.08)',0,'fade',.06],
+ ['sirene',10.2,15.2,'sepia(.1) saturate(1.05)',0,'spin',.09],
+ ['plage_libre',15.1,17.8,'sepia(.1) saturate(1.1)',0,'spin',.06],
+ ['couronne',17.6,20.3,'sepia(.08) saturate(1.06)',0,'fade',.06],
+ ['fourreau_cintre',20.2,22.7,'sepia(.08) saturate(1.04)',0,'spin',.05],
+ ['fenetre',22.5,25.2,'sepia(.08)',0,'fade',.06],
+ ['fillette',25.0,29.4,'sepia(.55) contrast(1.05) brightness(1.05)',1,'fade',.22],
+ ['larmes',29.3,34.4,'sepia(.18) contrast(1.04)',1,'fade',.08],
+ ['bouquet_sourire',34.2,38.3,'sepia(.1) saturate(1.06) brightness(1.03)',1,'fade',.07]];
+const SPINS=[6.9,10.2,15.1,20.2];const EYES=29.0;
+const st=Q('#stage');
+SC.forEach(s=>{const d=document.createElement('div');d.className='sh'+(s[4]?' mir':'');d.innerHTML=`<img src="${A}${s[0]}.jpg">`;st.appendChild(d);s.el=d;});
+for(let i=0;i<16;i++){const b=document.createElement('div');b.className='bk';document.body.appendChild(b);}
+for(let i=0;i<46;i++){const b=document.createElement('div');b.className='sp';document.body.appendChild(b);}
+function fit(img,mw,mh){const ar=img.naturalWidth/img.naturalHeight||1;let w=mw,h=w/ar;if(h>mh){h=mh;w=h*ar}return[w,h]}
+const SUBS=[[.9,4.8,'Tu l\'imagines comment,<br><b>ce jour-là ?</b>','LA PETITE FILLE'],[5.7,9.9,'Comme dans<br><b>un conte de fées ?</b>','LE RÊVE DE PRINCESSE'],
+ [10.6,14.9,'Élégante…<br><b>inoubliable ?</b>','LE RÊVE D\'ÉLÉGANCE'],[15.3,19.9,'Libre, légère…<br><b>amoureuse ?</b>','LE RÊVE DE LIBERTÉ'],
+ [20.6,24.8,'Ou simplement…<br><b>toi ?</b>','LE RÊVE D\'ÊTRE SOI'],[26.4,29.8,'<b>Et puis un jour…</b>','LE TEMPS PASSE'],
+ [31,37.6,'Sans même t\'en rendre compte…<br>tu es devenue <b>la femme<br>dont tu rêvais.</b>','LE RÊVE DEVIENT RÉALITÉ']];
+function render(t){
+ measure();
+ const mw=W*(R45?.78:.82),mh=H*(R45?.54:.56),cy=H*(R45?.4:.42);
+ SC.forEach((s,i)=>{const a=s[1],b=s[2],e=s.el;
+  if(t<a-.6||t>b+.6){e.style.opacity=0;return}
+  const im=e.querySelector('img');let[w,h]=fit(im,s[4]?mw*.92:mw,s[4]?mh*.92:mh);
+  e.style.width=w+'px';e.style.height=h+'px';
+  let o=Math.min(seg(t,a-.2,a+.45),1-seg(t,b-.3,b+.2)),ry=0,blur=0;
+  if(s[5]=='spin'){const p=seg(t,a-.1,a+.45);ry=-90*(1-eo(p));blur=(1-p)*10;o=Math.min(t>=a-.1?1:0,1-seg(t,b-.3,b+.2))}
+  const nx=SC[i+1];if(nx&&nx[5]=='spin'&&t>=nx[1]-.5){const p=seg(t,nx[1]-.5,nx[1]-.05);ry=90*eio(p);blur=p*10;o=t<nx[1]-.05?1:0}
+  if(i==0)o=t<b-.3?1:o;
+  // « Et puis un jour… » : la petite fille ferme les yeux, la lumière l'emporte
+  let sc=1+s[6]*seg(t,a,b);
+  if(s[0]=='fillette'&&a>20)sc=1+s[6]*eio(seg(t,a,EYES+.3));
+  e.style.opacity=o;e.style.zIndex=i+1;
+  e.style.transform=`translate(${(W-w)/2}px,${cy-h/2}px) rotateY(${ry}deg) scale(${sc})`;
+  e.style.filter=s[3]+(blur?` blur(${blur}px)`:'')+(s[0]=='fillette'&&a>20?` brightness(${1+1.2*seg(t,EYES-.6,EYES+.25)})`:'');});
+ // éclats de transformation
+ let fl=0;SPINS.forEach(s=>{fl=Math.max(fl,Math.exp(-((t-s)**2)/.025))});fl=Math.max(fl,Math.exp(-((t-(EYES+.35))**2)/.06)*1.3);
+ Q('#flash').style.opacity=Math.min(1,fl*.85);
+ const cx=W/2,cyy=cy;
+ QA('.sp').forEach((p,i)=>{let o=0,x=0,y=0;
+  for(const s of [...SPINS,EYES+.3]){const d=t-s+.15;if(d>0&&d<2.3){const r=(.04+d*.2)*W*(.5+hash(i)*.9),ang=hash(i+7)*6.28+d*(2.5+hash(i)*2)*(i%2?1:-1);
+   x=cx+Math.cos(ang)*r;y=cyy-d*H*.05*(1+hash(i+2))+Math.sin(ang)*r*.55;o=Math.max(o,(1-d/2.3)*(d<.15?d/.15:1))}}
+  if(t>30&&t<38.3){const d=(t-30+hash(i)*8)%8;x=W*(.1+hash(i+4)*.8);y=H*(.9-d*.1);o=Math.max(o,.55*Math.sin(d/8*Math.PI))}
+  p.style.left=x+'px';p.style.top=y+'px';p.style.opacity=o;p.style.transform=`scale(${.5+hash(i+1)})`});
+ QA('.bk').forEach((b,i)=>{const r=(2+hash(i)*6)*U;const x=(hash(i+3)*100+t*(.6+hash(i))*(i%2?1:-1)+300)%110-5,y=(hash(i+5)*100-t*(.8+hash(i+9))+400)%110-5;
+  b.style.width=b.style.height=r*2+'px';b.style.left=x+'vw';b.style.top=y+'vh';b.style.opacity=(.22+.3*Math.sin(t*1.1+i))*(1-seg(t,38,38.6))});
+ const lx=50+28*Math.sin(t*.3);Q('#leak').style.background=`radial-gradient(45% 35% at ${lx}% ${30+12*Math.cos(t*.25)}%,rgba(255,190,110,.26),transparent 70%),radial-gradient(35% 30% at ${100-lx}% 75%,rgba(255,150,120,.14),transparent 70%)`;
+ // texte
+ const cur=SUBS.find(s=>t>=s[0]&&t<s[1]);const sb=Q('#sub'),ch=Q('#chap');
+ sb.style.top=(R45?76:76)+'vh';ch.style.top=(R45?3:4.5)+'vh';
+ if(cur){const p=eo(seg(t,cur[0],cur[0]+.9)),q=1-seg(t,cur[1]-.4,cur[1]);sb.innerHTML=cur[2];sb.style.opacity=Math.min(p,q);sb.style.transform=`translateY(${(1-p)*1.6}vh)`;sb.style.letterSpacing=(1-p)*.06+'em';
+  ch.textContent=cur[3];ch.style.opacity=Math.min(p,q)}else{sb.style.opacity=0;ch.style.opacity=0}
+ // couverture (image 0)
+ const cv=Q('#cv');const co=1-seg(t,.35,1.1);cv.style.opacity=co;
+ if(co>0){cv.querySelector('.k').style.top=(R45?3.5:5)+'vh';cv.querySelector('.t').style.top=(R45?73:75)+'vh';cv.querySelector('.b').style.top=(R45?87:88.5)+'vh';sb.style.opacity=Math.min(+sb.style.opacity||0,1-co);ch.style.opacity=0}
+ const sg=Q('#sig');sg.style.opacity=seg(t,37.8,38.5);[...sg.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eo(seg(t,38+i*.25,38.9+i*.25));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*1.5}vh)`});
+}
+window.render=render;
+</script></body></html>
