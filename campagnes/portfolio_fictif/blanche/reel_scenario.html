@@ -1,0 +1,137 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>ATELIER BLANCHE — Reel « scénario » (démo fictive)</title>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Montserrat:wght@600;800;900&family=Parisienne&family=Antic+Didone&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<style>
+:root{--u:min(1vw,.7vh);--or:#c9a96e}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:#0a0a0c;color:#fff;font-family:Montserrat,sans-serif}
+.grain{position:absolute;inset:-50%;z-index:30;pointer-events:none;opacity:.07;background-image:radial-gradient(#fff 1px,transparent 1.2px);background-size:3px 3px}
+.vign{position:absolute;inset:0;z-index:29;pointer-events:none;background:radial-gradient(75% 65% at 50% 48%,transparent 55%,rgba(0,0,0,.65))}
+/* scènes photo : image entière, jamais recadrée */
+.sh{position:absolute;left:0;top:0;opacity:0;border:calc(.5*var(--u)) solid rgba(255,255,255,.92);box-shadow:0 calc(3*var(--u)) calc(8*var(--u)) rgba(0,0,0,.6)}
+.sh img{display:block;width:100%;height:100%}
+/* viseur caméra */
+#vf{position:absolute;inset:0;z-index:20;pointer-events:none}
+#vf .c{position:absolute;width:calc(9*var(--u));height:calc(9*var(--u));border:0 solid rgba(255,255,255,.85)}
+#vf .tl{left:5vw;top:5vh;border-left-width:3px;border-top-width:3px}#vf .tr{right:5vw;top:5vh;border-right-width:3px;border-top-width:3px}
+#vf .bl{left:5vw;bottom:5vh;border-left-width:3px;border-bottom-width:3px}#vf .br{right:5vw;bottom:5vh;border-right-width:3px;border-bottom-width:3px}
+#vf .rec{position:absolute;left:8vw;top:7.2vh;display:flex;align-items:center;gap:calc(1.4*var(--u));font-family:'Courier Prime';font-weight:700;font-size:calc(3.4*var(--u));letter-spacing:.08em}
+#vf .rec i{width:calc(2.4*var(--u));height:calc(2.4*var(--u));border-radius:50%;background:#ff2b2b;box-shadow:0 0 12px #ff2b2b}
+#vf .tc{position:absolute;right:8vw;top:7.2vh;font-family:'Courier Prime';font-weight:700;font-size:calc(3.4*var(--u))}
+/* ligne de scénario */
+#slug{position:absolute;left:7vw;right:7vw;z-index:21;text-align:center;font-family:'Courier Prime';font-weight:700;font-size:calc(3*var(--u));letter-spacing:.03em;white-space:nowrap;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+/* sous-titres */
+#sub{position:absolute;left:6vw;right:6vw;z-index:22;text-align:center;line-height:1.35}
+#sub span{display:inline-block;font-weight:800;font-size:calc(6.2*var(--u));padding:0 .12em;text-shadow:0 3px 12px rgba(0,0,0,.9),0 0 2px #000}
+#sub span.q{color:#f3dcae}
+/* COUPEZ */
+#cut{position:absolute;inset:0;z-index:40;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0}
+#clap{width:calc(46*var(--u));height:calc(34*var(--u));position:relative}
+#clap .top{position:absolute;left:0;right:0;top:0;height:22%;transform-origin:0 100%;background:repeating-linear-gradient(-45deg,#fff 0 calc(3.2*var(--u)),#111 calc(3.2*var(--u)) calc(6.4*var(--u)));border:3px solid #fff;border-radius:4px}
+#clap .body{position:absolute;left:0;right:0;top:24%;bottom:0;background:#111;border:3px solid #fff;border-radius:4px;font-family:'Courier Prime';font-weight:700;font-size:calc(3*var(--u));padding:calc(2*var(--u));line-height:1.5;color:#fff}
+#cut h2{font-family:Montserrat;font-weight:900;font-size:calc(13*var(--u));letter-spacing:-.02em;margin-top:calc(5*var(--u))}
+/* révélation */
+#rev{position:absolute;inset:0;z-index:35;background:#0a0a0c;opacity:0}
+#rev .g{position:absolute;left:50%;display:grid;grid-template-columns:repeat(3,1fr);gap:calc(1.4*var(--u));width:calc(84*var(--u));transform:translateX(-50%)}
+#rev .g{align-items:center}
+#rev .g img{width:100%;height:auto;display:block;border:2px solid rgba(255,255,255,.85)}
+#rev .t{position:absolute;left:7vw;right:7vw;text-align:center;font-weight:900;font-size:calc(7*var(--u));line-height:1.12}
+#rev .t em{font-style:normal;color:#f3dcae}
+/* fin E-DUST */
+#end{position:absolute;inset:0;z-index:45;opacity:0;background:radial-gradient(60% 50% at 50% 40%,#0b3fbf,#061a52 45%,#020d30 80%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3.6*var(--u));text-align:center;padding:0 8vw;font-family:Manrope}
+#end .lc{background:#fff;border-radius:calc(2*var(--u));padding:calc(1.6*var(--u)) calc(2.6*var(--u));width:min(70vw,50vh)}#end .lc img{display:block;width:100%}
+#end .q{font-weight:800;font-size:calc(8*var(--u));line-height:1.05;letter-spacing:-.03em}
+#end .q em{font-style:normal;color:#01DAFF}
+#end .s{font-family:Montserrat;font-weight:600;font-size:calc(3.4*var(--u));color:#aab6d5;letter-spacing:.06em}
+#end .c{background:#01DAFF;color:#071018;font-weight:800;font-size:calc(4.8*var(--u));padding:calc(1.6*var(--u)) calc(5*var(--u));border-radius:999px}
+#end .w{font-weight:800;font-size:calc(3.6*var(--u))}
+#end .cr{position:absolute;bottom:2.4vh;left:6vw;right:6vw;font-family:Montserrat;font-size:calc(1.9*var(--u));color:rgba(255,255,255,.5)}
+/* couverture */
+#cover{position:absolute;inset:0;z-index:60;background:#0a0a0c;overflow:hidden}
+#cover .bg{position:absolute;left:50%;top:50%;border:calc(.5*var(--u)) solid rgba(255,255,255,.9)}
+#cover .bg img{display:block;width:100%;height:100%}
+#cover .dark{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,12,.92) 0%,rgba(10,10,12,.35) 34%,rgba(10,10,12,.35) 62%,rgba(10,10,12,.95) 88%)}
+#cover .int{position:absolute;left:4vw;right:4vw;text-align:center;font-family:'Courier Prime';font-weight:700;font-size:calc(3.1*var(--u));letter-spacing:.03em;white-space:nowrap}
+#cover .ttl{position:absolute;left:6vw;right:6vw;text-align:center;font-weight:900;font-size:calc(8*var(--u));line-height:1.08;text-shadow:0 4px 18px rgba(0,0,0,.8)}
+#cover .ttl em{font-style:normal;color:#f3dcae}
+#cover .brand{position:absolute;left:0;right:0;text-align:center;font-family:'Antic Didone';font-size:calc(5*var(--u));letter-spacing:.14em}
+#cover .brand small{display:block;font-family:Parisienne;letter-spacing:0;font-size:.8em;color:var(--or)}
+#cover .pill{position:absolute;left:50%;display:flex;align-items:center;gap:calc(1.6*var(--u));font-weight:800;font-size:calc(3.6*var(--u));letter-spacing:.06em;background:#fff;color:#111;border-radius:999px;padding:calc(1.1*var(--u)) calc(3.6*var(--u)) calc(1.1*var(--u)) calc(1.2*var(--u));white-space:nowrap}
+#cover .pill i{font-style:normal;width:calc(6*var(--u));height:calc(6*var(--u));border-radius:50%;background:#ff2b2b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:calc(2.6*var(--u));padding-left:.15em}
+</style></head><body>
+<div id="stage"></div>
+<div id="vf"><div class="c tl"></div><div class="c tr"></div><div class="c bl"></div><div class="c br"></div><div class="rec"><i></i>REC</div><div class="tc" id="tc">00:00:00</div></div>
+<div id="slug">INT. BOUTIQUE DE MARIÉE — SAMEDI, 10 H 03</div>
+<div id="sub"></div>
+<div id="cut"><div id="clap"><div class="top"></div><div class="body">SCÈNE 1 · PRISE 1<br>« L'ESSAYAGE »<br>RÉAL. : E-DUST</div></div><h2>COUPEZ.</h2></div>
+<div id="rev"><div class="g"></div><div class="t"></div></div>
+<div id="end"><div class="lc"><img src="../../edust_onboarding/assets/edust-solutions-logo.png"></div>
+ <div class="q">Vos photos deviennent<br><em>un film.</em></div>
+ <div class="s">UGC · POV · REELS — SANS TOURNAGE</div>
+ <div class="c">Écrivez-moi « POV »</div>
+ <div class="w">edust-solutions.fr</div>
+ <div class="cr">Démo conceptuelle · « Atelier Blanche » est une marque fictive · photos Unsplash · création E-DUST Solutions</div></div>
+<div id="cover"><div class="bg"><img src="assets/robe.jpg"></div><div class="dark"></div><div class="vfc"></div>
+ <div class="int">INT. BOUTIQUE DE MARIÉE — SAMEDI, 10 H 03</div>
+ <div class="ttl">Elle avait dit :<br><em>« Je viens juste<br>regarder. »</em></div>
+ <div class="brand">ATELIER BLANCHE<small>robes de mariée</small></div>
+ <div class="pill"><i>▶</i>REGARDE JUSQU'AU BOUT</div></div>
+<div class="vign"></div><div class="grain"></div>
+<script>
+const COVER=2.4,A='assets/';
+// [image, début, fin, sous-titre ; «…» = réplique]
+const SC=[['robe',0,3,'Elle pousse la porte.'],
+ ['plage',3,6,'Elle avait dit : «Je viens juste regarder.»'],
+ ['voile',6,8,'Le voile.'],
+ ['bouquet2',8,10,'Le bouquet.'],
+ ['alliances',10,12,'Les alliances.'],
+ ['mains',12,14.6,'Elle ne dit rien.'],
+ ['sortie',14.6,17.6,'Sa mère, si : «C\'est elle.»']];
+const CUT=17.6,REV=19.8,END=24.6;window.DUR=COVER+END+4.4;
+const st=Q('#stage');
+SC.forEach(s=>{const d=document.createElement('div');d.className='sh';d.innerHTML=`<img src="${A}${s[0]}.jpg">`;st.appendChild(d);s.el=d;});
+['robe','voile','bouquet2','alliances','mains','sortie'].forEach(n=>{const i=document.createElement('img');i.src=A+n+'.jpg';Q('#rev .g').appendChild(i);});
+function fit(img,mw,mh){const ar=img.naturalWidth/img.naturalHeight||1;let w=mw,h=w/ar;if(h>mh){h=mh;w=h*ar}return[w,h]}
+function words(txt,p){ // sous-titre mot à mot ; «…» en couleur
+ let q=false;return txt.replace(/«/g,' «').split(' ').filter(Boolean).map((w,i,a)=>{if(w.includes('«'))q=true;const k=q?'q':'';if(w.includes('»'))q=false;const o=cl((p*(a.length+2))-i);return `<span class="${k}" style="opacity:${o};transform:translateY(${(1-o)*1.5}vh)">${w.replace('«','« ').replace('»',' »')}</span>`}).join(' ')}
+function render(T){
+ measure();const t=T-COVER;
+ // couverture (image 0 = miniature)
+ const cv=Q('#cover');cv.style.display=T<COVER+.3?'block':'none';
+ if(T<COVER+.3){const im=cv.querySelector('.bg img');const[w,h]=fit(im,W*.7,H*(R45?.36:.42));const bg=cv.querySelector('.bg');
+  bg.style.width=w+'px';bg.style.height=h+'px';bg.style.transform=`translate(-50%,-50%) translateY(${(R45?.08:.08)*H}px) scale(${1+.02*T}) rotate(-2deg)`;
+  cv.querySelector('.int').style.top=(R45?5:7)+'vh';cv.querySelector('.ttl').style.top=(R45?11:14)+'vh';
+  cv.querySelector('.brand').style.top=(R45?78.5:80)+'vh';const pl=cv.querySelector('.pill');pl.style.top=(R45?89:90)+'vh';pl.style.transform=`translateX(-50%) scale(${1+.03*Math.sin(T*5)})`;
+  cv.style.opacity=1-seg(T,COVER-.05,COVER+.3);}
+ // plans photo : fondu enchaîné + lente poussée (image entière visible)
+ SC.forEach((s,i)=>{const a=s[1],b=s[2];const o=t<0?0:Math.min(seg(t,a-.25,a+.25),1-seg(t,b-.25,b+.25));
+  const im=s.el.querySelector('img');const[w,h]=fit(im,W*.84,H*(R45?.56:.58));const sc=1+.06*seg(t,a-.25,b+.25);
+  s.el.style.width=w+'px';s.el.style.height=h+'px';s.el.style.opacity=i==SC.length-1?Math.min(seg(t,a-.25,a+.25),t<CUT?1:0):o;
+  s.el.style.transform=`translate(${(W-w)/2}px,${(H-h)/2-(R45?.02:.03)*H}px) scale(${sc}) rotate(${(i%2?1:-1)*.8}deg)`;});
+ // sous-titres
+ const cur=SC.find(s=>t>=s[1]&&t<s[2]);const sb=Q('#sub');sb.style.top=(R45?76:77)+'vh';
+ sb.innerHTML=cur&&t<CUT?words(cur[3],seg(t,cur[1]+.1,cur[1]+1.2)):'';
+ // ligne de scénario (tapée à la machine au début)
+ const sl=Q('#slug');sl.style.top=(R45?11:12)+'vh';const full='INT. BOUTIQUE DE MARIÉE — SAMEDI, 10 H 03';
+ sl.textContent=full.slice(0,Math.floor(full.length*seg(t,0,1.4)))+(t<1.6&&Math.floor(t*4)%2?'▌':'');sl.style.opacity=t<CUT?1-seg(t,5.6,6.2):0;
+ // viseur
+ const vf=Q('#vf');vf.style.opacity=t>=0&&t<CUT?1:0;Q('#vf .rec i').style.opacity=Math.floor(t*2)%2?.25:1;
+ const s=Math.max(0,t);Q('#tc').textContent='00:00:'+String(Math.floor(s)).padStart(2,'0')+':'+String(Math.floor((s%1)*24)).padStart(2,'0');
+ // COUPEZ
+ const cut=Q('#cut');cut.style.opacity=t>=CUT&&t<REV+.3?(t<REV?1:1-seg(t,REV,REV+.3)):0;
+ const cp=seg(t,CUT+.15,CUT+.5);Q('#clap .top').style.transform=`rotate(${-28*(1-eb(cp))}deg)`;
+ const sl2=slam(t,CUT+.55,2.2);cut.querySelector('h2').style.opacity=sl2.o;cut.querySelector('h2').style.transform=`scale(${sl2.s})`;
+ const sh=shake(t,[[CUT+.5,1.2*U],[CUT+.6,.8*U]]);cut.style.transform=`translate(${Math.sin(t*80)*sh}px,${Math.cos(t*70)*sh}px)`;
+ // révélation
+ const rv=Q('#rev');rv.style.opacity=t>=REV-.05&&t<END+.4?1:0;const g=rv.querySelector('.g');g.style.top=(R45?16:20)+'vh';
+ [...g.children].forEach((im,i)=>{const p=eb(seg(t,REV+.1+i*.12,REV+.5+i*.12));im.style.opacity=cl(p*2);im.style.transform=`scale(${.6+.4*p}) rotate(${(i%2?3:-3)*(1-p)}deg)`;});
+ const tx=rv.querySelector('.t');tx.style.top=(R45?64:62)+'vh';
+ tx.innerHTML=t<REV+2.4?'Cette scène n\'a<br><em>jamais été tournée.</em>':'Juste des photos.<br><em>Et le bon format.</em>';
+ const tp=t<REV+2.4?eb(seg(t,REV+.9,REV+1.3)):eb(seg(t,REV+2.4,REV+2.8));tx.style.opacity=cl(tp*2);tx.style.transform=`scale(${.8+.2*tp})`;
+ // fin E-DUST
+ const en=Q('#end');en.style.opacity=seg(t,END,END+.35);[...en.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eb(seg(t,END+.15+i*.2,END+.55+i*.2));c.style.opacity=cl(p*2);c.style.transform=`scale(${.7+.3*p})`;});
+ en.querySelector('.c').style.transform+=` scale(${1+.03*Math.sin(t*5)})`;
+}
+window.render=render;
+</script></body></html>
