@@ -122,8 +122,8 @@ function render(TT){
   cv.querySelector('.band').style.height=(R45?30:28)+'vh';cv.querySelector('.bl').style.top=(R45?3:4)+'vh';cv.querySelector('.bl').style.width=(R45?14:18)*U+'px';
   cv.querySelector('.lg').style.top=(R45?17:17)+'vh';cv.querySelector('.lg').style.width=(R45?52:66)*U+'px';
   cv.querySelector('.tt').style.top=(R45?33:32)+'vh';
-  [...Q('#cvs').children].forEach((p,i)=>place(p,W/2+(i?1:-1)*W*.06,H*(R45?.6:.6)+i*H*.15,W*.78,H*.16,i?3:-3,1+.015*TT));
-  const sk=cv.querySelector('.stk');sk.style.left=(R45?75:72)+'vw';sk.style.top=(R45?72:76)+'vh';sk.style.transform=`rotate(${10+Math.sin(TT*3)*5}deg) scale(${1+.04*Math.sin(TT*5)})`;
+  [...Q('#cvs').children].forEach((p,i)=>place(p,W/2,H*(R45?[.625,.79][i]:[.585,.75][i]),W*.84,H*(R45?.12:.135),i?1.2:-1.2,1+.01*TT));
+  const sk=cv.querySelector('.stk');sk.style.left='4vw';sk.style.top=(R45?2.5:4)+'vh';sk.style.transform=`rotate(${-10+Math.sin(TT*3)*5}deg) scale(${(R45?.8:1)*(1+.04*Math.sin(TT*5))})`;sk.style.transformOrigin='0 0';
   cv.querySelector('.pill').style.top=(R45?91:92)+'vh';}
  const tc=Math.max(0,t);let cur=-1;
  S.forEach((e,i)=>{const a=T[i],b=a+SD[i],lt=tc-a;const vis=tc>=a&&tc<b+.35&&tc<END+.4;e.style.visibility=vis?'visible':'hidden';if(!vis)return;e.style.zIndex=i+1;if(tc<b)cur=i;
@@ -133,8 +133,9 @@ function render(TT){
    const tk=c.querySelector('.tk');tk.style.strokeDasharray=60;tk.style.strokeDashoffset=60*(1-eio(seg(lt,1.0,1.4)));c.querySelector('.box').style.background=lt>1.3?'#e8f6f7':'#fff'}
   const ttl=e.querySelector('.ttl');if(ttl){ttl.style.top=(R45?7:9)+'vh';[...ttl.children].forEach((k,j)=>{const p=eo(seg(lt,.15+j*.25,.7+j*.25));k.style.opacity=p;k.style.transform=`translateY(${(1-p)*2}vh)`})}
   const ps=[...e.querySelectorAll('.ph')];
-  const lay={0:[[.5,.48,.92,.22,-2],[.5,.72,.92,.22,2]],1:[[.5,.52,.9,.4,-2]],2:[[.3,.4,.46,.2,-4],[.72,.47,.46,.2,4],[.3,.62,.46,.2,3],[.7,.69,.46,.2,-3]],3:[[.5,.4,.9,.22,-2],[.5,.64,.82,.26,2]],4:[[.5,.5,.9,.36,-2]],5:[[.5,.47,.88,.34,-2],[.5,.74,.9,.13,2]]}[i]||[];
-  ps.forEach((p,j)=>{const L=lay[j];const q=eb(seg(lt,.4+j*.25,.95+j*.25));const yy=R45?(L[1]-.5)*.92+.52:L[1];place(p,L[0]*W,yy*H,L[2]*W,L[3]*H*(R45?.92:1),L[4]+(1-q)*(j%2?10:-10),(.5+.5*q)*(1+.03*seg(lt,1,SD[i])));p.style.opacity=cl(q*2)});
+  // zone photo sûre : entre la case du haut et la légende, à gauche des boutons Reels ; photos entières, sans chevauchement
+  const lay={0:[[.44,.41,.76,.13,-1],[.44,.6,.76,.13,1]],1:[[.44,.46,.78,.3,-1]],2:[[.235,.35,.37,.13,-1.5],[.645,.35,.37,.13,1.5],[.235,.57,.37,.13,1.5],[.645,.57,.37,.13,-1.5]],3:[[.44,.34,.74,.17,-1],[.44,.62,.7,.21,1]],4:[[.44,.47,.78,.3,-1]],5:[[.44,.41,.7,.29,-1],[.44,.67,.76,.11,1]]}[i]||[];
+  ps.forEach((p,j)=>{const L=lay[j];const q=eb(seg(lt,.4+j*.25,.95+j*.25));const yy=R45?(L[1]-.5)*.92+.52:L[1];place(p,L[0]*W,yy*H,L[2]*W,L[3]*H*(R45?.9:1),L[4]+(1-q)*(j%2?10:-10),(.5+.5*q)*(1+.02*seg(lt,1,SD[i])));p.style.opacity=cl(q*2)});
   if(i==6){const lk=e.querySelector('.lock');lk.style.top=(R45?26:28)+'vh';const s=R45?.82:1;lk.style.transform=`translateX(-50%) scale(${s})`;lk.style.transformOrigin='50% 0';
    e.querySelectorAll('.lock .nt').forEach((n,k)=>{const q=eb(seg(lt,.8+k*.8,1.2+k*.8));n.style.top=(42+k*17)+'%';n.style.opacity=cl(q*2);n.style.transform=`translateY(${(1-q)*-30}px) scale(${.9+.1*q})`})}
   if(i==7){const l=e.querySelector('.list');l.style.top=(R45?33:32)+'vh';[...l.children].forEach((d,k)=>{const q=eb(seg(lt,.5+k*.2,.85+k*.2));d.style.opacity=cl(q*2);d.style.transform=`translateX(${(1-q)*-10}vw)`});
