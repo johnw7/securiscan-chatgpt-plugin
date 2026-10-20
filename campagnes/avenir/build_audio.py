@@ -1,5 +1,5 @@
 """Bande-son du TikTok Avenir Investissement (39,3 s), calée sur tiktok_mutation.html.
-Usage : python3 build_audio.py -> audio/tiktok_mutation.wav"""
+Usage : python3 build_audio.py [bruitages] -> audio/tiktok_mutation[_bruitages].wav"""
 import os, sys
 import numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'demos_portfolio'))
@@ -38,8 +38,9 @@ for j in range(6): add(sfx, pop(), T[6] + .3 + j * .35, .14)
 add(sfx, riser(1.6), T[7] - .2, .3); add(sfx, ding(24), T[7] + .9, .3); add(sfx, boom(1.2), T[7] + 1.7, .6)
 for j in range(10): add(sfx, tick(), T[8] + .1 + j * .11, .12)
 add(sfx, boom(.9), END, .5); add(sfx, ding(12), END + .4, .25)
-mix = mus * .85 + sfx
+MODE = sys.argv[1] if len(sys.argv) > 1 else 'complet'   # 'bruitages' = sans musique
+mix = sfx if MODE == 'bruitages' else mus * .85 + sfx
 t = np.arange(N) / SR; mix *= np.minimum(1, t / .3) * np.minimum(1, (DUR - t) / 1.5)
 os.makedirs(f'{D}/audio', exist_ok=True)
-master(mix, f'{D}/audio/tiktok_mutation.wav', DUR)
+master(mix, f'{D}/audio/tiktok_mutation' + ('_bruitages' if MODE == 'bruitages' else '') + '.wav', DUR, lufs=-16 if MODE == 'bruitages' else -13)
 print('ok', DUR)
