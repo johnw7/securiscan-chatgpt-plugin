@@ -1,0 +1,200 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>LUMEN IMMOBILIER (agence fictive) — TikTok UGC « POV : vendu en 7 jours »</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;600;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<style>
+/* marque fictive : vert forêt, ivoire, laiton ; Playfair Display + Inter */
+:root{--vert:#1f3a2e;--vert2:#13261d;--ivoire:#f4efe6;--laiton:#b8935a;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:var(--vert2);color:#fff;font-family:Inter,sans-serif}
+.sc{position:absolute;inset:0;overflow:hidden;visibility:hidden}
+.sc.v{background:radial-gradient(80% 60% at 50% 35%,#2a4d3d,#13261d 80%)}
+.sc.i{background:var(--ivoire);color:var(--vert)}
+.ph{position:absolute;left:0;top:0;overflow:hidden;border-radius:calc(1.6*var(--u));box-shadow:0 calc(3*var(--u)) calc(9*var(--u)) rgba(0,0,0,.45)}
+.ph img{display:block;width:100%;height:100%}
+.day{position:absolute;left:6vw;z-index:8;font-family:'Playfair Display';font-style:italic;font-weight:500;font-size:calc(5*var(--u));color:var(--laiton)}
+.day b{display:block;font-family:Inter;font-style:normal;font-weight:900;font-size:calc(11*var(--u));letter-spacing:-.03em;line-height:.95;color:inherit}
+.sc.v .day b{color:#fff}.sc.i .day b{color:var(--vert)}
+.lbl{position:absolute;left:6vw;right:6vw;z-index:8;font-family:'Playfair Display';font-size:calc(6.4*var(--u));line-height:1.12}
+.lbl i{color:var(--laiton)}
+.big{position:absolute;left:0;right:0;text-align:center;z-index:8;font-family:'Playfair Display';font-weight:700;letter-spacing:-.02em;line-height:1}
+.mini{position:absolute;left:0;right:0;text-align:center;z-index:8;font-weight:800;font-size:calc(2.8*var(--u));letter-spacing:.3em}
+/* viseur photo */
+.vf{position:absolute;z-index:6;pointer-events:none}
+.vf i{position:absolute;width:calc(8*var(--u));height:calc(8*var(--u));border:0 solid #fff}
+.vf .a{left:0;top:0;border-left-width:3px;border-top-width:3px}.vf .b{right:0;top:0;border-right-width:3px;border-top-width:3px}
+.vf .c{left:0;bottom:0;border-left-width:3px;border-bottom-width:3px}.vf .d{right:0;bottom:0;border-right-width:3px;border-bottom-width:3px}
+.vf .f{position:absolute;left:50%;top:50%;width:calc(10*var(--u));height:calc(10*var(--u));transform:translate(-50%,-50%);border:2px solid #ffd54a}
+.thumbs{position:absolute;z-index:7;display:flex;gap:calc(1.6*var(--u))}
+.thumbs div{width:calc(20*var(--u));height:calc(26*var(--u));border:calc(.6*var(--u)) solid #fff;box-shadow:0 calc(1*var(--u)) calc(3*var(--u)) rgba(0,0,0,.4);overflow:hidden;background:#fff}
+.thumbs img{width:100%;height:100%;object-fit:contain;background:#fff}
+/* annonce */
+.ann{position:absolute;left:0;top:0;background:#fff;color:#111;border-radius:calc(2*var(--u));overflow:hidden;box-shadow:0 calc(3*var(--u)) calc(9*var(--u)) rgba(0,0,0,.4);z-index:5}
+.ann img{display:block;width:100%}
+.ann .in{padding:calc(2.4*var(--u)) calc(3*var(--u))}
+.ann .pr{font-family:'Playfair Display';font-weight:700;font-size:calc(6.4*var(--u));color:var(--vert)}
+.ann .ti{font-size:calc(3.2*var(--u));color:#555;margin-top:.3em}
+.ann .vw{display:flex;gap:calc(3*var(--u));margin-top:calc(1.4*var(--u));font-weight:800;font-size:calc(3.2*var(--u));color:var(--vert)}
+.ht{position:absolute;z-index:9;font-size:calc(6*var(--u));opacity:0}
+/* agenda */
+.cal{position:absolute;left:6vw;right:6vw;z-index:6;display:grid;grid-template-columns:repeat(3,1fr);gap:calc(1.6*var(--u))}
+.cal div{border:2px solid var(--vert);border-radius:calc(1.4*var(--u));padding:calc(1.6*var(--u)) 0;text-align:center;font-weight:800;font-size:calc(3.6*var(--u));color:var(--vert)}
+.cal div.f{background:var(--vert);color:var(--ivoire)}
+.complet{position:absolute;z-index:9;font-weight:900;font-size:calc(7*var(--u));letter-spacing:.08em;color:#c0392b;border:calc(.7*var(--u)) solid #c0392b;padding:calc(.6*var(--u)) calc(3*var(--u));border-radius:calc(1.2*var(--u))}
+/* offres */
+.nt{position:absolute;left:5vw;right:17vw;z-index:7;background:rgba(255,255,255,.95);color:#111;border-radius:calc(3.4*var(--u));padding:calc(2.2*var(--u)) calc(3*var(--u));display:flex;gap:calc(2.4*var(--u));align-items:center;box-shadow:0 calc(1.6*var(--u)) calc(5*var(--u)) rgba(0,0,0,.35)}
+.nt i{flex:none;font-style:normal;width:calc(9*var(--u));height:calc(9*var(--u));border-radius:calc(2*var(--u));background:var(--vert);color:var(--laiton);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display';font-weight:700;font-size:calc(5*var(--u))}
+.nt b{display:block;font-weight:800;font-size:calc(3.2*var(--u))}
+.nt span{display:block;font-family:'Playfair Display';font-weight:700;font-size:calc(5.4*var(--u));color:var(--vert)}
+.nt small{position:absolute;right:calc(3*var(--u));top:calc(2*var(--u));font-size:calc(2.6*var(--u));color:#777}
+/* signature */
+.doc{position:absolute;left:8vw;right:8vw;z-index:6;background:#fff;color:#222;border-radius:calc(1*var(--u));padding:calc(4*var(--u));box-shadow:0 calc(2*var(--u)) calc(6*var(--u)) rgba(0,0,0,.25)}
+.doc h3{font-family:'Playfair Display';font-size:calc(5*var(--u));color:var(--vert)}
+.doc p{height:calc(1.4*var(--u));background:#e7e2d8;border-radius:4px;margin-top:calc(1.6*var(--u))}
+.doc svg{display:block;width:100%;height:calc(16*var(--u));margin-top:calc(2*var(--u))}
+.doc .sg{font-size:calc(2.6*var(--u));color:#888;border-top:1px dashed #aaa;padding-top:calc(.8*var(--u))}
+/* vendu */
+.vendu{position:absolute;z-index:9;left:50%;font-family:Inter;font-weight:900;font-size:calc(14*var(--u));letter-spacing:.06em;color:#fff;border:calc(1*var(--u)) solid #fff;padding:calc(.6*var(--u)) calc(4*var(--u));border-radius:calc(2*var(--u));background:rgba(31,58,46,.55)}
+.conf{position:absolute;z-index:10;width:calc(1.6*var(--u));height:calc(3*var(--u));border-radius:2px}
+/* preuves */
+.proof{position:absolute;left:6vw;right:6vw;text-align:center;z-index:6}
+.proof .n{font-family:'Playfair Display';font-weight:700;font-size:calc(24*var(--u));line-height:1;color:var(--vert)}
+.proof .n small{font-size:.38em}
+.proof .l{font-weight:800;font-size:calc(3*var(--u));letter-spacing:.28em;color:var(--laiton);margin-top:calc(3*var(--u))}
+.proof .row{display:flex;justify-content:center;gap:calc(5*var(--u));margin-top:calc(5*var(--u))}
+.proof .row div{font-family:'Playfair Display';font-weight:700;font-size:calc(9*var(--u));color:var(--vert);line-height:1}
+.proof .row small{display:block;font-family:Inter;font-weight:800;font-size:calc(2.4*var(--u));letter-spacing:.2em;color:#7d6a4b;margin-top:.5em}
+/* interface TikTok */
+#ui{position:absolute;inset:0;z-index:30;pointer-events:none;color:#fff}
+#ui.dk{color:#1f3a2e}#ui.dk .top,#ui.dk #rail,#ui.dk #who{text-shadow:none}#ui.dk .top b{border-color:#1f3a2e}#ui.dk #rail svg path:not(#hp){fill:#1f3a2e}#ui.dk #rail .pp{border-color:#1f3a2e}
+#ui.dk ~ #shade{opacity:0!important}
+#ui .top{position:absolute;top:2.6vh;left:0;right:0;display:flex;justify-content:center;gap:calc(5*var(--u));font-weight:800;font-size:calc(3.8*var(--u));text-shadow:0 1px 4px rgba(0,0,0,.6)}
+#ui .top span{opacity:.6}#ui .top b{border-bottom:2px solid #fff;padding-bottom:.2em}
+#rail{position:absolute;right:3vw;display:flex;flex-direction:column;align-items:center;gap:calc(3.6*var(--u));font-weight:800;font-size:calc(2.6*var(--u));text-shadow:0 1px 3px rgba(0,0,0,.6)}
+#rail div{display:flex;flex-direction:column;align-items:center;gap:calc(.6*var(--u))}
+#rail svg{width:calc(8.4*var(--u));height:calc(8.4*var(--u));filter:drop-shadow(0 1px 3px rgba(0,0,0,.5))}
+#rail .pp{width:calc(10*var(--u));height:calc(10*var(--u));border-radius:50%;border:2px solid #fff;background:var(--vert);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display';font-size:calc(5*var(--u));color:var(--laiton)}
+#who{position:absolute;left:4vw;right:22vw;text-shadow:0 1px 4px rgba(0,0,0,.75)}
+#who .u{font-weight:900;font-size:calc(3.8*var(--u))}
+#who .tx{margin-top:calc(1*var(--u));font-size:calc(3.2*var(--u));line-height:1.35}
+#shade{position:absolute;left:0;right:0;bottom:0;height:26vh;background:linear-gradient(transparent,rgba(0,0,0,.6));z-index:29}
+#prog{position:absolute;left:0;bottom:0;height:3px;background:#fff;z-index:31}
+#flash{position:absolute;inset:0;z-index:45;background:#fff;opacity:0;pointer-events:none}
+/* fin */
+#end{position:absolute;inset:0;z-index:50;opacity:0;background:radial-gradient(70% 55% at 50% 45%,#2a4d3d,#13261d 85%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3.4*var(--u));text-align:center;padding:0 8vw}
+.brand{font-family:'Playfair Display';font-weight:500;letter-spacing:.24em;line-height:1;white-space:nowrap;color:#fff;text-align:center}
+.brand small{display:block;font-family:Inter;font-weight:800;font-size:.2em;letter-spacing:.42em;margin-top:.6em;color:var(--laiton)}
+#end .brand{font-size:calc(13*var(--u))}
+#end .ln{width:calc(14*var(--u));height:1px;background:var(--laiton)}
+#end .q{font-family:'Playfair Display';font-style:italic;font-size:calc(6.4*var(--u));line-height:1.2}
+#end .cta{background:var(--laiton);color:var(--vert2);padding:calc(1.6*var(--u)) calc(5*var(--u));font-weight:900;font-size:calc(3.6*var(--u));letter-spacing:.16em;border-radius:999px}
+#end .ad{font-size:calc(3.2*var(--u));color:#cfd8d2;letter-spacing:.06em}
+#end .cr{position:absolute;bottom:2vh;left:5vw;right:5vw;font-size:calc(1.9*var(--u));color:rgba(255,255,255,.45)}
+/* couverture */
+#cover{position:absolute;inset:0;z-index:60;background:var(--ivoire);color:var(--vert);overflow:hidden}
+#cover .brand{position:absolute;left:50%;transform:translateX(-50%);color:var(--vert);font-size:calc(7*var(--u))}
+#cover .tt{position:absolute;left:5vw;right:5vw;text-align:center;font-family:'Playfair Display';font-weight:700;font-size:calc(8.6*var(--u));line-height:1.05;letter-spacing:-.01em}
+#cover .tt i{display:block;font-weight:500;color:var(--laiton);font-size:.86em;margin-top:.15em}
+#cover .tt small{display:block;font-family:Inter;font-weight:900;font-size:.32em;letter-spacing:.4em;color:#7d6a4b;margin-bottom:.4em}
+#cover .stk{position:absolute;z-index:4;width:calc(22*var(--u));height:calc(22*var(--u));border-radius:50%;background:var(--vert);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-family:'Playfair Display';font-weight:700;line-height:1;box-shadow:0 0 0 calc(.7*var(--u)) var(--ivoire),0 0 0 calc(1.1*var(--u)) var(--laiton),0 calc(1.4*var(--u)) calc(4*var(--u)) rgba(0,0,0,.3)}
+#cover .stk b{font-size:calc(11*var(--u))}#cover .stk small{font-family:Inter;font-weight:900;font-size:calc(2.4*var(--u));letter-spacing:.24em;color:var(--laiton)}
+#cover .pill{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--vert);color:#fff;padding:calc(1.4*var(--u)) calc(4.6*var(--u));font-weight:900;font-size:calc(3.4*var(--u));letter-spacing:.2em;border-radius:999px}
+#cover .hand{position:absolute;font-family:Caveat;font-size:calc(6*var(--u));color:var(--laiton);transform:rotate(-4deg);white-space:nowrap}
+</style></head><body>
+<div id="stage"></div>
+<div id="shade"></div>
+<div id="ui"><div class="top"><span>Abonnements</span><b>Pour toi</b></div>
+ <div id="rail"><div><div class="pp">L</div></div>
+  <div><svg viewBox="0 0 24 24"><path id="hp" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.1 1.7-1.9 3.2-3.1 5.3-3.1 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z" fill="#fff"/></svg><span id="likes">61,7 k</span></div>
+  <div><svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 01-12.6 7.4L3 20.5l1.7-5A8.5 8.5 0 1121 11.5z" fill="#fff"/></svg><span>2 318</span></div>
+  <div><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z" fill="#fff"/></svg><span>12,1 k</span></div>
+  <div><svg viewBox="0 0 24 24"><path d="M14 4l8 8-8 8v-5c-6 0-9 2-12 6 1-6 4-11 12-12z" fill="#fff"/></svg><span>5 902</span></div></div>
+ <div id="who"><div class="u">@julien.vendmamaison</div><div class="tx">Lundi : en vente. Dimanche : vendu. Je n'y croyais pas 🤯 #immobilier #vente</div></div>
+ <div id="prog"></div></div>
+<div id="flash"></div>
+<div id="end"><div class="brand">LUMEN<small>IMMOBILIER</small></div><div class="ln"></div>
+ <div class="q">Vendre vite.<br>Vendre au bon prix.</div>
+ <div class="ad">Estimation offerte · Shooting pro · Visites qualifiées</div>
+ <div class="cta">ESTIMER MA MAISON</div>
+ <div class="cr">Démo conceptuelle · « Lumen Immobilier » est une agence fictive · personnage, prix, offres et avis fictifs · photos Unsplash · création E-DUST Solutions</div></div>
+<div id="cover"><div id="cvs"></div>
+ <div class="brand">LUMEN<small>IMMOBILIER</small></div>
+ <div class="tt"><small>POV</small>Lundi, tu mets ta maison en vente.<i>Dimanche…</i></div>
+ <div class="stk"><b>7</b><small>JOURS</small></div>
+ <div class="hand">spoiler : c'est vendu 🔑</div>
+ <div class="pill">▶ REGARDE JUSQU'AU BOUT</div></div>
+<script>
+const COVER=2.4,A='assets/';
+const SD=[3.6,3.6,3.8,3.6,3.8,3.4,3.6,3.8];const T=[];SD.reduce((a,d,i)=>(T[i]=a,a+d),0);const END=SD.reduce((a,b)=>a+b,0);window.DUR=COVER+END+5;
+const st=Q('#stage');function sc(cls,html){const e=document.createElement('div');e.className='sc '+cls;e.innerHTML=html;st.appendChild(e);return e}
+const day=(j,d)=>`<div class="day">${d}<b>${j}</b></div>`;
+const S=[
+ sc('v',day('LUNDI','jour 1')+`<div class="ph" id="p0"><img src="${A}maison.jpg"></div><div class="mini" id="m0">ESTIMATION OFFERTE</div><div class="big" id="b0">0 €</div>`),
+ sc('v',day('MARDI','jour 2')+`<div class="ph" id="p1"><img src="${A}salon.jpg"></div><div class="vf" id="vf"><i class="a"></i><i class="b"></i><i class="c"></i><i class="d"></i><span class="f"></span></div>
+  <div class="thumbs" id="th">${['cuisine','chambre','bain'].map(n=>`<div><img src="${A}${n}.jpg"></div>`).join('')}</div><div class="lbl" id="l1">Shooting <i>pro.</i><br>Chaque pièce sublimée.</div>`),
+ sc('i',day('MERCREDI','jour 3')+`<div class="ann" id="an"><img src="${A}palmier.jpg"><div class="in"><div class="pr">845 000 €</div><div class="ti">Maison familiale · 5 pièces · jardin &amp; piscine</div>
+  <div class="vw"><span id="vw">👁 0 vues</span><span id="fv">♥ 0</span></div></div></div>${'<div class="ht">♥</div>'.repeat(10)}<div class="lbl" id="l2">En ligne.<br><i>Et tout le monde la veut.</i></div>`),
+ sc('i',day('JEUDI','jour 4')+`<div class="ph" id="p3"><img src="${A}facade.jpg"></div><div class="cal" id="cal">${['9 h','10 h','11 h','14 h','15 h','16 h','17 h','18 h','19 h'].map(h=>`<div>${h}</div>`).join('')}</div><div class="complet" id="cp">COMPLET</div>`),
+ sc('v',day('VENDREDI','jour 5')+`<div class="ph" id="p4"><img src="${A}jardin.jpg"></div>${[['Offre reçue','820 000 €','9:12'],['Offre reçue','838 000 €','11:47'],['Offre reçue · au prix','845 000 €','16:03']].map(o=>`<div class="nt"><i>L</i><div><b>${o[0]}</b><span>${o[1]}</span></div><small>${o[2]}</small></div>`).join('')}`),
+ sc('i',day('SAMEDI','jour 6')+`<div class="doc" id="doc"><h3>Compromis de vente</h3><p></p><p style="width:80%"></p><p style="width:90%"></p><p style="width:60%"></p>
+  <svg viewBox="0 0 300 80"><path id="sig" d="M10 55 C 30 10, 45 70, 60 40 S 90 20, 100 50 S 130 60, 140 30 C 150 10, 160 70, 175 45 S 210 30, 225 50 C 240 65, 260 20, 290 35" fill="none" stroke="#1f3a2e" stroke-width="3.5" stroke-linecap="round"/></svg><div class="sg">Signature</div></div>`),
+ sc('v',day('DIMANCHE','jour 7')+`<div class="ph" id="p6"><img src="${A}cles.jpg"></div><div class="vendu" id="vd">VENDU</div><div class="lbl" id="l6">En 7 jours.<br><i>Au prix.</i></div>${'<div class="conf"></div>'.repeat(40)}`),
+ sc('i',`<div class="proof" id="pr"><div class="n">4,8<small>/5</small></div><div class="l">312 AVIS CLIENTS</div>
+  <div class="row"><div>7 j<small>DÉLAI MOYEN</small></div><div>98 %<small>DU PRIX</small></div></div></div><div class="ph" id="p7"><img src="${A}moderne.jpg"></div>`)];
+['maison','salon'].forEach(n=>{const d=document.createElement('div');d.className='ph';d.innerHTML=`<img src="${A}${n}.jpg">`;Q('#cvs').appendChild(d)});
+function fit(img,mw,mh){const ar=img.naturalWidth/img.naturalHeight||1.5;let w=mw,h=w/ar;if(h>mh){h=mh;w=h*ar}return[w,h]}
+function put(el,x,y,w,h,extra){el.style.width=w+'px';if(h!=null)el.style.height=h+'px';el.style.transform=`translate(${x}px,${y}px) ${extra||''}`}
+const fmt=n=>Math.round(n).toLocaleString('fr-FR').replace(/ | /g,' ');
+const like0=tc=>tc>T[2]+1.2;
+function render(TT){
+ measure();const t=TT-COVER;
+ const cv=Q('#cover');cv.style.display=TT<COVER+.4?'block':'none';
+ if(TT<COVER+.4){cv.style.opacity=1-seg(TT,COVER-.3,COVER+.4);
+  [...Q('#cvs').children].forEach((p,i)=>{const[w,h]=fit(p.querySelector('img'),W*.88,H*.24);put(p,(W-w)/2,H*(R45?.4:.43)+i*(h+H*.012),w,h,`rotate(${i?1.2:-1.2}deg) scale(${1+.015*TT})`)});
+  cv.querySelector('.brand').style.top=(R45?3.5:4.5)+'vh';cv.querySelector('.brand').style.fontSize=(R45?5.6:7)*U+'px';
+  cv.querySelector('.tt').style.top=(R45?14:15)+'vh';const sk=cv.querySelector('.stk');sk.style.left=(R45?76:73)+'vw';sk.style.top=(R45?33:36)+'vh';sk.style.transform=`rotate(${-8+Math.sin(TT*3)*5}deg) scale(${1+.04*Math.sin(TT*5)})`;
+  const hd=cv.querySelector('.hand');hd.style.left=(R45?8:8)+'vw';hd.style.top=(R45?33.5:39)+'vh';hd.style.display=R45?'none':'block';cv.querySelector('.pill').style.top=(R45?91:93)+'vh';}
+ const tc=Math.max(0,t);
+ S.forEach((e,i)=>{const a=T[i],b=a+SD[i],lt=tc-a;const vis=tc>=a&&tc<b+.35&&tc<END+.4;e.style.visibility=vis?'visible':'hidden';if(!vis)return;e.style.zIndex=i+1;
+  const pin=eio(seg(lt,0,.38));e.style.clipPath=i==0?'none':`circle(${pin*130}% at ${i%2?85:15}% ${i%2?15:85}%)`;
+  const dy=e.querySelector('.day');if(dy){const p=eb(seg(lt,.05,.45));dy.style.top=(R45?7:9)+'vh';dy.style.opacity=cl(p*2);dy.style.transform=`translateX(${(1-p)*-12}vw)`}
+  if(i==0){const p=Q('#p0');const[w,h]=fit(p.querySelector('img'),W*.88,H*.32);put(p,(W-w)/2,H*.27,w,h,`scale(${1+.04*seg(lt,0,SD[0])})`);
+   Q('#m0').style.top=(R45?64:63)+'vh';Q('#m0').style.color='#cfd8d2';const b0=Q('#b0');b0.style.top=(R45?68:67)+'vh';b0.style.fontSize=(R45?12:14)*U+'px';
+   const v=845000*eo(seg(lt,.5,2.4));b0.textContent=fmt(Math.round(v/1000)*1000)+' €';b0.style.color=lt>2.4?'#e3c58f':'#fff';b0.style.transform=`scale(${1+.08*Math.exp(-((lt-2.45)**2)/.01)})`;}
+  if(i==1){const p=Q('#p1');const[w,h]=fit(p.querySelector('img'),W*.9,H*.3);const y=H*.26;put(p,(W-w)/2,y,w,h);
+   const vf=Q('#vf');vf.style.left=(W-w)/2+w*.06+'px';vf.style.top=y+h*.08+'px';vf.style.width=w*.88+'px';vf.style.height=h*.84+'px';vf.style.opacity=lt<2?1:0;
+   p.style.filter=`brightness(${1+2.2*Math.max(Math.exp(-((lt-.8)**2)/.003),Math.exp(-((lt-1.25)**2)/.003),Math.exp(-((lt-1.7)**2)/.003))})`;
+   const th=Q('#th');th.style.left=(W-th.offsetWidth)/2+'px';th.style.top=(R45?60:58)+'vh';[...th.children].forEach((c,k)=>{const q=eb(seg(lt,.85+k*.45,1.2+k*.45));c.style.opacity=cl(q*2);c.style.transform=`rotate(${(k-1)*6}deg) scale(${.5+.5*q})`});
+   const l=Q('#l1');l.style.top=(R45?78:75)+'vh';l.style.opacity=eo(seg(lt,2.2,2.7))}
+  if(i==2){const an=Q('#an');const im=an.querySelector('img');const[w,h]=fit(im,W*.84,H*.3);im.style.height=h+'px';const p=eb(seg(lt,.2,.7));put(an,(W-w)/2,H*.25+(1-p)*H*.06,w,null,`scale(${.94+.06*p})`);an.style.opacity=cl(p*2);
+   const vw=Math.round(12480*Math.pow(seg(lt,.8,3.2),1.6)),fv=Math.round(1312*Math.pow(seg(lt,1,3.2),1.6));Q('#vw').textContent='👁 '+fmt(vw)+' vues';Q('#fv').textContent='♥ '+fmt(fv);
+   e.querySelectorAll('.ht').forEach((h,k)=>{const d=lt-1-k*.2;h.style.opacity=d>0&&d<1.4?1-d/1.4:0;h.style.left=(60+hash(k)*30)+'vw';h.style.top=(64-d*20)+'vh';h.style.color=k%2?'#c0392b':'#b8935a';h.style.transform=`scale(${.6+hash(k+3)*.8})`});
+   const l=Q('#l2');l.style.top=(R45?72:72)+'vh';l.style.opacity=eo(seg(lt,1.6,2.1))}
+  if(i==3){const p=Q('#p3');const[w,h]=fit(p.querySelector('img'),W*.88,H*.22);put(p,(W-w)/2,H*.25,w,h);
+   const cal=Q('#cal');cal.style.top=(R45?52:52)+'vh';[...cal.children].forEach((c,k)=>c.classList.toggle('f',lt>.6+k*.22));
+   const cp=Q('#cp');const s=slam(lt,2.8,2.4);cp.style.opacity=s.o;cp.style.left='26vw';cp.style.top=(R45?62:60)+'vh';cp.style.transform=`rotate(-10deg) scale(${s.s})`}
+  if(i==4){const p=Q('#p4');const[w,h]=fit(p.querySelector('img'),W*.9,H*.26);put(p,(W-w)/2,H*.24,w,h);p.style.filter='brightness(.75)';
+   e.querySelectorAll('.nt').forEach((n,k)=>{const q=eb(seg(lt,.4+k*.9,.8+k*.9));n.style.top=(R45?50:48)+k*(R45?11:10)+'vh';n.style.opacity=cl(q*2);n.style.transform=`translateY(${(1-q)*-6}vh) scale(${.9+.1*q})`;
+    if(k==2)n.style.boxShadow=`0 0 0 ${q*U*.6}px #b8935a,0 calc(1.6*var(--u)) calc(5*var(--u)) rgba(0,0,0,.35)`})}
+  if(i==5){const d=Q('#doc');d.style.top=(R45?24:26)+'vh';const p=eb(seg(lt,.1,.6));d.style.opacity=cl(p*2);d.style.transform=`rotate(${(1-p)*-4}deg) translateY(${(1-p)*4}vh)`;
+   const sg=Q('#sig');const L=sg.getTotalLength();sg.style.strokeDasharray=L;sg.style.strokeDashoffset=L*(1-eio(seg(lt,.9,2.6)))}
+  if(i==6){const p=Q('#p6');const[w,h]=fit(p.querySelector('img'),W*.88,H*.34);put(p,(W-w)/2,H*.25,w,h,`scale(${1+.05*seg(lt,0,SD[6])})`);
+   const vd=Q('#vd');const s=slam(lt,.7,2.6);vd.style.opacity=s.o;vd.style.top=(R45?33:34)+'vh';vd.style.transform=`translateX(-50%) rotate(-8deg) scale(${s.s})`;
+   const l=Q('#l6');l.style.top=(R45?66:66)+'vh';l.style.textAlign='center';l.style.opacity=eo(seg(lt,1.2,1.7));
+   e.querySelectorAll('.conf').forEach((c,k)=>{const d=lt-.75;const on=d>0;c.style.opacity=on?1-seg(d,2,2.8):0;c.style.background=['#b8935a','#f4efe6','#e3c58f','#2a4d3d'][k%4];
+    c.style.left=(50+(hash(k)-.5)*90*Math.min(1,d*2))+'vw';c.style.top=(36+(hash(k+5)-.6)*30*Math.min(1,d*2)+d*d*12)+'vh';c.style.transform=`rotate(${d*400*(hash(k+2)-.5)}deg)`})}
+  if(i==7){const pr=Q('#pr');pr.style.top=(R45?6:9)+'vh';[...pr.children].forEach((c,k)=>{const q=eb(seg(lt,.1+k*.25,.6+k*.25));c.style.opacity=cl(q*2);c.style.transform=`scale(${.7+.3*q})`});
+   pr.querySelector('.n').firstChild.nodeValue=Math.min(4.8,4.8*eo(seg(lt,.1,1.2))).toFixed(1).replace('.',',');
+   const p=Q('#p7');const[w,h]=fit(p.querySelector('img'),W*.6,H*(R45?.3:.34));put(p,(W-w)/2,H*(R45?.5:.47),w,h);p.style.opacity=eo(seg(lt,1,1.5))}
+ });
+ const cur=S.findIndex((e,i)=>tc>=T[i]+.2&&tc<T[i]+SD[i]+.2);const dk=TT>=COVER&&cur>=0&&S[cur].classList.contains('i');Q('#ui').classList.toggle('dk',dk);if(!like0(tc))Q('#hp').setAttribute('fill',dk?'#1f3a2e':'#fff');
+ const ui=Q('#ui');ui.style.opacity=TT<COVER?0:1-seg(tc,END-.2,END+.2);Q('#shade').style.opacity=dk?0:ui.style.opacity;
+ Q('#rail').style.top=(R45?42:50)+'vh';Q('#who').style.top=(R45?84:86)+'vh';Q('#who .tx').style.display=R45?'none':'block';
+ Q('#prog').style.width=seg(tc,0,END)*100+'vw';const like=tc>T[2]+1.2;if(like)Q('#hp').setAttribute('fill','#ff2c55');Q('#likes').textContent=like?'61,8 k':'61,7 k';
+ Q('#flash').style.opacity=Math.max(0,1-Math.abs(tc-(T[6]+.75))/.12)*.6;
+ const en=Q('#end');en.style.opacity=TT<COVER?0:seg(tc,END-.1,END+.4);
+ [...en.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eo(seg(tc,END+.15+i*.2,END+.75+i*.2));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*2}vh)`});
+ en.querySelector('.brand').style.fontSize=(R45?10:13)*U+'px';
+}
+window.render=render;
+</script></body></html>
