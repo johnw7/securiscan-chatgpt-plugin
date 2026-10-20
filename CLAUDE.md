@@ -29,6 +29,7 @@ Réponds en français, concret, textes prêts à copier. Termine chaque réponse
 ## Fabrication des vidéos (technique)
 - Un dossier par client dans `campagnes/<client>/` : `prep_assets.sh` (télécharge les visuels du site dans img/ → assets/), une page HTML d'animation (`window.render(t)`, `window.DUR`, aides de `campagnes/demos_portfolio/common.js`), `build_audio.py` (bruitages via `campagnes/demos_portfolio/audiolib.py` ; `python3 build_audio.py bruitages`).
 - Partir d'un modèle existant proche : `campagnes/etanglaville/reel_nouvel_arrivant.html` (Checklist), `campagnes/caralline/ugc_pov.html` (POV), `campagnes/avenir/tiktok_mutation.html` (POV immobilier), `campagnes/portfolio_fictif/blanche/film_photo_et_puis_un_jour.html` (Émotion), `campagnes/portfolio_fictif/lumen/tiktok_7jours.html`.
+- Outils : installés par `scripts/setup_cloud.sh` (script d'installation de l'environnement cloud) ; voix Piper dans `~/tts/vits-piper-fr_FR-siwis-medium`.
 - Serveur local depuis la racine : `python3 -m http.server 8765 --bind 127.0.0.1`.
 - Rendu (depuis `campagnes/demos_portfolio`, `NODE_PATH=$(npm root -g)`) : `PAGE=../<client>/<page>.html node render.cjs 916|45 video <out.mp4>` ; contrôle : `... stills <dossier> t1 t2 …` et vérifier chaque scène en 9:16 et 4:5 avant le rendu vidéo.
 - Export : vidéo `-an -crf 21 -maxrate 6M -pix_fmt yuv420p -movflags +faststart`, miniature = image 0 (`select=eq(n\,0)`) intégrée en `attached_pic`, ne pas utiliser `-shortest` avec la miniature intégrée ; version mail 720p ~700 kb/s.
