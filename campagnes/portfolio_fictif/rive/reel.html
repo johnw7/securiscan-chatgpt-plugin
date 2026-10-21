@@ -1,0 +1,140 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>RIVE CONCEPT (boutique fictive) — Reel « Une pièce. Trois façons de la porter. »</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;0,6..96,900;1,6..96,500&family=Jost:wght@400;500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<script src="assets/clips/nf.js"></script>
+<style>
+/* marque fictive : papier ivoire, encre noire, rouge éditorial ; Bodoni Moda + Jost ; esthétique magazine de mode */
+:root{--papier:#f3eee6;--encre:#121212;--rouge:#c4122f;--camel:#a77b4f;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:var(--papier);color:var(--encre);font-family:Jost,sans-serif}
+.sc{position:absolute;inset:0;overflow:hidden;visibility:hidden;background:var(--papier)}
+.sc.nuit{background:#121212;color:var(--papier)}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.08;background-image:radial-gradient(#000 .6px,transparent .8px);background-size:4px 4px}
+.sc.nuit .grain{background-image:radial-gradient(#fff .6px,transparent .8px);opacity:.05}
+/* en-tête de page de magazine */
+.mh{position:absolute;left:6vw;right:6vw;display:flex;justify-content:space-between;align-items:baseline;z-index:6;font-weight:500;font-size:calc(2.5*var(--u));letter-spacing:.3em;border-bottom:1px solid currentColor;padding-bottom:calc(1*var(--u))}
+.mh b{font-family:'Bodoni Moda';font-weight:900;font-size:calc(4.4*var(--u));letter-spacing:.12em}
+/* photo encadrée */
+.pg{position:absolute;left:0;top:0;background:#fff;padding:calc(1.4*var(--u)) calc(1.4*var(--u)) calc(5.4*var(--u));box-shadow:0 calc(2*var(--u)) calc(6*var(--u)) rgba(0,0,0,.22)}
+.sc.nuit .pg{background:#f3eee6}
+.pg .im{position:relative;width:100%;height:100%;overflow:hidden;background:#000}
+.pg img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.pg .cp{position:absolute;left:calc(1.6*var(--u));right:calc(1.6*var(--u));bottom:calc(1.3*var(--u));display:flex;justify-content:space-between;font-size:calc(2.3*var(--u));letter-spacing:.2em;color:#555}
+.pg .cp i{font-family:'Bodoni Moda';font-style:italic;letter-spacing:0;font-size:calc(3*var(--u));color:#121212}
+/* étiquette */
+.tag{position:absolute;z-index:8;background:var(--papier);color:var(--encre);border:1.5px solid var(--encre);border-radius:calc(.8*var(--u)) calc(.8*var(--u)) calc(.8*var(--u)) calc(3*var(--u));padding:calc(1.4*var(--u)) calc(2.2*var(--u)) calc(1.4*var(--u)) calc(4*var(--u));font-size:calc(2.4*var(--u));letter-spacing:.14em;line-height:1.35;transform-origin:0 50%;white-space:nowrap}
+.tag::before{content:"";position:absolute;left:calc(1.4*var(--u));top:50%;width:calc(1.3*var(--u));height:calc(1.3*var(--u));margin-top:calc(-.65*var(--u));border-radius:50%;border:1.5px solid var(--encre)}
+.tag b{display:block;font-family:'Bodoni Moda';font-weight:700;letter-spacing:.02em;font-size:calc(3.6*var(--u))}
+/* titres éditoriaux */
+.lk{position:absolute;left:6vw;right:18vw;z-index:7}
+.lk .n{font-weight:700;font-size:calc(2.6*var(--u));letter-spacing:.34em;color:var(--rouge)}
+.lk .t{font-family:'Bodoni Moda';font-weight:900;font-size:calc(19*var(--u));line-height:.86;letter-spacing:.01em;margin-top:calc(.6*var(--u))}
+.lk .s{font-family:'Bodoni Moda';font-style:italic;font-weight:500;font-size:calc(5*var(--u));line-height:1.15;margin-top:calc(1.6*var(--u))}
+.slow{position:absolute;z-index:8;font-weight:700;font-size:calc(2.2*var(--u));letter-spacing:.22em;color:#fff;background:rgba(18,18,18,.6);padding:calc(.6*var(--u)) calc(1.4*var(--u));border-radius:999px}
+/* triptyque */
+.pol{position:absolute;left:0;top:0;background:#fff;padding:calc(1*var(--u)) calc(1*var(--u)) calc(6*var(--u));box-shadow:0 calc(1.6*var(--u)) calc(5*var(--u)) rgba(0,0,0,.25)}
+.pol .im{position:relative;width:100%;height:100%;overflow:hidden;background:#000}
+.pol img{position:absolute;left:0;top:0;width:100%;height:100%}
+.pol .hw{position:absolute;left:0;right:0;bottom:calc(1*var(--u));text-align:center;font-family:Caveat;font-size:calc(4.6*var(--u));color:#121212}
+.big3{position:absolute;left:6vw;right:6vw;z-index:7;font-family:'Bodoni Moda';font-weight:900;line-height:.9;letter-spacing:-.02em}
+.big3 i{font-weight:500;color:var(--rouge)}
+.stamp{position:absolute;z-index:9;font-weight:700;font-size:calc(2.6*var(--u));letter-spacing:.24em;color:var(--rouge);border:2px solid var(--rouge);padding:calc(.6*var(--u)) calc(1.6*var(--u));border-radius:calc(.5*var(--u))}
+.ill{position:absolute;left:6vw;right:18vw;z-index:7;font-size:calc(2.1*var(--u));letter-spacing:.12em;color:#7a746c}
+.sc.nuit .ill{color:#a9a39a}
+#flash{position:absolute;inset:0;z-index:45;background:#fff;opacity:0}
+#snap{position:absolute;z-index:46;left:50%;top:44%;font-family:'Bodoni Moda';font-weight:900;font-size:calc(9*var(--u));color:var(--rouge);opacity:0;white-space:nowrap}
+/* fin */
+#end{position:absolute;inset:0;z-index:50;opacity:0;background:var(--papier);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3.4*var(--u));text-align:center;padding:0 8vw}
+.logo{font-family:'Bodoni Moda';font-weight:900;letter-spacing:.08em;line-height:.85;white-space:nowrap}
+.logo small{display:block;font-family:Jost;font-weight:500;font-size:.16em;letter-spacing:.7em;margin-top:.6em}
+#end .logo{font-size:calc(22*var(--u))}
+#end .q{font-family:'Bodoni Moda';font-style:italic;font-weight:500;font-size:calc(7*var(--u));line-height:1.12}
+#end .cta{background:var(--encre);color:var(--papier);padding:calc(1.8*var(--u)) calc(6*var(--u));font-weight:700;font-size:calc(3.4*var(--u));letter-spacing:.24em}
+#end .ad{font-size:calc(3*var(--u));letter-spacing:.12em;color:#6d665d}
+#end .cr{position:absolute;bottom:2vh;left:5vw;right:5vw;font-size:calc(1.9*var(--u));color:rgba(18,18,18,.45)}
+/* couverture de magazine */
+#cover{position:absolute;inset:0;z-index:60;background:var(--papier);overflow:hidden}
+#cover .logo{position:absolute;left:50%;transform:translateX(-50%);font-size:calc(34*var(--u));letter-spacing:.04em}
+#cover .is{position:absolute;left:6vw;right:6vw;display:flex;justify-content:space-between;font-weight:500;font-size:calc(2.4*var(--u));letter-spacing:.3em;border-top:1px solid #121212;border-bottom:1px solid #121212;padding:calc(.8*var(--u)) 0}
+#cover .hl{position:absolute;left:6vw;right:6vw;text-align:center;font-family:'Bodoni Moda';font-weight:900;font-size:calc(9.4*var(--u));line-height:.98;letter-spacing:-.02em}
+#cover .hl i{display:block;font-weight:500;color:var(--rouge)}
+#cover .st{position:absolute;z-index:5;width:calc(20*var(--u));height:calc(20*var(--u));border-radius:50%;background:var(--rouge);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;line-height:1;box-shadow:0 calc(1*var(--u)) calc(3*var(--u)) rgba(0,0,0,.25)}
+#cover .st b{font-family:'Bodoni Moda';font-weight:900;font-size:calc(8.4*var(--u))}#cover .st small{font-weight:700;font-size:calc(2.4*var(--u));letter-spacing:.24em;margin-top:.2em}
+#cover .pill{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;background:#121212;color:var(--papier);padding:calc(1.4*var(--u)) calc(4.6*var(--u));font-weight:700;font-size:calc(3.2*var(--u));letter-spacing:.24em}
+#cover .dm{position:absolute;left:0;right:0;text-align:center;font-size:calc(2*var(--u));letter-spacing:.14em;color:#7a746c}
+</style></head><body>
+<div id="stage"></div><div id="flash"></div><div id="snap">*clac*</div>
+<div id="end"><div class="logo">RIVE<small>CONCEPT</small></div>
+ <div class="q">Ta nouvelle pièce préférée<br>t'attend.</div>
+ <div class="ad">Mode femme · Accessoires · Conseils de style</div>
+ <div class="cta">VENIR ESSAYER</div>
+ <div class="cr">Démo conceptuelle · « Rive Concept » est une boutique fictive · trois inspirations, images d'illustration Coverr · création E-DUST Solutions</div></div>
+<div id="cover"><div class="logo">RIVE<small>CONCEPT</small></div>
+ <div class="is"><span>N° 01</span><span>AUTOMNE</span><span>LE STYLE</span></div>
+ <div class="hl">Une pièce.<i>Trois façons de la porter.</i></div>
+ <div id="cvs"></div>
+ <div class="st"><b>3</b><small>LOOKS</small></div>
+ <div class="pill">▶ OUVRE LE MAGAZINE</div>
+ <div class="dm">démo · marque fictive · images d'illustration</div></div>
+<script>
+const COVER=2.4,A='assets/clips/';
+const SD=[3.0,3.2,4.0,4.0,4.0,3.8,3.4];const T=[];SD.reduce((a,d,i)=>(T[i]=a,a+d),0);const END=SD.reduce((a,b)=>a+b,0);window.DUR=COVER+END+4.6;
+const LOOKS=[['jour','LOOK 01','JOUR','Café à la main,<br>marinière et veste.','p. 12'],['bureau','LOOK 02','BUREAU','Chemise blanche,<br>long manteau.','p. 13'],['soiree','LOOK 03','SOIRÉE','Chaîne dorée,<br>et le tour est joué.','p. 14']];
+const st=Q('#stage');function sc(cls,html){const e=document.createElement('div');e.className='sc '+cls;e.innerHTML='<div class="grain"></div>'+html;st.appendChild(e);return e}
+const mh=(l,r)=>`<div class="mh"><b>RIVE</b><span>${l}</span><span>${r}</span></div>`;
+const pg=(n,id,cap)=>`<div class="pg" id="${id}"><div class="im"><img src="${A}${n}/001.jpg"></div><div class="cp">${cap}</div></div>`;
+const S=[
+ sc('',mh('LE NUMÉRO D\'AUTOMNE','p. 01')+pg('rayon','p0','<span>EN BOUTIQUE</span><i>les nouveautés</i>')+`<div class="lk" id="k0"><div class="n">ÉDITO</div><div class="s" style="font-size:calc(7*var(--u))">Cette saison,<br>on mise sur une seule pièce.</div></div>`),
+ sc('nuit',mh('LA PIÈCE','p. 08')+pg('piece','p1','<span>DÉTAIL</span><i>boutons dorés</i>')+`<div class="tag" id="tg"><b>La veste noire</b>prix : en boutique</div><div class="lk" id="k1"><div class="n">LA PIÈCE</div><div class="t" style="font-size:calc(12*var(--u));line-height:.95">LA VESTE<br>NOIRE.</div></div>`),
+ ...LOOKS.map((l,i)=>sc(i==2?'nuit':'',mh(l[1],l[4])+pg(l[0],'pl'+i,`<span>${l[1]}</span><i>${l[2].toLowerCase()}</i>`)+`<div class="slow">RALENTI ×0,5</div><div class="lk"><div class="n">${l[1]}</div><div class="t">${l[2]}</div><div class="s">${l[3]}</div></div>`)),
+ sc('',mh('LE RÉCAP','p. 15')+LOOKS.map((l,i)=>`<div class="pol" id="po${i}"><div class="im"><img src="${A}${l[0]}/001.jpg"></div><div class="hw">${l[2].toLowerCase()}</div></div>`).join('')+`<div class="big3" id="b3">1 pièce.<br><i>3 looks.</i></div><div class="stamp" id="sp">LA VESTE NOIRE</div><div class="ill" id="il">trois inspirations · images d'illustration · démo</div>`),
+ sc('',mh('LA CABINE','p. 16')+pg('cabine','p6','<span>RIVE CONCEPT</span><i>en cabine</i>')+`<div class="lk" id="k6"><div class="n">À TOI</div><div class="s" style="font-size:calc(7*var(--u))">Viens l'essayer.<br>On te conseille.</div></div>`)];
+LOOKS.forEach(l=>{const d=document.createElement('div');d.className='pol';d.innerHTML=`<div class="im"><img src="${A}${l[0]}/060.jpg"></div><div class="hw">${l[2].toLowerCase()}</div>`;Q('#cvs').appendChild(d)});
+function fit(img,mw,mh){const ar=img.naturalWidth/img.naturalHeight||16/9;let w=mw,h=w/ar;if(h>mh){h=mh;w=h*ar}return[w,h]}
+function put(el,x,y,w,h,extra){el.style.width=w+'px';el.style.height=h+'px';el.style.transform=`translate(${x}px,${y}px) ${extra||''}`}
+let PEND=[];
+function frame(el,n,f){const im=el.querySelector('img');const k=String(Math.min(NF[n],Math.max(1,Math.floor(f)+1))).padStart(3,'0');const src=`${A}${n}/${k}.jpg`;if(im.getAttribute('src')!==src){im.setAttribute('src',src);PEND.push(im.decode().catch(()=>{}))}}
+// cadre « page de magazine » : photo entière + légende sous la photo
+function page(el,n,lt,mw,mh,y,rot,s){frame(el,n,lt*30);const im=el.querySelector('img');const p=1.4*U,pb=5.4*U;const[w,h]=fit(im,mw-2*p,mh-p-pb);const W2=w+2*p,H2=h+p+pb;
+ el.querySelector('.im').style.height=h+'px';put(el,(W*.45)-W2/2,y,W2,H2,`rotate(${rot}deg) scale(${s})`);return{x:W*.45-W2/2,y,w:W2,h:H2,ix:W*.45-W2/2+p,iy:y+p,iw:w,ih:h}}
+function draw(TT){
+ measure();const t=TT-COVER;const tc=Math.max(0,t);
+ const cv=Q('#cover');cv.style.display=TT<COVER+.4?'block':'none';
+ if(TT<COVER+.4){cv.style.opacity=1-seg(TT,COVER-.3,COVER+.4);
+  const lg=cv.querySelector('.logo');lg.style.top=(R45?2.5:4)+'vh';lg.style.fontSize=(R45?22:25)*U+'px';
+  cv.querySelector('.is').style.top=(R45?24:20)+'vh';const hl=cv.querySelector('.hl');hl.style.top=(R45?30:25.5)+'vh';hl.style.fontSize=(R45?7.4:9)*U+'px';
+  const ps=[...Q('#cvs').children];const pw=W*(R45?.26:.28);
+  ps.forEach((p,i)=>{const im=p.querySelector('img');const iw=pw-2*U,ih=iw*9/16;p.querySelector('.im').style.height=ih+'px';const H2=ih+7*U;
+   const x=W*(.06+i*.305)+(R45?W*.02:0),y=H*(R45?.45:.5)+(i==1?-H*.02:0);put(p,x,y,pw,H2,`rotate(${[-4,2,-2][i]}deg) scale(${1+.01*TT})`)});
+  const s=cv.querySelector('.st');s.style.left=(R45?72:74)+'vw';s.style.top=(R45?66:66)+'vh';s.style.transform=`rotate(${-12+Math.sin(TT*3)*5}deg) scale(${(R45?.85:1)*(1+.04*Math.sin(TT*5))})`;
+  cv.querySelector('.pill').style.top=(R45?84:84)+'vh';cv.querySelector('.dm').style.top=(R45?92:91)+'vh'}
+ const MH=R45?5:7,Y0=H*(R45?.12:.15);
+ S.forEach((e,i)=>{const a=T[i],b=a+SD[i],lt=tc-a;const vis=tc>=a&&tc<b+.3&&tc<END+.4;e.style.visibility=vis?'visible':'hidden';if(!vis)return;e.style.zIndex=i+1;
+  // tourne-page : la nouvelle page glisse depuis la droite
+  const pin=eio(seg(lt,0,.45));e.style.clipPath=i==0?'none':`inset(0 0 0 ${(1-pin)*100}%)`;
+  e.querySelector('.mh').style.top=MH+'vh';
+  let R=null;const ent=eb(seg(lt,.1,.6));const sc0=(.9+.1*ent)*(1+.02*seg(lt,.6,SD[i]));
+  if(i==0){R=page(Q('#p0'),'rayon',lt,W*.82,H*(R45?.4:.34),Y0,-1.5,sc0);const k=Q('#k0');k.style.top=(R.y+R.h)/H*100+3+'vh';k.style.opacity=eo(seg(lt,.6,1.1))}
+  if(i==1){R=page(Q('#p1'),'piece',lt,W*.82,H*(R45?.4:.34),Y0,1.5,sc0);const tg=Q('#tg');const q=eb(seg(lt,.8,1.3));tg.style.left=R.x+R.w*.62+'px';tg.style.top=R.y+R.h*.7+'px';tg.style.opacity=cl(q*2);tg.style.transform=`rotate(${-8+Math.sin(lt*2)*3}deg) scale(${.6+.4*q})`;
+   const k=Q('#k1');k.style.top=(R.y+R.h)/H*100+3+'vh';k.style.opacity=eo(seg(lt,.5,1))}
+  if(i>=2&&i<=4){const l=LOOKS[i-2];R=page(Q('#pl'+(i-2)),l[0],lt,W*.82,H*(R45?.4:.34),Y0,[-1.5,1.5,-1][i-2],sc0);
+   const sl=e.querySelector('.slow');sl.style.left=R.ix+2*U+'px';sl.style.top=R.iy+2*U+'px';sl.style.opacity=eo(seg(lt,.6,1));
+   const k=e.querySelector('.lk');k.style.top=(R.y+R.h)/H*100+(R45?2:3)+'vh';[...k.children].forEach((c,j)=>{const p=j==1?slam(lt,.45,1.6,.3):{o:eo(seg(lt,.3+j*.25,.8+j*.25)),s:1};c.style.opacity=p.o;c.style.transform=`scale(${p.s})`;c.style.transformOrigin='0 50%'});
+   k.querySelector('.t').style.fontSize=(R45?13:15)*U+'px'}
+  if(i==5){const pw=W*(R45?.27:.29);[0,1,2].forEach(j=>{const p=Q('#po'+j);frame(p,LOOKS[j][0],lt*30+20);const iw=pw-2*U,ih=iw*9/16;p.querySelector('.im').style.height=ih+'px';const H2=ih+7*U;
+    const q=eb(seg(lt,.3+j*.45,.7+j*.45));const x=W*(.05+j*.3),y=H*(R45?.2:.2)+[0,H*.03,0][j];put(p,x,y,pw,H2,`rotate(${[-4,2,-3][j]+(1-q)*20}deg) scale(${.5+.5*q})`);p.style.opacity=cl(q*2)});
+   const b3=Q('#b3');b3.style.top=(R45?42:38)+'vh';b3.style.fontSize=(R45?13:17)*U+'px';b3.style.opacity=eo(seg(lt,1.7,2.2));
+   const sp=Q('#sp');const s=slam(lt,2.4,2.2);sp.style.left='8vw';sp.style.top=(R45?72:66)+'vh';sp.style.opacity=s.o;sp.style.transform=`rotate(-6deg) scale(${s.s})`;
+   const il=Q('#il');il.style.top=(R45?80:73)+'vh';il.style.opacity=eo(seg(lt,2.6,3))}
+  if(i==6){R=page(Q('#p6'),'cabine',lt,W*.82,H*(R45?.4:.34),Y0,1,sc0);const k=Q('#k6');k.style.top=(R.y+R.h)/H*100+3+'vh';k.style.opacity=eo(seg(lt,.6,1.1))}
+ });
+ // claquements de doigts entre les looks
+ const SN=[T[2],T[3],T[4],T[5]];let fl=0,sn=0,sx=0;SN.forEach(x=>{const d=tc-x;if(d>-.05&&d<.12)fl=Math.max(fl,1-Math.abs(d-.02)/.1);if(d>-.1&&d<.35){sn=Math.max(sn,1-Math.abs(d-.05)/.3);sx=d}});
+ Q('#flash').style.opacity=fl*.7;const snp=Q('#snap');snp.style.opacity=TT<COVER?0:sn;snp.style.transform=`translate(-50%,-50%) rotate(-8deg) scale(${.8+sx*1.2})`;
+ const en=Q('#end');en.style.opacity=TT<COVER?0:seg(tc,END-.1,END+.5);
+ [...en.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eo(seg(tc,END+.2+i*.22,END+.85+i*.22));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*2}vh)`});
+ en.querySelector('.logo').style.fontSize=(R45?17:22)*U+'px';
+}
+window.render=TT=>{PEND=[];draw(TT);return Promise.all(PEND)};
+</script></body></html>

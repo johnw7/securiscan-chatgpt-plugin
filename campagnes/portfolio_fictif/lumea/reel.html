@@ -1,0 +1,107 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>MAISON LUMEA (spa fictif) — Reel « Respire avec moi »</title>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Jost:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<script src="assets/clips/nf.js"></script>
+<style>
+/* marque fictive : sable, sauge, blanc cassé ; Marcellus + Jost */
+:root{--sable:#e9dfd0;--sable2:#d8cbb6;--sauge:#8a9a7b;--sauge2:#5f6f55;--creme:#f7f3ec;--encre:#3d3a33;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:var(--creme);color:var(--encre);font-family:Jost,sans-serif}
+#bg{position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 30%,#fbf8f2,#efe6d8 70%,#e6dac7)}
+.sc{position:absolute;inset:0;visibility:hidden}
+.k{position:absolute;left:6vw;right:6vw;text-align:center;font-weight:500;font-size:calc(2.6*var(--u));letter-spacing:.42em;color:var(--sauge2)}
+.t{position:absolute;left:6vw;right:6vw;text-align:center;font-family:Marcellus;font-size:calc(7*var(--u));line-height:1.12;color:var(--encre);text-wrap:balance}
+.t i{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;color:var(--sauge2)}
+.md{position:absolute;left:0;top:0;overflow:hidden;border-radius:calc(2.4*var(--u));background:#d9cfbf;box-shadow:0 calc(2.4*var(--u)) calc(8*var(--u)) rgba(80,66,40,.22)}
+.md img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.halo{position:absolute;border-radius:50%;border:1px solid rgba(138,154,123,.55);pointer-events:none}
+/* respiration */
+#br{position:absolute;z-index:8;display:flex;align-items:center;justify-content:center}
+#br .c{position:absolute;border-radius:50%;background:radial-gradient(circle at 40% 35%,rgba(255,255,255,.9),rgba(196,208,182,.75) 45%,rgba(138,154,123,.55) 100%);box-shadow:0 0 calc(6*var(--u)) rgba(138,154,123,.45)}
+#br .r{position:absolute;border-radius:50%;border:1.5px solid rgba(95,111,85,.35)}
+#br .w{position:relative;text-align:center}
+#br .w b{display:block;font-family:Marcellus;font-weight:400;font-size:calc(5.4*var(--u));color:var(--encre)}
+#br .w span{display:block;font-weight:500;font-size:calc(2.6*var(--u));letter-spacing:.3em;color:var(--sauge2);margin-top:.4em}
+#br .dots{position:absolute;display:flex;gap:calc(1.4*var(--u))}
+#br .dots i{width:calc(1.4*var(--u));height:calc(1.4*var(--u));border-radius:50%;background:rgba(95,111,85,.25)}
+#br .dots i.on{background:var(--sauge2)}
+.brand{font-family:Marcellus;letter-spacing:.32em;white-space:nowrap;text-align:center;color:var(--encre)}
+.brand small{display:block;font-family:Jost;font-weight:500;font-size:.2em;letter-spacing:.5em;margin-top:.8em;color:var(--sauge2)}
+/* fin */
+#end{position:absolute;inset:0;z-index:50;opacity:0;background:radial-gradient(80% 60% at 50% 40%,#fbf8f2,#e9dfd0 80%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3.4*var(--u));text-align:center;padding:0 8vw 12vh}
+#end .brand{font-size:calc(7*var(--u));letter-spacing:.22em}
+#end .ln{width:calc(12*var(--u));height:1px;background:var(--sauge)}
+#end .q{font-family:Marcellus;font-size:calc(7.6*var(--u));line-height:1.12}
+#end .q i{font-family:'Cormorant Garamond';font-style:italic;color:var(--sauge2)}
+#end .ad{font-size:calc(3.1*var(--u));letter-spacing:.08em;color:#6b6457}
+#end .cta{background:var(--sauge2);color:var(--creme);padding:calc(1.8*var(--u)) calc(5.4*var(--u));font-weight:600;font-size:calc(3.3*var(--u));letter-spacing:.2em;border-radius:999px}
+#end .of{font-family:'Cormorant Garamond';font-style:italic;font-size:calc(4.2*var(--u));color:var(--sauge2)}
+#end .cr{position:absolute;bottom:2vh;left:5vw;right:5vw;font-size:calc(1.9*var(--u));color:rgba(61,58,51,.5)}
+/* couverture */
+#cover{position:absolute;inset:0;z-index:60;background:radial-gradient(90% 60% at 50% 30%,#fbf8f2,#efe6d8 70%,#e3d6c1);overflow:hidden}
+#cover .brand{position:absolute;left:50%;transform:translateX(-50%)}
+#cover .tt{position:absolute;left:6vw;right:6vw;text-align:center;font-family:Marcellus;line-height:1.1;text-wrap:balance}
+#cover .tt i{display:block;font-family:'Cormorant Garamond';font-style:italic;font-weight:500;color:var(--sauge2);font-size:1.25em;margin-top:.15em}
+#cover .pill{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--sauge2);color:var(--creme);padding:calc(1.5*var(--u)) calc(5*var(--u));font-weight:600;font-size:calc(3.3*var(--u));letter-spacing:.2em;border-radius:999px}
+#cover .dm{position:absolute;left:0;right:0;text-align:center;font-size:calc(2.2*var(--u));letter-spacing:.12em;color:#7a7264}
+#cover .cc{position:absolute;border-radius:50%;background:radial-gradient(circle at 40% 35%,rgba(255,255,255,.95),rgba(196,208,182,.8) 45%,rgba(138,154,123,.6));box-shadow:0 0 calc(5*var(--u)) rgba(138,154,123,.45);display:flex;align-items:center;justify-content:center;font-family:Marcellus;color:var(--encre);text-align:center;line-height:1.05}
+</style></head><body>
+<div id="bg"></div>
+<div id="stage"></div>
+<div id="br"><div class="r" id="r1"></div><div class="r" id="r2"></div><div class="c" id="bc"></div><div class="w"><b id="bw">Inspire</b><span id="bs">1 · 2 · 3 · 4</span></div><div class="dots" id="bd"><i></i><i></i><i></i><i></i></div></div>
+<div id="end"><div class="brand">MAISON LUMEA<small>SPA · MASSAGES · SOINS</small></div><div class="ln"></div>
+ <div class="q">Ton moment<br><i>t'attend.</i></div>
+ <div class="ad">Massages · Soins du visage · Rituels</div>
+ <div class="cta">RÉSERVER UN SOIN</div>
+ <div class="of">Un thé offert après chaque soin</div>
+ <div class="cr">Démo · marque fictive · « Maison Lumea » est un spa fictif, offre fictive · images d'illustration Coverr et Unsplash · création E-DUST Solutions</div></div>
+<div id="cover"><div class="md" id="cvp"><img src="assets/pierres.jpg"></div>
+ <div class="brand" id="cvb">MAISON LUMEA<small>SPA · MASSAGES · SOINS</small></div>
+ <div class="tt" id="cvt">Pose ton téléphone<br>30 secondes.<i>Respire.</i></div>
+ <div class="cc" id="cvc">respire<br>avec moi</div>
+ <div class="pill" id="cvl">▶ RESPIRE AVEC MOI</div>
+ <div class="dm" id="cvd">démo · marque fictive</div></div>
+<script>
+const COVER=2.4;const SD=[4,4,4,4,4,4];const T=SD.map((d,i)=>i*4);const END=24;window.DUR=COVER+END+5.2;
+const SCN=[['vid','eau','30 SECONDES POUR TOI','Respire <i>avec moi.</i>'],['vid','souffle','ÉPAULES','Relâche <i>les épaules.</i>'],['img','massage','LE MASSAGE','Des mains qui prennent <i>soin de toi.</i>'],['vid','verse','LE RITUEL','Laisse filer <i>la journée.</i>'],['img','huile','LES HUILES','Une huile tiède. <i>Des gestes lents.</i>'],['img','serviette','TON MOMENT','Tout est prêt <i>pour toi.</i>']];
+const st=Q('#stage');
+const S=SCN.map(s=>{const e=document.createElement('div');e.className='sc';e.innerHTML=`<div class="halo"></div><div class="halo"></div><div class="k">${s[2]}</div><div class="t">${s[3]}</div><div class="md"><img src="${s[0]=='vid'?`assets/clips/${s[1]}/001.jpg`:`assets/${s[1]}.jpg`}"></div>`;st.appendChild(e);return e});
+function fit(img,mw,mh){const ar=img.naturalWidth/img.naturalHeight||1.5;let w=mw,h=w/ar;if(h>mh){h=mh;w=h*ar}return[w,h]}
+function put(el,x,y,w,h,extra){el.style.width=w+'px';el.style.height=h+'px';el.style.transform=`translate(${x}px,${y}px) ${extra||''}`}
+let PEND=[];
+function frame(img,n,f){const k=String(Math.min(NF[n],Math.max(1,Math.floor(f)+1))).padStart(3,'0');const src=`assets/clips/${n}/${k}.jpg`;if(img.getAttribute('src')!==src){img.setAttribute('src',src);PEND.push(img.decode().catch(()=>{}))}}
+function draw(TT){
+ measure();const t=TT-COVER;const tc=Math.max(0,t);
+ const cv=Q('#cover');cv.style.display=TT<COVER+.5?'block':'none';
+ if(TT<COVER+.5){cv.style.opacity=1-seg(TT,COVER-.2,COVER+.5);
+  const b=Q('#cvb');b.style.top=(R45?4:5.5)+'vh';b.style.fontSize=(R45?5.4:6.4)*U+'px';
+  const tt=Q('#cvt');tt.style.top=(R45?15:16)+'vh';tt.style.fontSize=(R45?6.6:7.6)*U+'px';
+  const p=Q('#cvp');const[w,h]=fit(p.querySelector('img'),W*.82,H*(R45?.26:.28));const y=H*(R45?.41:.39);put(p,(W-w)/2,y,w,h,`scale(${1+.01*TT})`);
+  const c=Q('#cvc');const d=(R45?15:18)*U*(1+.05*Math.sin(TT*1.6));c.style.width=c.style.height=d+'px';c.style.left=(W-d)/2+'px';c.style.top=y+h+1.2*U+'px';c.style.fontSize=(R45?3.2:3.7)*U+'px';
+  Q('#cvl').style.top=(R45?86:84.5)+'vh';Q('#cvd').style.top=(R45?92.5:89.5)+'vh'}
+ const KT=R45?6:8,TP=R45?9.6:11.6,Y0=H*(R45?.25:.235),MW=W*(R45?.7:.84),MH=H*(R45?.29:.265);
+ let mb=Y0+MH;
+ S.forEach((e,i)=>{const a=T[i],b=a+SD[i],lt=tc-a;const vis=TT>=COVER-.01&&tc>=a&&tc<b+.8&&tc<END+.6;e.style.visibility=vis?'visible':'hidden';if(!vis)return;e.style.zIndex=i+1;
+  e.style.opacity=i==0?1:eio(seg(lt,0,.8));
+  const k=e.querySelector('.k'),tt=e.querySelector('.t');k.style.top=KT+'vh';tt.style.top=TP+'vh';tt.style.fontSize=(R45?6.2:7)*U+'px';
+  [k,tt].forEach((el,j)=>{const p=eo(seg(lt,.3+j*.3,1.3+j*.3));el.style.opacity=p*(1-seg(lt,SD[i]-.05,SD[i]+.25));el.style.transform=`translateY(${(1-p)*1.5}vh)`});
+  const md=e.querySelector('.md'),im=md.querySelector('img');if(SCN[i][0]=='vid')frame(im,SCN[i][1],lt*30);
+  const[w,h]=fit(im,MW,MH);const x=(W*.44)-w/2;put(md,x,Y0+(MH-h)/2,w,h,`scale(${1+.03*seg(lt,0,SD[i]+.8)})`);mb=Y0+(MH+h)/2;
+  im.style.filter=SCN[i][1]=='verse'?'saturate(.8) sepia(.25) brightness(1.5) contrast(.95)':'saturate(.82) sepia(.12) brightness(1.02)';
+  e.querySelectorAll('.halo').forEach((hl,j)=>{const ph=Math.floor(tc/4)%2==0?seg(tc%4,0,4):1-seg(tc%4,0,4);const d=Math.max(w,h)*(1.05+.12*j+.08*eio(ph));hl.style.width=hl.style.height=d+'px';hl.style.left=x+w/2-d/2+'px';hl.style.top=Y0+MH/2-d/2+'px';hl.style.opacity=.6-.25*j})});
+ // cercle de respiration : inspire 4 s / expire 4 s
+ const br=Q('#br');const on=TT>=COVER&&tc<END+.3;br.style.opacity=on?cl(tc/.6)*(1-seg(tc,END-.3,END+.3)):0;
+ const cyc=Math.floor(tc/4),ph=(tc%4)/4,ins=cyc%2==0;const s=ins?.42+.58*eio(ph):1-.58*eio(ph);
+ const D=(R45?24:22)*H/100,cx=W*.44,cy=mb+(R45?3:3.5)*H/100+D/2;br.style.left=cx+'px';br.style.top=cy+'px';
+ const bc=Q('#bc');bc.style.width=bc.style.height=D*s+'px';
+ [Q('#r1'),Q('#r2')].forEach((r,j)=>{const dd=D*(1+.12*j);r.style.width=r.style.height=dd+'px'});
+ Q('#bw').textContent=ins?'Inspire':'Expire';Q('#bw').style.fontSize=(R45?4.6:5.4)*U+'px';
+ const n=Math.min(4,Math.floor(ph*4)+1);Q('#bs').textContent=String(n);Q('#bs').style.fontSize=(R45?3:3.4)*U+'px';
+ const bd=Q('#bd');bd.style.top=D/2+1.6*U+'px';[...bd.children].forEach((d,j)=>d.classList.toggle('on',j<n));
+ const en=Q('#end');en.style.opacity=TT<COVER?0:seg(tc,END-.2,END+.8);
+ [...en.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eo(seg(tc,END+.3+i*.25,END+1.1+i*.25));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*1.5}vh)`});
+ en.querySelector('.brand').style.fontSize=(R45?6.4:7)*U+'px';
+}
+window.render=TT=>{PEND=[];draw(TT);return Promise.all(PEND)};
+</script></body></html>

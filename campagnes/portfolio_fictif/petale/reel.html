@@ -1,0 +1,162 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>MAISON PÉTALE (fleuriste fictif) — Reel carnet de botaniste « De la fleur au bouquet »</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Caveat:wght@600;700&family=Inter:wght@600;800&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<script src="assets/clips/nf.js"></script>
+<style>
+/* marque fictive : papier de carnet, encre, sauge, rose ancien, kraft ; Fraunces + Caveat + Inter */
+:root{--papier:#f2eadb;--encre:#2e2822;--sauge:#5f7d5a;--rose:#c4607a;--kraft:#c39a6b;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:var(--papier);color:var(--encre);font-family:Inter,sans-serif}
+.paper{position:absolute;inset:0;background:
+ radial-gradient(60% 40% at 20% 15%,rgba(255,255,255,.55),transparent 70%),
+ radial-gradient(50% 40% at 85% 80%,rgba(195,154,107,.18),transparent 70%),
+ repeating-linear-gradient(0deg,transparent 0 calc(5.4*var(--u) - 1px),rgba(95,125,90,.13) calc(5.4*var(--u) - 1px) calc(5.4*var(--u))),var(--papier)}
+.grain{position:absolute;inset:0;opacity:.16;mix-blend-mode:multiply;pointer-events:none}
+.sc{position:absolute;inset:0;overflow:hidden;visibility:hidden}
+.k{position:absolute;left:7vw;right:7vw;z-index:8;font-weight:800;font-size:calc(2.6*var(--u));letter-spacing:.34em;color:var(--sauge)}
+.t{position:absolute;left:7vw;right:7vw;z-index:8;font-family:Fraunces;font-weight:600;font-size:calc(7.6*var(--u));line-height:1.02;letter-spacing:-.015em}
+.t i{font-weight:400;color:var(--rose)}
+.ph{position:absolute;left:0;top:0;background:#fffdf8;padding:calc(1.4*var(--u)) calc(1.4*var(--u)) calc(5.6*var(--u));box-shadow:0 calc(1.6*var(--u)) calc(4*var(--u)) rgba(60,40,20,.28);z-index:5}
+.ph .im{position:relative;width:100%;height:100%;overflow:hidden;background:#ddd}
+.ph img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ph .cap{position:absolute;left:0;right:0;bottom:calc(1.2*var(--u));text-align:center;font-family:Caveat;font-weight:700;font-size:calc(4*var(--u));color:var(--encre)}
+.tape{position:absolute;width:calc(14*var(--u));height:calc(4*var(--u));background:rgba(196,96,122,.45);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.tape.g{background:rgba(95,125,90,.42)}
+.note{position:absolute;z-index:8;font-family:Caveat;font-weight:700;font-size:calc(5.6*var(--u));line-height:1.05;color:var(--encre)}
+.note b{color:var(--rose);font-weight:700}
+svg.arw{position:absolute;z-index:8;overflow:visible}
+svg.arw path{fill:none;stroke:var(--encre);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.lat{position:absolute;z-index:8;font-family:Fraunces;font-style:italic;font-size:calc(3*var(--u));color:var(--sauge)}
+/* pétales */
+#pet{position:absolute;inset:0;z-index:35;pointer-events:none}
+#pet i{position:absolute;width:calc(2.4*var(--u));height:calc(1.6*var(--u));border-radius:80% 10% 80% 10%;background:linear-gradient(135deg,#f3b7c4,#d9798f)}
+#pet i:nth-child(3n){background:linear-gradient(135deg,#fff3f0,#f0c9cf)}#pet i:nth-child(4n){background:linear-gradient(135deg,#f6d38a,#e3a95b)}
+/* intro : fleurs qui poussent */
+svg.garden{position:absolute;z-index:6;overflow:visible}
+svg.garden path.st{fill:none;stroke:var(--sauge);stroke-width:4;stroke-linecap:round}
+svg.garden path.lf{fill:#7d9a72;stroke:none}
+/* ruban */
+svg.bow{position:absolute;z-index:8;overflow:visible}
+svg.bow path{fill:none;stroke:var(--rose);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+/* carte */
+.cardw{position:absolute;z-index:8;perspective:calc(220*var(--u))}
+.card{position:relative;width:100%;height:100%;transform-style:preserve-3d}
+.card>div{position:absolute;inset:0;backface-visibility:hidden;border-radius:calc(1*var(--u));box-shadow:0 calc(2*var(--u)) calc(5*var(--u)) rgba(60,40,20,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.card .fr{background:repeating-linear-gradient(35deg,rgba(255,255,255,.06) 0 3px,transparent 3px 7px),var(--kraft);color:#fffaf0}
+.card .fr b{font-family:Caveat;font-size:calc(11*var(--u));line-height:1}
+.card .fr small{font-weight:800;font-size:calc(2.2*var(--u));letter-spacing:.34em;margin-top:calc(1.6*var(--u));opacity:.85}
+.card .bk{background:#fffdf8;transform:rotateY(180deg);padding:0 calc(5*var(--u))}
+.card .bk p{font-family:Caveat;font-weight:700;font-size:calc(7*var(--u));line-height:1.05}
+.card .bk p i{font-style:normal;color:var(--rose)}
+.card .bk small{font-family:Fraunces;font-style:italic;font-size:calc(2.8*var(--u));color:var(--sauge);margin-top:calc(2*var(--u))}
+.stamp{position:absolute;z-index:9;border:2px solid var(--rose);color:var(--rose);border-radius:50%;width:calc(17*var(--u));height:calc(17*var(--u));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;font-size:calc(1.9*var(--u));letter-spacing:.14em;line-height:1.3}
+.stamp b{font-family:Caveat;font-size:calc(4.4*var(--u));letter-spacing:0;font-weight:700}
+#flash{position:absolute;inset:0;z-index:45;background:#fffaf2;opacity:0}
+/* fin */
+#end{position:absolute;inset:0;z-index:50;opacity:0;background:radial-gradient(60% 40% at 50% 40%,#fbf6ec,var(--papier));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3.2*var(--u));text-align:center;padding:0 8vw}
+.brand{font-family:Fraunces;font-weight:500;line-height:1;white-space:nowrap}
+.brand em{font-style:italic;color:var(--rose)}
+.brand small{display:block;font-family:Inter;font-weight:800;font-size:.17em;letter-spacing:.42em;margin-top:.8em;color:var(--sauge)}
+#end .q{font-family:Caveat;font-weight:700;font-size:calc(10*var(--u));line-height:1}
+#end .cta{background:var(--encre);color:#fffaf0;padding:calc(1.8*var(--u)) calc(5*var(--u));font-weight:800;font-size:calc(3.3*var(--u));letter-spacing:.14em;border-radius:999px}
+#end .ad{font-family:Fraunces;font-style:italic;font-size:calc(3.6*var(--u));color:#5b5047}
+#end .cr{position:absolute;bottom:2vh;left:5vw;right:5vw;font-size:calc(1.9*var(--u));color:rgba(46,40,34,.5)}
+/* couverture */
+#cover{position:absolute;inset:0;z-index:60;overflow:hidden}
+#cover .brand{position:absolute;left:50%;transform:translateX(-50%);z-index:4}
+#cover .tt{position:absolute;left:6vw;right:6vw;text-align:center;z-index:4;font-family:Fraunces;font-weight:600;font-size:calc(8.2*var(--u));line-height:1.04;letter-spacing:-.015em}
+#cover .tt small{display:block;font-family:Inter;font-weight:800;font-size:.3em;letter-spacing:.42em;color:var(--sauge);margin-bottom:.5em}
+#cover .tt i{font-weight:400;color:var(--rose)}
+#cover .pill{position:absolute;left:50%;transform:translateX(-50%);z-index:4;white-space:nowrap;background:var(--encre);color:#fffaf0;padding:calc(1.4*var(--u)) calc(4.6*var(--u));font-weight:800;font-size:calc(3.3*var(--u));letter-spacing:.18em;border-radius:999px}
+</style></head><body>
+<div class="paper"></div><canvas class="grain" id="grain"></canvas>
+<div id="stage"></div><div id="pet"></div><div id="flash"></div>
+<div id="end"><div class="brand" style="font-size:calc(11*var(--u))">Maison <em>Pétale</em><small>FLEURISTE · ATELIER</small></div>
+ <div class="q">Offrez une émotion.</div>
+ <div class="ad">Bouquets de saison · livraison le jour même</div>
+ <div class="cta">COMMANDER MON BOUQUET</div>
+ <div class="cr">Démo · marque fictive · « Maison Pétale » est un fleuriste fictif, offre fictive · images d'illustration Mixkit · création E-DUST Solutions</div></div>
+<div id="cover"><div class="paper"></div>
+ <div class="brand" id="cb">Maison <em>Pétale</em><small>FLEURISTE · ATELIER</small></div>
+ <div class="tt"><small>POV</small>quelqu'un a pensé<br>à toi <i>aujourd'hui</i> 💐</div>
+ <div id="cvs"></div>
+ <div class="note" id="cn">c'est pour moi ?!</div><svg class="arw" id="ca" width="120" height="80"><path d="M110 8 C 80 10, 40 25, 20 66 M20 66 L14 50 M20 66 L34 58"/></svg>
+ <div class="stamp" id="cs"><b>démo</b>MARQUE<br>FICTIVE</div>
+ <div class="pill">▶ REGARDE JUSQU'AU BOUT</div></div>
+<script>
+const COVER=2.4,A='assets/clips/';
+const SD=[3.0,3.6,3.8,3.6,3.6,3.8,3.6];const T=[];SD.reduce((a,d,i)=>(T[i]=a,a+d),0);const END=SD.reduce((a,b)=>a+b,0);window.DUR=COVER+END+4.6;
+const st=Q('#stage');function sc(html){const e=document.createElement('div');e.className='sc';e.innerHTML='<div class="paper"></div>'+html;st.appendChild(e);return e}
+const kt=(k,t)=>`<div class="k">${k}</div><div class="t">${t}</div>`;
+const ph=(n,id,cap,f)=>`<div class="ph" id="${id}"><div class="im"><img src="${A}${n}/${f||'001'}.jpg"></div><div class="cap">${cap}</div><span class="tape" style="left:-4%;top:-2%;transform:rotate(-30deg)"></span><span class="tape g" style="right:-4%;top:-2%;transform:rotate(28deg)"></span></div>`;
+const arw=id=>`<svg class="arw" id="${id}" width="110" height="70"><path d="M8 10 C 30 50, 70 60, 100 40 M100 40 L84 36 M100 40 L92 54"/></svg>`;
+const flower=(cx,cy,r,c)=>`<g class="fl" data-x="${cx}" data-y="${cy}">${[0,1,2,3,4,5].map(k=>`<ellipse cx="${cx+Math.cos(k*1.047)*r*.9}" cy="${cy+Math.sin(k*1.047)*r*.9}" rx="${r*.7}" ry="${r*.42}" transform="rotate(${k*60} ${cx+Math.cos(k*1.047)*r*.9} ${cy+Math.sin(k*1.047)*r*.9})" fill="${c}"/>`).join('')}<circle cx="${cx}" cy="${cy}" r="${r*.42}" fill="#e9b24e"/></g>`;
+const S=[
+ sc(kt('LE CARNET DE MAISON PÉTALE','De la fleur<br><i>au bouquet.</i>')+`<svg class="garden" id="gd" viewBox="0 0 400 420" preserveAspectRatio="xMidYMax meet">
+  <path class="st" d="M120 420 C 110 330, 140 260, 110 170"/><path class="st" d="M210 420 C 220 320, 190 220, 215 110"/><path class="st" d="M300 420 C 310 340, 280 280, 305 200"/>
+  <path class="lf" d="M118 330 c -40 -10 -55 -35 -50 -45 c 20 0 45 15 50 45z"/><path class="lf" d="M213 300 c 40 -12 55 -38 50 -48 c -20 0 -46 18 -50 48z"/><path class="lf" d="M300 350 c -35 -8 -48 -30 -44 -40 c 18 0 40 13 44 40z"/>
+  ${flower(110,165,26,'#d9798f')}${flower(215,105,32,'#f0c9cf')}${flower(305,195,24,'#c4607a')}</svg>
+  <div class="lat" id="l0a">Rosa · rose de jardin</div><div class="lat" id="l0b">Paeonia · pivoine</div>`),
+ sc(kt('ÉTAPE 1 · LE CHOIX','Chaque fleur,<br><i>choisie à la main.</i>')+ph('choix','p1','arrivage du matin')+`<div class="note" id="n1">fraîches, <b>vraiment</b>.</div>`+arw('a1')),
+ sc(kt('ÉTAPE 2 · LA COMPOSITION','On assemble<br><i>les couleurs.</i>')+ph('compo','p2','tige après tige')+`<div class="note" id="n2">pivoines + roses<br>+ un peu de vert 🌿</div>`),
+ sc(kt('ÉTAPE 3 · LA TOUCHE FINALE','Papier kraft,<br><i>ruban noué main.</i>')+ph('petales','p3','détails')+`<svg class="bow" id="bow" viewBox="0 0 200 120"><path id="b1" d="M100 60 C 70 20, 20 20, 30 55 C 38 80, 80 70, 100 60"/><path id="b2" d="M100 60 C 130 20, 180 20, 170 55 C 162 80, 120 70, 100 60"/><path id="b3" d="M100 60 C 90 85, 70 105, 55 115"/><path id="b4" d="M100 60 C 110 85, 130 105, 145 115"/></svg>`),
+ sc(kt('ÉTAPE 4 · LA REMISE','Et là,<br><i>ce sourire.</i>')+ph('remise','p4','le moment préféré de l\'atelier')),
+ sc(kt('POUR TOI','Une émotion<br><i>qui se respire.</i>')+ph('emotion','p5','au ralenti')+`<div class="note" id="n5">ça sent <b>le printemps</b><br>en plein mardi.</div>`),
+ sc(kt('LE PETIT MOT','Parce qu\'un bouquet,<br><i>ça se dit aussi.</i>')+`<div class="cardw" id="cw"><div class="card" id="cd"><div class="fr"><b>Pour toi</b><small>MAISON PÉTALE</small></div><div class="bk"><p>Parce que<br>tu comptes. <i>♡</i></p><small>— écrit à la main, à l'atelier</small></div></div></div>`)];
+Q('#cvs').innerHTML=ph('remise','cv1','',"060")+ph('choix','cv2','',"060");
+const PET=Q('#pet');PET.innerHTML='<i></i>'.repeat(22);
+function fit(img,mw,mh){const ar=img.naturalWidth/img.naturalHeight||16/9;let w=mw,h=w/ar;if(h>mh){h=mh;w=h*ar}return[w,h]}
+// cadre photo : image entière + marge polaroïd
+function photo(el,cx,y,mw,mh,rot,s){const im=el.querySelector('img');const p=1.4*U,pb=5.6*U;const[w,h]=fit(im,mw-2*p,mh-p-pb);el.style.width=w+2*p+'px';el.style.height=h+p+pb+'px';
+ el.style.transform=`translate(${cx-(w+2*p)/2}px,${y}px) rotate(${rot}deg) scale(${s})`;return{x:cx-(w+2*p)/2,y,w:w+2*p,h:h+p+pb}}
+let PEND=[];
+function frame(el,n,f){const im=el.querySelector('img');const k=String(Math.min(NF[n],Math.max(1,Math.floor(f)+1))).padStart(3,'0');const src=`${A}${n}/${k}.jpg`;if(im.getAttribute('src')!==src){im.setAttribute('src',src);PEND.push(im.decode().catch(()=>{}))}}
+function grain(){const c=Q('#grain');c.width=360;c.height=640;const x=c.getContext('2d');const d=x.createImageData(360,640);for(let i=0;i<d.data.length;i+=4){const v=200+hash(i*.37)*55;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255}x.putImageData(d,0,0);c.style.width='100%';c.style.height='100%'}
+grain();
+function draw(TT){
+ measure();const t=TT-COVER;const tc=Math.max(0,t);
+ const KT=R45?6.2:8.4,TTp=R45?9.4:11.4,Y0=H*(R45?.235:.235),CX=W*.46,MW=W*(R45?.72:.82),MH=H*(R45?.4:.33);
+ const cv=Q('#cover');cv.style.display=TT<COVER+.4?'block':'none';
+ if(TT<COVER+.4){cv.style.opacity=1-seg(TT,COVER-.3,COVER+.4);
+  const cb=Q('#cb');cb.style.top=(R45?3.5:5)+'vh';cb.style.fontSize=(R45?5.4:6.6)*U+'px';
+  cv.querySelector('.tt').style.top=(R45?14:15)+'vh';cv.querySelector('.tt').style.fontSize=(R45?7:8.2)*U+'px';
+  const a=photo(Q('#cv1'),W*(R45?.38:.4),H*(R45?.335:.385),W*(R45?.5:.68),H*(R45?.25:.2),-3,1+.008*TT);const b=photo(Q('#cv2'),W*(R45?.6:.58),a.y+a.h+H*(R45?.015:.02),W*(R45?.46:.64),H*(R45?.24:.19),3,1+.008*TT);
+  Q('#cv2').style.zIndex=6;
+  const cn=Q('#cn');cn.style.left=(R45?6:6)+'vw';cn.style.top=(b.y+b.h)/H*100+1.2+'vh';cn.style.transform='rotate(-6deg)';cn.style.display=R45?'none':'block';
+  const ca=Q('#ca');ca.style.display='none';
+  const cs=Q('#cs');cs.style.left=(R45?78:76)+'vw';cs.style.top=(R45?33:36)+'vh';cs.style.transform=`rotate(${-12+Math.sin(TT*2)*3}deg) scale(${R45?.8:1})`;
+  cv.querySelector('.pill').style.top=(R45?91:91)+'vh'}
+ S.forEach((e,i)=>{const a=T[i],b=a+SD[i],lt=tc-a;const vis=tc>=a&&tc<b+.4&&tc<END+.4;e.style.visibility=vis?'visible':'hidden';if(!vis)return;e.style.zIndex=i+1;
+  // tourne la page : bord diagonal qui balaie l'écran
+  const pg=i==0?1:eio(seg(lt,0,.45));e.style.clipPath=pg>=1?'none':`polygon(${100-pg*140}% 0,100% 0,100% 100%,${100-pg*140+40}% 100%)`;
+  const k=e.querySelector('.k'),tt=e.querySelector('.t');k.style.top=KT+'vh';tt.style.top=TTp+'vh';tt.style.fontSize=(R45?6.6:7.6)*U+'px';
+  [k,tt].forEach((el,j)=>{const p=eo(seg(lt,.15+j*.18,.65+j*.18));el.style.opacity=p;el.style.transform=`translateY(${(1-p)*2.5}vh)`});
+  const ph1=e.querySelector('.ph');let R=null;
+  if(ph1){const n={p1:'choix',p2:'compo',p3:'petales',p4:'remise',p5:'emotion'}[ph1.id];frame(ph1,n,lt*30);const q=eb(seg(lt,.25,.75));
+   R=photo(ph1,CX,Y0+(1-q)*H*.04,MW,MH,(i%2?-2:2)*(1-.5*q),(.86+.14*q)*(1+.02*seg(lt,.8,SD[i])));ph1.style.opacity=cl(q*2)}
+  const nt=e.querySelector('.note');if(nt&&R){nt.style.left='8vw';nt.style.top=(R.y+R.h)/H*100+3+'vh';nt.style.transform='rotate(-3deg)';nt.style.opacity=eo(seg(lt,1.2,1.7));nt.style.fontSize=(R45?5:5.6)*U+'px'}
+  if(i==0){const g=Q('#gd');const gw=W*(R45?.62:.78),gh=gw*420/400;g.style.left=CX-gw/2+'px';g.style.top=H*(R45?.82:.8)-gh+'px';g.style.width=gw+'px';g.style.height=gh+'px';
+   g.querySelectorAll('.st').forEach((p,j)=>{const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-eio(seg(lt,.2+j*.15,1.3+j*.15)))});
+   g.querySelectorAll('.lf').forEach((p,j)=>{const q=eb(seg(lt,.9+j*.15,1.3+j*.15));p.style.transformOrigin='center';p.style.transformBox='fill-box';p.style.transform=`scale(${q})`});
+   g.querySelectorAll('.fl').forEach((f,j)=>{const q=eb(seg(lt,1.25+j*.18,1.75+j*.18));f.style.transformBox='fill-box';f.style.transformOrigin='center';f.style.transform=`scale(${q}) rotate(${(1-q)*-90+Math.sin(lt*1.5+j)*4}deg)`});
+   const la=Q('#l0a'),lb=Q('#l0b');la.style.left='7vw';la.style.top=H*(R45?.82:.8)-gh*(1-165/420)-gh*.2+'px';lb.style.left=(R45?52:56)+'vw';lb.style.top=H*(R45?.82:.8)-gh*.82+'px';[la,lb].forEach((l,j)=>l.style.opacity=eo(seg(lt,1.9+j*.2,2.3+j*.2)))}
+  if(i==1&&R){const a1=Q('#a1');a1.style.left=W*.42+'px';a1.style.top=(R.y+R.h)+H*.03+'px';a1.style.opacity=eo(seg(lt,1.4,1.8));const pth=a1.querySelector('path');const L=pth.getTotalLength();pth.style.strokeDasharray=L;pth.style.strokeDashoffset=L*(1-eio(seg(lt,1.4,2)))}
+  if(i==3&&R){const bw=Q('#bow');const s=(R45?24:32)*U;bw.style.width=s+'px';bw.style.height=s*.6+'px';bw.style.left=CX-s/2+'px';bw.style.top=R.y+R.h+H*.03+'px';
+   ['#b1','#b2','#b3','#b4'].forEach((id,j)=>{const p=Q(id);const L=p.getTotalLength();p.style.strokeDasharray=L;p.style.strokeDashoffset=L*(1-eio(seg(lt,.9+j*.3,1.5+j*.3)))});
+   bw.style.transform=`scale(${1+.08*Math.exp(-((lt-2.3)**2)/.01)})`}
+  if(i==6){const cw=Q('#cw');const w=W*(R45?.56:.66),h=w*.66;cw.style.width=w+'px';cw.style.height=h+'px';cw.style.left=CX-w/2+'px';cw.style.top=H*(R45?.32:.32)+'px';
+   const q=eb(seg(lt,.2,.7));cw.style.opacity=cl(q*2);const f=eio(seg(lt,1.1,1.9));Q('#cd').style.transform=`translateY(${(1-q)*6}vh) rotateY(${f*180}deg) rotateZ(${mix(-4,2,f)}deg)`;
+   const p=Q('#cd .bk p');p.style.clipPath=`inset(0 ${100-100*seg(lt,1.9,3.0)}% 0 0)`}
+ });
+ // pétales qui tombent lentement
+ const pv=TT<COVER?0:cl(seg(tc,.4,1.2))*(1-seg(tc,END+3.2,END+4.4));
+ PET.querySelectorAll('i').forEach((p,j)=>{const sp=.035+hash(j+2)*.03;const y=((hash(j)+tc*sp)%1.15)-.1;const x=hash(j+7)*.9+.04+Math.sin(tc*.8+j)*.025;
+  p.style.left=x*100+'vw';p.style.top=y*100+'vh';p.style.opacity=pv*(x>.84&&y>.48?0:.9);p.style.transform=`rotate(${tc*40*(hash(j+3)-.5)+j*30}deg) scale(${.7+hash(j+4)*.8})`});
+ Q('#flash').style.opacity=Math.max(...[T[4]+.05].map(x=>Math.max(0,1-Math.abs(tc-x)/.12)))*.35;
+ const en=Q('#end');en.style.opacity=TT<COVER?0:seg(tc,END-.1,END+.5);
+ [...en.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eo(seg(tc,END+.2+i*.22,END+.85+i*.22));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*2}vh)`});
+ en.querySelector('.brand').style.fontSize=(R45?9:11)*U+'px';
+}
+window.render=TT=>{PEND=[];draw(TT);return Promise.all(PEND)};
+</script></body></html>
