@@ -1,0 +1,159 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>FORGE CLUB (salle fictive) — Reel style série « Saison 1 : ta transformation »</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<script src="assets/clips/nf.js"></script>
+<style>
+/* marque fictive : noir, braise, blanc ; Bebas Neue + Inter ; style « série de streaming » sans reprendre de marque existante */
+:root{--noir:#0b0b0c;--braise:#ff4a1c;--braise2:#ff9a3c;--gris:#9a9aa0;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:var(--noir);color:#fff;font-family:Inter,sans-serif}
+.sc{position:absolute;inset:0;overflow:hidden;visibility:hidden;background:var(--noir)}
+.bb{font-family:'Bebas Neue';letter-spacing:.02em;line-height:.9}
+.logo{font-family:'Bebas Neue';line-height:.85;letter-spacing:.06em;background:linear-gradient(180deg,#ffd2a0 0%,#ff9a3c 35%,#ff4a1c 70%,#b3200a 100%);-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 0 calc(3*var(--u)) rgba(255,74,28,.55));white-space:nowrap}
+.logo small{display:block;font-family:Inter;font-weight:900;font-size:.16em;letter-spacing:.6em;-webkit-text-fill-color:#fff;color:#fff;margin-top:.35em;filter:none;text-align:center}
+/* intro */
+.pre{position:absolute;left:0;right:0;text-align:center;font-weight:800;font-size:calc(3*var(--u));letter-spacing:.6em;color:#d8d8dc}
+.streak{position:absolute;left:-20%;width:140%;height:calc(.8*var(--u));background:linear-gradient(90deg,transparent,#ff9a3c,#fff,#ff4a1c,transparent);filter:blur(1px);box-shadow:0 0 calc(4*var(--u)) #ff4a1c}
+.spark{position:absolute;width:calc(.7*var(--u));height:calc(.7*var(--u));border-radius:50%;background:#ffc27a;box-shadow:0 0 calc(1.5*var(--u)) #ff6a2c}
+/* lecteur d'épisode */
+.ep{position:absolute;left:6vw;right:16vw;z-index:6}
+.ep .n{font-weight:900;font-size:calc(2.8*var(--u));letter-spacing:.34em;color:var(--braise)}
+.ep .t{font-family:'Bebas Neue';font-size:calc(14*var(--u));line-height:.88;margin-top:calc(1*var(--u))}
+.ep .s{font-size:calc(3.6*var(--u));color:#d2d2d6;margin-top:calc(1.6*var(--u));line-height:1.3}
+.vid{position:absolute;left:0;top:0;overflow:hidden;border-radius:calc(1*var(--u));background:#000;box-shadow:0 calc(2*var(--u)) calc(8*var(--u)) rgba(0,0,0,.7)}
+.vid img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.vid .vg{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.45))}
+.pl{position:absolute;z-index:6;display:flex;align-items:center;gap:calc(2*var(--u));font-weight:800;font-size:calc(2.4*var(--u));color:#cfcfd4}
+.pl .tr{flex:1;height:calc(.7*var(--u));background:rgba(255,255,255,.22);border-radius:9px;position:relative}
+.pl .tr b{position:absolute;left:0;top:0;bottom:0;background:var(--braise);border-radius:9px}
+.pl .tr i{position:absolute;top:50%;width:calc(2.6*var(--u));height:calc(2.6*var(--u));margin:calc(-1.3*var(--u)) 0 0 calc(-1.3*var(--u));border-radius:50%;background:var(--braise)}
+.tagr{position:absolute;z-index:7;font-weight:900;font-size:calc(2.4*var(--u));letter-spacing:.2em;background:var(--braise);color:#fff;padding:calc(.7*var(--u)) calc(1.6*var(--u));border-radius:calc(.6*var(--u))}
+.slowb{position:absolute;z-index:7;font-weight:900;font-size:calc(2.3*var(--u));letter-spacing:.18em;color:#fff;background:rgba(0,0,0,.55);padding:calc(.7*var(--u)) calc(1.6*var(--u));border-radius:999px;border:1px solid rgba(255,255,255,.3)}
+/* catalogue */
+.hdr{position:absolute;left:6vw;right:6vw;z-index:6}
+.hdr .k{font-weight:900;font-size:calc(2.4*var(--u));letter-spacing:.3em;color:var(--braise)}
+.hdr .m{font-size:calc(2.8*var(--u));color:#bdbdc2;margin-top:calc(1.2*var(--u))}
+.hdr .m b{color:#46d369;font-weight:800}
+.btns{display:flex;gap:calc(2*var(--u));margin-top:calc(2.2*var(--u))}
+.btns span{flex:1;text-align:center;padding:calc(1.6*var(--u)) 0;border-radius:calc(.8*var(--u));font-weight:900;font-size:calc(3.2*var(--u))}
+.btns .a{background:#fff;color:#000}.btns .b{background:rgba(255,255,255,.18)}
+.row{position:absolute;left:6vw;right:16vw;z-index:6;display:flex;gap:calc(2.4*var(--u));align-items:center}
+.row .th{position:relative;flex:none;overflow:hidden;border-radius:calc(.8*var(--u));background:#000}
+.row .th img{display:block;width:100%;height:100%}
+.row .th .pg{position:absolute;left:0;right:0;bottom:0;height:calc(.6*var(--u));background:rgba(255,255,255,.25)}
+.row .th .pg b{position:absolute;left:0;top:0;bottom:0;background:var(--braise)}
+.row .tx b{display:block;font-weight:800;font-size:calc(3.2*var(--u))}
+.row .tx small{display:block;color:#a9a9ae;font-size:calc(2.5*var(--u));margin-top:.3em}
+.row .ok{margin-left:auto;font-size:calc(3.4*var(--u));color:#46d369;font-weight:900}
+.row.new{background:rgba(255,74,28,.12);border:1px solid rgba(255,74,28,.6);border-radius:calc(1.2*var(--u));padding:calc(1.2*var(--u))}
+.row.new .nb{margin-left:auto;font-weight:900;font-size:calc(2.2*var(--u));letter-spacing:.16em;background:var(--braise);padding:calc(.6*var(--u)) calc(1.2*var(--u));border-radius:calc(.5*var(--u))}
+.lock{display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:linear-gradient(135deg,#2a0d06,#0b0b0c);font-family:'Bebas Neue';font-size:calc(9*var(--u));color:var(--braise)}
+/* prochain épisode */
+.nx{position:absolute;left:6vw;right:16vw;z-index:7;background:rgba(15,15,17,.86);border:1px solid rgba(255,255,255,.14);border-radius:calc(2*var(--u));padding:calc(3.4*var(--u));backdrop-filter:blur(6px)}
+.nx .k{font-weight:900;font-size:calc(2.4*var(--u));letter-spacing:.3em;color:#bdbdc2}
+.nx .t{font-family:'Bebas Neue';font-size:calc(13*var(--u));line-height:.9;margin-top:calc(1*var(--u))}
+.nx .t i{font-style:normal;color:var(--braise)}
+.nx .s{font-size:calc(3.4*var(--u));color:#e2e2e6;margin-top:calc(1.2*var(--u));line-height:1.3}
+.nx .go{display:flex;align-items:center;gap:calc(2.4*var(--u));margin-top:calc(2.6*var(--u))}
+.nx .go span{flex:1;text-align:center;background:#fff;color:#000;font-weight:900;font-size:calc(3.4*var(--u));padding:calc(1.6*var(--u)) 0;border-radius:calc(.8*var(--u))}
+.nx svg{width:calc(13*var(--u));height:calc(13*var(--u));flex:none}
+.nx .cd{position:absolute;font-family:'Bebas Neue';font-size:calc(7*var(--u))}
+.tap{position:absolute;z-index:9;width:calc(10*var(--u));height:calc(10*var(--u));border-radius:50%;border:3px solid #fff;opacity:0}
+#flash{position:absolute;inset:0;z-index:45;background:#fff;opacity:0}
+#lb1,#lb2{position:absolute;left:0;right:0;height:0;background:#000;z-index:40}#lb1{top:0}#lb2{bottom:0}
+/* fin */
+#end{position:absolute;inset:0;z-index:50;opacity:0;background:radial-gradient(70% 50% at 50% 42%,#2a0f07,#0b0b0c 75%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3.6*var(--u));text-align:center;padding:0 8vw}
+#end .logo{font-size:calc(26*var(--u))}
+#end .q{font-family:'Bebas Neue';font-size:calc(10*var(--u));line-height:.95;letter-spacing:.02em}
+#end .q i{font-style:normal;color:var(--braise)}
+#end .cta{background:var(--braise);color:#fff;padding:calc(1.8*var(--u)) calc(5*var(--u));font-weight:900;font-size:calc(3.4*var(--u));letter-spacing:.14em;border-radius:calc(.8*var(--u))}
+#end .ad{font-size:calc(3*var(--u));color:#bdbdc2;letter-spacing:.06em}
+#end .cr{position:absolute;bottom:2vh;left:5vw;right:5vw;font-size:calc(1.9*var(--u));color:rgba(255,255,255,.4)}
+/* couverture (affiche) */
+#cover{position:absolute;inset:0;z-index:60;background:radial-gradient(80% 50% at 50% 55%,#2a0f07,#0b0b0c 75%);overflow:hidden}
+#cover .vid{z-index:1}
+#cover .pk{position:absolute;left:0;right:0;text-align:center;z-index:3;font-weight:900;font-size:calc(2.6*var(--u));letter-spacing:.5em;color:#e8e8ec}
+#cover .logo{position:absolute;left:50%;transform:translateX(-50%);z-index:3;font-size:calc(30*var(--u))}
+#cover .st{position:absolute;left:5vw;right:5vw;text-align:center;z-index:3;font-family:'Bebas Neue';font-size:calc(8*var(--u));line-height:.95}
+#cover .st i{font-style:normal;color:var(--braise)}
+#cover .nw{position:absolute;left:50%;transform:translateX(-50%);z-index:3;font-weight:900;font-size:calc(2.6*var(--u));letter-spacing:.24em;background:var(--braise);padding:calc(.8*var(--u)) calc(2*var(--u));border-radius:calc(.5*var(--u));white-space:nowrap}
+#cover .pov{position:absolute;left:5vw;right:5vw;text-align:center;z-index:3;font-size:calc(4*var(--u));font-weight:800;line-height:1.25}
+#cover .pill{position:absolute;left:50%;transform:translateX(-50%);z-index:3;white-space:nowrap;background:#fff;color:#000;padding:calc(1.5*var(--u)) calc(6*var(--u));font-weight:900;font-size:calc(3.6*var(--u));letter-spacing:.06em;border-radius:calc(.8*var(--u))}
+#cover .dm{position:absolute;left:0;right:0;bottom:1.5vh;text-align:center;z-index:3;font-size:calc(1.9*var(--u));color:rgba(255,255,255,.45)}
+</style></head><body>
+<div id="stage"></div><div id="lb1"></div><div id="lb2"></div><div id="flash"></div>
+<div id="end"><div class="logo">FORGE<small>CLUB</small></div>
+ <div class="q">Ta série<br><i>commence lundi.</i></div>
+ <div class="ad">Coaching · Musculation · Cardio · Boxe</div>
+ <div class="cta">RÉSERVER MA SÉANCE D'ESSAI</div>
+ <div class="cr">Démo conceptuelle · « Forge Club » est une salle fictive · offre fictive · images d'illustration Mixkit · création E-DUST Solutions</div></div>
+<div id="cover"><div class="vid" id="cvv"><img src="assets/clips/pneu/008.jpg"><span class="vg"></span></div>
+ <div class="pk">UNE SÉRIE FORGE CLUB</div>
+ <div class="logo">FORGE<small>CLUB</small></div>
+ <div class="nw">NOUVELLE SAISON</div>
+ <div class="st">Saison 1 : <i>ta transformation</i></div>
+ <div class="pov">POV : ta nouvelle série préférée…<br>c'est toi.</div>
+ <div class="pill">▶ LECTURE</div>
+ <div class="dm">démo · salle fictive</div></div>
+<script>
+const COVER=2.4,A='assets/clips/';
+const SD=[2.8,3.6,3.4,3.6,3.8,4.6,4.4];const T=[];SD.reduce((a,d,i)=>(T[i]=a,a+d),0);const END=SD.reduce((a,b)=>a+b,0);window.DUR=COVER+END+4.6;
+const EP=[['entree','LE PREMIER PAS','Lundi, 7 h. Tu pousses enfin la porte.'],['cordes','LA SUEUR','Ça brûle. Tu tiens.'],['discipline','LA DISCIPLINE','Chaque jour. Même quand c\'est dur.'],['souleve','LE DÉPASSEMENT','Ce que tu pensais impossible.']];
+const st=Q('#stage');function sc(html){const e=document.createElement('div');e.className='sc';e.innerHTML=html;st.appendChild(e);return e}
+const vid=(n,id)=>`<div class="vid" id="${id}"><img src="${A}${n}/001.jpg"><span class="vg"></span></div>`;
+const S=[
+ sc(`<div class="pre" id="pre">FORGE CLUB PRÉSENTE</div><div class="streak" id="stk"></div><div class="logo" id="lg0">FORGE<small>CLUB</small></div><div class="pre" id="s1" style="color:var(--braise)">SAISON 1</div>`+'<div class="spark"></div>'.repeat(26)),
+ ...EP.map((e,i)=>sc(vid(e[0],'v'+i)+`<div class="tagr">ÉPISODE ${i+1}</div>${i==3?'<div class="slowb">● RALENTI</div>':''}<div class="ep"><div class="n">S1 : É${i+1}</div><div class="t">${e[1]}</div><div class="s">${e[2]}</div></div><div class="pl"><span class="tc">0:00</span><span class="tr"><b></b><i></i></span><span>45:00</span></div>`)),
+ sc(`<div class="hdr" id="hd"><div class="k">FORGE CLUB · SAISON 1</div><div class="logo" style="font-size:calc(17*var(--u));margin-top:calc(1*var(--u))">FORGE</div>
+  <div class="m"><b>Recommandé pour toi</b> · 2026 · 5 épisodes · Intense · Motivant</div><div class="btns"><span class="a">▶ Reprendre</span><span class="b">+ Ma liste</span></div></div>`+
+  EP.map((e,i)=>`<div class="row"><div class="th"><img src="${A}${e[0]}/060.jpg"><span class="pg"><b></b></span></div><div class="tx"><b>${i+1}. ${e[1][0]+e[1].slice(1).toLowerCase()}</b><small>45 min · vu</small></div><span class="ok">✓</span></div>`).join('')+
+  `<div class="row new"><div class="th"><div class="lock">5</div></div><div class="tx"><b>5. Toi</b><small>Disponible lundi</small></div><span class="nb">NOUVEAU</span></div>`),
+ sc(vid('souffle','v5')+`<div class="nx" id="nx"><div class="k">PROCHAIN ÉPISODE</div><div class="t">ÉPISODE 5 : <i>TOI.</i></div><div class="s">Ta première séance est offerte. Un coach, un programme, ton rythme.</div>
+  <div class="go"><span id="go">▶ Commencer</span><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="7"/><circle id="ring" cx="50" cy="50" r="44" fill="none" stroke="#ff4a1c" stroke-width="7" stroke-linecap="round" transform="rotate(-90 50 50)"/><text id="cdn" x="50" y="64" text-anchor="middle" fill="#fff" font-family="Bebas Neue" font-size="42">5</text></svg></div></div><div class="tap" id="tap"></div>`)];
+function fit(img,mw,mh){const ar=img.naturalWidth/img.naturalHeight||16/9;let w=mw,h=w/ar;if(h>mh){h=mh;w=h*ar}return[w,h]}
+function put(el,x,y,w,h,extra){el.style.width=w+'px';el.style.height=h+'px';el.style.transform=`translate(${x}px,${y}px) ${extra||''}`}
+let PEND=[];
+function frame(el,n,f){const im=el.querySelector('img');const k=String(Math.min(NF[n],Math.max(1,Math.floor(f)+1))).padStart(3,'0');const src=`${A}${n}/${k}.jpg`;if(im.getAttribute('src')!==src){im.setAttribute('src',src);PEND.push(im.decode().catch(()=>{}))}}
+const mmss=s=>Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+function draw(TT){
+ measure();const t=TT-COVER;const tc=Math.max(0,t);
+ const cv=Q('#cover');cv.style.display=TT<COVER+.4?'block':'none';
+ if(TT<COVER+.4){cv.style.opacity=1-seg(TT,COVER-.3,COVER+.4);
+  const v=Q('#cvv');const[w,h]=fit(v.querySelector('img'),W*.92,H*.3);put(v,(W-w)/2,H*(R45?.36:.4),w,h,`scale(${1+.02*TT})`);v.querySelector('img').style.filter='brightness(.8) contrast(1.1) saturate(.8)';
+  cv.querySelector('.pk').style.top=(R45?4:6)+'vh';const lg=cv.querySelector('.logo');lg.style.top=(R45?8:9.5)+'vh';lg.style.fontSize=(R45?22:30)*U+'px';
+  cv.querySelector('.nw').style.top=(R45?31:34.5)+'vh';const sb=cv.querySelector('.st');sb.style.top=(R45?82-9:73.5)+'vh';cv.querySelector('.pov').style.top=(R45?100:80.5)+'vh';cv.querySelector('.pov').style.display=R45?'none':'block';cv.querySelector('.pill').style.top=(R45?84:89)+'vh'}
+ S.forEach((e,i)=>{const a=T[i],b=a+SD[i],lt=tc-a;const vis=tc>=a&&tc<b+.3&&tc<END+.4;e.style.visibility=vis?'visible':'hidden';if(!vis)return;e.style.zIndex=i+1;
+  e.style.opacity=i==0?1:cl(lt/.25);
+  if(i==0){const pre=Q('#pre');pre.style.top='46vh';pre.style.opacity=win(lt,.15,1.2,.3,.3);pre.style.letterSpacing=(.5+.15*seg(lt,0,1.2))+'em';
+   const lg=Q('#lg0');const s=slam(lt,1.25,1.8,.3);lg.style.position='absolute';lg.style.left='50%';lg.style.top=(R45?32:36)+'vh';lg.style.fontSize=(R45?24:30)*U+'px';lg.style.opacity=s.o;lg.style.transform=`translateX(-50%) scale(${s.s*(1+.03*seg(lt,1.5,SD[0]))})`;
+   const sk=Q('#stk');sk.style.top=(R45?44:46)+'vh';sk.style.opacity=lt>1.15&&lt<1.75?1:0;sk.style.transform=`translateX(${mix(-60,60,seg(lt,1.15,1.75))}%)`;
+   const s1=Q('#s1');s1.style.top=(R45?60:58)+'vh';s1.style.opacity=eo(seg(lt,1.8,2.3));
+   e.querySelectorAll('.spark').forEach((p,j)=>{const d=lt-1.3;p.style.opacity=d>0?cl(1-d/1.3):0;const an=hash(j)*6.28,sp=(10+hash(j+4)*30)*U;p.style.left=W/2+Math.cos(an)*sp*d*1.4+'px';p.style.top=H*(R45?.42:.44)+Math.sin(an)*sp*d+d*d*30*U+'px'})}
+  if(i>=1&&i<=4){const k=i-1,n=EP[k][0],v=Q('#v'+k);const slow=k==3;frame(v,n,lt*30*(slow?1:1));
+   const[w,h]=fit(v.querySelector('img'),W*.92,H*(R45?.42:.36));const y=H*(R45?.08:.17);const z=eo(seg(lt,0,.5));put(v,(W-w)/2,y,w,h,`scale(${mix(1.12,1,z)*(1+.02*seg(lt,.5,SD[i]))})`);
+   v.querySelector('img').style.filter=`contrast(1.1) saturate(.85) brightness(${mix(.4,1,z)})`;
+   const tg=e.querySelector('.tagr');tg.style.left=(W-w)/2+2*U+'px';tg.style.top=y+2*U+'px';tg.style.opacity=eo(seg(lt,.3,.6));
+   const sb=e.querySelector('.slowb');if(sb){sb.style.left=(W-w)/2+w-26*U+'px';sb.style.top=y+2*U+'px';sb.style.opacity=eo(seg(lt,.3,.6))}
+   const pl=e.querySelector('.pl');pl.style.left=(W-w)/2+'px';pl.style.width=w+'px';pl.style.top=y+h+2*U+'px';const pr=.08+k*.22+seg(lt,0,SD[i])*.2;pl.querySelector('b').style.width=pr*100+'%';pl.querySelector('i').style.left=pr*100+'%';pl.querySelector('.tc').textContent=mmss(pr*2700);
+   const ep=e.querySelector('.ep');ep.style.top=(y+h)/H*100+(R45?7:7)+'vh';[...ep.children].forEach((c,j)=>{const p=eo(seg(lt,.35+j*.22,.85+j*.22));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*3}vh)`});
+   ep.querySelector('.t').style.fontSize=(R45?11:14)*U+'px';}
+  if(i==5){const hd=Q('#hd');hd.style.top=(R45?5:7)+'vh';const p=eo(seg(lt,.1,.6));hd.style.opacity=p;
+   const rows=[...e.querySelectorAll('.row')];const tw=24*U,th=tw*9/16;
+   rows.forEach((r,j)=>{r.style.top=(R45?36:36)*H/100+j*(th+(R45?2.2:2.6)*U)+(j==4?1.2*U:0)+'px';const q=eb(seg(lt,.5+j*.2,.9+j*.2));r.style.opacity=cl(q*2);r.style.transform=`translateX(${(1-q)*-8}vw)`;
+    const t2=r.querySelector('.th');t2.style.width=tw+'px';t2.style.height=th+'px';const g=r.querySelector('.pg b');if(g)g.style.width=100*eo(seg(lt,.8+j*.2,1.4+j*.2))+'%';
+    if(j==4){r.style.boxShadow=`0 0 ${(2+2*Math.sin(lt*6))*U}px rgba(255,74,28,${.35*seg(lt,1.8,2.2)})`}})}
+  if(i==6){const v=Q('#v5');frame(v,'souffle',lt*30);const[w,h]=fit(v.querySelector('img'),W*.92,H*(R45?.4:.34));const y=H*(R45?.05:.12);put(v,(W-w)/2,y,w,h);v.querySelector('img').style.filter=`brightness(.55) blur(${2*seg(lt,0,.6)}px)`;
+   const nx=Q('#nx');nx.style.top=(y+h)/H*100+2+'vh';const q=eb(seg(lt,.2,.6));nx.style.opacity=cl(q*2);nx.style.transform=`translateY(${(1-q)*5}vh)`;
+   const cd=Math.max(0,5-Math.floor(seg(lt,.7,3.2)*5));Q('#cdn').textContent=cd;const L=2*Math.PI*44;const r=Q('#ring');r.setAttribute('stroke-dasharray',L);r.setAttribute('stroke-dashoffset',L*seg(lt,.7,3.2));
+   const go=Q('#go');const pr=lt>3.25;go.style.background=pr?'#ff4a1c':'#fff';go.style.color=pr?'#fff':'#000';go.textContent=pr?'▶ C\'est parti':'▶ Commencer';
+   const tp=Q('#tap');const rb=go.getBoundingClientRect();const d=lt-3.2;tp.style.left=rb.left+rb.width/2-5*U+'px';tp.style.top=rb.top+rb.height/2-5*U+'px';tp.style.opacity=d>0&&d<.5?1-d/.5:0;tp.style.transform=`scale(${.4+d*1.6})`}
+ });
+ const lb=TT<COVER||tc>=END?0:(tc<T[1]?0:1);const lbh=lb*(R45?0:3.5);Q('#lb1').style.height=Q('#lb2').style.height=lbh+'vh';
+ Q('#flash').style.opacity=Math.max(...[T[0]+1.28,T[1],T[2],T[3],T[4]].map(x=>Math.max(0,1-Math.abs(tc-x-.03)/.1)))*.55;
+ const en=Q('#end');en.style.opacity=TT<COVER?0:seg(tc,END-.1,END+.5);
+ [...en.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eo(seg(tc,END+.2+i*.22,END+.85+i*.22));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*2}vh)`});
+ en.querySelector('.logo').style.fontSize=(R45?20:26)*U+'px';
+}
+window.render=TT=>{PEND=[];draw(TT);return Promise.all(PEND)};
+</script></body></html>
