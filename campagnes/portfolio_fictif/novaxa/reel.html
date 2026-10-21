@@ -1,0 +1,145 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>NOVAXA CONSEIL (cabinet fictif) — Reel motion design « 3 erreurs qui coûtent cher aux PME »</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<style>
+/* marque fictive : marine, blanc, jaune signal ; Archivo + JetBrains Mono ; grille suisse ; colonne de contenu 7vw–82vw (zone des boutons Reels libre) */
+:root{--mar:#0a1a3a;--mar2:#06112a;--bl:#f5f7fb;--jau:#ffcc00;--gr:#8fa0c4;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:var(--mar);color:var(--bl);font-family:Archivo,sans-serif}
+.sc{position:absolute;inset:0;overflow:hidden;visibility:hidden;background:var(--mar)}
+.sc.j{background:var(--jau);color:var(--mar)}
+.grid{position:absolute;inset:0;pointer-events:none}
+.grid i{position:absolute;top:0;bottom:0;width:1px;background:currentColor;opacity:.1;transform-origin:50% 0}
+.grid b{position:absolute;left:0;right:0;height:1px;background:currentColor;opacity:.1;transform-origin:0 50%}
+.lab{position:absolute;left:7vw;font-family:'JetBrains Mono';font-weight:700;font-size:calc(2.8*var(--u));letter-spacing:.18em;color:var(--jau);display:flex;gap:calc(2*var(--u));align-items:center}
+.sc.j .lab{color:var(--mar)}
+.lab span{display:inline-block;padding:calc(.5*var(--u)) calc(1.2*var(--u));border:2px solid currentColor}
+.hd{position:absolute;left:7vw;right:8vw;font-weight:900;font-size:calc(9*var(--u));line-height:.95;letter-spacing:-.03em;text-transform:uppercase}
+.w{display:inline-block;transform-origin:0 80%;margin-right:.18em}
+.hl{background:var(--jau);color:var(--mar);padding:0 .12em}
+.sub{position:absolute;left:7vw;right:18vw;font-weight:600;font-size:calc(4.4*var(--u));line-height:1.2;color:var(--gr)}
+/* notifications */
+.nt{position:absolute;left:7vw;width:75vw;background:var(--bl);color:var(--mar);border-radius:calc(1.6*var(--u));padding:calc(2*var(--u)) calc(2.6*var(--u));display:flex;gap:calc(2.2*var(--u));align-items:center;box-shadow:0 calc(1.4*var(--u)) calc(5*var(--u)) rgba(0,0,0,.35)}
+.nt i{flex:none;font-style:normal;width:calc(8*var(--u));height:calc(8*var(--u));border-radius:calc(1.6*var(--u));background:var(--mar);color:var(--jau);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono';font-weight:700;font-size:calc(4*var(--u))}
+.nt b{display:block;font-weight:800;font-size:calc(3.3*var(--u))}
+.nt span{display:block;font-size:calc(2.8*var(--u));color:#5a6788;margin-top:.2em}
+.nt em{margin-left:auto;font-style:normal;font-family:'JetBrains Mono';font-weight:700;font-size:calc(3*var(--u));color:#c0392b;white-space:nowrap}
+.stamp{position:absolute;font-weight:900;font-size:calc(12*var(--u));letter-spacing:.04em;color:var(--mar);background:var(--jau);padding:0 calc(2.4*var(--u));transform-origin:50% 50%;white-space:nowrap}
+/* tableur */
+.sh{position:absolute;left:7vw;width:75vw;overflow:hidden;border:2px solid var(--bl);background:#0d214a}
+.tabs{display:flex;gap:2px;background:var(--mar2);padding:calc(1*var(--u)) calc(1*var(--u)) 0}
+.tabs span{font-family:'JetBrains Mono';font-weight:500;font-size:calc(2.2*var(--u));background:#13295a;padding:calc(.7*var(--u)) calc(1.2*var(--u));white-space:nowrap;color:var(--gr)}
+.tabs span.on{background:#0d214a;color:var(--bl)}
+.cells{display:grid;grid-template-columns:repeat(5,1fr)}
+.cells div{height:calc(5*var(--u));border-right:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);font-family:'JetBrains Mono';font-weight:500;font-size:calc(2.3*var(--u));display:flex;align-items:center;padding:0 calc(1*var(--u));white-space:nowrap;overflow:hidden;color:var(--bl)}
+.cells div.e{color:var(--mar);background:var(--jau);font-weight:700}
+/* trésorerie */
+.cash{position:absolute;left:7vw;width:75vw;display:flex;gap:calc(4*var(--u));align-items:flex-end}
+.clk{flex:none}
+.bars{flex:1;display:flex;gap:calc(1.6*var(--u));align-items:flex-end;border-bottom:2px solid var(--bl)}
+.bars div{flex:1;background:var(--bl);position:relative}
+.bars div b{position:absolute;left:0;right:0;top:calc(-6*var(--u));text-align:center;font-weight:900;font-size:calc(5*var(--u));color:var(--jau)}
+/* solution */
+.arr{position:absolute;left:7vw;font-weight:900;font-size:calc(16*var(--u));line-height:1}
+.so{position:absolute;left:7vw;right:18vw;font-weight:900;font-size:calc(8*var(--u));line-height:1;letter-spacing:-.02em}
+.ok{position:absolute;left:7vw}
+.ok path{fill:none;stroke:#0a1a3a;stroke-width:9;stroke-linecap:round;stroke-linejoin:round}
+.so small{display:block;font-weight:600;font-size:.5em;letter-spacing:0;margin-top:.5em;line-height:1.25}
+/* fin et couverture */
+#end{position:absolute;inset:0;z-index:50;opacity:0;background:var(--mar)}
+#end .lg,#cover .lg{position:absolute;left:7vw;font-weight:900;font-size:calc(4*var(--u));letter-spacing:.24em}
+.lg i{font-style:normal;color:var(--jau)}
+.lg small{display:block;font-family:'JetBrains Mono';font-weight:500;font-size:.55em;letter-spacing:.18em;color:var(--gr);margin-top:.4em}
+#end .q{position:absolute;left:7vw;right:10vw;font-weight:900;font-size:calc(12*var(--u));line-height:.92;letter-spacing:-.035em;text-transform:uppercase}
+#end .q em{font-style:normal;color:var(--jau)}
+#end .cta{position:absolute;left:7vw;background:var(--jau);color:var(--mar);font-weight:900;font-size:calc(4*var(--u));letter-spacing:.12em;padding:calc(2*var(--u)) calc(4.4*var(--u))}
+#end .ad{position:absolute;left:7vw;right:10vw;font-weight:600;font-size:calc(3.4*var(--u));color:var(--gr);line-height:1.35}
+#end .cr,#cover .cr{position:absolute;left:7vw;right:7vw;font-family:'JetBrains Mono';font-weight:500;font-size:calc(2.1*var(--u));color:var(--gr)}
+#cover{position:absolute;inset:0;z-index:60;background:var(--mar);overflow:hidden}
+#cover .tt{position:absolute;left:7vw;right:8vw;font-weight:900;font-size:calc(13*var(--u));line-height:.9;letter-spacing:-.04em;text-transform:uppercase}
+#cover .par{position:absolute;left:7vw;font-weight:600;font-style:italic;font-size:calc(5.4*var(--u));color:var(--gr)}
+#cover .tag{position:absolute;left:7vw;font-family:'JetBrains Mono';font-weight:700;font-size:calc(3*var(--u));letter-spacing:.08em;color:var(--mar);background:var(--bl);padding:calc(1*var(--u)) calc(2*var(--u))}
+#cover .num{position:absolute;right:6vw;font-weight:900;font-size:calc(46*var(--u));line-height:.8;color:transparent;-webkit-text-stroke:3px var(--jau);opacity:.9}
+#cover .cur{display:inline-block;width:.08em;height:.8em;background:var(--jau);vertical-align:-.05em;margin-left:.08em}
+</style></head><body>
+<div id="stage"></div>
+<div id="end"><div class="grid g"></div><div class="lg">NOVA<i>X</i>A<small>CONSEIL · ORGANISATION &amp; GESTION DES PME</small></div>
+ <div class="q">On en parle<br><em>20 minutes&nbsp;?</em></div>
+ <div class="ad">Un appel gratuit pour repérer où ton entreprise perd du temps.</div>
+ <div class="cta">RÉSERVER UN APPEL →</div>
+ <div class="cr">démo · marque fictive · « Novaxa Conseil » n'existe pas · création E-DUST Solutions</div></div>
+<div id="cover"><div class="grid g"></div><div class="num">3</div>
+ <div class="lg">NOVA<i>X</i>A<small>CONSEIL</small></div>
+ <div class="tt">Ton entreprise perd du temps <span class="hl">ici</span><span class="cur"></span></div>
+ <div class="par">(et tu ne le vois pas)</div>
+ <div class="tag">3 ERREURS QUI COÛTENT CHER AUX PME ↓</div>
+ <div class="cr">démo · marque fictive</div></div>
+<script>
+const COVER=2.4;
+const SD=[3.0,2.6,4.6,2.4,4.6,2.4,4.6,2.4];const T=[];SD.reduce((a,d,i)=>(T[i]=a,a+d),0);const END=SD.reduce((a,b)=>a+b,0);window.DUR=COVER+END+4.6;
+const st=Q('#stage');function sc(cls,html){const e=document.createElement('div');e.className='sc '+cls;e.innerHTML='<div class="grid g"></div>'+html;st.appendChild(e);return e}
+const words=(s,cls)=>s.split(' ').map(w=>`<span class="w${cls?' '+cls:''}">${w}</span>`).join(' ');
+const err=(n,t)=>`<div class="lab"><span>ERREUR ${n}/3</span></div><div class="hd">${words(t)}</div>`;
+const sol=(n,t,s)=>`<div class="lab"><span>SOLUTION ${n}</span></div><div class="arr">→</div><div class="so">${words(t)}<small>${s}</small></div><svg class="ok" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="#0a1a3a" stroke-width="7" opacity=".25"/><path d="M34 62 L52 80 L88 40"/></svg>`;
+const NOTES=[['Facture F-0412 · client Martin','Échéance dépassée','J+15'],['Facture F-0398 · Atelier Roche','Aucune relance envoyée','J+30'],['Facture F-0377 · Groupe Delmas','Toujours en attente','J+45']];
+const TABS=['clients.xlsx','clients_v2.xlsx','clients_FINAL.xlsx','clients_FINAL_v2.xlsx','devis_2026_OK?.xlsx'];
+const VALS=['Client','Devis','Statut','Montant','Relance','Martin','envoyé','?','—','à faire','Roche','signé','#REF!','—','oublié','Delmas','envoyé','?','#REF!','à faire','Dupuis','?','?','—','#REF!','Leroy','signé','—','#N/A','?','Garnier','?','#REF!','—','?','Petit','envoyé','?','?','#N/A'];
+const S=[
+ sc('',`<div class="hd" id="h0">${words('Ton entreprise perd du temps')} <span class="w hl">ici.</span></div><div class="sub" id="s0">Voici 3 erreurs qu'on voit dans presque toutes les PME.</div>`),
+ sc('',`<div class="hd" id="h1" style="font-size:calc(40*var(--u));line-height:.8">3</div><div class="hd" id="h1b">${words('erreurs qui coûtent cher')}</div>`),
+ sc('',err('01','Les relances oubliées')+NOTES.map(n=>`<div class="nt"><i>@</i><div><b>${n[0]}</b><span>${n[1]}</span></div><em>${n[2]}</em></div>`).join('')+`<div class="stamp" id="st2">OUBLIÉES</div>`),
+ sc('j',sol(1,'Des relances automatiques.','Le bon message part au bon moment. Tu n\'y penses plus.')),
+ sc('',err('02','Tout gérer dans des tableurs')+`<div class="sh" id="sh"><div class="tabs">${TABS.map((t,i)=>`<span${i==TABS.length-1?' class="on"':''}>${t}</span>`).join('')}</div><div class="cells">${VALS.map(v=>`<div${v[0]=='#'?' class="e"':''}>${v}</div>`).join('')}</div></div>`),
+ sc('j',sol(2,'Un seul outil, à jour.','Les bonnes infos au bon endroit, pour toute l\'équipe.')),
+ sc('',err('03','Aucune visibilité sur la trésorerie')+`<div class="cash" id="cash"><svg class="clk" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#f5f7fb" stroke-width="5"/>${[...Array(12)].map((_,k)=>`<line x1="50" y1="10" x2="50" y2="16" stroke="#f5f7fb" stroke-width="3" transform="rotate(${k*30} 50 50)"/>`).join('')}<line id="hh" x1="50" y1="50" x2="50" y2="28" stroke="#ffcc00" stroke-width="6" stroke-linecap="round"/><line id="mh" x1="50" y1="50" x2="50" y2="16" stroke="#f5f7fb" stroke-width="4" stroke-linecap="round"/><circle cx="50" cy="50" r="5" fill="#ffcc00"/></svg>
+  <div class="bars" id="bars">${[...Array(6)].map(()=>'<div><b>?</b></div>').join('')}</div></div><div class="sub" id="s6">Combien reste-t-il vraiment à la fin du mois&nbsp;?</div>`),
+ sc('j',sol(3,'Un tableau de bord clair.','Chaque semaine, tu sais où tu en es. Et tu décides sereinement.'))];
+// grille suisse : 6 colonnes, 10 lignes
+QA('.g').forEach(g=>{g.innerHTML=[1,2,3,4,5].map(k=>`<i style="left:${k*100/6}%"></i>`).join('')+[1,2,3,4,5,6,7,8,9].map(k=>`<b style="top:${k*10}%"></b>`).join('')});
+function grid(e,lt){e.querySelectorAll('.grid i').forEach((l,k)=>l.style.transform=`scaleY(${eio(seg(lt,k*.05,.5+k*.05))})`);e.querySelectorAll('.grid b').forEach((l,k)=>l.style.transform=`scaleX(${eio(seg(lt,.1+k*.04,.6+k*.04))})`)}
+function slamWords(el,lt,t0,step){[...el.querySelectorAll('.w')].forEach((w,k)=>{const s=slam(lt,t0+k*step,2.2,.22);w.style.opacity=s.o;w.style.transform=`scale(${s.s})`;w.style.filter=`blur(${(s.s-1)*6}px)`})}
+function draw(TT){
+ measure();const t=TT-COVER;const tc=Math.max(0,t);
+ // y de référence : 9:16 / 4:5
+ const LB=R45?6:9,HD=R45?10:13.5,VZ=R45?33:37;
+ const cv=Q('#cover');cv.style.display=TT<COVER+.4?'block':'none';
+ if(TT<COVER+.4){cv.style.opacity=1-seg(TT,COVER-.3,COVER+.4);
+  cv.querySelector('.lg').style.top=LB+'vh';const tt=cv.querySelector('.tt');tt.style.top=(R45?22:25)+'vh';tt.style.fontSize=(R45?11.5:13)*U+'px';
+  cv.querySelector('.par').style.top=(R45?56:55)+'vh';cv.querySelector('.tag').style.top=(R45?67:66)+'vh';
+  const nm=cv.querySelector('.num');nm.style.top=(R45?4:5)+'vh';nm.style.fontSize=(R45?26:46)*U+'px';nm.style.transform=`translateY(${-TT*.4}vh)`;
+  cv.querySelector('.cur').style.opacity=Math.sin(TT*7)>0?1:0;cv.querySelector('.cr').style.top=(R45?78:79)+'vh'}
+ S.forEach((e,i)=>{const a=T[i],b=a+SD[i],lt=tc-a;const vis=tc>=a&&tc<b+.3&&tc<END+.4;e.style.visibility=vis?'visible':'hidden';if(!vis)return;e.style.zIndex=i+1;
+  const pin=eio(seg(lt,0,.3));e.style.clipPath=i==0?'none':(e.classList.contains('j')?`inset(${(1-pin)*100}% 0 0 0)`:`inset(0 0 0 ${(1-pin)*100}%)`);grid(e,lt);
+  const lab=e.querySelector('.lab');if(lab){lab.style.top=LB+'vh';const p=eo(seg(lt,.1,.4));lab.style.opacity=p;lab.style.transform=`translateX(${(1-p)*-6}vw)`}
+  const hd=e.querySelector('.hd:not(#h1)');if(hd&&i!=1){hd.style.top=(i==0?(R45?24:28):HD)+'vh';hd.style.fontSize=(i==0?(R45?12:12):(R45?8:9))*U+'px';slamWords(hd,lt,.2,i==0?.22:.16)}
+  if(i==0){const s=Q('#s0');s.style.top=(R45?62:68)+'vh';s.style.opacity=eo(seg(lt,1.7,2.2));const hl=e.querySelector('.hl');hl.style.boxShadow=`0 0 0 ${Math.max(0,Math.sin((lt-1.3)*6))*U}px #ffcc00`}
+  if(i==1){const h=Q('#h1');h.style.top=(R45?16:20)+'vh';h.style.fontSize=(R45?34:40)*U+'px';const s=slam(lt,.15,3,.28);h.style.opacity=s.o;h.style.transform=`scale(${s.s}) rotate(${(1-seg(lt,.15,.45))*-8}deg)`;h.style.color='#ffcc00';
+   const hb=Q('#h1b');hb.style.top=(R45?50:52)+'vh';hb.style.fontSize=(R45?9:10)*U+'px';slamWords(hb,lt,.7,.18)}
+  if(i==2){e.querySelectorAll('.nt').forEach((n,k)=>{const q=eb(seg(lt,.7+k*.55,1.05+k*.55));n.style.top=VZ+k*(R45?13:11)+'vh';n.style.opacity=cl(q*2);n.style.transform=`translateY(${(1-q)*-5}vh) scale(${.92+.08*q})`;
+    n.style.filter=lt>2.9?`grayscale(1) opacity(${1-.4*seg(lt,2.9,3.2)})`:'none'});
+   const sp=Q('#st2');const s=slam(lt,3.0,2.6,.22);sp.style.opacity=s.o;sp.style.left='12vw';sp.style.top=VZ+(R45?11:10)+'vh';sp.style.fontSize=(R45?11:12)*U+'px';sp.style.transform=`rotate(-9deg) scale(${s.s})`;
+   e.style.transform=`translate(${shake(lt,[[3.05,1.2]])*U*Math.sin(lt*90)}px,0)`}
+  if(i==3||i==5||i==7){const ar=e.querySelector('.arr');ar.style.top=(R45?18:22)+'vh';const p=eo(seg(lt,.2,.6));ar.style.opacity=p;ar.style.transform=`translateX(${(1-p)*-20}vw)`;
+   const so=e.querySelector('.so');so.style.top=(R45?36:40)+'vh';so.style.fontSize=(R45?7.4:8)*U+'px';slamWords(so,lt,.45,.14);const sm=so.querySelector('small');sm.style.opacity=eo(seg(lt,1.1,1.6));
+   const ok=e.querySelector('.ok');const sz=(R45?20:26)*U;ok.style.width=ok.style.height=sz+'px';ok.style.top=(R45?60:62)+'vh';const pa=ok.querySelector('path');pa.style.strokeDasharray=90;pa.style.strokeDashoffset=90*(1-eio(seg(lt,1.2,1.7)));ok.style.transform=`scale(${.8+.2*eb(seg(lt,1.1,1.5))})`;ok.style.opacity=eo(seg(lt,1.1,1.4))}
+  if(i==4){const sh=Q('#sh');sh.style.top=VZ+'vh';const hmax=H*(R45?.42:.36);sh.style.height=hmax+'px';
+   const cells=[...sh.querySelectorAll('.cells div')];cells.forEach((c,k)=>{c.style.opacity=lt>.6+k*.045?1:0});
+   const tabs=[...sh.querySelectorAll('.tabs span')];tabs.forEach((tb,k)=>{tb.style.display=lt>.8+k*.45?'block':'none';tb.classList.toggle('on',k==Math.min(tabs.length-1,Math.floor((lt-.8)/.45)))});
+   const z=1+.35*eio(seg(lt,2.9,4.2));sh.querySelector('.cells').style.transform=`scale(${z})`;sh.querySelector('.cells').style.transformOrigin='0 0';
+   sh.style.transform=`translateX(${shake(lt,[[3.2,.8],[3.6,.8],[4.0,.8]])*U*Math.sin(lt*85)}px)`;sh.style.borderColor=lt>3.1?'#ffcc00':'#f5f7fb'}
+  if(i==6){const c=Q('#cash');c.style.top=VZ+'vh';const ch=H*(R45?.3:.26);c.style.height=ch+'px';const clk=c.querySelector('.clk');clk.style.width=clk.style.height=Math.min(ch*.8,W*.28)+'px';
+   const sp=Math.pow(seg(lt,.5,4.2),2)*4200+lt*60;Q('#mh').setAttribute('transform',`rotate(${sp} 50 50)`);Q('#hh').setAttribute('transform',`rotate(${sp/12} 50 50)`);
+   const bs=[...Q('#bars').children];Q('#bars').style.height=ch+'px';bs.forEach((b2,k)=>{const base=[.55,.8,.35,.7,.45,.9][k];const q=eb(seg(lt,.7+k*.15,1.1+k*.15));b2.style.height=ch*.78*base*q*(1+.15*Math.sin(lt*7+k))+'px';
+    b2.style.filter=`blur(${2+4*seg(lt,1.8,3.2)}px)`;b2.querySelector('b').style.opacity=eo(seg(lt,2,2.4))});
+   const s=Q('#s6');s.style.top=VZ+(R45?34:30)+'vh';s.style.opacity=eo(seg(lt,2.4,2.9))}
+ });
+ const en=Q('#end');en.style.opacity=TT<COVER?0:seg(tc,END-.1,END+.4);
+ if(tc>END-.2){const lt=tc-END;grid(en,lt+.5);
+  en.querySelector('.lg').style.top=LB+'vh';const q=en.querySelector('.q');q.style.top=(R45?22:26)+'vh';q.style.fontSize=(R45?11:12)*U+'px';
+  en.querySelector('.ad').style.top=(R45?51:52)+'vh';en.querySelector('.cta').style.top=(R45?62:62)+'vh';en.querySelector('.cr').style.top=(R45?78:79)+'vh';
+  [...en.children].filter(c=>!c.classList.contains('grid')).forEach((c,k)=>{const p=eo(seg(lt,.15+k*.2,.7+k*.2));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*3}vh)`});
+  const cta=en.querySelector('.cta');cta.style.boxShadow=`0 0 0 ${Math.max(0,Math.sin((lt-1.4)*4))*1.4*U}px rgba(255,204,0,.35)`}
+}
+window.render=draw;
+</script></body></html>
