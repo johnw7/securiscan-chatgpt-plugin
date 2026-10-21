@@ -115,7 +115,7 @@ sec('kv',`<div class="cam" id="kvcam">
  <div class="obj" id="kv2" style="width:21vw">${perfumeSVG()}</div>
  <div class="obj" id="kv3" style="width:36vw">${cupSVG()}</div>
  <div class="obj" id="kv4" style="width:17vw">${phoneSVG()}</div>
- <div class="obj" id="kv5" style="width:30vw">${diamondSVG()}</div></div>
+ <div class="obj" id="kv5" style="width:34vw"><img src="assets/bague.jpg" style="width:100%;display:block;filter:brightness(.82) contrast(1.15);-webkit-mask-image:radial-gradient(62% 62% at 50% 46%,#000 48%,transparent 100%);mask-image:radial-gradient(62% 62% at 50% 46%,#000 48%,transparent 100%)"></div></div>
  <div class="logoCard" id="kvLogo"><img src="../../edust_onboarding/assets/edust-solutions-logo.png"></div>
  <div id="kvH"><b>VOTRE MARQUE</b><i>en slow motion.</i></div>
  <div id="kvS">6 SECTEURS · FILMS DE MARQUE</div>
@@ -123,8 +123,8 @@ sec('kv',`<div class="cam" id="kvcam">
 // intro
 sec('intro',`<div class="line" id="iL" style="font-size:calc(9*var(--u))">Chaque marque<br>a son <span style="background:linear-gradient(90deg,#ffd27a,#ff7a8a);-webkit-background-clip:text;color:transparent">histoire.</span></div>
  <div class="kick" id="iK" style="color:#bbb">ON LA RACONTE AU RALENTI</div>`,'radial-gradient(60% 40% at 50% 50%,#15122a,#000 75%)');
-const OBJ=[`<img src="../../boost_rush/assets/canette_complete.png" style="height:100%;display:block">`,burgerSVG(),perfumeSVG(),cupSVG(),phoneSVG(),diamondSVG()];
-const OSZ=[['h',60],['w',82],['w',54],['w',80],['w',38],['w',64]];
+const OBJ=[`<img src="../../boost_rush/assets/canette_complete.png" style="height:100%;display:block">`,burgerSVG(),perfumeSVG(),cupSVG(),phoneSVG(),`<img src="assets/bague.jpg" style="width:100%;display:block;filter:brightness(.82) contrast(1.15);-webkit-mask-image:radial-gradient(62% 62% at 50% 46%,#000 48%,transparent 100%);mask-image:radial-gradient(62% 62% at 50% 46%,#000 48%,transparent 100%)">`];
+const OSZ=[['h',60],['w',82],['w',54],['w',80],['w',38],['w',84]];
 SECT.forEach((S,i)=>{const sz=OSZ[i][0]=='h'?`height:${OSZ[i][1]}vh`:`width:min(${OSZ[i][1]}vw,${OSZ[i][1]*.62}vh)`;
  const extra=i==4?`<div class="ui" id="ui1">Ventes<b>+ 38 %</b></div><div class="ui" id="ui2">Nouvelle commande ✓</div><div class="ui" id="ui3">★★★★★ <span style="opacity:.7">4,9</span></div>`:'';
  sec('s'+i,`<div class="num" id="n${i}">0${i+1}</div><div class="cam" id="cam${i}"><div class="obj" id="o${i}" style="${sz}">${OBJ[i]}</div>${extra}</div>
@@ -209,8 +209,8 @@ function render(t){
     gb.beginPath();gb.ellipse(ox,oy,W*(.3+k*.06),H*(.12+k*.03),.5-k*.25,p*6,p*6+1.6);gb.stroke();gb.restore();}}
   if(i==5){ // éclats + caustiques
    o.querySelectorAll('.facets polygon').forEach((pg,k)=>{pg.style.opacity=.75+.25*Math.sin(lt*3+k*1.7)});
-   for(let j=0;j<16;j++){const p=(ls*.9+hash(j))%1;const x=ox+(hash(j+1)-.5)*W*.6,y=oy+(hash(j+2)-.5)*H*.35;star(gf,x,y,U*(1.5+3*hash(j+3))*Math.sin(p*Math.PI),al*Math.sin(p*Math.PI));}
-   for(let k=0;k<6;k++){gb.save();gb.globalAlpha=al*.12;gb.fillStyle='#bfe3ff';gb.translate(ox,oy);gb.rotate(k*1.05+ls*.3);gb.beginPath();gb.moveTo(0,0);gb.lineTo(W,-U*6);gb.lineTo(W,U*6);gb.fill();gb.restore();}}
+   for(let j=0;j<7;j++){const p=(ls*1.4+hash(j))%1;const x=ox+(hash(j+1)-.5)*W*.14,y=oy-H*.02+(hash(j+2)-.5)*H*.06;star(gf,x,y,U*(.8+1.6*hash(j+3))*Math.sin(p*Math.PI),al*.9*Math.sin(p*Math.PI));}
+  }
  });
  // ---------- fin ----------
  const oa=T0+6*SD;const ol=Q('#oLogo');ol.style.top=(R45?16:20)+'vh';const op=eb(seg(t,oa+.2,oa+.8));ol.style.transform=`translateX(-50%) scale(${.7+.3*op})`;ol.style.opacity=cl(op*2);
