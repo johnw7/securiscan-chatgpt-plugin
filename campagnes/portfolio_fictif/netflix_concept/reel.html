@@ -1,0 +1,157 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>Concept non officiel — Reel « POV : ce soir, t'as rien prévu » pour une plateforme de streaming</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<script src="assets/clips/nf.js"></script>
+<style>
+/* concept de Reel promotionnel : noir, rouge profond, blanc ; Bebas Neue + Inter ; aucun logo, aucune affiche, aucun extrait de la plateforme */
+:root{--noir:#0b0b0c;--rouge:#e0222b;--rouge2:#ff5a4d;--u:min(1vw,.7vh)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100vw;height:100vh;overflow:hidden;background:var(--noir);color:#fff;font-family:Inter,sans-serif}
+.sc{position:absolute;inset:0;overflow:hidden;visibility:hidden;background:var(--noir)}
+.wm{font-family:'Bebas Neue';letter-spacing:.12em;line-height:.9;color:var(--rouge);text-shadow:0 0 calc(3*var(--u)) rgba(224,34,43,.5);white-space:nowrap}
+.vid{position:absolute;left:0;top:0;overflow:hidden;border-radius:calc(1.2*var(--u));background:#000;box-shadow:0 calc(2*var(--u)) calc(8*var(--u)) rgba(0,0,0,.7)}
+.vid img{position:absolute;left:0;top:0;width:100%;height:100%;display:block}
+.vid .vg{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 50%,transparent 55%,rgba(0,0,0,.5))}
+.k{position:absolute;left:6vw;right:18vw;z-index:8;font-weight:900;font-size:calc(2.8*var(--u));letter-spacing:.34em;color:var(--rouge2)}
+.t{position:absolute;left:6vw;right:18vw;z-index:8;font-family:'Bebas Neue';font-size:calc(14*var(--u));line-height:.9;letter-spacing:.01em}
+.t i{font-style:normal;color:var(--rouge)}
+.s{position:absolute;left:6vw;right:18vw;z-index:8;font-size:calc(3.6*var(--u));color:#d6d6da;line-height:1.3}
+/* intro */
+.pre{position:absolute;left:0;right:0;text-align:center;font-weight:800;font-size:calc(3*var(--u));letter-spacing:.6em;color:#e4e4e8;z-index:5}
+.big{position:absolute;left:6vw;right:18vw;text-align:left;font-family:'Bebas Neue';font-size:calc(19*var(--u));line-height:.88;z-index:5}
+.big i{font-style:normal;color:var(--rouge)}
+.cur{display:inline-block;width:.07em;height:.8em;background:var(--rouge);margin-left:.06em;vertical-align:-.05em}
+/* catalogue */
+.row{position:absolute;left:0;right:0;z-index:6;display:flex;gap:calc(2*var(--u));padding-left:6vw;white-space:nowrap;will-change:transform}
+.cd{position:relative;flex:none;border-radius:calc(1*var(--u));overflow:hidden;box-shadow:0 calc(1*var(--u)) calc(3*var(--u)) rgba(0,0,0,.6)}
+.cd b{position:absolute;left:calc(1.6*var(--u));bottom:calc(1.6*var(--u));font-family:'Bebas Neue';font-weight:400;font-size:calc(5.2*var(--u));letter-spacing:.03em;line-height:.9;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.cd::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 40% at 30% 25%,rgba(255,255,255,.28),transparent 70%),linear-gradient(transparent 55%,rgba(0,0,0,.55))}
+.sel{position:absolute;z-index:9;border:calc(.6*var(--u)) solid #fff;border-radius:calc(1.2*var(--u));box-shadow:0 0 calc(5*var(--u)) rgba(255,255,255,.35);opacity:0}
+.sel i{position:absolute;left:50%;top:50%;width:calc(11*var(--u));height:calc(11*var(--u));margin:calc(-5.5*var(--u)) 0 0 calc(-5.5*var(--u));border-radius:50%;background:rgba(255,255,255,.92)}
+.sel i::after{content:"";position:absolute;left:38%;top:26%;border-left:calc(4.4*var(--u)) solid #0b0b0c;border-top:calc(2.8*var(--u)) solid transparent;border-bottom:calc(2.8*var(--u)) solid transparent}
+/* profils */
+.pf{position:absolute;z-index:6;display:flex;flex-direction:column;align-items:center;gap:calc(1.6*var(--u));width:calc(27*var(--u))}
+.pf div{width:calc(24*var(--u));height:calc(24*var(--u));border-radius:calc(2*var(--u));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue';font-size:calc(11*var(--u));box-shadow:0 calc(1*var(--u)) calc(3*var(--u)) rgba(0,0,0,.5)}
+.pf span{font-weight:600;font-size:calc(3.2*var(--u));color:#cfcfd4}
+/* appareils */
+.chips{position:absolute;z-index:8;display:flex;flex-wrap:wrap;gap:calc(1.6*var(--u));left:6vw;right:18vw}
+.chips span{font-weight:800;font-size:calc(3.2*var(--u));letter-spacing:.04em;padding:calc(1.1*var(--u)) calc(2.4*var(--u));border-radius:999px;border:2px solid rgba(255,255,255,.55);background:rgba(0,0,0,.45)}
+/* continuer à regarder */
+.th{position:absolute;z-index:6;overflow:hidden;border-radius:calc(1*var(--u));background:#000;box-shadow:0 calc(1*var(--u)) calc(3*var(--u)) rgba(0,0,0,.6)}
+.th img{display:block;width:100%;height:100%}
+.th .pg{position:absolute;left:0;right:0;bottom:0;height:calc(.9*var(--u));background:rgba(255,255,255,.28)}
+.th .pg b{position:absolute;left:0;top:0;bottom:0;background:var(--rouge)}
+.lb{position:absolute;z-index:6;font-size:calc(2.5*var(--u));line-height:1.25;color:#cfcfd4}
+.lb b{display:block;color:#fff;font-size:calc(2.9*var(--u))}
+/* lecture suivante */
+.nx{position:absolute;left:6vw;right:18vw;z-index:9;background:rgba(14,14,16,.88);border:1px solid rgba(255,255,255,.16);border-radius:calc(2*var(--u));padding:calc(3*var(--u))}
+.nx .k2{font-weight:900;font-size:calc(2.4*var(--u));letter-spacing:.3em;color:#bdbdc2}
+.nx .t2{font-family:'Bebas Neue';font-size:calc(11*var(--u));line-height:.92;margin-top:calc(.8*var(--u))}
+.nx .t2 i{font-style:normal;color:var(--rouge)}
+.nx .go{display:flex;align-items:center;gap:calc(2.2*var(--u));margin-top:calc(2.4*var(--u))}
+.nx .go span{flex:1;text-align:center;font-weight:900;font-size:calc(3.2*var(--u));padding:calc(1.5*var(--u)) 0;border-radius:calc(.8*var(--u))}
+.nx .go .a{background:#fff;color:#000}.nx .go .b{background:rgba(255,255,255,.18)}
+.tap{position:absolute;z-index:11;width:calc(10*var(--u));height:calc(10*var(--u));border-radius:50%;border:3px solid #fff;opacity:0}
+#flash{position:absolute;inset:0;z-index:45;background:#fff;opacity:0}
+#bar1,#bar2{position:absolute;left:0;right:0;height:0;background:#000;z-index:40}#bar1{top:0}#bar2{bottom:0}
+/* fin */
+#end{position:absolute;inset:0;z-index:50;opacity:0;background:radial-gradient(70% 50% at 50% 42%,#3a0a0d,#0b0b0c 75%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:calc(3.4*var(--u));text-align:center;padding:0 8vw}
+#end .wm{font-size:calc(22*var(--u))}
+#end .q{font-family:'Bebas Neue';font-size:calc(11*var(--u));line-height:.95}
+#end .q i{font-style:normal;color:var(--rouge)}
+#end .cta{background:var(--rouge);color:#fff;padding:calc(1.8*var(--u)) calc(5.4*var(--u));font-weight:900;font-size:calc(3.6*var(--u));letter-spacing:.14em;border-radius:calc(.8*var(--u))}
+#end .ad{font-size:calc(3*var(--u));color:#bdbdc2;letter-spacing:.05em}
+#end .cr{position:absolute;bottom:2vh;left:5vw;right:5vw;font-size:calc(1.8*var(--u));line-height:1.35;color:rgba(255,255,255,.45)}
+/* couverture */
+#cover{position:absolute;inset:0;z-index:60;background:radial-gradient(80% 50% at 50% 55%,#3a0a0d,#0b0b0c 75%);overflow:hidden}
+#cover .wm{position:absolute;left:50%;transform:translateX(-50%);font-size:calc(11*var(--u))}
+#cover .tt{position:absolute;left:5vw;right:5vw;text-align:center;font-family:'Bebas Neue';font-size:calc(13*var(--u));line-height:.92}
+#cover .tt i{display:block;font-style:normal;color:var(--rouge);font-size:.86em}
+#cover .sb{position:absolute;left:5vw;right:5vw;text-align:center;font-weight:600;font-size:calc(3.8*var(--u));color:#e0e0e4}
+#cover .pill{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;background:#fff;color:#000;padding:calc(1.5*var(--u)) calc(6*var(--u));font-weight:900;font-size:calc(3.6*var(--u));letter-spacing:.06em;border-radius:calc(.8*var(--u))}
+#cover .dm{position:absolute;left:5vw;right:5vw;bottom:1.4vh;text-align:center;font-size:calc(1.8*var(--u));color:rgba(255,255,255,.45)}
+#cover .vid{z-index:1}
+</style></head><body>
+<div id="stage"></div><div id="bar1"></div><div id="bar2"></div><div id="flash"></div>
+<div id="end"><div class="wm">NETFLIX</div>
+ <div class="q">Ta soirée<br><i>t'attend.</i></div>
+ <div class="ad">Séries · Films · Documentaires · Animation</div>
+ <div class="cta">▶ REGARDER MAINTENANT</div>
+ <div class="cr">Concept non officiel · non affilié à Netflix · aucun logo, aucune affiche ni aucun extrait de leurs contenus · images d'illustration Coverr · création E-DUST Solutions</div></div>
+<div id="cover"><div class="vid" id="cvv"><img src="assets/clips/pop/001.jpg"><span class="vg"></span></div>
+ <div class="wm">NETFLIX</div>
+ <div class="tt">POV : ce soir,<i>t'as rien prévu.</i></div>
+ <div class="sb">Et tout un catalogue t'attend.</div>
+ <div class="pill">▶ LECTURE</div>
+ <div class="dm">concept non officiel · non affilié à Netflix</div></div>
+<script>
+const COVER=2.4,A='assets/clips/';
+const SD=[3.0,3.6,3.8,3.8,3.6,3.8,3.6,4.2];const T=[];SD.reduce((a,d,i)=>(T[i]=a,a+d),0);const END=SD.reduce((a,b)=>a+b,0);window.DUR=COVER+END+4.6;
+const st=Q('#stage');function sc(html){const e=document.createElement('div');e.className='sc';e.innerHTML=html;st.appendChild(e);return e}
+const vid=(n,id)=>`<div class="vid" id="${id}"><img src="${A}${n}/001.jpg"><span class="vg"></span></div>`;
+const GEN=[['Thriller','#2a3550','#0c0f1c'],['Comédie','#f0a02e','#6b2d06'],['Romance','#e8688f','#4a1030'],['Docu','#3a8a6a','#0b2a20'],['Animation','#7a5cf0','#1a1060'],['Sci-fi','#2b8cf0','#06204a'],['Policier','#b02a2a','#2a0808'],['Aventure','#e0742a','#3a1604']];
+const cards=(a,b)=>GEN.slice(a,b).map(g=>`<div class="cd" style="background:linear-gradient(150deg,${g[1]},${g[2]})"><b>${g[0]}</b></div>`).join('');
+const PROF=[['Toi','#e0222b'],['Léa','#2b8cf0'],['Papa','#e8a02e'],['Enfants','#3a9a6a']];
+const S=[
+ sc(`<div class="pre" id="pre">CE SOIR</div><div class="big" id="bg0">T'AS RIEN<br>PRÉVU<span class="cur" id="cu"></span></div><div class="vid" id="v0" style="opacity:.0"><img src="${A}pop/001.jpg"><span class="vg"></span></div>`),
+ sc(vid('canape','v1')+`<div class="k" id="k1">18 H 47</div><div class="t" id="t1">Tu rentres.<br><i>Tu t'écroules.</i></div><div class="s" id="s1">Journée longue. Zéro énergie.</div>`),
+ sc(`<div class="k" id="k2">ET LÀ, UNE SEULE QUESTION</div><div class="t" id="t2">Qu'est-ce qu'on<br><i>regarde ?</i></div><div class="row" id="r1">${cards(0,6)}</div><div class="row" id="r2">${cards(3,8)+cards(0,2)}</div><div class="sel" id="sel"><i></i></div>`),
+ sc(`<div class="k" id="k3">UN PROFIL POUR CHACUN</div><div class="t" id="t3">Qui <i>regarde ?</i></div>${PROF.map((p,i)=>`<div class="pf" id="pf${i}"><div style="background:${p[1]}">${p[0][0]}</div><span>${p[0]}</span></div>`).join('')}`),
+ sc(vid('couple','v4')+`<div class="k" id="k4">SEUL, À DEUX, EN FAMILLE</div><div class="t" id="t4">Chacun<br><i>son rythme.</i></div><div class="s" id="s4">Un canapé, un plaid, et c'est parti.</div>`),
+ sc(vid('ailleurs','v5')+`<div class="k" id="k5">PARTOUT AVEC TOI</div><div class="t" id="t5">Ta télé.<br><i>Ton téléphone.</i></div><div class="chips" id="ch">${['TÉLÉ','TÉLÉPHONE','ORDINATEUR','TABLETTE'].map(c=>`<span>${c}</span>`).join('')}</div>`),
+ sc(`<div class="k" id="k6">CONTINUER À REGARDER</div><div class="t" id="t6">Reprends<br><i>où tu t'étais arrêté.</i></div>${[['canape','Soirée à deux','Saison 1 · É4','reste 18 min',.7],['femme','Le thriller du moment','Saison 2 · É2','reste 31 min',.42],['couple','La comédie du dimanche','Saison 3 · É7','reste 9 min',.85]].map((c,i)=>`<div class="th" id="th${i}"><img src="${A}${c[0]}/030.jpg"><span class="pg"><b style="width:${c[4]*100}%"></b></span></div><div class="lb" id="lb${i}"><b>${c[1]}</b>${c[2]} · ${c[3]}</div>`).join('')}`),
+ sc(vid('nuit','v7')+`<div class="nx" id="nx"><div class="k2">LECTURE SUIVANTE DANS <span id="cd">5</span></div><div class="t2">« Allez, <i>un dernier.</i> »</div><div class="go"><span class="a" id="go">▶ Regarder</span><span class="b">Annuler</span></div></div><div class="tap" id="tap"></div>`)];
+function fit(img,mw,mh){const ar=img.naturalWidth/img.naturalHeight||16/9;let w=mw,h=w/ar;if(h>mh){h=mh;w=h*ar}return[w,h]}
+function put(el,x,y,w,h,extra){el.style.width=w+'px';el.style.height=h+'px';el.style.transform=`translate(${x}px,${y}px) ${extra||''}`}
+let PEND=[];
+function frame(el,n,f){const im=el.querySelector('img');const k=String(Math.min(NF[n],Math.max(1,Math.floor(f)+1))).padStart(3,'0');const src=`${A}${n}/${k}.jpg`;if(im.getAttribute('src')!==src){im.setAttribute('src',src);PEND.push(im.decode().catch(()=>{}))}}
+function draw(TT){
+ measure();const t=TT-COVER;const tc=Math.max(0,t);
+ const cv=Q('#cover');cv.style.display=TT<COVER+.4?'block':'none';
+ if(TT<COVER+.4){cv.style.opacity=1-seg(TT,COVER-.3,COVER+.4);
+  const v=Q('#cvv');frame(v,'pop',62+TT*9);const[w,h]=fit(v.querySelector('img'),W*.9,H*(R45?.3:.27));put(v,(W-w)/2,H*(R45?.35:.4),w,h,`scale(${1+.02*TT})`);
+  const wm=cv.querySelector('.wm');wm.style.top=(R45?4:6)+'vh';wm.style.fontSize=(R45?9:11)*U+'px';
+  cv.querySelector('.tt').style.top=(R45?14:15)+'vh';cv.querySelector('.tt').style.fontSize=(R45?11:13)*U+'px';
+  cv.querySelector('.sb').style.top=(R45?72.5:73)+'vh';cv.querySelector('.pill').style.top=(R45?86:88)+'vh'}
+ const KT=R45?6.5:9,TT0=R45?10.5:12.4,Y0=H*(R45?.16:.2);
+ S.forEach((e,i)=>{const a=T[i],b=a+SD[i],lt=tc-a;const vis=tc>=a&&tc<b+.3&&tc<END+.4;e.style.visibility=vis?'visible':'hidden';if(!vis)return;e.style.zIndex=i+1;e.style.opacity=i==0?1:cl(lt/.25);
+  const kk=e.querySelector('.k'),tt=e.querySelector('.t'),ss=e.querySelector('.s');
+  const vids=[null,['v1','canape'],null,null,['v4','couple'],['v5','ailleurs'],null,['v7','nuit']][i];
+  let R=null;
+  if(vids){const v=Q('#'+vids[0]);frame(v,vids[1],lt*30);const[w,h]=fit(v.querySelector('img'),W*.9,H*(R45?.4:.3));const y=H*(R45?.07:.1);const z=eo(seg(lt,0,.5));put(v,(W-w)/2,y,w,h,`scale(${mix(1.12,1,z)*(1+.02*seg(lt,.5,SD[i]))})`);v.querySelector('img').style.filter=`contrast(1.08) saturate(.9) brightness(${mix(.4,1,z)})`;R={x:(W-w)/2,y,w,h}}
+  const base=R?(R.y+R.h)/H*100:0;
+  if(kk){kk.style.top=(R?base+3:KT)+'vh';kk.style.opacity=eo(seg(lt,.3,.7));}
+  if(tt){tt.style.top=(R?base+(R45?6:6.5):TT0)+'vh';tt.style.fontSize=(R45?11:14)*U+'px';const p=eo(seg(lt,.45,1));tt.style.opacity=p;tt.style.transform=`translateY(${(1-p)*3}vh)`}
+  if(ss){ss.style.top=(R?base+(R45?20:21):0)+'vh';const p=eo(seg(lt,1,1.5));ss.style.opacity=p;if(R45)ss.style.display='none'}
+  if(i==0){const pre=Q('#pre');pre.style.top=(R45?30:34)+'vh';pre.style.opacity=win(lt,.1,1.2,.3,.3);pre.style.letterSpacing=(.5+.2*seg(lt,0,1.2))+'em';
+   const bg=Q('#bg0');bg.style.top=(R45?34:38)+'vh';bg.style.fontSize=(R45?16:19)*U+'px';const s=slam(lt,1.1,1.5,.3);bg.style.opacity=s.o;bg.style.transform=`scale(${s.s}) translateX(${(1-s.s)*-4}vw)`;bg.style.transformOrigin='0 50%';
+   Q('#cu').style.opacity=Math.sin(lt*9)>0?1:0;
+   const v=Q('#v0');v.style.opacity=.0}
+  if(i==2){const tw=24*U,th=tw*1.45,gap=2*U;const rowTop=[H*(R45?.37:.38),H*(R45?.37:.38)+th+gap];
+   ['r1','r2'].forEach((id,j)=>{const r=Q('#'+id);r.style.top=rowTop[j]+'px';r.querySelectorAll('.cd').forEach(c=>{c.style.width=tw+'px';c.style.height=th+'px'});
+    const sc2=(lt*(j?-4.5:5.5))*U;r.style.transform=`translateX(${(j?-6*U:0)-sc2*(1)+ (j?0:0)}px)`;const p=eb(seg(lt,.5+j*.2,1+j*.2));r.style.opacity=cl(p*2)});
+   Q('#k2').style.top=KT+'vh';
+   const sel=Q('#sel');const on=lt>1.9;const sp=eb(seg(lt,1.9,2.4));const cx=6*U+tw+gap+(tw+gap)*1-lt*5.5*U;const cxx=W*.5-tw*.55;sel.style.left=(on?cxx:cx)+'px';sel.style.top=rowTop[0]+'px';sel.style.width=tw+'px';sel.style.height=th+'px';sel.style.opacity=on?1:0;sel.style.transform=`scale(${.9+.22*sp})`}
+  if(i==3){const pos=R45?[[.13,.4],[.47,.4],[.13,.64],[.47,.64]]:[[.13,.4],[.47,.4],[.13,.58],[.47,.58]];
+   PROF.forEach((p,j)=>{const el=Q('#pf'+j);const q=eb(seg(lt,.4+j*.18,.9+j*.18));const sel=lt>2.1;const me=j==0;el.style.left=pos[j][0]*W+'px';el.style.top=pos[j][1]*H+'px';
+    el.style.opacity=cl(q*2)*(sel&&!me?.28:1);el.style.transform=`scale(${(.7+.3*q)*(sel&&me?1.16:1)})`;
+    el.firstChild.style.boxShadow=sel&&me?`0 0 0 ${.8*U}px #fff,0 0 ${4*U}px rgba(255,255,255,.4)`:''});}
+  if(i==5){const ch=Q('#ch');ch.style.top=(base+(R45?21:23))+'vh';[...ch.children].forEach((c,j)=>{const q=eb(seg(lt,1+j*.3,1.4+j*.3));c.style.opacity=cl(q*2);c.style.transform=`scale(${.7+.3*q})`})}
+  if(i==6){Q('#k6').style.top=KT+'vh';const tw=R45?32*U:36*U,th=tw*9/16;
+   for(let j=0;j<3;j++){const th_=Q('#th'+j),lb=Q('#lb'+j);const y=H*(R45?.37:.38)+j*(th+(R45?7:10.5)*U);const q=eb(seg(lt,.6+j*.25,1.1+j*.25));th_.style.left='6vw';th_.style.top=y+'px';th_.style.width=tw+'px';th_.style.height=th+'px';th_.style.opacity=cl(q*2);th_.style.transform=`translateX(${(1-q)*-10}vw)`;
+    lb.style.left=6*U*(W/100/U)*0+W*.06+tw+2.4*U+'px';lb.style.top=y+th*.32+'px';lb.style.right='18vw';lb.style.opacity=cl(q*2)*1;lb.style.transform=`translateX(${(1-q)*-10}vw)`;
+    const pb=th_.querySelector('.pg b');pb.style.width=100*[.7,.42,.85][j]*eo(seg(lt,1+j*.25,1.8+j*.25))+'%'}}
+  if(i==7){const nx=Q('#nx');nx.style.top=base+(R45?4:5)+'vh';const q=eb(seg(lt,.5,.9));nx.style.opacity=cl(q*2);nx.style.transform=`translateY(${(1-q)*5}vh)`;
+   const c=Math.max(1,5-Math.floor(seg(lt,.9,3.2)*5));Q('#cd').textContent=c;
+   const go=Q('#go');const pr=lt>3.3;go.style.background=pr?'#e0222b':'#fff';go.style.color=pr?'#fff':'#000';go.textContent=pr?'▶ C\'est parti':'▶ Regarder';
+   const tp=Q('#tap');const rb=go.getBoundingClientRect();const d=lt-3.25;tp.style.left=rb.left+rb.width/2-5*U+'px';tp.style.top=rb.top+rb.height/2-5*U+'px';tp.style.opacity=d>0&&d<.5?1-d/.5:0;tp.style.transform=`scale(${.4+d*1.6})`}
+ });
+ const lb=TT<COVER||tc>=END?0:(tc<T[1]?0:1);const lbh=lb*(R45?0:3.5);Q('#bar1').style.height=Q('#bar2').style.height=lbh+'vh';
+ Q('#flash').style.opacity=Math.max(...[T[0]+1.12,T[1],T[2]+1.9,T[3]+2.1,T[7]+3.25].map(x=>Math.max(0,1-Math.abs(tc-x-.03)/.1)))*.5;
+ const en=Q('#end');en.style.opacity=TT<COVER?0:seg(tc,END-.1,END+.5);
+ [...en.children].forEach((c,i)=>{if(c.classList.contains('cr'))return;const p=eo(seg(tc,END+.2+i*.22,END+.85+i*.22));c.style.opacity=p;c.style.transform=`translateY(${(1-p)*2}vh)`});
+ en.querySelector('.wm').style.fontSize=(R45?18:22)*U+'px';
+}
+window.render=TT=>{PEND=[];draw(TT);return Promise.all(PEND)};
+</script></body></html>
