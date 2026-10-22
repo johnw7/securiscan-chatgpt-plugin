@@ -14,3 +14,10 @@ clip couple a-couple-relaxing-at-home-2553 1.0 3.8 1
 clip ailleurs couple-hugging-and-looking-on-phone-8638 1.0 3.8 1
 clip nuit a-man-looking-at-his-phone-in-his-home-late-at-night-631 1.0 4.4 1
 echo "const NF={$(for d in assets/clips/*/; do n=$(basename $d); echo -n "$n:$(ls $d | wc -l),"; done)};" > assets/clips/nf.js
+# --- version histoire (Léa et Tom) ---
+clip ecrans couple-spending-time-together-5136 1.0 3.9 1
+clip sofa couple-sitting-on-the-couch-together-3352 2.0 3.9 1
+clip rire couple-playing-video-games-together-7907 10.6 2.3 2
+clip mardi couple-relaxing-on-a-couch-8000 1.0 3.9 1
+clip mains couple-sitting-on-the-couch-1286 1.0 3.9 1
+echo "const NF={$(for d in assets/clips/*/; do n=$(basename $d); echo -n "$n:$(ls $d | wc -l),"; done)};" > assets/clips/nf.js
