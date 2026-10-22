@@ -97,9 +97,10 @@ function diamondSVG(){const k=uid++;const f=[];
  <polygon points="80,62 120,62 100,80" fill="#ffffff"/><polygon points="25,80 80,62 100,80" fill="#d6eeff"/><polygon points="175,80 120,62 100,80" fill="#8cc3f5"/>
  <polygon points="25,80 62,80 100,190" fill="#a9d6ff"/><polygon points="62,80 100,80 100,190" fill="#ffffff"/><polygon points="100,80 138,80 100,190" fill="#cbe8ff"/><polygon points="138,80 175,80 100,190" fill="#79b4ea"/></g></svg>`}
 
+function photo(n){return `<img src="assets/${n}.jpg" style="width:100%;display:block;filter:brightness(.85) contrast(1.12);-webkit-mask-image:radial-gradient(62% 62% at 50% 48%,#000 50%,transparent 100%);mask-image:radial-gradient(62% 62% at 50% 48%,#000 50%,transparent 100%)">`}
 // ================== SCÈNES ==================
 const SECT=[
- {k:'BOISSONS',line:'Faire rugir<br>une canette.',c1:'#3a0204',c2:'#E3171B',dust:'255,70,60'},
+ {k:'BOISSONS',line:'Faire pétiller<br>chaque gorgée.',c1:'#3a0204',c2:'#E3171B',dust:'255,70,60'},
  {k:'RESTAURATION',line:'Rendre un burger<br>irrésistible.',c1:'#3a1500',c2:'#FF7A00',dust:'255,190,80'},
  {k:'BEAUTÉ & PARFUM',line:'Sublimer<br>chaque goutte.',c1:'#3a0a1c',c2:'#ff7aa8',dust:'255,215,140'},
  {k:'CAFÉ & ARTISANS',line:'Éveiller<br>les sens.',c1:'#1e0f06',c2:'#c58a52',dust:'255,220,180'},
@@ -110,12 +111,12 @@ const scenes=Q('#scenes');
 function sec(id,html,bg){const s=document.createElement('section');s.className='sc';s.id=id;s.style.background=bg;s.innerHTML=html;scenes.appendChild(s);return s}
 // miniature
 sec('kv',`<div class="cam" id="kvcam">
- <img class="obj" id="kv0" src="../../boost_rush/assets/canette_complete.png" style="height:36vh">
- <div class="obj" id="kv1" style="width:40vw">${burgerSVG()}</div>
- <div class="obj" id="kv2" style="width:21vw">${perfumeSVG()}</div>
- <div class="obj" id="kv3" style="width:36vw">${cupSVG()}</div>
- <div class="obj" id="kv4" style="width:17vw">${phoneSVG()}</div>
- <div class="obj" id="kv5" style="width:34vw"><img src="assets/bague.jpg" style="width:100%;display:block;filter:brightness(.82) contrast(1.15);-webkit-mask-image:radial-gradient(62% 62% at 50% 46%,#000 48%,transparent 100%);mask-image:radial-gradient(62% 62% at 50% 46%,#000 48%,transparent 100%)"></div></div>
+ <div class="obj" id="kv0" style="width:30vw">${photo('boisson')}</div>
+ <div class="obj" id="kv1" style="width:34vw">${photo('burger')}</div>
+ <div class="obj" id="kv2" style="width:20vw">${photo('parfum')}</div>
+ <div class="obj" id="kv3" style="width:20vw">${photo('cafe')}</div>
+ <div class="obj" id="kv4" style="width:30vw">${photo('tech')}</div>
+ <div class="obj" id="kv5" style="width:30vw">${photo('bague')}</div></div></div>
  <div class="logoCard" id="kvLogo"><img src="../../edust_onboarding/assets/edust-solutions-logo.png"></div>
  <div id="kvH"><b>VOTRE MARQUE</b><i>en slow motion.</i></div>
  <div id="kvS">6 SECTEURS · FILMS DE MARQUE</div>
@@ -123,10 +124,10 @@ sec('kv',`<div class="cam" id="kvcam">
 // intro
 sec('intro',`<div class="line" id="iL" style="font-size:calc(9*var(--u))">Chaque marque<br>a son <span style="background:linear-gradient(90deg,#ffd27a,#ff7a8a);-webkit-background-clip:text;color:transparent">histoire.</span></div>
  <div class="kick" id="iK" style="color:#bbb">ON LA RACONTE AU RALENTI</div>`,'radial-gradient(60% 40% at 50% 50%,#15122a,#000 75%)');
-const OBJ=[`<img src="../../boost_rush/assets/canette_complete.png" style="height:100%;display:block">`,burgerSVG(),perfumeSVG(),cupSVG(),phoneSVG(),`<img src="assets/bague.jpg" style="width:100%;display:block;filter:brightness(.82) contrast(1.15);-webkit-mask-image:radial-gradient(62% 62% at 50% 46%,#000 48%,transparent 100%);mask-image:radial-gradient(62% 62% at 50% 46%,#000 48%,transparent 100%)">`];
-const OSZ=[['h',60],['w',82],['w',54],['w',80],['w',38],['w',84]];
+const OBJ=['boisson','burger','parfum','cafe','tech','bague'].map(photo);
+const OSZ=[['w',84],['w',84],['w',52],['w',52],['w',84],['w',84]];
 SECT.forEach((S,i)=>{const sz=OSZ[i][0]=='h'?`height:${OSZ[i][1]}vh`:`width:min(${OSZ[i][1]}vw,${OSZ[i][1]*.62}vh)`;
- const extra=i==4?`<div class="ui" id="ui1">Ventes<b>+ 38 %</b></div><div class="ui" id="ui2">Nouvelle commande ✓</div><div class="ui" id="ui3">★★★★★ <span style="opacity:.7">4,9</span></div>`:'';
+ const extra='';
  sec('s'+i,`<div class="num" id="n${i}">0${i+1}</div><div class="cam" id="cam${i}"><div class="obj" id="o${i}" style="${sz}">${OBJ[i]}</div>${extra}</div>
  <div class="kick" id="k${i}" style="color:${S.c2}">0${i+1} — ${S.k}</div><div class="line" id="l${i}">${S.line}</div>`,
  `radial-gradient(70% 45% at 50% 52%,${S.c1},#000 78%)`);});
@@ -166,7 +167,7 @@ function render(t){
  // ---------- miniature ----------
  if(t<2.6){const pos=R45?[[-28,-1],[25,-8],[-31,24],[26,20],[2,26],[1,6]]:[[-26,-3],[24,-10],[-27,19],[23,13],[1,25],[2,4]];
   const scl=R45?.72:1;
-  pos.forEach(([x,y],i)=>{const e=Q('#kv'+i);const fl=Math.sin(t*1.2+i)*.8;e.style.transform=`translate(-50%,-50%) translate(${x*vw}px,${(y+fl)*vh}px) scale(${scl}) rotate(${Math.sin(t+i)*4+(i==0?-10:0)}deg)`;});
+  pos.forEach(([x,y],i)=>{const e=Q('#kv'+i);const fl=Math.sin(t*1.2+i)*.8;e.style.transform=`translate(-50%,-50%) translate(${x*vw}px,${(y+fl)*vh}px) scale(${scl}) rotate(${Math.sin(t+i)*1}deg)`;});
   Q('#kvcam').style.transform=`scale(${1+.03*t})`;
   const lg=Q('#kvLogo');lg.style.top=(R45?3.5:4.5)+'vh';lg.style.transform='translateX(-50%)';
   Q('#kvH').style.top=(R45?11:12.5)+'vh';Q('#kvS').style.top=(R45?82:83.5)+'vh';
@@ -183,27 +184,27 @@ function render(t){
   const kk=Q('#k'+i),ll=Q('#l'+i),nn=Q('#n'+i);kk.style.top=(R45?6:9)+'vh';ll.style.top=(R45?76:75)+'vh';nn.style.top=(R45?12:15)+'vh';
   kk.style.opacity=seg(t,a+.2,a+.7)*(1-seg(t,b-.3,b));lineReveal(ll,t,a+.5,b);nn.style.transform=`translateX(${(1-es(seg(t,a,a+1)))*-10}vw)`;
   const o=Q('#o'+i);const cy=R45?-2:-3;const fl=Math.sin(lt*1.2)*1.2;
-  o.style.transform=`translate(-50%,-50%) translateY(${(cy+fl)*vh}px) rotate(${[-8,0,-4,0,-6,0][i]+Math.sin(lt*.8)*2}deg)`;
+  o.style.transform=`translate(-50%,-50%) translateY(${(cy+fl)*vh}px) rotate(${Math.sin(lt*.8)*.6}deg)`;
   const ox=W/2,oy=H/2+cy*vh,al=Math.min(seg(t,a-.3,a+.3),1-seg(t,b-.3,b+.3));const ls=lt*.4;
-  if(i==0){ // glaçons + gouttes
+  if(false&&i==0){ // glaçons + gouttes
    for(let j=0;j<8;j++){const an=j/8*6.283+ls*.9;const z=Math.sin(an);const x=ox+Math.cos(an)*W*.36,y=oy+(hash(j)-.5)*H*.4;spr(z<0?gb:gf,'ice',x,y,U*(13+5*hash(j))*(1+.35*z),ls*(hash(j+1)-.5)*2,z,al);}
    for(let j=0;j<50;j++){const life=(ls*(.3+hash(j)*.6)+hash(j+5))%1;const an=hash(j+9)*6.283;const d=W*(.15+life*.5);const z=hash(j+11)*2-1;
     spr(z<0?gb:gf,'drop',ox+Math.cos(an)*d,oy+Math.sin(an)*d*.6,U*(1.6+2*hash(j+13))*(1+.5*z),0,z,al*Math.sin(life*Math.PI));}}
-  if(i==1){ // couches qui lévitent + graines
+  if(false&&i==1){ // couches qui lévitent + graines
    o.querySelectorAll('.bl').forEach(g=>{const k=+g.dataset.i;const sp=(5-k)*-1;const off=(k-2.5)*18*(.6+.4*Math.sin(lt*.9))+Math.sin(lt*1.3+k)*4;g.setAttribute('transform',`translate(0 ${-off})`)});
    for(let j=0;j<40;j++){const y=oy-H*.35+((ls*H*.12*(.5+hash(j))+hash(j+2)*H*.8)%(H*.8));const x=ox+(hash(j+4)-.5)*W*.9;const z=hash(j+6)*2-1;
     const g=z<0?gb:gf;g.save();g.globalAlpha=al*.9;g.translate(x,y);g.rotate(ls*2+j);g.fillStyle=j%3?'#FFF1D0':'#7ED957';g.beginPath();g.ellipse(0,0,U*.8*(1+.4*z),U*.4,0,0,7);g.fill();g.restore();}}
-  if(i==2){ // pétales + poudre d'or + anneau liquide
+  if(false&&i==2){ // pétales + poudre d'or + anneau liquide
    for(let j=0;j<22;j++){const y=-H*.1+((ls*H*.18*(.5+hash(j))+hash(j+3)*H*1.2)%(H*1.2));const x=hash(j+5)*W+Math.sin(ls*2+j)*W*.05;const z=hash(j+7)*2-1;
     spr(z<0?gb:gf,'petal',x,y,U*(6+4*hash(j))*(1+.5*z),ls*(hash(j+8)-.5)*3+j,z,al*.95);}
    for(let j=0;j<80;j++){const x=hash(j+20)*W,y=H-((ls*H*.1*(.3+hash(j+21))+hash(j+22)*H)%H);gf.fillStyle=`rgba(255,215,140,${al*(.3+.6*hash(j+23))*(.5+.5*Math.sin(t*4+j))})`;gf.beginPath();gf.arc(x,y,U*.22,0,7);gf.fill();}
    const rr=W*.32*(1+.08*Math.sin(lt));for(const[g,a0,a1] of [[gb,Math.PI,6.283],[gf,0,Math.PI]]){g.save();g.globalAlpha=al*.7;g.strokeStyle='rgba(255,170,200,.8)';g.lineWidth=U*.8;g.shadowColor='#ff8ab0';g.shadowBlur=U*3;g.beginPath();g.ellipse(ox,oy+H*.05,rr,rr*.18,-.08,a0,a1);g.stroke();g.restore();}}
-  if(i==3){ // grains qui tombent + vapeur
+  if(false&&i==3){ // grains qui tombent + vapeur
    for(let j=0;j<26;j++){const y=-H*.1+((ls*H*.25*(.5+hash(j))+hash(j+3)*H*1.2)%(H*1.2));const x=hash(j+5)*W;const z=hash(j+7)*2-1;
     spr(z<0?gb:gf,'bean',x,y,U*(5+3*hash(j))*(1+.6*z),ls*(hash(j+8)-.5)*4+j,z,al);}
    for(let j=0;j<3;j++){const p=(ls*.5+j/3)%1;gf.save();gf.globalAlpha=al*Math.sin(p*Math.PI)*.5;gf.strokeStyle='#fff';gf.lineWidth=U*1.4;gf.filter=`blur(${U*.8}px)`;gf.beginPath();
     const bx=ox+(j-1)*W*.08,by=oy-H*.08-p*H*.18;gf.moveTo(bx,by+H*.1);gf.bezierCurveTo(bx+U*6,by+H*.06,bx-U*6,by+H*.03,bx+Math.sin(lt+j)*U*3,by);gf.stroke();gf.restore();}}
-  if(i==4){ // interfaces flottantes + traînées lumineuses
+  if(false&&i==4){ // interfaces flottantes + traînées lumineuses
    [['#ui1',-30,-16],['#ui2',22,-4],['#ui3',-24,14]].forEach(([s,x,y],k)=>{const e=Q(s);const p=eb(seg(t,a+.4+k*.35,a+.9+k*.35));e.style.left=(50+x)+'vw';e.style.top=(50+y+(R45?-3:-3)+Math.sin(lt+k)*1)+'vh';e.style.opacity=cl(p*2);e.style.transform=`translate(-50%,-50%) scale(${.7+.3*p})`;});
    for(let k=0;k<5;k++){const p=(ls*.6+k/5)%1;gb.save();gb.globalAlpha=al*Math.sin(p*Math.PI)*.8;gb.strokeStyle=k%2?'rgba(85,216,255,.9)':'rgba(255,90,140,.9)';gb.lineWidth=U*.5;gb.shadowColor=gb.strokeStyle;gb.shadowBlur=U*3;
     gb.beginPath();gb.ellipse(ox,oy,W*(.3+k*.06),H*(.12+k*.03),.5-k*.25,p*6,p*6+1.6);gb.stroke();gb.restore();}}
