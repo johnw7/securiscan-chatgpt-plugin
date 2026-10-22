@@ -19,6 +19,7 @@ Réponds en français, concret, textes prêts à copier. Termine chaque réponse
 - `/post-linkedin [sujet]` — écrit le post de la semaine (+ démo à joindre).
 
 ## Préférences de Tarik (toujours)
+- **Consigne n°1 : toute pub / tout Reel est STORYTELLÉ et ÉMOTIONNEL.** On raconte une histoire courte avec un personnage auquel le spectateur s'identifie (une situation vécue, un déclic, un moment fort, un dénouement), pas une simple succession de plans ou d'arguments. Le produit ou le service est l'allié discret de l'histoire. Ça doit **donner envie** et provoquer l'**effet waouh** : on **met le paquet** (accroche forte dès la 1re image, rythme, montage soigné, motion design, ralentis, transitions, bruitages, finale mémorable). Avant de fabriquer, écris le mini-scénario en 5 temps : **quotidien → déclic → moment fort → nouvelle vie → appel à l'action**, et vérifie qu'on peut se reconnaître dedans.
 - Formats 9:16 et 4:5 ; la miniature = 1re image (jamais d'écran noir) ; photos cadrées **en entier**, jamais coupées, sans chevauchement ni passage sous l'interface Reels.
 - Ultra créatif, mais propre et lisible (textes clairs sur fond foncé en blanc).
 - Livrer par défaut une version **bruitages sans musique** (il choisit sa musique), + sans son, + version mail < 4 Mo.
