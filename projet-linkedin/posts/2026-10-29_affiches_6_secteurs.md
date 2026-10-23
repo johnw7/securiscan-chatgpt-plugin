@@ -3,7 +3,7 @@
 Sujet : démo concrète, « 6 secteurs, 6 affiches ».
 Pièce jointe : carrousel PDF 4:5, 8 pages `livraison/portfolio_fictif/affiches_secteurs/E-DUST_carrousel_affiches_6_secteurs.pdf` (source : `campagnes/portfolio_fictif/affiches_secteurs/carrousel.py`).
 Titre du document : 6 secteurs. 6 affiches. 6 styles. (démo E-DUST)
-Pages : 1 couverture · 2 à 7 une affiche par page · 8 « Écrivez VIDÉO en commentaire ».
+Pages : 1 couverture · 2 à 7 une affiche par page · 8 « Écrivez AVIS en commentaire ».
 
 ## Version avec emojis
 
@@ -29,7 +29,7 @@ Même méthode, 6 affiches qui ne se ressemblent pas. Parce que vos clients non 
 Les 6 sont dans le carrousel 👉
 
 Et votre affiche ou votre page Instagram, elle passe les 3 règles ?
-Écrivez VIDÉO en commentaire : je regarde votre communication actuelle et je crée votre première vidéo Reel offerte, avec cette méthode.
+Écrivez AVIS en commentaire : je regarde votre affiche, votre vitrine ou votre page Instagram, et je vous dis gratuitement ce que je changerais en priorité.
 
 Marques fictives, démo E-DUST · photos Adobe Stock
 
@@ -59,7 +59,7 @@ Même méthode, 6 affiches qui ne se ressemblent pas. Parce que vos clients non 
 Les 6 sont dans le carrousel.
 
 Et votre affiche ou votre page Instagram, elle passe les 3 règles ?
-Écrivez VIDÉO en commentaire : je regarde votre communication actuelle et je crée votre première vidéo Reel offerte, avec cette méthode.
+Écrivez AVIS en commentaire : je regarde votre affiche, votre vitrine ou votre page Instagram, et je vous dis gratuitement ce que je changerais en priorité.
 
 Marques fictives, démo E-DUST · photos Adobe Stock
 
@@ -69,6 +69,6 @@ Marques fictives, démo E-DUST · photos Adobe Stock
 
 Selon vous, quelle règle manque le plus souvent sur les vitrines et les pages Instagram de votre quartier : la phrase, l'univers ou la raison de venir ?
 
-## Réponse type à un commentaire « VIDÉO »
+## Réponse type à un commentaire « AVIS »
 
-Merci [Prénom] ! Je regarde votre page et je vous envoie un message privé avec 2 ou 3 idées concrètes. La vidéo est offerte, sans engagement.
+Merci [Prénom] ! Je regarde votre communication et je vous envoie en message privé 2 ou 3 idées concrètes à appliquer. C'est gratuit et sans engagement.
