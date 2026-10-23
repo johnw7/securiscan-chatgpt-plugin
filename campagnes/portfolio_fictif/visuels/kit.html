@@ -1,0 +1,138 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<title>Kit social media — 3 styles (démos E-DUST)</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;600;800&family=Montserrat:ital,wght@0,600;0,800;1,800;1,900&display=swap" rel="stylesheet">
+<script src="../../demos_portfolio/common.js"></script>
+<style>html,body{margin:0;width:100vw;height:100vh;overflow:hidden;background:#000}#c{position:absolute;inset:0;width:100vw;height:100vh}</style>
+</head><body><canvas id="c"></canvas>
+<script>
+/* Kit de visuels statiques pour 3 marques fictives, 3 styles : sport énergie (VYROX), luxe éditorial (NOIR ABSOLU), street audacieux (VELOCITY).
+   Un visuel par appel : kit.html?b=<marque>&f=<post|story|carre|banner|c1|c2|c3>. Mêmes images que les pubs vidéo correspondantes. */
+const cv=Q('#c'),g=cv.getContext('2d'),IM={};const P=new URLSearchParams(location.search);const B=P.get('b')||'vyrox',FM=P.get('f')||'post';
+const SRC={vyrox:{run:'../vyrox/assets/clean_x2.jpg',budL:'../vyrox/assets/bud_L.png',budR:'../vyrox/assets/bud_R.png',edgeL:'../vyrox/assets/bud_L_edge.png',muscu:'../vyrox/assets/v_muscu.jpg',running:'../vyrox/assets/v_running.jpg',yoga:'../vyrox/assets/v_yoga.jpg',cyclisme:'../vyrox/assets/v_cyclisme.jpg'},
+ noir:{ph:'../noir_absolu/assets/ref_x2.png'},
+ velocity:{shoe:'../velocity/assets/shoe.png',plate:'../velocity/assets/plate.jpg',rock1:'../velocity/assets/rock1.png',rock2:'../velocity/assets/rock2.png',rock3:'../velocity/assets/rock3.png',splash:'../velocity/assets/splash2.png',logo:'../velocity/assets/logo.png'}};
+function ld(s){return new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=s})}
+window.DUR=1;
+window.init=async()=>{cv.width=innerWidth;cv.height=innerHeight;measure();
+ await Promise.all(['400 40px Anton','500 40px "Cormorant Garamond"','italic 500 40px "Cormorant Garamond"','600 40px "Cormorant Garamond"','300 40px Inter','400 40px Inter','600 40px Inter','800 40px Inter','italic 900 40px Montserrat','italic 800 40px Montserrat','800 40px Montserrat','600 40px Montserrat'].map(f=>document.fonts.load(f)));
+ for(const[k,v]of Object.entries(SRC[B]))IM[k]=await ld(v);
+ if(B==='vyrox'){const c=document.createElement('canvas');c.width=1560;c.height=1600;c.getContext('2d').drawImage(IM.run,0,0);IM.run=c}
+ const gc=document.createElement('canvas');gc.width=gc.height=256;const x=gc.getContext('2d');const d=x.createImageData(256,256);for(let i=0;i<d.data.length;i+=4){const v=hash(i*.37)*255;d.data[i]=d.data[i+1]=d.data[i+2]=v;d.data[i+3]=255}x.putImageData(d,0,0);IM.grain=gc;return 1};
+// ---------- outils
+const k=()=>Math.min(W,H)/1080;const RAD=Math.PI/180;
+function cover(img,x,y,w,h,fx,fy,z=1,f){const s=Math.max(w/img.width,h/img.height)*z;let sx=fx-w/2/s,sy=fy-h/2/s;sx=Math.max(0,Math.min(img.width-w/s,sx));sy=Math.max(0,Math.min(img.height-h/s,sy));g.save();g.filter=f||'none';g.drawImage(img,sx,sy,w/s,h/s,x,y,w,h);g.restore()}
+function T(s,x,y,px,o={}){g.save();g.globalAlpha=o.al==null?1:o.al;g.font=`${o.st||''} ${o.wt||400} ${px}px ${o.fam||'Inter'}`;g.letterSpacing=(o.ls||0)*px+'px';g.textAlign=o.align||'left';g.textBaseline=o.base||'alphabetic';
+ if(o.maxW){const w=g.measureText(s).width;if(w>o.maxW){px*=o.maxW/w;g.font=`${o.st||''} ${o.wt||400} ${px}px ${o.fam||'Inter'}`}}
+ g.translate(x,y);if(o.rot)g.rotate(o.rot);if(o.shadow){g.shadowColor=o.shadow;g.shadowBlur=o.blur||px*.3;g.shadowOffsetY=o.oy||0}
+ if(o.stroke){g.strokeStyle=o.stroke;g.lineWidth=o.lw||2;g.strokeText(s,0,0)}else{g.fillStyle=o.col||'#fff';g.fillText(s,0,0)}const w=g.measureText(s).width;g.restore();return {w,px}}
+function grad(x0,y0,x1,y1,stops){const gr=g.createLinearGradient(x0,y0,x1,y1);stops.forEach(([p,c])=>gr.addColorStop(p,c));return gr}
+function glow(x,y,r,c,mode='lighter'){g.save();g.globalCompositeOperation=mode;const gr=g.createRadialGradient(x,y,0,x,y,r);gr.addColorStop(0,c);gr.addColorStop(1,'rgba(0,0,0,0)');g.fillStyle=gr;g.fillRect(x-r,y-r,2*r,2*r);g.restore()}
+function grain(a=.12){g.save();g.globalCompositeOperation='overlay';g.globalAlpha=a;g.drawImage(IM.grain,0,0,W+256,H+256);g.restore()}
+function vign(a=.55){const vg=g.createRadialGradient(W/2,H/2,Math.min(W,H)*.35,W/2,H/2,Math.hypot(W,H)*.62);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,`rgba(0,0,0,${a})`);g.fillStyle=vg;g.fillRect(0,0,W,H)}
+function img(i,x,y,w,o={}){const h=w*i.height/i.width;g.save();g.globalAlpha=o.al==null?1:o.al;g.translate(x,y);if(o.rot)g.rotate(o.rot);if(o.flip)g.scale(-1,1);if(o.shadow){g.shadowColor=o.shadow;g.shadowBlur=o.blur||w*.08;g.shadowOffsetY=o.oy||0}g.filter=o.f||'none';g.drawImage(i,-w/2,-h/2,w,h);g.restore();return h}
+function pill(s,x,y,px,bg,fg,o={}){g.save();g.font=`${o.st||''} ${o.wt||800} ${px}px ${o.fam||'Inter'}`;g.letterSpacing=(o.ls==null?.08:o.ls)*px+'px';const w=g.measureText(s).width+px*2.6,h=px*2.5;const X=o.align==='left'?x:x-w/2;
+ if(o.outline){g.strokeStyle=bg;g.lineWidth=Math.max(1.5,px*.07);g.beginPath();g.roundRect(X,y-h/2,w,h,o.r==null?h/2:o.r);g.stroke()}else{g.fillStyle=bg;if(o.glow){g.shadowColor=bg;g.shadowBlur=px*1.4}g.beginPath();g.roundRect(X,y-h/2,w,h,o.r==null?h/2:o.r);g.fill();g.shadowBlur=0}
+ g.fillStyle=fg;g.textAlign='center';g.textBaseline='middle';g.fillText(s,X+w/2,y+px*.05);g.restore();return w}
+function demo(s,col='rgba(255,255,255,.55)',y){T(s,W/2,y||H-24*k(),Math.max(13,15*k()),{align:'center',col,ls:.04})}
+// ================= VYROX — sport énergie =================
+const VG='#c8ff2a';
+function vMark(x,y,s,col='#fff'){g.save();g.translate(x,y);g.strokeStyle=col;g.lineWidth=s*.16;g.lineCap='round';g.lineJoin='round';g.beginPath();g.moveTo(-s*.45,-s*.38);g.lineTo(0,s*.42);g.lineTo(s*.45,-s*.38);g.stroke();g.strokeStyle=VG;g.lineWidth=s*.09;g.beginPath();g.moveTo(s*.2,-s*.38);g.lineTo(s*.62,-s*.38);g.stroke();g.restore()}
+function vLogo(x,y,px,align='left'){const w=T('VYROX',0,-9999,px,{fam:'Montserrat',st:'italic',wt:900,ls:.06}).w;const x0=align==='left'?x:align==='center'?x-(w+px*1.1)/2:x-w-px*1.1;vMark(x0+px*.42,y-px*.36,px*.82);T('VYROX',x0+px*1.05,y,px,{fam:'Montserrat',st:'italic',wt:900,ls:.06})}
+function vBig(s,x,y,px,o={}){return T(s,x,y,px,{fam:'Montserrat',st:'italic',wt:900,ls:.01,...o})}
+function vSlash(x,y,w,h,col=VG,sk=-.35){g.save();g.translate(x,y);g.transform(1,0,sk,1,0,0);g.fillStyle=col;g.fillRect(0,0,w,h);g.restore()}
+function vBud(which,x,y,w,o={}){const i=which==='L'?IM.budL:IM.budR;glow(x,y+w*.1,w*.9,'rgba(200,255,42,.28)');const h=img(i,x,y,w,{shadow:'rgba(0,0,0,.8)',blur:w*.12,oy:w*.05,rot:o.rot||0,flip:o.flip});if(which==='L'&&o.edge!==0){g.save();g.globalCompositeOperation='lighter';img(IM.edgeL,x,y,w,{rot:o.rot||0,al:.9});g.restore()}return h}
+function vDrops(x,y,w,h,n=26){for(let i=0;i<n;i++){const dx=x+hash(i+3)*w,dy=y+hash(i+7)*h,r=(2+hash(i+9)*6)*k();const gr=g.createRadialGradient(dx-r*.3,dy-r*.3,0,dx,dy,r);gr.addColorStop(0,'rgba(255,255,255,.9)');gr.addColorStop(.6,'rgba(220,235,255,.25)');gr.addColorStop(1,'rgba(220,235,255,0)');g.fillStyle=gr;g.beginPath();g.arc(dx,dy,r,0,6.283);g.fill()}}
+function vStreaks(n=14,a=.5){g.save();g.globalCompositeOperation='lighter';for(let i=0;i<n;i++){const y=hash(i+40)*H,x=hash(i+41)*W,l=W*(.2+.5*hash(i+42));const gr=g.createLinearGradient(x,0,x+l,0);gr.addColorStop(0,'rgba(200,255,42,0)');gr.addColorStop(1,`rgba(200,255,42,${a*(.3+.7*hash(i+43))})`);g.fillStyle=gr;g.save();g.translate(0,y);g.rotate(-12*RAD);g.fillRect(x,0,l,1+3*hash(i+44));g.restore()}g.restore()}
+function vyrox(){const s=k();g.fillStyle='#050606';g.fillRect(0,0,W,H);
+ if(FM==='post'){cover(IM.run,0,0,W,H,1050,700,1.05,'saturate(1.12) contrast(1.08)');g.fillStyle=grad(0,H*.35,0,H,[[0,'rgba(5,6,6,0)'],[.55,'rgba(5,6,6,.82)'],[1,'rgba(5,6,6,.97)']]);g.fillRect(0,0,W,H);g.fillStyle=grad(0,0,W*.7,0,[[0,'rgba(5,6,6,.55)'],[1,'rgba(5,6,6,0)']]);g.fillRect(0,0,W,H);vStreaks(16,.55);
+  vSlash(-40*s,H*.665,W*.8,22*s);vBig('RESSENS',64*s,H*.635,150*s,{maxW:W*.8});vBig('LE RYTHME.',64*s,H*.775,150*s,{col:VG,maxW:W*.86,shadow:'rgba(0,0,0,.5)'});T('Repousse tes limites avec PULSE X1.',66*s,H*.83,30*s,{wt:600,col:'rgba(255,255,255,.88)',maxW:W*.58});
+  pill('DÉCOUVRE PULSE X1  →',66*s,H*.9,24*s,VG,'#0a0c08',{align:'left',fam:'Montserrat',st:'italic',wt:800,glow:1});vBud('L',W*.8,H*.88,250*s,{rot:-8*RAD});vLogo(60*s,92*s,46*s);pill('NOUVEAU',W-60*s-150*s,80*s,20*s,'#fff','#fff',{outline:1,fam:'Montserrat',wt:800});}
+ if(FM==='story'){g.save();g.beginPath();g.moveTo(0,0);g.lineTo(W,0);g.lineTo(W,H*.56);g.lineTo(0,H*.66);g.closePath();g.clip();cover(IM.run,0,0,W,H*.66,1120,560,1.25,'saturate(1.12) contrast(1.08)');vStreaks(10,.4);g.restore();
+  g.strokeStyle=VG;g.lineWidth=10*s;g.beginPath();g.moveTo(0,H*.66);g.lineTo(W,H*.56);g.stroke();
+  T('PULSE',W/2,H*.86,330*s,{align:'center',fam:'Montserrat',st:'italic',wt:900,stroke:'rgba(200,255,42,.35)',lw:3*s});vBud('L',W*.36,H*.725,320*s,{rot:-6*RAD});vBud('R',W*.7,H*.735,230*s,{rot:6*RAD});vDrops(W*.2,H*.65,W*.6,H*.13,18);
+  vBig('LE SON DE TA',W/2,H*.875,74*s,{align:'center'});vBig('PERFORMANCE.',W/2,H*.915,74*s,{align:'center',col:VG});
+  for(let i=0;i<3;i++){g.save();g.globalAlpha=.4+.3*i;g.strokeStyle='#fff';g.lineWidth=5*s;g.beginPath();const yy=H*.965-i*16*s;g.moveTo(W/2-22*s,yy);g.lineTo(W/2,yy-14*s);g.lineTo(W/2+22*s,yy);g.stroke();g.restore()}
+  vLogo(60*s,110*s,48*s);pill('PULSE X1',W-60*s-170*s,96*s,22*s,VG,'#000',{fam:'Montserrat',st:'italic',wt:900});}
+ if(FM==='carre'){const gr=g.createRadialGradient(W/2,H*.48,0,W/2,H*.5,W*.75);gr.addColorStop(0,'#1b201a');gr.addColorStop(1,'#030404');g.fillStyle=gr;g.fillRect(0,0,W,H);vStreaks(10,.25);
+  T('PULSE',W/2,H*.66,360*s,{align:'center',fam:'Montserrat',st:'italic',wt:900,stroke:'rgba(255,255,255,.14)',lw:3*s});
+  g.save();g.globalCompositeOperation='lighter';g.strokeStyle='rgba(200,255,42,.8)';g.shadowColor=VG;g.shadowBlur=30*s;g.lineWidth=4*s;g.beginPath();g.ellipse(W/2,H*.76,W*.32,H*.05,0,0,6.283);g.stroke();g.restore();
+  vBud('L',W/2,H*.48,560*s,{rot:-4*RAD});vDrops(W*.3,H*.25,W*.4,H*.45,22);
+  vLogo(W/2,96*s,44*s,'center');const ch=['MAINTIEN ERGONOMIQUE','LIBERTÉ SANS FIL','SON IMMERSIF'];let x=W/2;const ws=ch.map(c=>T(c,0,-9999,20*s,{wt:800,ls:.1}).w+20*s*2.6),tw=ws.reduce((a,b)=>a+b,0)+24*s*2;x=W/2-tw/2;ch.forEach((c,i)=>{pill(c,x,H*.9,20*s,'rgba(200,255,42,.9)','#000',{align:'left',outline:i!==1,wt:800,ls:.1});if(i!==1){g.save();g.font=`800 ${20*s}px Inter`;g.letterSpacing=2*s+'px';g.fillStyle=VG;g.textAlign='center';g.textBaseline='middle';g.fillText(c,x+ws[i]/2,H*.9+1);g.restore()}x+=ws[i]+24*s});}
+ if(FM==='banner'){g.save();g.beginPath();g.moveTo(0,0);g.lineTo(W*.58,0);g.lineTo(W*.48,H);g.lineTo(0,H);g.closePath();g.clip();cover(IM.run,0,0,W*.58,H,1080,620,1.1,'saturate(1.12) contrast(1.08)');g.restore();
+  g.strokeStyle=VG;g.lineWidth=12*s;g.beginPath();g.moveTo(W*.58,0);g.lineTo(W*.48,H);g.stroke();vStreaks(12,.4);
+  vBig('RESSENS LE RYTHME.',W*.56,H*.32,96*s,{maxW:W*.42});vBig('REPOUSSE TES LIMITES.',W*.545,H*.44,96*s,{col:VG,maxW:W*.43});
+  vBud('L',W*.7,H*.7,300*s,{rot:-8*RAD});vBud('R',W*.86,H*.7,220*s,{rot:6*RAD});vLogo(W*.56,H*.13,46*s);pill('DÉCOUVRE PULSE X1  →',W*.535,H*.9,22*s,VG,'#000',{align:'left',fam:'Montserrat',st:'italic',wt:800,glow:1});}
+ if(FM==='c1'){g.fillStyle='#050606';g.fillRect(0,0,W,H);vStreaks(14,.35);const L=[['muscu','MUSCULATION'],['running','RUNNING'],['yoga','YOGA'],['cyclisme','CYCLISME']];
+  vBig('4 SPORTS.',64*s,200*s,120*s);vBig('1 SEUL ÉCOUTEUR.',64*s,330*s,120*s,{col:VG,maxW:W-120*s});
+  L.forEach(([n,lab],i)=>{const cw=W*.42,chh=cw*.68,x=64*s+(i%2)*(cw+40*s)+(i>=2?-20*s:20*s),y=420*s+Math.floor(i/2)*(chh+40*s);g.save();g.beginPath();const sk=chh*.18;g.moveTo(x+sk,y);g.lineTo(x+cw+sk,y);g.lineTo(x+cw-sk,y+chh);g.lineTo(x-sk,y+chh);g.closePath();g.clip();cover(IM[n],x-sk,y,cw+2*sk,chh,IM[n].width/2,IM[n].height*.45,1.05,'saturate(1.1) contrast(1.05)');g.fillStyle=grad(0,y+chh*.55,0,y+chh,[[0,'rgba(0,0,0,0)'],[1,'rgba(0,0,0,.75)']]);g.fillRect(x-sk,y,cw+2*sk,chh);g.restore();
+   g.strokeStyle=VG;g.lineWidth=4*s;g.beginPath();g.moveTo(x+sk,y);g.lineTo(x+cw+sk,y);g.lineTo(x+cw-sk,y+chh);g.lineTo(x-sk,y+chh);g.closePath();g.stroke();T(lab,x+10*s,y+chh-24*s,34*s,{fam:'Montserrat',st:'italic',wt:900})});
+  T('GLISSE →',W-64*s,H-60*s,24*s,{align:'right',wt:800,ls:.2,col:VG});vLogo(64*s,H-56*s,34*s);}
+ if(FM==='c2'){const gr=g.createRadialGradient(W*.5,H*.5,0,W*.5,H*.5,W*.8);gr.addColorStop(0,'#181d17');gr.addColorStop(1,'#030404');g.fillStyle=gr;g.fillRect(0,0,W,H);vBig('PENSÉ POUR',64*s,170*s,92*s);vBig('LE MOUVEMENT.',64*s,272*s,92*s,{col:VG});
+  const bx=W*.5,by=H*.58,bw=620*s;vBud('L',bx,by,bw,{rot:0});vDrops(bx-bw*.4,by-bw*.4,bw*.8,bw*.8,16);
+  const call=[[-.08,-.38,'CONTOUR D\'OREILLE','maintien en mouvement',-1],[ .18,.22,'EMBOUT SOUPLE','isolation du bruit',1],[-.22,.12,'SURFACE TACTILE','commande d\'un geste',-1],[.36,-.12,'DESIGN SPORT','léger, sans fil',1]];
+  call.forEach(([u,v,a,b,side])=>{const px=bx+u*bw,py=by+v*bw,lx=side>0?W-64*s:64*s,ly=py+(v<0?-40:40)*s;g.strokeStyle=VG;g.lineWidth=2.5*s;g.beginPath();g.arc(px,py,8*s,0,6.283);g.stroke();g.beginPath();g.moveTo(px,py);g.lineTo(px+(lx-px)*.35,ly);g.lineTo(lx,ly);g.stroke();
+   T(a,lx,ly-14*s,26*s,{align:side>0?'right':'left',wt:800,ls:.08});T(b,lx,ly+34*s,22*s,{align:side>0?'right':'left',wt:400,col:'rgba(255,255,255,.75)'})});
+  T('GLISSE →',W-64*s,H-60*s,24*s,{align:'right',wt:800,ls:.2,col:VG});vLogo(64*s,H-56*s,34*s);}
+ if(FM==='c3'){cover(IM.run,0,0,W,H,1150,520,1.55,'saturate(1.05) contrast(1.1) brightness(.75)');g.fillStyle=grad(0,H*.3,0,H,[[0,'rgba(5,6,6,.1)'],[.6,'rgba(5,6,6,.9)'],[1,'rgba(5,6,6,1)']]);g.fillRect(0,0,W,H);vStreaks(12,.4);
+  vSlash(-40*s,H*.785,W*.75,16*s);vBig('TON PROCHAIN DÉFI',64*s,H*.66,92*s,{maxW:W-120*s});vBig('COMMENCE ICI.',64*s,H*.72+40*s,110*s,{col:VG});
+  pill('DÉCOUVRE VYROX PULSE X1  →',64*s,H*.86,28*s,VG,'#000',{align:'left',fam:'Montserrat',st:'italic',wt:800,glow:1});vLogo(64*s,100*s,46*s);}
+ grain(.1);demo('Démo conceptuelle · VYROX est une marque fictive · E-DUST Solutions');}
+// ================= NOIR ABSOLU — luxe éditorial =================
+const GOLD='#d8b47a',CH='#efe2c8',INK='#0b0907';
+function nTitle(x,y,px,o={}){return T('NOIR ABSOLU',x,y,px,{fam:'"Cormorant Garamond"',wt:500,ls:.18,col:o.col||CH,align:o.align||'center',maxW:o.maxW})}
+function nLine(x,y,w,a=1){g.save();g.globalAlpha=a;g.fillStyle=grad(x-w/2,0,x+w/2,0,[[0,'rgba(216,180,122,0)'],[.5,GOLD],[1,'rgba(216,180,122,0)']]);g.fillRect(x-w/2,y,w,Math.max(1.5,2*k()));g.restore()}
+function nArch(x,y,w,h){g.beginPath();g.moveTo(x,y+h);g.lineTo(x,y+w/2);g.arc(x+w/2,y+w/2,w/2,Math.PI,0);g.lineTo(x+w,y+h);g.closePath()}
+function nFrame(m){g.strokeStyle='rgba(216,180,122,.55)';g.lineWidth=1.5*k();g.strokeRect(m,m,W-2*m,H-2*m)}
+function nWarm(){g.save();g.globalCompositeOperation='soft-light';g.fillStyle='rgba(255,200,130,.25)';g.fillRect(0,0,W,H);g.restore()}
+function noir(){const s=k(),I=IM.ph,S2=I.width/941;const FACE=[480*S2,480*S2],BOT=[238*S2,730*S2],MIX=[400*S2,640*S2];g.fillStyle=INK;g.fillRect(0,0,W,H);
+ if(FM==='post'){cover(I,0,0,W,H,MIX[0],MIX[1],1.12,'contrast(1.05) saturate(1.05)');nWarm();g.fillStyle=grad(0,H*.45,0,H,[[0,'rgba(11,9,7,0)'],[.6,'rgba(11,9,7,.85)'],[1,'rgba(11,9,7,.97)']]);g.fillRect(0,0,W,H);nFrame(36*s);
+  T('EAU DE PARFUM',W/2,96*s,20*s,{align:'center',ls:.5,col:CH,wt:300});nTitle(W/2,H*.8,92*s);nLine(W/2,H*.83,360*s);
+  T('Laissez votre empreinte.',W/2,H*.885,52*s,{align:'center',fam:'"Cormorant Garamond"',st:'italic',wt:500,col:'#fff'});}
+ if(FM==='story'){g.fillStyle=INK;g.fillRect(0,0,W,H);g.save();nArch(W*.14,H*.08,W*.72,H*.56);g.clip();cover(I,W*.14,H*.08,W*.72,H*.56,BOT[0]+30*S2,BOT[1]-30*S2,1.9,'contrast(1.06) saturate(1.05)');nWarm();g.restore();g.strokeStyle='rgba(216,180,122,.7)';g.lineWidth=1.5*s;nArch(W*.12,H*.07,W*.76,H*.58);g.stroke();
+  glow(W/2,H*.45,W*.6,'rgba(255,190,110,.12)');nTitle(W/2,H*.73,100*s);nLine(W/2,H*.755,420*s);T('L\'élégance qui ne passe pas inaperçue.',W/2,H*.81,46*s,{align:'center',fam:'"Cormorant Garamond"',st:'italic',wt:500,col:'#fff',maxW:W*.84});
+  pill('DÉCOUVRIR',W/2,H*.89,22*s,GOLD,CH,{outline:1,wt:300,ls:.4,r:0});T('EAU DE PARFUM · PARIS',W/2,H*.05,18*s,{align:'center',ls:.5,col:'rgba(239,226,200,.7)',wt:300});}
+ if(FM==='carre'){cover(I,0,0,W*.56,H,FACE[0]-20*S2,FACE[1]+60*S2,1.0,'contrast(1.05)');nWarm();g.fillStyle=grad(W*.4,0,W*.56,0,[[0,'rgba(11,9,7,0)'],[1,INK]]);g.fillRect(W*.4,0,W*.16,H);g.fillStyle=INK;g.fillRect(W*.56,0,W*.44,H);
+  T('N°01',W*.78,H*.2,22*s,{align:'center',ls:.5,col:GOLD,wt:300});T('NOIR',W*.78,H*.42,110*s,{align:'center',fam:'"Cormorant Garamond"',wt:500,ls:.12,col:CH});T('ABSOLU',W*.78,H*.54,110*s,{align:'center',fam:'"Cormorant Garamond"',wt:500,ls:.12,col:CH,maxW:W*.4});nLine(W*.78,H*.59,260*s);
+  T('Une fragrance',W*.78,H*.68,40*s,{align:'center',fam:'"Cormorant Garamond"',st:'italic',col:'#fff'});T('qui se raconte.',W*.78,H*.73,40*s,{align:'center',fam:'"Cormorant Garamond"',st:'italic',col:'#fff'});nFrame(30*s);}
+ if(FM==='banner'){cover(I,W*.38,0,W*.62,H,MIX[0],MIX[1]-60*S2,1.0,'contrast(1.05)');nWarm();g.fillStyle=grad(W*.38,0,W*.6,0,[[0,INK],[1,'rgba(11,9,7,0)']]);g.fillRect(W*.38,0,W*.22,H);g.fillStyle=INK;g.fillRect(0,0,W*.38,H);
+  T('EAU DE PARFUM',W*.2,H*.28,18*s,{align:'center',ls:.5,col:GOLD,wt:300});nTitle(W*.2,H*.47,96*s,{maxW:W*.34});nLine(W*.2,H*.51,380*s);T('Laissez votre empreinte.',W*.2,H*.6,50*s,{align:'center',fam:'"Cormorant Garamond"',st:'italic',col:'#fff'});pill('DÉCOUVRIR',W*.2,H*.75,20*s,GOLD,CH,{outline:1,wt:300,ls:.4,r:0});nFrame(30*s);}
+ if(FM==='c1'){g.fillStyle=INK;g.fillRect(0,0,W,H);g.save();nArch(W*.56,H*.14,W*.36,H*.6);g.clip();cover(I,W*.56,H*.14,W*.36,H*.6,FACE[0]+10*S2,FACE[1]+40*S2,1.2,'contrast(1.05)');nWarm();g.restore();g.strokeStyle='rgba(216,180,122,.6)';g.lineWidth=1.5*s;nArch(W*.545,H*.13,W*.39,H*.62);g.stroke();
+  T('Un parfum',72*s,H*.34,92*s,{fam:'"Cormorant Garamond"',wt:500,col:CH});T('ne se porte pas.',72*s,H*.42,70*s,{fam:'"Cormorant Garamond"',st:'italic',wt:500,col:'#fff',maxW:W*.45});T('Il se raconte.',72*s,H*.56,80*s,{fam:'"Cormorant Garamond"',st:'italic',wt:500,col:GOLD,maxW:W*.45});
+  nLine(W/2,H*.86,W*.8,.8);T('NOIR ABSOLU',72*s,H*.92,22*s,{ls:.5,col:CH,wt:300});T('→',W-72*s,H*.925,36*s,{align:'right',col:GOLD,wt:300});}
+ if(FM==='c2'){g.fillStyle=INK;g.fillRect(0,0,W,H);glow(W/2,H*.42,W*.55,'rgba(255,180,90,.16)');g.save();nArch(W*.25,H*.08,W*.5,H*.56);g.clip();cover(I,W*.25,H*.08,W*.5,H*.56,BOT[0]+10*S2,BOT[1]-20*S2,2.2,'contrast(1.08) saturate(1.05)');nWarm();g.restore();g.strokeStyle='rgba(216,180,122,.7)';g.lineWidth=1.5*s;nArch(W*.235,H*.07,W*.53,H*.58);g.stroke();
+  ['Élégant.','Intense.','Inoubliable.'].forEach((w,i)=>T(w,W/2,H*(.73+i*.065),62*s,{align:'center',fam:'"Cormorant Garamond"',st:'italic',wt:500,col:i==2?GOLD:'#fff'}));T('→',W-72*s,H*.95,36*s,{align:'right',col:GOLD,wt:300});}
+ if(FM==='c3'){cover(I,0,0,W,H,FACE[0]-30*S2,FACE[1]+80*S2,1.05,'contrast(1.05) brightness(.8)');nWarm();g.fillStyle='rgba(11,9,7,.45)';g.fillRect(0,0,W,H);g.fillStyle=grad(0,H*.35,0,H,[[0,'rgba(11,9,7,0)'],[1,'rgba(11,9,7,.95)']]);g.fillRect(0,0,W,H);nFrame(36*s);
+  nTitle(W/2,H*.68,96*s);nLine(W/2,H*.71,400*s);T('Laissez votre empreinte.',W/2,H*.775,54*s,{align:'center',fam:'"Cormorant Garamond"',st:'italic',col:'#fff'});pill('DÉCOUVRIR LA FRAGRANCE',W/2,H*.86,20*s,GOLD,INK,{wt:600,ls:.3,r:0});}
+ grain(.08);demo('Démo conceptuelle · NOIR ABSOLU est un parfum fictif · image générée par IA · E-DUST Solutions','rgba(239,226,200,.55)');}
+// ================= VELOCITY — street audacieux =================
+const OR='#ff5a1f',OFF='#f2eee6';
+function halftone(a=.14,col='#000'){g.save();g.globalAlpha=a;g.fillStyle=col;const st=W/30;for(let y=0;y<H+st;y+=st)for(let x=((y/st)%2)*st/2;x<W+st;x+=st){const d=Math.min(1,Math.hypot(x-W/2,y-H*.45)/Math.hypot(W,H)*1.5);g.beginPath();g.arc(x,y,st*.42*d,0,6.283);g.fill()}g.restore()}
+function outlineRows(word,col,px,rot=-8*RAD,rows=6,lw=3){g.save();g.translate(W/2,H/2);g.rotate(rot);g.font=`400 ${px}px Anton`;g.textBaseline='middle';const w=g.measureText(word+' ').width;g.strokeStyle=col;g.lineWidth=lw*k();for(let r=-rows;r<=rows;r++){for(let x=-W*1.5+(r%2)*w*.5;x<W*1.5;x+=w)g.strokeText(word,x,r*px*.95)}g.restore()}
+function anton(s,x,y,px,o={}){return T(s,x,y,px,{fam:'Anton',wt:400,ls:.01,...o})}
+function speed(col='#fff',n=12,a=.8){g.save();for(let i=0;i<n;i++){const y=H*(.15+.7*hash(i+60)),x=W*hash(i+61)*.4,l=W*(.12+.25*hash(i+62));g.fillStyle=col;g.globalAlpha=a*(.4+.6*hash(i+63));g.fillRect(x,y,l,(3+5*hash(i+64))*k())}g.restore()}
+function sticker(x,y,r,txt,bg='#fff',fg='#000',rot=0){g.save();g.translate(x,y);g.rotate(rot);g.fillStyle=bg;g.beginPath();for(let i=0;i<40;i++){const a=i/40*6.283,rr=i%2?r:r*.9;g.lineTo(Math.cos(a)*rr,Math.sin(a)*rr)}g.closePath();g.fill();g.fillStyle=fg;g.font=`400 ${r*.42}px Anton`;g.textAlign='center';g.textBaseline='middle';txt.split('\n').forEach((l,i,a)=>g.fillText(l,0,(i-(a.length-1)/2)*r*.44));g.restore()}
+function vShoe(x,y,w,rot,o={}){if(o.shadow!==0){g.save();g.filter=`blur(${18*k()}px)`;g.fillStyle='rgba(0,0,0,.45)';g.beginPath();g.ellipse(x,y+w*.55,w*.4,w*.05,0,0,6.283);g.fill();g.restore()}return img(IM.shoe,x,y,w,{rot,shadow:o.sh||'rgba(0,0,0,.45)',blur:w*.05,oy:w*.04,flip:o.flip})}
+function velocity(){const s=k();g.fillStyle=OR;g.fillRect(0,0,W,H);
+ if(FM==='post'){g.fillStyle=OR;g.fillRect(0,0,W,H);halftone(.16);outlineRows('VELOCITY','rgba(255,255,255,.55)',230*s);speed('#fff',10,.85);
+  vShoe(W*.54,H*.4,W*.8,-14*RAD);anton('LÂCHE',56*s,H*.84,190*s,{col:'#fff',shadow:'rgba(0,0,0,.35)',blur:0,oy:8*s});anton('TOUT.',56*s,H*.955,190*s,{col:'#111'});
+  sticker(W*.82,H*.83,110*s,'NEW\nDROP','#fff','#111',-12*RAD);if(IM.logo)img(IM.logo,W/2,70*s,360*s,{f:'brightness(0) invert(1)'});}
+ if(FM==='story'){g.fillStyle=OFF;g.fillRect(0,0,W,H);halftone(.07,'#000');const L=[['PLUS',''],['LÉGER.',OR],['PLUS',''],['D\'ÉNERGIE.',OR],['PARTOUT.','#111']];
+  L.slice(0,4).forEach(([w,c],i)=>anton(w,56*s,H*(.17+i*.085),150*s,{col:c||'#111',maxW:W-112*s}));vShoe(W*.56,H*.635,W*.74,-16*RAD);anton('PARTOUT.',56*s,H*.835,190*s,{col:'#111',maxW:W-112*s});
+  g.fillStyle=OR;g.fillRect(0,H*.87,W,H*.13);anton('DÉCOUVRE LA COLLECTION →',W/2,H*.948,62*s,{align:'center',col:'#fff',maxW:W-100*s});if(IM.logo)img(IM.logo,W/2,80*s,340*s,{f:'brightness(0)'});}
+ if(FM==='carre'){cover(IM.plate,0,0,W,H,470,900,1.15,'saturate(1.15) contrast(1.1) brightness(.8)');glow(W/2,H*.45,W*.7,'rgba(255,190,120,.25)');
+  g.save();g.globalCompositeOperation='lighter';g.strokeStyle='rgba(255,236,210,.85)';g.shadowColor='rgba(255,200,140,.9)';g.shadowBlur=26*s;g.lineWidth=7*s;g.beginPath();g.arc(W/2,H*.47,W*.38,-2.2,1.3);g.stroke();g.restore();
+  [['rock3',.14,.2,.16,0],['rock1',.88,.26,.12,1],['rock2',.1,.76,.14,1],['rock3',.9,.78,.1,0]].forEach(([n,x,y,w,b])=>img(IM[n],W*x,H*y,W*w,{rot:hash(x*9)*2,f:b?'blur(3px)':'none'}));
+  vShoe(W/2,H*.46,W*.74,0,{shadow:0});if(IM.logo)img(IM.logo,W/2,H*.83,W*.62);anton('MOVE WITHOUT LIMITS',W/2,H*.915,46*s,{align:'center',col:'#fff',ls:.25});}
+ if(FM==='banner'){g.fillStyle='#111';g.fillRect(0,0,W,H);g.save();g.beginPath();g.moveTo(W*.42,0);g.lineTo(W,0);g.lineTo(W,H);g.lineTo(W*.3,H);g.closePath();g.clip();g.fillStyle=OR;g.fillRect(0,0,W,H);halftone(.15);outlineRows('VELOCITY','rgba(255,255,255,.45)',200*s,-8*RAD,5);g.restore();speed('#fff',8,.7);
+  anton('LÂCHE',70*s,H*.45,210*s,{col:'#fff'});anton('TOUT.',70*s,H*.73,210*s,{col:OR});T('Plus léger. Plus d\'énergie. Partout.',74*s,H*.84,32*s,{wt:600,col:'rgba(255,255,255,.85)'});
+  vShoe(W*.64,H*.48,W*.52,-14*RAD);sticker(W*.88,H*.78,96*s,'NEW\nDROP','#fff','#111',-12*RAD);if(IM.logo)img(IM.logo,220*s,90*s,330*s);}
+ if(FM==='c1'){g.fillStyle='#111';g.fillRect(0,0,W,H);[['rock1',.25,.3,.42],['rock3',.72,.5,.5],['rock2',.35,.72,.36]].forEach(([n,x,y,w])=>img(IM[n],W*x,H*y,W*w,{rot:hash(x*7),f:'grayscale(.6) brightness(.7)'}));g.fillStyle='rgba(17,17,17,.45)';g.fillRect(0,0,W,H);
+  anton('TU PORTES',56*s,H*.3,170*s,{col:'#fff'});anton('TOUT.',56*s,H*.45,250*s,{col:OR});['LE TRAVAIL.','LES AUTRES.','LE DOUTE.'].forEach((w,i)=>{g.save();g.fillStyle=OFF;g.translate(56*s,H*(.6+i*.085));g.rotate((i%2?1.5:-1.5)*RAD);const ww=T(w,0,-9999,52*s,{fam:'Anton'}).w;g.fillRect(0,-50*s,ww+40*s,66*s);g.restore();anton(w,76*s,H*(.6+i*.085),52*s,{col:'#111',rot:(i%2?1.5:-1.5)*RAD})});
+  anton('→',W-60*s,H-70*s,80*s,{align:'right',col:OR});}
+ if(FM==='c2'){g.fillStyle=OR;g.fillRect(0,0,W,H);halftone(.15);outlineRows('LÂCHE TOUT','rgba(255,255,255,.4)',180*s,-8*RAD,6);anton('ET SI',56*s,H*.17,150*s,{col:'#111'});anton('TU LÂCHAIS',56*s,H*.31,150*s,{col:'#fff',maxW:W-112*s});anton('TOUT ?',56*s,H*.45,150*s,{col:'#111'});
+  vShoe(W*.52,H*.73,W*.74,-18*RAD);speed('#fff',10,.9);anton('→',W-60*s,H-70*s,80*s,{align:'right',col:'#111'});}
+ if(FM==='c3'){g.fillStyle=OFF;g.fillRect(0,0,W,H);halftone(.06,'#000');vShoe(W*.5,H*.36,W*.8,-10*RAD);if(IM.logo)img(IM.logo,W/2,H*.66,W*.7,{f:'brightness(0)'});anton('MOVE WITHOUT LIMITS',W/2,H*.745,52*s,{align:'center',col:OR,ls:.25});
+  pill('DÉCOUVRE LA COLLECTION  →',W/2,H*.85,30*s,'#111',OFF,{fam:'Anton',wt:400,ls:.08,r:0});}
+ grain(.08);demo('Démo conceptuelle · VELOCITY est une marque fictive · E-DUST Solutions',FM==='story'||FM==='c3'?'rgba(0,0,0,.5)':'rgba(255,255,255,.6)');}
+window.render=async()=>{measure();g.setTransform(1,0,0,1,0,0);g.globalAlpha=1;({vyrox,noir,velocity})[B]()};
+</script></body></html>

@@ -1,8 +1,8 @@
 """Super-résolution x4 (Real-ESRGAN ONNX, tuiles 64 px) de l'image de référence -> assets/ref_x2.png (réduit à x2).
-Usage : python3 upscale.py <realesrgan-x4.onnx>"""
+Usage : python3 upscale.py <realesrgan-x4.onnx> [dossier campagne]"""
 import sys, os, numpy as np, onnxruntime as ort
 from PIL import Image
-D = os.path.dirname(os.path.abspath(__file__))
+D = os.path.abspath(sys.argv[2]) if len(sys.argv) > 2 else os.path.dirname(os.path.abspath(__file__))
 s = ort.InferenceSession(sys.argv[1], providers=['CPUExecutionProvider'])
 im = np.array(Image.open(f'{D}/source/reference.webp').convert('RGB')).astype(np.float32) / 255
 H, W = im.shape[:2]; T, O = 64, 8; S = T - 2 * O
