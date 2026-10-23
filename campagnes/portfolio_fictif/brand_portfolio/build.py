@@ -43,20 +43,20 @@ def post(x, y, w, src, handle, avatar_bg, dark=False):
             + txt(x + 18, y + hh + ih + 14, w - 36, '♡&nbsp;&nbsp;💬&nbsp;&nbsp;↗', 24, col=fg))
 
 # ---------------------------------------------------------------- marques
-V_SVG = lambda s, c='#fff', a='#c8ff2a': (f'<svg width="{s}" height="{s}" viewBox="0 0 100 100" style="position:absolute;left:0;top:0">'
+V_SVG = lambda s, c='#fff', a='#c8ff2a', x=0, y=0: (f'<svg width="{s}" height="{s}" viewBox="0 0 100 100" style="position:absolute;left:{x}px;top:{y}px">'
     f'<polyline points="8,22 50,86 92,22" fill="none" stroke="{c}" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>'
     f'<line x1="64" y1="22" x2="98" y2="22" stroke="{a}" stroke-width="9" stroke-linecap="round"/></svg>')
 def vyrox_logo(x, y, size, col='#fff'):
-    return box(x, y, size, size, '', V_SVG(size, col)) + txt(x + size * 1.18, y + size * .02, size * 5, 'VYROX', size * .95, "'montserrat',sans-serif", col, 800, .04, 1, style='font-style:italic;')
+    return V_SVG(size, col, '#c8ff2a', x, y) + txt(x + size * 1.18, y + size * .02, size * 5, 'VYROX', size * .95, "'montserrat',sans-serif", col, 800, .04, 1, style='font-style:italic;')
 def noir_mono(x, y, s, col='#d8b47a'):
     return (box(x, y, s, s, f'border:2px solid {col};border-radius:{s//2}px;')
             + txt(x, y + s * .2, s, 'N<span style="font-style:italic">a</span>', s * .48, "'cormorant-garamond',serif", col, 500, .02, 1, 'center'))
 def velo_mark(x, y, s, col='#111', acc='#ff5a1f'):
-    return box(x, y, s, s, '', f'<svg width="{s}" height="{s}" viewBox="0 0 100 100" style="position:absolute;left:0;top:0"><polygon points="18,14 42,14 58,62 82,14 100,14 64,90 40,90" fill="{col}"/><rect x="0" y="34" width="26" height="8" fill="{acc}"/><rect x="6" y="50" width="20" height="8" fill="{acc}"/><rect x="12" y="66" width="14" height="8" fill="{acc}"/></svg>')
+    return (f'<svg width="{s}" height="{s}" viewBox="0 0 100 100" style="position:absolute;left:{x}px;top:{y}px"><polygon points="18,14 42,14 58,62 82,14 100,14 64,90 40,90" fill="{col}"/><rect x="0" y="34" width="26" height="8" fill="{acc}"/><rect x="6" y="50" width="20" height="8" fill="{acc}"/><rect x="12" y="66" width="14" height="8" fill="{acc}"/></svg>')
 def oliva_mark(x, y, s, col='#5e6b3a', acc='#c8643b'):
-    return box(x, y, s, s, '', f'<svg width="{s}" height="{s}" viewBox="0 0 100 100" style="position:absolute;left:0;top:0"><circle cx="50" cy="50" r="44" fill="none" stroke="{col}" stroke-width="5"/><path d="M50 78 C50 58 50 40 62 24" fill="none" stroke="{col}" stroke-width="4" stroke-linecap="round"/><ellipse cx="38" cy="46" rx="11" ry="6" transform="rotate(-35 38 46)" fill="{col}"/><ellipse cx="64" cy="40" rx="11" ry="6" transform="rotate(35 64 40)" fill="{col}"/><ellipse cx="42" cy="62" rx="10" ry="5.5" transform="rotate(-30 42 62)" fill="{col}"/><circle cx="62" cy="24" r="6" fill="{acc}"/></svg>')
+    return (f'<svg width="{s}" height="{s}" viewBox="0 0 100 100" style="position:absolute;left:{x}px;top:{y}px"><circle cx="50" cy="50" r="44" fill="none" stroke="{col}" stroke-width="5"/><path d="M50 78 C50 58 50 40 62 24" fill="none" stroke="{col}" stroke-width="4" stroke-linecap="round"/><ellipse cx="38" cy="46" rx="11" ry="6" transform="rotate(-35 38 46)" fill="{col}"/><ellipse cx="64" cy="40" rx="11" ry="6" transform="rotate(35 64 40)" fill="{col}"/><ellipse cx="42" cy="62" rx="10" ry="5.5" transform="rotate(-30 42 62)" fill="{col}"/><circle cx="62" cy="24" r="6" fill="{acc}"/></svg>')
 def orbit_mark(x, y, s, a='#6c4bff', b='#2bd4ff'):
-    return box(x, y, s, s, '', f'<svg width="{s}" height="{s}" viewBox="0 0 100 100" style="position:absolute;left:0;top:0"><defs><linearGradient id="og{x}{y}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{a}"/><stop offset="1" stop-color="{b}"/></linearGradient></defs><circle cx="50" cy="50" r="30" fill="url(#og{x}{y})"/><ellipse cx="50" cy="50" rx="46" ry="16" fill="none" stroke="#fff" stroke-width="4" transform="rotate(-25 50 50)"/><circle cx="88" cy="34" r="7" fill="#fff"/></svg>')
+    return (f'<svg width="{s}" height="{s}" viewBox="0 0 100 100" style="position:absolute;left:{x}px;top:{y}px"><defs><linearGradient id="og{x}{y}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{a}"/><stop offset="1" stop-color="{b}"/></linearGradient></defs><circle cx="50" cy="50" r="30" fill="url(#og{x}{y})"/><ellipse cx="50" cy="50" rx="46" ry="16" fill="none" stroke="#fff" stroke-width="4" transform="rotate(-25 50 50)"/><circle cx="88" cy="34" r="7" fill="#fff"/></svg>')
 
 def swatches(x, y, cols, fg):
     out = ''; w = 180
@@ -96,7 +96,7 @@ def build(embed):
     inner += txt(80, 1150, 920, 'Écouteurs de sport · énergie · dépassement de soi', 26, col='rgba(255,255,255,.75)')
     S.append(slide('#0a0c0b', inner, 3, TOT))
     inner = txt(80, 110, 920, 'VYROX · SYSTÈME DE MARQUE', 24, col=G, ls=.2, weight=700)
-    inner += box(80, 170, 600, 330, 'background:#16191a;border-radius:28px;', vyrox_logo(70, 125, 80)) + box(700, 170, 300, 330, f'background:{G};border-radius:28px;', box(85, 100, 130, 130, '', V_SVG(130, '#0a0c0b', '#0a0c0b')))
+    inner += box(80, 170, 600, 330, 'background:#16191a;border-radius:28px;', vyrox_logo(70, 125, 80)) + box(700, 170, 300, 330, f'background:{G};border-radius:28px;', V_SVG(130, '#0a0c0b', '#0a0c0b', 85, 100))
     inner += txt(80, 520, 600, 'Logo principal', 22, col='rgba(255,255,255,.6)') + txt(700, 520, 300, 'Monogramme', 22, col='rgba(255,255,255,.6)')
     inner += swatches(80, 600, [('#0a0c0b', 'Carbone'), (G, 'Volt'), ('#ffffff', 'Blanc'), ('#8a9188', 'Acier')], '#fff')
     inner += box(80, 900, 920, 300, 'background:#16191a;border-radius:28px;', txt(50, 40, 300, 'Aa', 150, "'montserrat',sans-serif", '#fff', 800, 0, 1, style='font-style:italic;') + txt(380, 60, 500, 'Montserrat ExtraBold Italic', 32, col='#fff', weight=700) + txt(380, 110, 500, 'Titres · slogans · chiffres', 24, col='rgba(255,255,255,.6)') + txt(380, 170, 500, 'DM Sans', 32, col='#fff', weight=700) + txt(380, 220, 500, 'Textes · infos produit', 24, col='rgba(255,255,255,.6)'))
