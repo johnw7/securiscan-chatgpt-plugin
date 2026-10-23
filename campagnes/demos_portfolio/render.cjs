@@ -1,12 +1,12 @@
 // Rendu image par image d'une démo.
-//   PAGE=burger/burger.html node render.cjs <916|45> video <out.mp4> [fps]
+//   PAGE=burger/burger.html node render.cjs <916|45|169> video <out.mp4> [fps]
 //   PAGE=burger/burger.html node render.cjs <916|45> stills <dir> t1 t2 …
 // Nécessite un serveur HTTP à la racine du dépôt : python3 -m http.server 8765
 const { chromium } = require('playwright');
 const { spawn } = require('child_process');
 const fs = require('fs');
 const [aspect, mode, out, ...rest] = process.argv.slice(2);
-const W = 1080, H = aspect === '45' ? 1350 : 1920;
+const W = aspect === '169' ? 1920 : 1080, H = aspect === '45' ? 1350 : aspect === '169' ? 1080 : 1920;
 const URL = 'http://127.0.0.1:8765/campagnes/demos_portfolio/' + process.env.PAGE;
 (async () => {
   const browser = await chromium.launch();
