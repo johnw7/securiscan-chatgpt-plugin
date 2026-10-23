@@ -28,10 +28,12 @@ def build():
     # 1 · couverture : l'accroche du post
     s = box(0, 0, W, H, f'background:radial-gradient(circle at 70% 75%,#1f2a12 0%,{INK} 62%);')
     s += t(70, 90, 900, 'PORTFOLIO · DÉMO', 22, col=LIME, wt=700, ls=.22)
-    s += t(70, 140, 950, '6 marques.<br>6 univers.<br>Aucune<br>n’existe.', 104, UB, PAPER, 700, -.03, 1.02)
-    for x, y, f, r in [(70, 760, '04_glou_post.jpg', -6), (390, 720, '01_fizzlab_post.jpg', 0), (710, 760, '06_rouge_vif_post.jpg', 6)]:
+    s += t(70, 140, 940, '6 marques.<br>6 univers.<br>Aucune n’existe.', 92, UB, PAPER, 700, -.03, 1.04)
+    s += box(70, 462, 80, 6, f'background:{LIME};border-radius:3px;')
+    s += t(70, 498, 940, 'Identités de marque, posts et stories Instagram<br>imaginés de A à Z pour 6 produits.', 32, col='#b9bbc2', lh=1.4)
+    for x, y, f, r in [(100, 700, '04_glou_post.jpg', -4), (390, 670, '01_fizzlab_post.jpg', 0), (680, 700, '06_rouge_vif_post.jpg', 4)]:
         s += pic(I(f), x, y, 300, 375, 18, f'transform:rotate({r}deg);')
-    s += t(70, 1200, 940, 'Faites défiler →', 30, col=LIME, wt=700, al='right')
+    s += t(70, 1150, 940, 'Faites défiler →', 30, col=LIME, wt=700, al='right')
     S.append(slide(INK, s + foot('rgba(243,240,234,.55)', 1)))
     # 2-7 · une marque par page
     for k, (name, f, prod, hook, pal, typo, bg, ink, acc, fam) in enumerate(BR):
