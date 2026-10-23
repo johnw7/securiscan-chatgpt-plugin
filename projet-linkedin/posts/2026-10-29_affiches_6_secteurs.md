@@ -7,67 +7,68 @@ Pages : 1 couverture · 2 à 7 une affiche par page · 8 « Écrivez VIDÉO en c
 
 ## Version avec emojis
 
-Une boulangerie ne se vend pas comme une salle de boxe.
-Et pourtant, beaucoup de commerces ont tous la même affiche 👇
+Sur la plupart des affiches de commerce, on pourrait changer le nom en haut… personne ne verrait la différence.
 
-Alors j'ai relevé un petit défi :
-imaginer 6 commerces de quartier, et créer pour chacun une affiche qui lui ressemble vraiment.
+Même photo de stock, même police, même « Venez nous découvrir ! ».
+Résultat : le client fait défiler sans s'arrêter.
 
-🥖 Une boulangerie → chaleureux, le pain en vedette
-💈 Un barbier → noir et or, le geste précis
-🥊 Une salle de boxe → brut, typographie massive
-💐 Un fleuriste → doux, botanique
-🏡 Une agence immobilière → épuré, haut de gamme
-🎶 Un festival de ville → néon, énergie de concert
+J'ai pris 6 métiers de quartier et appliqué à chacun la même méthode, en 3 règles 👇
 
-Même format, même créateur, 6 univers complètement différents.
-Parce que vos clients doivent vous reconnaître en une seconde, avant même de lire votre nom.
+1️⃣ Une seule phrase : celle que le client ressent.
+Boulangerie : « Le pain prend son temps. »
+Fleuriste : « Un bouquet, et tout change. »
 
-Les 6 affiches sont dans le carrousel. Faites défiler jusqu'à la page 8 👉
+2️⃣ Un univers qu'on reconnaît sans lire le nom.
+Crème et pain doré pour la boulangerie. Noir et or pour le barbier. Néon pour le festival.
 
-Vous êtes commerçant, artisan ou dirigeant d'une petite structure ?
-Je crée votre première vidéo Reel offerte, à vos couleurs, pour voir ce que ça donne chez vous.
+3️⃣ Une raison de venir maintenant.
+« 1er cours offert » pour la boxe. « Estimer mon bien » pour l'agence. « Entrée libre » pour le festival.
 
-Écrivez VIDÉO en commentaire, je vous contacte.
+Même méthode, 6 affiches qui ne se ressemblent pas. Parce que vos clients non plus.
+
+Les 6 sont dans le carrousel 👉
+
+Et votre affiche ou votre page Instagram, elle passe les 3 règles ?
+Écrivez VIDÉO en commentaire : je regarde votre communication actuelle et je crée votre première vidéo Reel offerte, avec cette méthode.
 
 Marques fictives, démo E-DUST · photos Adobe Stock
 
-#communicationdigitale #commercelocal #reels #motiondesign #EDUSTSolutions
+#communicationdigitale #commercelocal #marketinglocal #reels #EDUSTSolutions
 
 ## Version sans emojis
 
-Une boulangerie ne se vend pas comme une salle de boxe.
-Et pourtant, beaucoup de commerces ont tous la même affiche.
+Sur la plupart des affiches de commerce, on pourrait changer le nom en haut… personne ne verrait la différence.
 
-Alors j'ai relevé un petit défi :
-imaginer 6 commerces de quartier, et créer pour chacun une affiche qui lui ressemble vraiment.
+Même photo de stock, même police, même « Venez nous découvrir ! ».
+Résultat : le client fait défiler sans s'arrêter.
 
-- Une boulangerie : chaleureux, le pain en vedette
-- Un barbier : noir et or, le geste précis
-- Une salle de boxe : brut, typographie massive
-- Un fleuriste : doux, botanique
-- Une agence immobilière : épuré, haut de gamme
-- Un festival de ville : néon, énergie de concert
+J'ai pris 6 métiers de quartier et appliqué à chacun la même méthode, en 3 règles.
 
-Même format, même créateur, 6 univers complètement différents.
-Parce que vos clients doivent vous reconnaître en une seconde, avant même de lire votre nom.
+1. Une seule phrase : celle que le client ressent.
+Boulangerie : « Le pain prend son temps. »
+Fleuriste : « Un bouquet, et tout change. »
 
-Les 6 affiches sont dans le carrousel. Faites défiler jusqu'à la page 8.
+2. Un univers qu'on reconnaît sans lire le nom.
+Crème et pain doré pour la boulangerie. Noir et or pour le barbier. Néon pour le festival.
 
-Vous êtes commerçant, artisan ou dirigeant d'une petite structure ?
-Je crée votre première vidéo Reel offerte, à vos couleurs, pour voir ce que ça donne chez vous.
+3. Une raison de venir maintenant.
+« 1er cours offert » pour la boxe. « Estimer mon bien » pour l'agence. « Entrée libre » pour le festival.
 
-Écrivez VIDÉO en commentaire, je vous contacte.
+Même méthode, 6 affiches qui ne se ressemblent pas. Parce que vos clients non plus.
+
+Les 6 sont dans le carrousel.
+
+Et votre affiche ou votre page Instagram, elle passe les 3 règles ?
+Écrivez VIDÉO en commentaire : je regarde votre communication actuelle et je crée votre première vidéo Reel offerte, avec cette méthode.
 
 Marques fictives, démo E-DUST · photos Adobe Stock
 
-#communicationdigitale #commercelocal #reels #motiondesign #EDUSTSolutions
+#communicationdigitale #commercelocal #marketinglocal #reels #EDUSTSolutions
 
 ## Premier commentaire (à poster soi-même juste après)
 
-Petit jeu : laquelle irait le mieux à votre commerce préféré du quartier ?
-Boulangerie, barbier, boxe, fleuriste, immobilier ou festival ?
+Selon vous, quelle règle manque le plus souvent sur les vitrines et les pages Instagram de votre quartier : la phrase, l'univers ou la raison de venir ?
 
 ## Réponse type à un commentaire « VIDÉO »
 
-Merci [Prénom] ! Je vous envoie un message privé pour en savoir un peu plus sur votre activité. La vidéo est offerte, sans engagement.
+Merci [Prénom] ! Je regarde votre page et je vous envoie un message privé avec 2 ou 3 idées concrètes. La vidéo est offerte, sans engagement.
