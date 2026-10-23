@@ -1,0 +1,12 @@
+{
+ "dur": 32.6, "cover": 2.2, "bpm": 128,
+ "s": {"s0": 2.2, "s1": 7.4, "s2": 10.4, "s3": 21.0, "s4": 26.0},
+ "rocks": [3.0, 3.9, 4.8, 5.7, 6.6],
+ "chips": [[4.5, "LE TRAVAIL"], [5.4, "LES AUTRES"], [6.3, "LE DOUTE"]],
+ "lines0": [[2.9, "CHAQUE JOUR,"], [3.7, "TU PORTES TOUT."]],
+ "lines1": [[7.9, "ET SI, JUSTE UNE FOIS…"], [9.0, "TU LÂCHAIS TOUT ?"]],
+ "cuts2": [10.4, 12.2, 14.0, 15.8, 17.6, 19.4],
+ "slams": [[11.3, "PLUS LÉGER.", "feather"], [13.1, "PLUS D'ÉNERGIE.", "bolt"], [14.9, "PARTOUT.", "peaks"], [20.4, "AUCUNE LIMITE.", ""]],
+ "lines3": [[21.5, "CHAQUE PAS"], [22.4, "DEVIENT UN ENVOL."]],
+ "logo": 26.3, "tagline": 27.4, "icons": 28.0, "cta": 29.6
+}
