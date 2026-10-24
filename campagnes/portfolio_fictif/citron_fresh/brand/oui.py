@@ -27,6 +27,17 @@ def lemon_swatch(x, y, d, col, light):
 
 def build():
     S = []
+    # 0 · couverture (décor Firefly : tourbillon de citrons étendu)
+    s = im('ff/ff_vortex_carre.jpg', -135, -60, 1350, 1350) + box(0, 0, W, H, 'background:radial-gradient(circle at 50% 42%,rgba(255,240,150,.75) 0%,rgba(255,210,26,.35) 38%,rgba(255,210,26,0) 65%);')
+    s += box(70, 60, 940, 64, f'background:{MENTHE};border-radius:32px;', t(0, 17, 940, 'ÉTUDE DE CAS · PORTFOLIO', 28, DS, LIME, 800, .28, 1, 'center'))
+    s += im('menthe_1.png', -30, 820, 300, st='transform:rotate(-24deg);filter:blur(3px);') + im('tranche_0.png', 860, 150, 260, st='transform:rotate(18deg);filter:blur(2px);')
+    s += im('can_hero.png', 330, 170, 420, st='transform:rotate(-6deg);filter:drop-shadow(0 40px 34px rgba(31,94,20,.5));')
+    s += im('citron_0.png', 700, 760, 330) + im('menthe_2.png', 120, 230, 170, st='transform:rotate(-30deg);')
+    s += box(0, 1010, W, 340, f'background:{MENTHE};')
+    s += t(0, 1040, W, 'CITRON FRESH', 120, AN, CREME, 400, .02, 1, 'center', f'text-shadow:0 6px 0 {FEUILLE};')
+    s += t(0, 1178, W, 'Identité · packaging · réseaux sociaux · Reel', 34, MO, LIME, 800, 0, 1, 'center', 'font-style:italic;')
+    s += t(0, 1240, W, 'Tarik Belattar — E-DUST Solutions · marque fictive (démo) · Adobe Stock & Firefly', 20, DS, 'rgba(255,248,225,.75)', 600, .02, 1, 'center')
+    S.append(slide(CITRON, s))
     # 1 · OUI.
     s = bg_citron(W, H, '50%', '50%') + bubbles(W, H, 34, 21)
     s += kick('ÉTUDE DE CAS · CAMPAGNE CITRON FRESH', MENTHE, 80)
