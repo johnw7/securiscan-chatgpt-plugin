@@ -57,7 +57,7 @@ def el(name, scale=1.0, rot=0.0, blur=0):
 def zoom(img, z, cx=.5, cy=.5):
     if abs(z - 1) < 1e-3: return img
     h, w = img.shape[:2]; cw, ch = w / z, h / z; x0, y0 = (w - cw) * cx, (h - ch) * cy
-    im = Image.fromarray((img * 255).astype(np.uint8)).resize((w, h), Image.BICUBIC, box=(x0, y0, x0 + cw, y0 + ch))
+    im = Image.fromarray((np.clip(img, 0, 1) * 255).astype(np.uint8)).resize((w, h), Image.BICUBIC, box=(x0, y0, x0 + cw, y0 + ch))
     return np.asarray(im, np.float32) / 255
 def grade(img, sat=1.25, warm=.06, con=1.08):
     g = img.mean(2, keepdims=True); img = g + (img - g) * sat

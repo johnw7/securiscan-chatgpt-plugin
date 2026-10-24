@@ -74,6 +74,15 @@ if MODE == 'musique':
     add(mus, pad(CH[0], 1.6, 1800), 13.4, .14)
     beats = [b0 + k * B for b0, b1 in drops for k in range(int((b1 - b0) / B))] + list(np.arange(13.0, 14.5, B))
     mus = pump(mus, beats, .55)
+if 'v2' in sys.argv[2:]:  # bruitages du montage « agence » (build_v2.py)
+    add(sfx, whoosh(.5), 2.5, .5); add(sfx, riser(.5), 2.5, .25)            # zoom à travers la tranche
+    for t0 in (.35, 1.3, 3.25, 4.35, 7.65, 8.6): add(sfx, tick(), t0, .25)  # sous-titres
+    add(sfx, ding(43), 4.55, .12); add(sfx, ding(45), 9.1, .1); add(sfx, ding(43), 11.4, .1); add(sfx, ding(47), 13.75, .1)  # reflets
+    add(sfx, whoosh(.35), 5.72, .7)                                          # panoramique filé
+    add(sfx, pop(), 6.72, .4); add(sfx, pop(), 10.9, .35)                    # « PSHHHT ! », badge
+    for k in range(4): add(sfx, whoosh(.3), 8.5 + k * .22, .18)              # éléments vers la caméra
+    add(sfx, whoosh(.3), 12.7, .5)                                           # cercle
+    add(sfx, whoosh(.3), 13.0, .35); add(sfx, thud(), 13.33, .7); add(sfx, splash(.8, .9), 13.33, .55)  # chute de la canette
 mix = sfx + (mus if MODE == 'musique' else 0)
 if VOIX:
     import json, soundfile as sf
@@ -82,5 +91,5 @@ if VOIX:
         y, sr = sf.read(f'{D}/out/vo_{k}.wav'); add(voice, y / np.abs(y).max() * .95, t0); mask[int(t0 * SR):int((t0 + len(y) / SR) * SR)] = 1
     m = int(.12 * SR); duck = np.convolve(mask, np.ones(m) / m, mode='same')
     mix = mix * (1 - .5 * duck) + voice * 1.1
-os.makedirs(f'{D}/out', exist_ok=True); master(mix, f'{D}/out/audio_{MODE}{"_voix" if VOIX else ""}.wav', DUR, -14)
+os.makedirs(f'{D}/out', exist_ok=True); master(mix, f'{D}/out/audio_{MODE}{"_voix" if VOIX else ""}{"_v2" if "v2" in sys.argv[2:] else ""}.wav', DUR, -14)
 print('ok', MODE)
