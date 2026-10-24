@@ -60,7 +60,7 @@ def soustitre(y, s, col='#fff'):
     return t(80, y, 920, f'<span style="background:rgba(8,6,5,.58);padding:4px 18px;border-radius:10px;-webkit-box-decoration-break:clone;box-decoration-break:clone;">{s}</span>', 44, SANS, col, 500, .005, 1.5, 'center')
 def mot(y, s, size, col, x=0, ls=-.01, op=1): return t(x, y, W, s, size, AN, col, 400, ls, .86, 'center', f'opacity:{op};white-space:nowrap;')
 def bouton(y, s, bg, col, w=620): return box((W - w) // 2, y, w, 104, f'background:{bg};border-radius:52px;box-shadow:0 16px 40px rgba(0,0,0,.35);', t(0, 30, w, s, 36, SANS, col, 700, .01, 1.1, 'center'))
-def demo(col='rgba(255,255,255,.55)'): return t(60, 1866, 960, 'Démo · marque fictive · personnage fictif · photo Adobe Stock · E-DUST Solutions', 18, col=col, al='center')
+def demo(col='rgba(255,255,255,.55)'): return t(60, 1866, 960, 'Démo · marque et personnage fictifs · photo Adobe Stock, décor étendu avec Adobe Firefly · E-DUST', 18, col=col, al='center')
 # stickers façon Instagram (à recréer avec les vrais stickers dans l'appli)
 def poll(x, y, w, q, a, b, acc):
     s = box(x, y, w, 330, 'background:#fff;border-radius:34px;box-shadow:0 18px 50px rgba(0,0,0,.35);')
@@ -83,19 +83,23 @@ def detour(out, x=0, y=0, w=W, h=H): return img(f'img/{out}_cut.png', x, y, w, h
 
 # ---------- 1 · GRAIN D'AUBE — Inès, 29 ans
 CA = '#e9a35a'
+def bande(src, out, bg, grade='chaud', cut=False, by=600, blur=0):
+    """Photo d'origine EN ENTIER (1080×720, sans recadrage) posée en bande, fondue dans la couleur de fond."""
+    c = bg.lstrip('#'); r, g, b = (int(c[k:k + 2], 16) for k in (0, 2, 4))
+    s = box(0, 0, W, H, f'background:{bg};') + img(film(src, out, W, 720, .5, .5, grade, blur, vignette=.25, cut=cut), 0, by, W, 720)
+    return s + box(0, by - 1, W, 90, f'background:linear-gradient(180deg,{bg},rgba({r},{g},{b},0));') + box(0, by + 632, W, 90, f'background:linear-gradient(180deg,rgba({r},{g},{b},0),{bg});')
+def haut(col, a=.75): return fade(0, 720, col, 0, a, True)
+def bas(col, y=1240): return fade(y, H - y, col, 0, .94)
+
 def cafe1():
-    s = plein('cafe_bus', 'e_cafe_bus', .4, grade='froid') + fade(0, 560, '#0b1220', 0, .8, True) + fade(1000, 920, '#0b1220', 0, .92)
-    s += chapitre('I', 'Le quotidien', '#e8eef7', "GRAIN D'AUBE") + prenom(1060, 'Inès, 29 ans.', 'Open space, métro, mails. Toujours en retard sur sa propre vie.', '#e8eef7', '#cfe0ff')
+    s = plein('cafe_bus_916', 'f_cafe_bus', .5, grade='froid') + haut('#0b1220') + bas('#0b1220')
+    s += chapitre('I', 'Le quotidien', '#e8eef7', "GRAIN D'AUBE") + prenom(380, 'Inès, 29 ans.', 'Open space, métro, mails. Toujours en retard sur sa propre vie.', '#e8eef7', '#cfe0ff')
     return s + soustitre(1480, '— Chaque matin, le même bus.<br>La même boule au ventre.', '#e8eef7') + demo()
 def cafe2():
-    s = box(0, 0, W, H, 'background:#2a160b;')
-    by, bh = 500, 1040
-    s += img(film('cafe_yeux', 'e_cafe_band', W, bh, .42, .5, cut=True, vignette=.3), 0, by, W, bh)
-    s += mot(by + 30, 'PAUSE', 330, CA, ls=.02) + detour('e_cafe_band', 0, by, W, bh)
-    s += box(0, by - 2, W, 160, 'background:linear-gradient(180deg,#2a160b,rgba(42,22,11,0));') + box(0, by + bh - 260, W, 262, 'background:linear-gradient(180deg,rgba(42,22,11,0),#2a160b);')
-    s += t(60, 390, 960, '8 h 03.', 66, HAND, '#ffd6a8', 700, 0, 1, 'center')
-    s += chapitre('II', 'Le déclic', '#fff3e4', "GRAIN D'AUBE")
-    return s + soustitre(1520, '— Et puis il y a ce café.<br>Cinq minutes où le monde attend.', '#fff3e4') + demo()
+    s = bande('cafe_yeux', 'f_cafe_yeux', '#2a160b', cut=True)
+    s += mot(400, 'PAUSE', 330, CA, ls=.02) + detour('f_cafe_yeux', 0, 600, W, 720)
+    s += chapitre('II', 'Le déclic', '#fff3e4', "GRAIN D'AUBE") + t(60, 1360, 960, '8 h 03.', 66, HAND, '#ffd6a8', 700, 0, 1, 'center')
+    return s + soustitre(1480, '— Et puis il y a ce café.<br>Cinq minutes où le monde attend.', '#fff3e4') + demo()
 def cafe3():
     s = plein('cafe_latte', 'e_cafe_latte', .56) + fade(0, 560, '#2a160b', 0, .75, True) + fade(900, 1020, '#2a160b', 0, .95)
     s += chapitre('III', 'La nouvelle vie', '#fff3e4', "GRAIN D'AUBE")
@@ -107,18 +111,14 @@ def cafe3():
 # ---------- 2 · NONNA ROSA — Rosa, 74 ans
 NR, NB = '#d23b24', '#f7efe2'
 def pates1():
-    s = plein('pates_machine', 'e_pates_machine', .62) + fade(0, 560, '#1a0d08', 0, .8, True) + fade(980, 940, '#1a0d08', 0, .94)
-    s += chapitre('I', 'Le quotidien', NB, 'NONNA ROSA') + prenom(1060, 'Rosa, 74 ans.', 'Elle roule la pâte avant que la ville se réveille.', NB, '#ffb59e')
-    return s + soustitre(1480, '— Les pâtes, ça ne se presse pas.<br>Elle le répète depuis toujours.', NB) + demo()
+    s = bande('pates_machine', 'f_pates_machine', '#1a0d08')
+    s += chapitre('I', 'Le quotidien', NB, 'NONNA ROSA') + prenom(380, 'Rosa, 74 ans.', 'Elle roule la pâte avant que la ville se réveille.', NB, '#ffb59e')
+    return s + soustitre(1440, '— Les pâtes, ça ne se presse pas.<br>Elle le répète depuis toujours.', NB) + demo()
 def pates2():
-    s = box(0, 0, W, H, 'background:#2a0f09;')
-    by, bh = 520, 1000
-    s += img(film('pates_famille', 'e_pates_famille', W, bh, .5, .5, cut=True, vignette=.3), 0, by, W, bh)
-    s += mot(by + 40, 'FAMIGLIA', 250, NR, ls=.01) + detour('e_pates_famille', 0, by, W, bh)
-    s += box(0, by - 2, W, 160, 'background:linear-gradient(180deg,#2a0f09,rgba(42,15,9,0));') + box(0, by + bh - 260, W, 262, 'background:linear-gradient(180deg,rgba(42,15,9,0),#2a0f09);')
-    s += chapitre('II', 'Le déclic', NB, 'NONNA ROSA')
-    s += t(60, 390, 960, 'Dimanche, 20 h 30.', 66, HAND, '#ffb59e', 700, 0, 1, 'center')
-    return s + soustitre(1500, '— À la première bouchée,<br>toute la tablée se tait.', NB) + demo()
+    s = bande('pates_famille', 'f_pates_famille', '#2a0f09', cut=True)
+    s += mot(520, 'FAMIGLIA', 230, NR, ls=.01) + detour('f_pates_famille', 0, 600, W, 720)
+    s += chapitre('II', 'Le déclic', NB, 'NONNA ROSA') + t(60, 400, 960, 'Dimanche, 20 h 30.', 66, HAND, '#ffb59e', 700, 0, 1, 'center')
+    return s + soustitre(1440, '— À la première bouchée,<br>toute la tablée se tait.', NB) + demo()
 def pates3():
     s = plein('pates_farine', 'e_pates_farine', .6) + box(0, 0, W, H, 'background:rgba(26,13,8,.45);') + fade(1200, 720, '#1a0d08', 0, .9)
     s += chapitre('III', 'La nouvelle vie', NB, 'NONNA ROSA')
@@ -129,77 +129,67 @@ def pates3():
 # ---------- 3 · PREMIÈRE ROUTE — Léa, 18 ans
 PJ = '#ffcc00'
 def route1():
-    s = plein('route_pluie', 'e_route_pluie', .78, grade='froid') + fade(1000, 920, '#070d1d', 0, .94)
-    s += chapitre('I', 'Le quotidien', '#e8eef7', 'PREMIÈRE ROUTE') + prenom(1060, 'Léa, 18 ans.', 'Le bus, la pluie, les horaires des autres.', '#e8eef7', '#cfe0ff')
+    s = plein('route_pluie_916', 'f_route_pluie', .5, grade='froid') + haut('#070d1d', .6) + bas('#070d1d')
+    s += chapitre('I', 'Le quotidien', '#e8eef7', 'PREMIÈRE ROUTE') + prenom(380, 'Léa, 18 ans.', 'Le bus, la pluie, les horaires des autres.', '#e8eef7', '#cfe0ff')
     return s + soustitre(1480, '— Toujours à attendre<br>qu’on vienne la chercher.', '#e8eef7') + demo()
 def route2():
-    s = plein('route_sourire', 'e_route_sourire', .56, .5, cut=True) + fade(1150, 770, '#070d1d', 0, .92)
-    s += mot(270, 'LIBRE', 440, PJ) + detour('e_route_sourire')
+    s = plein('route_sourire_916', 'f_route_sourire', .5, cut=True) + bas('#070d1d', 1300)
+    s += mot(450, 'LIBRE', 400, PJ) + detour('f_route_sourire')
     s += chapitre('II', 'Le déclic', '#fff', 'PREMIÈRE ROUTE')
-    return s + soustitre(1460, '— Le jour où elle a tourné la clé,<br>la ville est devenue à elle.') + demo()
+    return s + soustitre(1480, '— Le jour où elle a tourné la clé,<br>la ville est devenue à elle.') + demo()
 def route3():
-    s = plein('route_cles', 'e_route_cles', .3) + fade(0, 560, '#070d1d', 0, .7, True) + fade(1000, 920, '#070d1d', 0, .95)
-    s += chapitre('III', 'La nouvelle vie', '#fff', 'PREMIÈRE ROUTE')
-    s += t(60, 1030, 960, 'Maintenant, c’est elle<br>qui passe prendre', 84, SER, '#fff', 400, -.01, 1.05, 'center', SH) + t(60, 1210, 960, 'les autres.', 130, HAND, PJ, 700, 0, 1, 'center', SH)
-    s += slider(140, 1370, 800, 'Ton envie de prendre la route ?', '🚗', PJ, .85)
-    return s + t(60, 1640, 960, 'Première Route · auto-école', 28, SANS, 'rgba(255,255,255,.8)', 500, .06, al='center') + demo()
+    s = plein('route_cles_916', 'f_route_cles', .5) + haut('#070d1d', .6) + bas('#070d1d', 1200)
+    s += chapitre('III', 'La nouvelle vie', '#fff', 'PREMIÈRE ROUTE') + slider(140, 380, 800, 'Ton envie de prendre la route ?', '🚗', PJ, .85)
+    s += t(60, 1340, 960, 'Maintenant, c’est elle<br>qui passe prendre', 80, SER, '#fff', 400, -.01, 1.05, 'center', SH)
+    return s + t(60, 1520, 960, 'les autres.', 124, HAND, PJ, 700, 0, 1, 'center', SH) + demo()
 
 # ---------- 4 · SÈVE — Claire, 41 ans
 SS, SA = '#9fb08e', '#efe7dc'
 def spa1():
-    s = plein('spa_nuit', 'e_spa_nuit', .52, grade='froid') + fade(0, 560, '#0b1220', 0, .8, True) + fade(1000, 920, '#0b1220', 0, .94)
-    s += chapitre('I', 'Le quotidien', '#e8eef7', 'SÈVE · INSTITUT') + prenom(1060, 'Claire, 41 ans.', 'Deux enfants, un poste à responsabilités, zéro minute à elle.', '#e8eef7', '#cfe0ff')
+    s = plein('spa_nuit_916', 'f_spa_nuit', .5, grade='froid') + haut('#0b1220') + bas('#0b1220')
+    s += chapitre('I', 'Le quotidien', '#e8eef7', 'SÈVE · INSTITUT') + prenom(380, 'Claire, 41 ans.', 'Deux enfants, un poste à responsabilités, zéro minute à elle.', '#e8eef7', '#cfe0ff')
     return s + soustitre(1480, '— 23 h 14. Elle ne se souvient plus<br>de la dernière fois qu’elle a respiré.', '#e8eef7') + demo()
 def spa2():
-    s = box(0, 0, W, H, f'background:{SA};')
-    by, bh = 500, 1100
-    s += img(film('spa_massage', 'e_spa_massage', W, bh, .55, .5, 'doux', cut=True, vignette=.25), 0, by, W, bh)
-    s += mot(by + 70, 'RESPIRE', 300, '#fff', op=.95) + detour('e_spa_massage', 0, by, W, bh)
-    s += box(0, by - 2, W, 160, f'background:linear-gradient(180deg,{SA},rgba(239,231,220,0));') + box(0, by + bh - 300, W, 302, 'background:linear-gradient(180deg,rgba(239,231,220,0),#efe7dc);')
+    s = bande('spa_massage', 'f_spa_massage', SA, 'doux', cut=True)
+    s += mot(560, 'RESPIRE', 280, '#9fb08e', op=.95) + detour('f_spa_massage', 0, 600, W, 720)
     s += chapitre('II', 'Le déclic', '#2e3b2f', 'SÈVE · INSTITUT')
-    return s + t(80, 1560, 920, '— Une heure.<br>Personne pour l’appeler.', 46, SANS, '#2e3b2f', 500, 0, 1.3, 'center') + demo('rgba(46,59,47,.55)')
+    return s + t(80, 1420, 920, '— Une heure.<br>Personne pour l’appeler.', 50, SANS, '#2e3b2f', 500, 0, 1.3, 'center') + demo('rgba(46,59,47,.55)')
 def spa3():
-    s = plein('spa_the', 'e_spa_the', .5, .45) + fade(0, 560, '#1f2a20', 0, .7, True) + fade(640, 1280, '#1f2a20', 0, .96)
-    s += chapitre('III', 'La nouvelle vie', SA, 'SÈVE · INSTITUT')
-    s += t(60, 1010, 960, 'Elle est rentrée', 92, SER, SA, 400, -.01, 1.0, 'center', SH) + t(60, 1110, 960, 'plus légère.', 140, HAND, '#d6e5c6', 700, 0, 1, 'center', SH)
-    s += question(140, 1290, 800, 'Ton moment pour toi, c’est quand ?', 'Écris ta réponse', SS)
-    return s + t(60, 1610, 960, 'Sève · institut de soins', 28, SANS, 'rgba(239,231,220,.85)', 500, .06, al='center') + demo()
+    s = plein('spa_the_916', 'f_spa_the', .5) + haut('#1f2a20', .6) + bas('#1f2a20', 1200)
+    s += chapitre('III', 'La nouvelle vie', SA, 'SÈVE · INSTITUT') + question(140, 380, 800, 'Ton moment pour toi, c’est quand ?', 'Écris ta réponse', SS)
+    s += t(60, 1420, 960, 'Elle est rentrée', 88, SER, SA, 400, -.01, 1.0, 'center', SH)
+    return s + t(60, 1515, 960, 'plus légère.', 130, HAND, '#d6e5c6', 700, 0, 1, 'center', SH) + demo()
 
 # ---------- 5 · CLAIR REGARD — Jade, 7 ans
 OB = '#3d5bff'
 def vue1():
-    s = plein('vue_essai', 'e_vue_flou', .62, .45, 'doux', blur=24) + fade(0, 560, '#0d1230', 0, .6, True) + fade(1000, 920, '#0d1230', 0, .9)
-    s += chapitre('I', 'Le quotidien', '#fff', 'CLAIR REGARD')
-    s += t(60, 520, 960, 'E<br>F P<br>T O Z', 120, AN, 'rgba(255,255,255,.75)', 400, .3, 1.15, 'center', 'filter:blur(7px);')
-    s += prenom(1060, 'Jade, 7 ans.', 'Elle plisse les yeux devant le tableau. Tous les jours.', '#fff', '#c9d3ff')
-    return s + soustitre(1480, '— Au tableau, tout était flou.<br>Elle n’osait pas le dire.') + demo()
+    s = bande('vue_essai', 'f_vue_flou', '#0d1230', 'doux', blur=20)
+    s += t(60, 690, 960, 'E<br>F P<br>T O Z', 110, AN, 'rgba(255,255,255,.7)', 400, .3, 1.1, 'center', 'filter:blur(7px);')
+    s += chapitre('I', 'Le quotidien', '#fff', 'CLAIR REGARD') + prenom(380, 'Jade, 7 ans.', 'Elle plisse les yeux devant le tableau. Tous les jours.', '#fff', '#c9d3ff')
+    return s + soustitre(1440, '— Au tableau, tout était flou.<br>Elle n’osait pas le dire.') + demo()
 def vue2():
-    s = box(0, 0, W, H, 'background:#0d1230;')
-    by, bh = 700, 1040
-    s += img(film('vue_essai', 'e_vue_band', W, bh, .55, .45, 'chaud', cut=True, vignette=.3), 0, by, W, bh)
-    s += mot(470, 'WOUAH', 300, '#7f95ff', ls=.02) + detour('e_vue_band', 0, by, W, bh)
-    s += box(0, by - 2, W, 160, 'background:linear-gradient(180deg,#0d1230,rgba(13,18,48,0));') + box(0, by + bh - 260, W, 262, 'background:linear-gradient(180deg,rgba(13,18,48,0),#0d1230);')
-    s += t(60, 390, 960, 'Le jour J, chez l’opticien.', 60, HAND, '#c9d3ff', 700, 0, 1, 'center')
-    s += chapitre('II', 'Le déclic', '#fff', 'CLAIR REGARD')
-    return s + soustitre(1520, '— Les premières lunettes.<br>Le premier « wouah ».') + demo()
+    s = bande('vue_essai', 'f_vue_net', '#0d1230', cut=True)
+    s += mot(410, 'WOUAH', 300, '#7f95ff', ls=.02) + detour('f_vue_net', 0, 600, W, 720)
+    s += chapitre('II', 'Le déclic', '#fff', 'CLAIR REGARD') + t(60, 1360, 960, 'Le jour J, chez l’opticien.', 60, HAND, '#c9d3ff', 700, 0, 1, 'center')
+    return s + soustitre(1480, '— Les premières lunettes.<br>Le premier « wouah ».') + demo()
 def vue3():
     s = box(0, 0, W, H, f'background:{OB};')
-    s += img(film('vue_essai', 'e_vue_portrait', 920, 900, .66, .4, 'chaud', vignette=.2), 80, 400, 920, 900, 'border-radius:30px;box-shadow:0 30px 70px rgba(0,0,0,.35);')
+    s += img(film('vue_essai', 'f_vue_entier', 960, 640, .5, .5, 'chaud', vignette=.15), 60, 420, 960, 640, 'border-radius:30px;box-shadow:0 30px 70px rgba(0,0,0,.35);')
     s += chapitre('III', 'La nouvelle vie', '#fff', 'CLAIR REGARD')
-    s += t(60, 1350, 960, 'Ce soir, elle a lu son histoire', 64, SER, '#fff', 400, -.01, 1.05, 'center') + t(60, 1430, 960, 'toute seule.', 130, HAND, '#ffe27a', 700, 0, 1, 'center')
-    return s + link(1610, 'PRENDRE RENDEZ-VOUS', OB) + demo()
+    s += t(60, 1130, 960, 'Ce soir, elle a lu son histoire', 64, SER, '#fff', 400, -.01, 1.05, 'center') + t(60, 1210, 960, 'toute seule.', 130, HAND, '#ffe27a', 700, 0, 1, 'center')
+    return s + link(1420, 'PRENDRE RENDEZ-VOUS', OB) + demo()
 
-# ---------- 6 · FIL DU BOIS — Julie & Tom
+# ---------- 6 · FIL DU BOIS — Marc, menuisier ; Julie & Tom
 BC, BL = '#e2b98c', '#f2ebe0'
 def bois1():
-    s = plein('bois_rabot', 'e_bois_rabot', .42) + fade(0, 560, '#1d140d', 0, .75, True) + fade(980, 940, '#1d140d', 0, .94)
-    s += chapitre('I', 'Le quotidien', BL, 'FIL DU BOIS') + prenom(1060, 'Julie &amp; Tom.', 'Un appartement trop petit, une cuisine où l’on ne reste jamais.', BL, BC)
-    return s + soustitre(1480, '— Ils rêvaient d’une table<br>où l’on reste après le dîner.', BL) + demo()
+    s = plein('bois_rabot_916', 'f_bois_rabot', .5) + haut('#1d140d', .55) + bas('#1d140d')
+    s += chapitre('I', 'Le quotidien', BL, 'FIL DU BOIS') + prenom(1270, 'Marc, menuisier.', 'Chaque planche qu’il rabote finira chez quelqu’un.', BL, BC)
+    return s + soustitre(1540, '— Pour Julie et Tom, ce sera une table<br>où l’on reste après le dîner.', BL) + demo()
 def bois2():
-    s = plein('bois_couple', 'e_bois_couple', .68, .5, cut=True) + fade(1150, 770, '#1d140d', 0, .92)
-    s += mot(250, 'CHEZ', 360, BC) + mot(560, 'NOUS', 360, BC) + detour('e_bois_couple')
+    s = plein('bois_couple_916', 'f_bois_couple', .5, cut=True) + bas('#1d140d', 1300)
+    s += mot(330, 'CHEZ', 250, BC) + mot(540, 'NOUS', 250, BC) + detour('f_bois_couple')
     s += chapitre('II', 'Le déclic', BL, 'FIL DU BOIS')
-    return s + soustitre(1460, '— Le premier soir,<br>ils n’ont même pas allumé la télé.', BL) + demo()
+    return s + soustitre(1480, '— Le premier soir,<br>ils n’ont même pas allumé la télé.', BL) + demo()
 def bois3():
     s = plein('bois_cuisine', 'e_bois_cuisine', .5, grade='doux') + fade(0, 560, '#1d140d', 0, .7, True) + fade(900, 1020, '#1d140d', 0, .93)
     s += chapitre('III', 'La nouvelle vie', BL, 'FIL DU BOIS')

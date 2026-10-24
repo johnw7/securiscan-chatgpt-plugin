@@ -18,8 +18,8 @@ def vign(n):
         Image.open(f'{L}/v2_emotion/stories_emotion_{n:02d}.png').convert('RGB').resize((338, 600), Image.LANCZOS).save(f'{D}/{out}', quality=88)
     return out
 # personnages : prénom, image ronde (centre du visage en % de l'image)
-PERSOS = [('Inès', 'e_cafe_band.jpg', '30% 30%'), ('Rosa', 'e_pates_machine.jpg', '60% 40%'), ('Léa', 'e_route_sourire.jpg', '50% 45%'),
-          ('Claire', 'e_spa_nuit.jpg', '50% 40%'), ('Jade', 'e_vue_band.jpg', '62% 40%'), ('Julie &amp; Tom', 'e_bois_couple.jpg', '50% 32%')]
+PERSOS = [('Inès', 'f_cafe_yeux.jpg', '32% 20%'), ('Rosa', 'f_pates_famille.jpg', '14% 30%'), ('Léa', 'f_route_sourire.jpg', '58% 47%'),
+          ('Claire', 'f_spa_nuit.jpg', '50% 46%'), ('Jade', 'f_vue_net.jpg', '60% 30%'), ('Julie &amp; Tom', 'f_bois_couple.jpg', '50% 42%')]
 def couverture():
     s = box(0, 0, W, H, 'background:#0b0a09;')
     s += box(-260, -200, 900, 900, 'background:radial-gradient(circle,rgba(250,126,30,.28),rgba(250,126,30,0) 70%);')
@@ -46,7 +46,7 @@ def couverture():
     s += t(60, 1636, 960, 'UNE CRÉATION TARIK BELATTAR', 40, AN, '#fff', 400, .12, 1, 'center')
     s += t(60, 1696, 960, 'MOTION DESIGN &amp; STORYTELLING · E-DUST SOLUTIONS', 20, SANS, 'rgba(255,255,255,.7)', 700, .28, 1, 'center')
     s += t(60, 1740, 960, 'edust-solutions.fr · 06 13 24 96 80', 26, SANS, 'rgba(255,255,255,.8)', 500, .02, 1, 'center')
-    s += t(60, 1850, 960, 'Marques et personnages fictifs · démo · photos Adobe Stock', 18, SANS, 'rgba(255,255,255,.5)', 400, 0, 1, 'center')
+    s += t(60, 1850, 960, 'Marques et personnages fictifs · démo · photos Adobe Stock, décors étendus avec Adobe Firefly', 18, SANS, 'rgba(255,255,255,.5)', 400, 0, 1, 'center')
     return s
 
 if len(sys.argv) > 1 and sys.argv[1] == 'pdf':
