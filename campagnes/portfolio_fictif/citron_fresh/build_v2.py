@@ -20,7 +20,7 @@ def clips():
     B.CLIPS.clear(); B.CLIPS.update(NEW); B.clips()
 
 F = lambda n, s: ImageFont.truetype(f'{FONTS}/{n}', s)
-GREEN, LIME, DARK = (30, 100, 15), (184, 242, 58), (20, 70, 10)
+GREEN, LIME, DARK = (31, 94, 20), (168, 224, 58), (31, 94, 20)  # charte : Menthe, Lime
 def caption(words, hi=None, size=96):
     """Sous-titre : mots blancs contour vert, mot clé (hi) sur pavé citron vert incliné."""
     f = F('anton.ttf', size); d0 = ImageDraw.Draw(Image.new('RGB', (1, 1))); sp = size * .28

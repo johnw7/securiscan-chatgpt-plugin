@@ -5,51 +5,53 @@ import os, numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 D = os.path.dirname(os.path.abspath(__file__)); F = f'{D}/../visuels/fonts'
 LW, LH = 2600, 1300  # texture étiquette (tour complet × hauteur du corps)
+# palette de marque harmonisée (charte CITRON FRESH)
+CITRON, SOLEIL, LIME, FEUILLE, MENTHE, CREME = (255, 210, 26), (247, 181, 0), (168, 224, 58), (62, 155, 36), (31, 94, 20), (255, 248, 225)
 
 def font(n, s): return ImageFont.truetype(f'{F}/{n}', s)
 def lemon_slice(sz):
     """Tranche de citron vectorielle (zeste, peau blanche, 10 quartiers)."""
     im = Image.new('RGBA', (sz, sz), (0, 0, 0, 0)); d = ImageDraw.Draw(im); c = sz / 2
-    d.ellipse((0, 0, sz, sz), fill=(250, 196, 0)); d.ellipse((sz * .05, sz * .05, sz * .95, sz * .95), fill=(255, 246, 214))
+    d.ellipse((0, 0, sz, sz), fill=SOLEIL); d.ellipse((sz * .05, sz * .05, sz * .95, sz * .95), fill=CREME)
     d.ellipse((sz * .09, sz * .09, sz * .91, sz * .91), fill=(255, 226, 92))
     for k in range(10):
         a0, a1 = k * 36 + 3, (k + 1) * 36 - 3
         d.pieslice((sz * .13, sz * .13, sz * .87, sz * .87), a0, a1, fill=(255, 214, 40))
-    d.ellipse((c - sz * .05, c - sz * .05, c + sz * .05, c + sz * .05), fill=(255, 246, 214))
+    d.ellipse((c - sz * .05, c - sz * .05, c + sz * .05, c + sz * .05), fill=CREME)
     return im
 
 def label():
-    p = f'{D}/out/v2_label.png'
+    p = f'{D}/out/v3_label.png'
     if os.path.exists(p): return np.asarray(Image.open(p).convert('RGB'), np.float32) / 255
     os.makedirs(f'{D}/out', exist_ok=True)
-    y = np.linspace(0, 1, LH)[:, None]; base = np.array([255, 221, 25]) * (1 - y[..., None] * .18) + np.array([245, 170, 0]) * (y[..., None] * .18)
+    y = np.linspace(0, 1, LH)[:, None]; base = np.array(CITRON) * (1 - y[..., None] * .35) + np.array(SOLEIL) * (y[..., None] * .35)
     im = Image.fromarray(np.repeat(base, LW, 1).astype(np.uint8)); d = ImageDraw.Draw(im, 'RGBA')
     # vague citron vert en bas + liseré blanc
     pts = [(x, LH * .80 + 28 * np.sin(x / LW * 2 * np.pi * 3)) for x in range(0, LW + 1, 10)]
-    d.polygon(pts + [(LW, LH), (0, LH)], fill=(120, 200, 40)); d.line(pts, fill=(255, 255, 255), width=10)
+    d.polygon(pts + [(LW, LH), (0, LH)], fill=LIME); d.line(pts, fill=CREME, width=10)
     pts2 = [(x, LH * .87 + 22 * np.sin(x / LW * 2 * np.pi * 3 + 1.4)) for x in range(0, LW + 1, 10)]
-    d.polygon(pts2 + [(LW, LH), (0, LH)], fill=(70, 160, 30))
+    d.polygon(pts2 + [(LW, LH), (0, LH)], fill=FEUILLE)
     rng = np.random.default_rng(3)  # bulles décoratives
     for _ in range(140):
         x, yy, r = rng.uniform(0, LW), rng.uniform(LH * .05, LH * .78), rng.uniform(5, 26)
-        d.ellipse((x - r, yy - r, x + r, yy + r), outline=(255, 255, 255, 150), width=4)
+        d.ellipse((x - r, yy - r, x + r, yy + r), outline=CREME + (150,), width=4)
     # face avant centrée sur u=0.5
     cx = LW // 2
     sl = lemon_slice(520); im.paste(sl, (cx + 230, int(LH * .02)), sl)
     sl2 = lemon_slice(300).rotate(25); im.paste(sl2, (cx - 650, int(LH * .52)), sl2)
     fA = font('anton.ttf', 300); fB = font('montserrat_bi.ttf', 70); fS = font('montserrat_bi.ttf', 44)
-    for txt, yy, f, col in [('CITRON', LH * .20, fA, (255, 255, 255)), ('FRESH', LH * .46, fA, (40, 120, 20))]:
+    for txt, yy, f, col in [('CITRON', LH * .20, fA, CREME), ('FRESH', LH * .46, fA, MENTHE)]:
         w = d.textlength(txt, font=f)
-        d.text((cx - w / 2 + 10, yy + 12), txt, font=f, fill=(150, 90, 0, 120))
+        d.text((cx - w / 2 + 10, yy + 12), txt, font=f, fill=(170, 110, 0, 120))
         if txt == 'FRESH':
-            d.rounded_rectangle((cx - w / 2 - 50, yy + 40, cx + w / 2 + 50, yy + 330), 60, fill=(255, 255, 255))
+            d.rounded_rectangle((cx - w / 2 - 50, yy + 40, cx + w / 2 + 50, yy + 330), 60, fill=CREME)
         d.text((cx - w / 2, yy), txt, font=f, fill=col)
     for txt, yy, f in [('PÉTILLANT · CITRON & CITRON VERT', LH * .72, fS)]:
-        w = d.textlength(txt, font=f); d.text((cx - w / 2, yy), txt, font=f, fill=(255, 255, 255))
+        w = d.textlength(txt, font=f); d.text((cx - w / 2, yy), txt, font=f, fill=CREME)
     # dos : texte réglementaire factice signalé démo
     im = Image.fromarray(np.roll(np.asarray(im), LW // 2, 1)); d = ImageDraw.Draw(im)
     for k, txt in enumerate(['Boisson rafraîchissante', 'aux extraits de citron', '330 ml', 'DÉMO · MARQUE FICTIVE']):
-        f = fB if k < 3 else fS; w = d.textlength(txt, font=f); d.text((cx - w / 2, LH * (.25 + k * .09)), txt, font=f, fill=(255, 255, 255))
+        f = fB if k < 3 else fS; w = d.textlength(txt, font=f); d.text((cx - w / 2, LH * (.25 + k * .09)), txt, font=f, fill=CREME)
     im = Image.fromarray(np.roll(np.asarray(im), -LW // 2, 1)); im.save(p); return np.asarray(im, np.float32) / 255
 
 def droplets(seed=7):

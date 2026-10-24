@@ -108,11 +108,11 @@ def shadow_glow(img, cx, cy, w, h, k=.35, col=(0, 0, 0)):
 T = {}  # textes pré-rendus
 def texts():
     if T: return T
-    T['s1'] = text_img(['LA FRAÎCHEUR'], 150, (255, 255, 255), (30, 100, 15), stroke=5)
-    T['s2'] = text_img(['À L’ÉTAT PUR'], 150, (255, 255, 255), (30, 100, 15), emoji='🍋', stroke=5)
-    T['logo1'] = text_img(['CITRON'], 170, (255, 255, 255), (30, 100, 15), stroke=6)
-    T['logo2'] = pill('FRESH', 150, (255, 255, 255), (46, 120, 22), 50, 12)
-    T['cta'] = pill('GOÛTE LA FRAÎCHEUR !', 64, (46, 140, 30), (255, 255, 255), 56, 26)
+    T['s1'] = text_img(['LA FRAÎCHEUR'], 150, (255, 255, 255), (31, 94, 20), stroke=5)
+    T['s2'] = text_img(['À L’ÉTAT PUR'], 150, (255, 255, 255), (31, 94, 20), emoji='🍋', stroke=5)
+    T['logo1'] = text_img(['CITRON'], 170, (255, 255, 255), (31, 94, 20), stroke=6)
+    T['logo2'] = pill('FRESH', 150, (255, 248, 225), (31, 94, 20), 50, 12)
+    T['cta'] = pill('GOÛTE LA FRAÎCHEUR !', 64, (62, 155, 36), (255, 248, 225), 56, 26)
     T['demo'] = text_img(['Démo · marque fictive · création E-DUST Solutions'], 26, (90, 60, 0), None, 'montserrat_bi.ttf', 6)
     return T
 
