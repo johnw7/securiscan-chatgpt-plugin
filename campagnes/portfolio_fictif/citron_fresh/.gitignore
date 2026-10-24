@@ -1,3 +1,4 @@
 raw/
 out/
 frames/
+__pycache__/
