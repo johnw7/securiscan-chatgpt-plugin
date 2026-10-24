@@ -1,6 +1,6 @@
 #!/bin/bash
 # Export CITRON FRESH : musique + bruitages, bruitages seuls, sans son, version mail (< 4 Mo). Miniature = image 0 intégrée.
-# Prérequis : python3 build.py frames ; python3 build_audio.py bruitages ; python3 build_audio.py musique
+# Prérequis : python3 build.py frames ; python3 build_audio.py bruitages|musique [voix] (voix : python3 voix.py <tts>)
 set -e
 cd "$(dirname "$0")"
 L=../../../livraison/portfolio_fictif/citron_fresh; mkdir -p "$L" out/tmp
@@ -19,5 +19,11 @@ enc "$L/CITRON_FRESH_reel_9x16_bruitages.mp4" out/audio_bruitages.wav
 enc "$L/CITRON_FRESH_reel_9x16_sans_son.mp4" ""
 ffmpeg -v error -y -framerate 30 -i out/frames/%04d.jpg -i out/audio_musique.wav -vf scale=720:1280 -c:v libx264 -b:v 700k -maxrate 900k -bufsize 1400k \
   -pix_fmt yuv420p -c:a aac -b:a 96k -t 15 -movflags +faststart "$L/CITRON_FRESH_reel_mail_720p.mp4"
+if [ -f out/audio_musique_voix.wav ]; then  # versions voix off féminine (voix.py + build_audio.py <mode> voix)
+  enc "$L/CITRON_FRESH_reel_9x16_voix_musique.mp4" out/audio_musique_voix.wav
+  enc "$L/CITRON_FRESH_reel_9x16_voix_bruitages.mp4" out/audio_bruitages_voix.wav
+  ffmpeg -v error -y -framerate 30 -i out/frames/%04d.jpg -i out/audio_musique_voix.wav -vf scale=720:1280 -c:v libx264 -b:v 700k -maxrate 900k -bufsize 1400k \
+    -pix_fmt yuv420p -c:a aac -b:a 96k -t 15 -movflags +faststart "$L/CITRON_FRESH_reel_voix_mail_720p.mp4"
+fi
 cp out/tmp/miniature.jpg "$L/CITRON_FRESH_miniature.jpg"
 ls -la "$L"

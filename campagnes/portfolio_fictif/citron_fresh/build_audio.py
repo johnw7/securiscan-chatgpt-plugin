@@ -1,9 +1,10 @@
-"""Bande-son CITRON FRESH (15 s, 120 bpm). Usage : python3 build_audio.py bruitages|musique -> out/audio_<mode>.wav
+"""Bande-son CITRON FRESH (15 s, 120 bpm). Usage : python3 build_audio.py bruitages|musique [voix] -> out/audio_<mode>[_voix].wav
+Voix : out/vo_*.wav + out/vo_plan.json (voix.py) ; musique et bruitages baissés sous la voix.
 Bruitages : plongeon, bulles, glaçons, « PSHHHT » d'ouverture, pétillement, impacts calés sur les coupes (3 · 6 · 7,5 · 8,5 · 10 · 13 s)."""
 import os, sys, numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'demos_portfolio'))
 from audiolib import *
-D = os.path.dirname(os.path.abspath(__file__)); DUR = 15.0; N = int(DUR * SR); B = .5; MODE = sys.argv[1]
+D = os.path.dirname(os.path.abspath(__file__)); DUR = 15.0; N = int(DUR * SR); B = .5; MODE = sys.argv[1]; VOIX = 'voix' in sys.argv[2:]
 sfx, mus = np.zeros(N), np.zeros(N); r = np.random.default_rng(11)
 
 def bloop(f0=500, f1=1400, L=.07):  # bulle qui remonte
@@ -74,5 +75,12 @@ if MODE == 'musique':
     beats = [b0 + k * B for b0, b1 in drops for k in range(int((b1 - b0) / B))] + list(np.arange(13.0, 14.5, B))
     mus = pump(mus, beats, .55)
 mix = sfx + (mus if MODE == 'musique' else 0)
-os.makedirs(f'{D}/out', exist_ok=True); master(mix, f'{D}/out/audio_{MODE}.wav', DUR, -14)
+if VOIX:
+    import json, soundfile as sf
+    voice = np.zeros(N); mask = np.zeros(N)
+    for k, (t0, L, _) in json.load(open(f'{D}/out/vo_plan.json')).items():
+        y, sr = sf.read(f'{D}/out/vo_{k}.wav'); add(voice, y / np.abs(y).max() * .95, t0); mask[int(t0 * SR):int((t0 + len(y) / SR) * SR)] = 1
+    m = int(.12 * SR); duck = np.convolve(mask, np.ones(m) / m, mode='same')
+    mix = mix * (1 - .5 * duck) + voice * 1.1
+os.makedirs(f'{D}/out', exist_ok=True); master(mix, f'{D}/out/audio_{MODE}{"_voix" if VOIX else ""}.wav', DUR, -14)
 print('ok', MODE)
