@@ -27,6 +27,14 @@ Réponds en français, concret, textes prêts à copier. Termine chaque réponse
 - Jamais de faux chiffres (vues, avis, résultats) ni de faux témoignages.
 - Signature : Tarik Belattar — E-DUST Solutions · 06 13 24 96 80 · tarikbelatta@gmail.com · edust-solutions.fr
 
+## Charte graphique E-DUST — OBLIGATOIRE pour toute création (carrousels, visuels, affiches, stories, Reels, PDF)
+Consigne de Tarik : **toujours cette charte**, sans qu'il ait à le redemander. Référence : `campagnes/portfolio_fictif/mains_artisans/build.py` et `campagnes/portfolio_fictif/page_accueil/build.py` (repartir de l'un des deux).
+- Couleurs : fond noir chaud `#141210` ; texte crème `#f2ebe0` ; accent or `#e2b98c` (phrases manuscrites, intertitres, cadres) ; bois `#c89b6d` (mot géant, boutons, filets). Textes secondaires en crème transparent `rgba(242,235,224,.45 à .85)`.
+- Polices (kit Typekit ark1qxx + Google Fonts) : titres DM Serif Display crème ; phrase forte en Caveat or ; texte courant DM Sans ; mot géant Anton couleur bois ; signature et boutons Montserrat 800.
+- Photos : étalonnage chaud « atelier » (`cine()`), vignettage + grain ; personnages cadrés en entier (bande 1080×720 si besoin) ; mot géant glissé derrière le détourage (Adobe Photoshop) quand c'est possible.
+- Mise en page : intertitres en or, DM Sans 800 espacé (« CHAPITRE I · … ») ; pied « E-DUST SOLUTIONS · … (démo) » + pagination « n/N » ; bouton d'appel à l'action pilule bois, texte noir ; dernière page = question + bouton + signature + mentions démo.
+- Seule exception : les couleurs propres à une marque cliente ou fictive *à l'intérieur* de la démo (son site, son affiche) ; tout l'habillage autour reste dans la charte E-DUST.
+
 ## Fabrication des vidéos (technique)
 - Un dossier par client dans `campagnes/<client>/` : `prep_assets.sh` (télécharge les visuels du site dans img/ → assets/), une page HTML d'animation (`window.render(t)`, `window.DUR`, aides de `campagnes/demos_portfolio/common.js`), `build_audio.py` (bruitages via `campagnes/demos_portfolio/audiolib.py` ; `python3 build_audio.py bruitages`).
 - Partir d'un modèle existant proche : `campagnes/etanglaville/reel_nouvel_arrivant.html` (Checklist), `campagnes/caralline/ugc_pov.html` (POV), `campagnes/avenir/tiktok_mutation.html` (POV immobilier), `campagnes/portfolio_fictif/blanche/film_photo_et_puis_un_jour.html` (Émotion), `campagnes/portfolio_fictif/lumen/tiktok_7jours.html`.
