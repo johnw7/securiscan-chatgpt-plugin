@@ -1,5 +1,5 @@
 """Bannière LinkedIn E-DUST « typo » : sans visuel, juste la charte (noir chaud #141210, crème #F2EBE0, or #E2B98C, bois #C89B6D)
-et le message du site edust-solutions.fr. Le mot HISTOIRE en filigrane (Anton bois, très transparent) fait l'effet créatif.
+et le message du site edust-solutions.fr. Effet créatif : contraste serif crème / manuscrit or, filet bois et lueur chaude.
 Profil 1584×396 et page entreprise 1128×191, rendues en ×2. Usage : python3 build_typo.py → banniere_typo.html ;
 rendu : NODE_PATH=$(npm root -g) node render.cjs banniere_typo.html <sortie>."""
 import os
@@ -18,7 +18,6 @@ def profil():
     W, H = 1584, 396
     s = box(0, 0, W, H, f'background:{NOIR};')
     s += box(W - 760, -H // 2, 900, H * 2, 'background:radial-gradient(closest-side,rgba(200,155,109,.16),rgba(200,155,109,0));')
-    s += t(W - 1040, 40, 1000, 'HISTOIRE', 290, AN, 'rgba(200,155,109,.10)', 400, .02, 1, 'right')
     s += box(460, 58, 2, 280, f'background:linear-gradient(180deg,rgba(200,155,109,0),{BOIS},rgba(200,155,109,0));')
     s += t(490, 60, 700, 'AGENCE DE COMMUNICATION DIGITALE CRÉATIVE', 13, SANS, OR, 800, .3)
     s += t(487, 92, 900, 'Votre activité mérite plus qu’une image.', 50, SER, CREME, 400, -.01, 1)
@@ -34,7 +33,6 @@ def entreprise():
     X = 190  # le logo de la page entreprise recouvre le coin bas gauche
     s = box(0, 0, W, H, f'background:{NOIR};')
     s += box(W - 520, -H // 2, 640, H * 2, 'background:radial-gradient(closest-side,rgba(200,155,109,.16),rgba(200,155,109,0));')
-    s += t(W - 700, 14, 680, 'HISTOIRE', 165, AN, 'rgba(200,155,109,.10)', 400, .02, 1, 'right')
     s += t(X, 26, 600, 'AGENCE DE COMMUNICATION DIGITALE CRÉATIVE', 10, SANS, OR, 800, .28)
     s += t(X - 2, 46, 700, 'Votre activité mérite plus qu’une image.', 30, SER, CREME, 400, -.01, 1)
     s += t(X, 80, 700, 'Elle mérite une histoire.', 50, HAND, OR, 700, 0, 1)
