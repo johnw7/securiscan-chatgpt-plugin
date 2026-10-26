@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>E-DUST Solutions — Communication digitale pour les marques</title>
-<meta name="description" content="Agence de communication digitale créative pour les marques : identité visuelle, réseaux sociaux, contenus vidéo sans tournage, sites et campagnes. Votre marque mérite plus qu’un packshot : elle mérite une histoire.">
+<title>E-DUST Solutions — Agence de communication digitale pour les marques</title>
+<meta name="description" content="Agence de communication digitale créative pour les marques : identité visuelle, réseaux sociaux, contenus vidéo, sites et campagnes. Votre marque mérite plus qu’une image : elle mérite une histoire.">
 <meta property="og:title" content="E-DUST Solutions — Votre marque mérite une histoire.">
 <meta property="og:description" content="Identité visuelle, réseaux sociaux, contenus vidéo, sites et campagnes pour les marques.">
 <meta property="og:image" content="assets/visuels/pack-creation-table.jpg">
@@ -68,7 +68,7 @@ body.menu-ouvert .burger span:nth-child(1){transform:translateY(6px) rotate(45de
 body.menu-ouvert .burger span:nth-child(2){opacity:0}
 body.menu-ouvert .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
-/* héros : la correction « packshot » → « une histoire » */
+/* héros : la correction « image » → « une histoire » (comme le profil LinkedIn) */
 .hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:140px 0 90px;overflow:hidden}
 .hero::before{content:"";position:absolute;right:-10%;top:-10%;width:70vw;height:120%;background:radial-gradient(closest-side,rgba(200,155,109,.18),rgba(200,155,109,0));pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(30px,5vw,80px);align-items:center}
@@ -98,6 +98,41 @@ body.menu-ouvert .burger span:nth-child(3){transform:translateY(-6px) rotate(-45
 @keyframes flotte{0%,100%{translate:0 0}50%{translate:0 -14px}}
 .pastille{position:absolute;z-index:4;border:1.5px solid var(--or);background:rgba(20,18,16,.88);color:var(--or);font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px;white-space:nowrap;backdrop-filter:blur(6px)}
 .p1{left:2%;bottom:16%;transform:rotate(-4deg)}.p2{right:-2%;top:12%;transform:rotate(5deg)}
+
+/* héros : composition des livrables (identité, réseaux, site, vidéo) */
+.livrable{position:absolute;border-radius:18px;box-shadow:0 30px 70px rgba(0,0,0,.55),0 0 0 1.5px rgba(242,235,224,.12);overflow:hidden;animation:flotte 8s ease-in-out infinite}
+.livrable .etiq{position:absolute;z-index:3;top:10px;left:10px;font-size:10.5px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--or);background:rgba(20,18,16,.88);border:1px solid rgba(226,185,140,.45);padding:4px 9px;border-radius:999px}
+.l-site{left:4%;top:4%;width:78%;background:#f6f1e8;transform:rotate(-2deg);z-index:2}
+.l-site .barre{height:30px;background:#e8e0d2;display:flex;align-items:center;gap:6px;padding:0 12px}
+.l-site .barre i{width:9px;height:9px;border-radius:50%;background:#c9bfae}
+.l-site .barre span{margin-left:10px;flex:1;height:16px;border-radius:8px;background:#f6f1e8;font-size:10px;color:#8a7f70;line-height:16px;padding-left:10px}
+.l-site .page{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:18px 18px 20px;align-items:center}
+.l-site .page h4{font-family:var(--serif);font-weight:400;color:#1f1a16;font-size:24px;line-height:1.05}
+.l-site .page h4 em{font-family:var(--main);font-style:normal;color:#a87b4f;font-size:1.2em}
+.l-site .page p{font-size:10.5px;color:#6d6458;line-height:1.45;margin:8px 0 10px}
+.l-site .page b{display:inline-block;background:#1f1a16;color:#f6f1e8;font-size:10px;padding:6px 12px;border-radius:999px;font-weight:700}
+.l-site .page img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px}
+.l-site .etiq{top:auto;left:auto;bottom:12px;right:12px}
+.l-id{left:0;bottom:6%;width:44%;background:var(--noir-3);padding:46px 18px 18px;transform:rotate(-6deg);z-index:3;animation-delay:-2s}
+.l-id .aa{font-family:var(--serif);font-size:54px;line-height:1;color:var(--creme)}
+.l-id .aa span{font-family:var(--main);color:var(--or);font-size:.8em;margin-left:6px}
+.l-id .nuancier{display:flex;gap:6px;margin-top:14px}
+.l-id .nuancier i{flex:1;aspect-ratio:1/1.4;border-radius:6px}
+.l-id small{display:block;margin-top:10px;font-size:10px;color:var(--creme-60);letter-spacing:.08em}
+.l-post{right:2%;bottom:0;width:42%;background:#fff;transform:rotate(5deg);z-index:4;animation-delay:-4s}
+.l-post .entete{display:flex;align-items:center;gap:8px;padding:9px 10px;font-size:11px;font-weight:700;color:#262626}
+.l-post .entete i{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--bois),#7a5838)}
+.l-post img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.l-post .pied-post{padding:8px 10px;font-size:13px;color:#262626;letter-spacing:.2em}
+.l-post .etiq{top:46px}
+.l-video{right:6%;top:0;width:24%;border-radius:20px;background:#0a0806;padding:5px;transform:rotate(7deg);z-index:3;animation-delay:-6s}
+.l-video img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:15px}
+.l-video .lecture{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:rgba(20,18,16,.75);border:1.5px solid var(--or);display:grid;place-items:center;z-index:2}
+.l-video .lecture::after{content:"";border-left:11px solid var(--or);border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.l-video .etiq{top:14px;left:12px}
+.expertise .visu{margin:-32px -28px 6px;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--trait)}
+.expertise .visu img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.expertise:hover .visu img{transform:scale(1.05)}
 
 /* bandeau défilant */
 .bandeau{border-top:1px solid var(--trait);border-bottom:1px solid var(--trait);overflow:hidden;padding:22px 0;background:var(--noir-2)}
@@ -319,24 +354,27 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
 <section class="hero grain" id="accueil">
   <div class="wrap hero-grid">
     <div>
-      <p class="kicker">Communication digitale pour les marques</p>
+      <p class="kicker">Agence de communication digitale pour les marques</p>
       <h1>
         <span class="l1">Votre marque mérite</span>
-        <span class="l2">plus qu’un <span class="rature">packshot.<span class="insertion" aria-hidden="true">‸</span><span class="correction">une histoire.</span></span></span>
+        <span class="l2">plus qu’une <span class="rature">image.<span class="insertion" aria-hidden="true">‸</span><span class="correction">une histoire.</span></span></span>
       </h1>
-      <p class="lead">Identité visuelle, réseaux sociaux, contenus vidéo, sites et campagnes&nbsp;: <span class="nowrap">E-DUST</span> Solutions construit une communication digitale cohérente, qui rend votre marque reconnaissable, compréhensible et désirable.</p>
+      <p class="lead">J’accompagne les marques pour qu’elles soient vues, comprises et choisies. De l’identité visuelle aux campagnes, une communication digitale cohérente, qui raconte qui vous êtes et donne envie d’aller plus loin.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-bois">Parlons de votre marque <span class="fleche">→</span></a>
-        <a href="#realisations" class="btn btn-ligne">Voir les réalisations</a>
+        <a href="#expertises" class="btn btn-ligne">Découvrir nos expertises</a>
       </div>
-      <div class="preuves"><span>Sans tournage</span><span>Formats 9:16 et 4:5</span><span>Un seul interlocuteur</span><span>Devis détaillé</span></div>
+      <div class="preuves"><span>Identité visuelle</span><span>Réseaux sociaux</span><span>Contenus vidéo</span><span>Sites</span><span>Campagnes</span></div>
     </div>
     <div class="scene" aria-hidden="true">
-      <div class="carte-flottante cf1"><img src="assets/visuels/pack-creation-table.jpg" alt=""></div>
-      <div class="tel"><video src="assets/videos/showreel.mp4" poster="assets/videos/showreel.jpg" autoplay muted loop playsinline preload="metadata"></video></div>
-      <div class="carte-flottante cf2"><img src="assets/visuels/marc-accroche.jpg" alt=""></div>
-      <span class="pastille p1">Écoute · Stratégie · Création</span>
-      <span class="pastille p2">Votre marque, racontée</span>
+      <div class="livrable l-site"><div class="barre"><i></i><i></i><i></i><span>votre-marque.fr</span></div>
+        <div class="page"><div><h4>Maison Ardoise <em>table de saison</em></h4><p>Une cuisine de marché, une salle chaleureuse, une histoire à partager.</p><b>Réserver une table</b></div><img src="assets/visuels/pack-creation-table.jpg" alt=""></div>
+        <span class="etiq">Site vitrine</span></div>
+      <div class="livrable l-id"><span class="etiq">Identité</span><div class="aa">Aa<span>Aa</span></div>
+        <div class="nuancier"><i style="background:#141210;box-shadow:inset 0 0 0 1px rgba(242,235,224,.2)"></i><i style="background:#f2ebe0"></i><i style="background:#e2b98c"></i><i style="background:#c89b6d"></i></div>
+        <small>CHARTE · TYPOGRAPHIES · LOGO</small></div>
+      <div class="livrable l-post"><div class="entete"><i></i>votre.marque</div><img src="assets/visuels/marc-accroche.jpg" alt=""><div class="pied-post">♡ ◌ ➤</div><span class="etiq">Réseaux sociaux</span></div>
+      <div class="livrable l-video"><img src="assets/videos/pub-canette-ralenti.jpg" alt=""><span class="lecture"></span><span class="etiq">Vidéo</span></div>
     </div>
   </div>
 </section>
@@ -344,8 +382,8 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
 <!-- BANDEAU -->
 <div class="bandeau" aria-hidden="true">
   <div class="piste">
-    <span>Goût</span><em>✦</em><span class="plein">Beauté</span><em>✦</em><span>Mode</span><em>✦</em><span class="plein">Objets</span><em>✦</em><span>Services</span><em>✦</em><span class="plein">Tech</span><em>✦</em><span>Lancements</span><em>✦</em>
-    <span>Goût</span><em>✦</em><span class="plein">Beauté</span><em>✦</em><span>Mode</span><em>✦</em><span class="plein">Objets</span><em>✦</em><span>Services</span><em>✦</em><span class="plein">Tech</span><em>✦</em><span>Lancements</span><em>✦</em>
+    <span>Identité visuelle</span><em>✦</em><span class="plein">Réseaux sociaux</span><em>✦</em><span>Contenus vidéo</span><em>✦</em><span class="plein">Sites vitrines</span><em>✦</em><span>Campagnes</span><em>✦</em><span class="plein">Publicité</span><em>✦</em>
+    <span>Identité visuelle</span><em>✦</em><span class="plein">Réseaux sociaux</span><em>✦</em><span>Contenus vidéo</span><em>✦</em><span class="plein">Sites vitrines</span><em>✦</em><span>Campagnes</span><em>✦</em><span class="plein">Publicité</span><em>✦</em>
   </div>
 </div>
 
@@ -366,8 +404,8 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
 <section class="sec alt grain" id="expertises">
   <div class="wrap">
     <div class="tete">
-      <div><p class="kicker rv">Nos expertises</p><h2 class="rv d1" style="margin-top:18px">Tout ce dont votre marque a besoin <span class="main">pour être vue et choisie.</span></h2></div>
-      <p class="lead rv d2">Six expertises, un seul interlocuteur. Vous choisissez un point de départ&nbsp;; nous construisons la combinaison la plus pertinente pour votre marque.</p>
+      <div><p class="kicker rv">Nos expertises</p><h2 class="rv d1" style="margin-top:18px">Une communication digitale complète, <span class="main">cohérente du premier au dernier support.</span></h2></div>
+      <p class="lead rv d2">De l’identité visuelle aux campagnes&nbsp;: six expertises, un seul interlocuteur. Vous choisissez un point de départ, nous construisons la combinaison la plus pertinente pour votre marque.</p>
     </div>
     <div class="expertises" id="liste-expertises"></div>
   </div>
@@ -381,12 +419,12 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
       <p class="lead rv d2">Le goût ne se raconte pas comme la beauté, ni la mode comme la tech. Nous adaptons le ton, le rythme et les images à votre univers, avec la même exigence.</p>
     </div>
     <div class="univers">
-      <article class="univ rv d1" data-video="pub-canette-ralenti"><video src="assets/videos/pub-canette-ralenti.mp4" poster="assets/videos/pub-canette-ralenti.jpg" muted loop playsinline preload="none"></video><div class="txt"><b>Goût</b><span>donner envie de goûter</span><small>Boissons, épicerie fine, chocolat, restauration</small></div></article>
-      <article class="univ rv d2" data-video="reel-spa-respiration"><video src="assets/videos/reel-spa-respiration.mp4" poster="assets/videos/reel-spa-respiration.jpg" muted loop playsinline preload="none"></video><div class="txt"><b>Beauté &amp; soin</b><span>faire ressentir</span><small>Cosmétiques, parfums, bien-être, instituts</small></div></article>
-      <article class="univ rv d3" data-video="reel-mode-3-looks"><video src="assets/videos/reel-mode-3-looks.mp4" poster="assets/videos/reel-mode-3-looks.jpg" muted loop playsinline preload="none"></video><div class="txt"><b>Mode &amp; objets</b><span>montrer la matière</span><small>Vêtements, bijoux, maroquinerie, décoration</small></div></article>
-      <article class="univ rv d4" data-video="reel-b2b-motion-design"><video src="assets/videos/reel-b2b-motion-design.mp4" poster="assets/videos/reel-b2b-motion-design.jpg" muted loop playsinline preload="none"></video><div class="txt"><b>Services &amp; tech</b><span>rendre clair</span><small>Applications, outils, conseil, abonnements</small></div></article>
+      <article class="univ rv d1" data-img="visuels/pack-creation-table.jpg"><img src="assets/visuels/pack-creation-table.jpg" alt="Campagne visuelle pour une table gastronomique (démo)" loading="lazy"><div class="txt"><b>Goût</b><span>donner envie de goûter</span><small>Restauration, boissons, épicerie fine</small></div></article>
+      <article class="univ rv d2" data-img="visuels/affiche-institut.jpg"><img src="assets/visuels/affiche-institut.jpg" alt="Affiche d’institut de beauté posée sur un chevalet (démo)" loading="lazy"><div class="txt"><b>Beauté &amp; soin</b><span>faire ressentir</span><small>Cosmétiques, instituts, bien-être</small></div></article>
+      <article class="univ rv d3" data-img="visuels/marc-savoir-faire.jpg"><img src="assets/visuels/marc-savoir-faire.jpg" alt="Direction artistique pour un atelier de menuiserie (démo)" loading="lazy"><div class="txt"><b>Mode &amp; objets</b><span>montrer la matière</span><small>Mode, artisanat, décoration</small></div></article>
+      <article class="univ rv d4" data-img="visuels/claire-site.jpg"><img src="assets/visuels/claire-site.jpg" alt="Site vitrine avant / après (démo)" loading="lazy"><div class="txt"><b>Services &amp; tech</b><span>rendre clair</span><small>Conseil, services, applications</small></div></article>
     </div>
-    <p class="note-demo">Survolez un univers pour lancer l’aperçu, cliquez pour le voir en grand. Démonstrations avec des marques fictives.</p>
+    <p class="note-demo">Cliquez sur un univers pour voir la création en grand. Démonstrations avec des marques fictives.</p>
   </div>
 </section>
 
@@ -397,8 +435,10 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
       <div><p class="kicker rv">Portfolio</p><h2 class="rv d1" style="margin-top:18px">Des idées <span class="main">qui prennent vie.</span></h2></div>
       <div class="filtres rv d2" role="tablist">
         <button class="filtre actif" data-f="tout">Tout</button>
-        <button class="filtre" data-f="video">Vidéos &amp; Reels</button>
-        <button class="filtre" data-f="visuel">Visuels &amp; campagnes</button>
+        <button class="filtre" data-f="identite">Identité &amp; campagnes</button>
+        <button class="filtre" data-f="reseaux">Réseaux sociaux</button>
+        <button class="filtre" data-f="site">Sites</button>
+        <button class="filtre" data-f="video">Vidéo</button>
       </div>
     </div>
     <div class="galerie" id="galerie"></div>
@@ -424,11 +464,11 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
 <section class="sec alt grain" id="offres">
   <div class="wrap">
     <div class="tete">
-      <div><p class="kicker rv">Offres</p><h2 class="rv d1" style="margin-top:18px">Des formules claires. <span class="main">Sans surprise.</span></h2></div>
-      <p class="lead rv d2">Chaque projet fait l’objet d’un devis détaillé après échange. Voici nos points de départ, pour vous donner un repère honnête.</p>
+      <div><p class="kicker rv">Offres</p><h2 class="rv d1" style="margin-top:18px">Des accompagnements clairs. <span class="main">Sans surprise.</span></h2></div>
+      <p class="lead rv d2">Chaque marque est différente&nbsp;: après un premier échange, vous recevez un devis détaillé, gratuit et sans engagement. Voici les points de départ les plus demandés.</p>
     </div>
     <div class="offres" id="liste-offres"></div>
-    <p class="note-prix">Tarifs indicatifs hors taxes. Options&nbsp;: voix off, sous-titres, diffusion publicitaire payante (Meta, TikTok), musique choisie par vous.</p>
+    <p class="note-prix">Chaque accompagnement se combine avec les autres&nbsp;: identité, réseaux sociaux, vidéo, site, campagne et publicité.</p>
   </div>
 </section>
 
@@ -459,7 +499,7 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
     <div>
       <p class="kicker rv">Derrière E-DUST</p>
       <p class="citation rv d1">«&nbsp;Une marque ne vend pas seulement un produit. Elle vend une promesse. <span class="main">Mon travail, c’est de la rendre visible.&nbsp;»</span></p>
-      <p class="lead rv d2">Motion designer et créateur de contenu, j’ai fondé <span class="nowrap">E-DUST</span> Solutions pour aider les marques à raconter ce qui les rend uniques. J’écris, je conçois et je réalise chaque création, de l’idée au fichier final, avec un seul objectif&nbsp;: que vos clients se reconnaissent dans votre histoire.</p>
+      <p class="lead rv d2">J’ai fondé <span class="nowrap">E-DUST</span> Solutions, agence de communication digitale créative, pour accompagner les marques de l’identité visuelle aux campagnes. Je comprends votre marque et vos clients, je structure le message, je crée et je livre des supports prêts à l’emploi, avec une règle constante&nbsp;: chaque contenu raconte une histoire dans laquelle votre client se reconnaît.</p>
       <a href="#contact" class="btn btn-bois rv d3" style="margin-top:30px">Échangeons sur votre marque <span class="fleche">→</span></a>
     </div>
   </div>
@@ -470,6 +510,8 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
   <div class="wrap">
     <div style="text-align:center"><p class="kicker rv">Questions fréquentes</p><h2 class="rv d1" style="margin-top:18px">Avant de vous lancer, <span class="main">les bonnes questions.</span></h2></div>
     <div class="faq rv d2">
+      <details><summary>Par où commencer&nbsp;: identité, réseaux sociaux ou site&nbsp;?</summary><p>Cela dépend de votre marque et de vos objectifs. Le premier échange sert justement à le déterminer&nbsp;: souvent, une identité claire d’abord, puis les supports qui comptent le plus pour vos clients (réseaux sociaux, site, campagne). Vous recevez une recommandation et un devis détaillé.</p></details>
+      <details><summary>Proposez-vous un accompagnement régulier&nbsp;?</summary><p>Oui. Pour les réseaux sociaux, l’accompagnement mensuel comprend la ligne éditoriale, les visuels, les vidéos et les textes de publication, prêts à publier chaque mois.</p></details>
       <details><summary>Comment créez-vous des vidéos sans tournage&nbsp;?</summary><p>À partir de vos photos produit, de votre identité visuelle et, si besoin, de banques d’images sous licence. Le motion design, le montage, les ralentis et les bruitages donnent vie à ces éléments. Vous n’avez ni studio, ni comédien, ni journée de tournage à organiser.</p></details>
       <details><summary>Quels sont les délais&nbsp;?</summary><p>Une vidéo courte est livrée en 48&nbsp;h après validation du scénario. Une identité visuelle, un site ou une campagne complète demandent quelques semaines&nbsp;: le planning précis figure dans le devis.</p></details>
       <details><summary>Combien de modifications sont incluses&nbsp;?</summary><p>Un aller-retour de modifications est inclus pour chaque création. Au-delà, les ajustements sont indiqués à l’avance dans le devis, sans surprise.</p></details>
@@ -531,40 +573,40 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
 </div>
 
 <script>
-// Expertises : [icône, titre, description, ce que vous recevez]
+// Expertises (mêmes 6 services que le profil LinkedIn) : [icône, titre, description, ce que vous recevez, visuel]
 const EXPERTISES = [
-  ['◈', 'Identité de marque', 'Un univers reconnaissable et adapté à votre positionnement : logo, couleurs, typographies, ton.', 'charte graphique, logo décliné, modèles prêts à l’emploi'],
-  ['▦', 'Réseaux sociaux', 'Une présence régulière et cohérente, avec des contenus qui racontent quelque chose.', 'ligne éditoriale, visuels, carrousels, textes de publication'],
-  ['▶', 'Contenus vidéo & motion', 'Des films courts sans tournage : produit au ralenti, storytelling, POV, motion design.', 'Reels et TikTok en 9:16 et 4:5, miniatures, versions sans son'],
-  ['◧', 'Sites & landing pages', 'Un site qui explique votre marque en quelques secondes et facilite la prise de contact.', 'site vitrine ou page d’offre, textes, mise en ligne'],
-  ['✦', 'Campagnes de lancement', 'Un message, une direction créative et des supports coordonnés pour un temps fort.', 'concept, film principal, Reels, visuels, affiches'],
-  ['◎', 'Publicités sociales', 'Des créations pensées pour Meta et TikTok, déclinées pour tester ce qui fonctionne.', 'plusieurs accroches et durées par création']
+  ['◈', 'Identité visuelle et univers de marque', 'Une image reconnaissable et adaptée à votre positionnement : logo, couleurs, typographies, ton.', 'charte graphique, logo décliné, modèles prêts à l’emploi', 'avant-apres-bastien'],
+  ['▦', 'Réseaux sociaux', 'Stratégie, contenus prêts à publier, Reels et TikTok : une présence régulière qui raconte quelque chose.', 'ligne éditoriale, visuels, carrousels, Reels, textes de publication', 'marc-accroche'],
+  ['▶', 'Contenus vidéo et motion design', 'Des films courts sans tournage, à partir de vos photos et de votre identité : produit, storytelling, motion design.', 'vidéos en 9:16 et 4:5, miniatures, versions sans son', 'video:pub-canette-ralenti'],
+  ['◧', 'Sites vitrines et landing pages', 'Un site qui explique votre marque en quelques secondes, facilite la prise de contact et la vente.', 'site vitrine ou page d’offre, textes, mise en ligne', 'claire-site'],
+  ['✦', 'Campagnes de lancement', 'Un message, une direction créative et des supports coordonnés pour un temps fort.', 'concept, visuels, affiches, vidéos, kit de diffusion', 'affiche-pizzeria'],
+  ['◎', 'Publicités Meta et TikTok', 'Des créations pensées pour la publicité, déclinées en plusieurs versions à tester.', 'plusieurs accroches et formats par création', 'pack-creation-table']
 ];
-// Offres : [titre, prix, unité, contenu, mise en avant]
+// Offres : [titre, repère, contenu, mise en avant] — pas de prix affiché : devis détaillé après échange
 const OFFRES = [
-  ['Film produit', 'dès 450 €', 'HT', ['1 film de 15 à 30 s', 'Formats 9:16 et 4:5', '3 accroches à tester', 'Miniature et texte de publication']],
-  ['Pack Création', 'dès 690 €', 'HT / mois', ['4 contenus par mois', 'Visuels et Reels coordonnés', 'Textes de publication', 'Planning éditorial'], true],
-  ['Pack lancement', 'dès 1 500 €', 'HT', ['1 film principal', '3 Reels et 5 visuels', 'Kit revendeurs et affiche', 'Direction créative']],
-  ['Identité & site', 'sur devis', '', ['Identité de marque', 'Site vitrine ou landing page', 'Textes et mise en ligne', 'Supports prêts à l’emploi']]
+  ['Identité de marque', 'Pour vous lancer ou vous moderniser', ['Positionnement et message', 'Logo et charte graphique', 'Modèles réseaux et print', 'Guide d’utilisation']],
+  ['Réseaux sociaux', 'Accompagnement mensuel', ['Ligne éditoriale', 'Visuels, carrousels et Reels', 'Textes de publication', 'Planning du mois'], true],
+  ['Site vitrine', 'Pour être compris et contacté', ['Structure et textes', 'Design aux couleurs de la marque', 'Formulaire et contact rapide', 'Mise en ligne']],
+  ['Campagne de lancement', 'Pour un temps fort', ['Concept créatif', 'Vidéos et visuels coordonnés', 'Déclinaisons publicitaires', 'Affiches et supports']]
 ];
-// Réalisations : vidéos (Reels 9:16) et visuels (4:5). Toutes les marques sont fictives (démo).
+// Réalisations : catégorie, type, fichier, marque, description. Toutes les marques sont fictives (démo).
 const OEUVRES = [
-  ['video', 'pub-canette-ralenti', 'Boost Rush', 'Pub produit au ralenti'],
-  ['visuel', 'pack-creation-table', 'Chaque table a une histoire', 'Campagne visuelle · Pack Création'],
-  ['video', 'pov-patisserie', 'Maison Praline', 'POV pâtisserie · Reel'],
-  ['visuel', 'marc-accroche', 'Les mains qui savent', 'Carrousel de marque'],
-  ['video', 'reel-coiffure-ralenti', 'Studio Nacre', 'Beauté au ralenti'],
-  ['visuel', 'affiche-pizzeria', 'Forno Nero', 'Affiche en vitrine'],
-  ['video', 'pov-mariage', 'Atelier Blanche', 'POV mode · Reel'],
-  ['visuel', 'claire-site', '22 h 14', 'Site vitrine · avant / après'],
-  ['video', 'video-explicative', 'Klairo', 'Vidéo explicative · tech'],
-  ['visuel', 'avant-apres-bastien', 'Bastien Plomberie', 'Refonte de communication'],
-  ['video', 'reel-fleuriste-bouquet', 'Maison Pétale', 'Reel storytelling'],
-  ['visuel', 'marc-savoir-faire', 'Atelier Copeaux', 'Direction artistique'],
-  ['video', 'pub-burger', 'Flambo Burger', 'Pub motion design'],
-  ['visuel', 'affiche-librairie', 'La Page', 'Affiche encadrée'],
-  ['video', 'reel-spa-respiration', 'Maison Lumea', 'Reel bien-être'],
-  ['video', 'tiktok-immobilier-mutation', 'Aurélys', 'TikTok POV']
+  ['identite', 'visuel', 'pack-creation-table', 'Chaque table a une histoire', 'Campagne visuelle'],
+  ['reseaux', 'visuel', 'marc-accroche', 'Les mains qui savent', 'Carrousel LinkedIn'],
+  ['site', 'visuel', 'claire-site', '22 h 14', 'Site vitrine · avant / après'],
+  ['identite', 'visuel', 'avant-apres-bastien', 'Bastien Plomberie', 'Refonte d’identité et de communication'],
+  ['video', 'video', 'pub-canette-ralenti', 'Boost Rush', 'Film produit au ralenti'],
+  ['identite', 'visuel', 'affiche-pizzeria', 'Forno Nero', 'Affiche en vitrine'],
+  ['reseaux', 'visuel', 'claire-22h14', '22 h 14', 'Carrousel conseil'],
+  ['video', 'video', 'pov-patisserie', 'Maison Praline', 'Reel POV'],
+  ['identite', 'visuel', 'affiche-librairie', 'La Page', 'Affiche encadrée'],
+  ['reseaux', 'visuel', 'marc-savoir-faire', 'Atelier Copeaux', 'Direction artistique'],
+  ['identite', 'visuel', 'avant-apres-bastien-2', 'Bastien Plomberie', 'Supports avant / après'],
+  ['video', 'video', 'reel-coiffure-ralenti', 'Studio Nacre', 'Reel beauté'],
+  ['identite', 'visuel', 'affiche-institut', 'Maison Clara', 'Affiche chevalet'],
+  ['reseaux', 'visuel', 'marc-vitrine', 'Atelier Copeaux', 'Campagne en vitrine'],
+  ['video', 'video', 'video-explicative', 'Klairo', 'Vidéo explicative'],
+  ['video', 'video', 'pov-mariage', 'Atelier Blanche', 'Reel POV mode']
 ];
 
 const suivi = el => el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - r.left) + 'px'); el.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
@@ -573,24 +615,25 @@ const ajouteBesoin = t => { const o = document.createElement('option'); o.textCo
 
 // expertises
 const le = document.getElementById('liste-expertises');
-EXPERTISES.forEach(([ico, t, d, r], i) => {
+EXPERTISES.forEach(([ico, t, d, r, v], i) => {
   const a = document.createElement('a'); a.href = '#contact'; a.className = 'expertise rv d' + (i % 3 + 1);
-  a.innerHTML = `<span class="ico">${ico}</span><h3>${t}</h3><p>${d}</p><div class="recu"><b>VOUS RECEVEZ</b>${r}</div>`;
+  const src = v.startsWith('video:') ? `assets/videos/${v.slice(6)}.jpg` : `assets/visuels/${v}.jpg`;
+  a.innerHTML = `<div class="visu"><img src="${src}" alt="" loading="lazy"></div><span class="ico">${ico}</span><h3>${t}</h3><p>${d}</p><div class="recu"><b>VOUS RECEVEZ</b>${r}</div>`;
   a.addEventListener('click', () => { sel.value = t; }); suivi(a); le.appendChild(a); ajouteBesoin(t);
 });
 // offres
 const lo = document.getElementById('liste-offres');
-OFFRES.forEach(([t, p, u, items, vedette], i) => {
+OFFRES.forEach(([t, rep, items, vedette], i) => {
   const d = document.createElement('article'); d.className = 'offre rv d' + (i % 4 + 1) + (vedette ? ' vedette' : '');
-  d.innerHTML = `<h3>${t}</h3><div class="prix">${p}<small>${u}</small></div><ul>${items.map(x => `<li>${x}</li>`).join('')}</ul><a href="#contact" class="btn ${vedette ? 'btn-bois' : 'btn-ligne'}">Demander un devis</a>`;
+  d.innerHTML = `<h3>${t}</h3><div class="prix" style="font-size:17px;font-family:var(--main);font-size:26px">${rep}</div><ul>${items.map(x => `<li>${x}</li>`).join('')}</ul><a href="#contact" class="btn ${vedette ? 'btn-bois' : 'btn-ligne'}">Demander un devis</a>`;
   d.querySelector('a').addEventListener('click', () => { sel.value = t; }); lo.appendChild(d); ajouteBesoin(t);
 });
 sel.value = 'Je souhaite être conseillé';
 
 // galerie
 const gal = document.getElementById('galerie');
-OEUVRES.forEach(([type, id, nom, desc]) => {
-  const f = document.createElement('figure'); f.className = `oeuvre ${type} rv`; f.dataset.type = type; f.tabIndex = 0;
+OEUVRES.forEach(([cat, type, id, nom, desc]) => {
+  const f = document.createElement('figure'); f.className = `oeuvre ${type} rv`; f.dataset.type = cat; f.tabIndex = 0;
   f.innerHTML = (type === 'video'
     ? `<img src="assets/videos/${id}.jpg" alt="${nom} — ${desc}" loading="lazy"><video data-src="assets/videos/${id}.mp4" muted loop playsinline preload="none"></video><span class="play"></span>`
     : `<img src="assets/visuels/${id}.jpg" alt="${nom} — ${desc}" loading="lazy">`) + `<figcaption class="legende"><b>${nom}</b><span>${desc} · démo</span></figcaption>`;
@@ -607,13 +650,8 @@ document.querySelectorAll('.filtre').forEach(b => b.addEventListener('click', ()
   document.querySelectorAll('.filtre').forEach(x => x.classList.toggle('actif', x === b));
   gal.querySelectorAll('.oeuvre').forEach(o => o.classList.toggle('cache', b.dataset.f !== 'tout' && o.dataset.type !== b.dataset.f));
 }));
-// univers : aperçu au survol, grand au clic
-document.querySelectorAll('.univ').forEach(u => {
-  const v = u.querySelector('video');
-  u.addEventListener('mouseenter', () => v.play().catch(() => {}));
-  u.addEventListener('mouseleave', () => v.pause());
-  u.addEventListener('click', () => ouvre(`<video src="assets/videos/${u.dataset.video}.mp4" controls autoplay playsinline></video>`));
-});
+// univers : création en grand au clic
+document.querySelectorAll('.univ').forEach(u => u.addEventListener('click', () => ouvre(`<img src="assets/${u.dataset.img}" alt="">`)));
 
 // visionneuse
 const vis = document.getElementById('visionneuse'), cont = document.getElementById('contenu');
