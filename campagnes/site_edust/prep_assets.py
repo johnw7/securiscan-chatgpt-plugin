@@ -31,6 +31,11 @@ VISUELS = {'marc-accroche': 'mains_artisans/p01.png', 'marc-portrait': 'mains_ar
 for n, src in VISUELS.items():
     i = Image.open(f'{L}/portfolio_fictif/{src}').convert('RGB'); i.thumbnail((864, 1080)); i.save(f'{A}/visuels/{n}.jpg', quality=82, optimize=True, progressive=True)
 
+# 3 bis. vraies réalisations extraites du portfolio PDF de Tarik (campagnes/portfolio_reel/extraire.py)
+os.makedirs(f'{A}/realisations', exist_ok=True)
+for fi in sorted(os.listdir(f'{R}/campagnes/portfolio_reel/img')):
+    shutil.copyfile(f'{R}/campagnes/portfolio_reel/img/{fi}', f'{A}/realisations/{fi}')
+
 # 4. archive prête à téléverser (public_html)
 os.makedirs(f'{L}/site_edust', exist_ok=True)
 z = f'{L}/site_edust/edust-site-hostinger.zip'

@@ -7,7 +7,7 @@
 <meta name="description" content="Agence de communication digitale créative pour les marques : identité visuelle, réseaux sociaux, contenus vidéo, sites et campagnes. Votre marque mérite plus qu’une image : elle mérite une histoire.">
 <meta property="og:title" content="E-DUST Solutions — Votre marque mérite une histoire.">
 <meta property="og:description" content="Identité visuelle, réseaux sociaux, contenus vidéo, sites et campagnes pour les marques.">
-<meta property="og:image" content="assets/visuels/pack-creation-table.jpg">
+<meta property="og:image" content="assets/realisations/vente-marrakech-luxe.jpg">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#141210">
 <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -112,6 +112,7 @@ body.menu-ouvert .burger span:nth-child(3){transform:translateY(-6px) rotate(-45
 .l-site .page p{font-size:10.5px;color:#6d6458;line-height:1.45;margin:8px 0 10px}
 .l-site .page b{display:inline-block;background:#1f1a16;color:#f6f1e8;font-size:10px;padding:6px 12px;border-radius:999px;font-weight:700}
 .l-site .page img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px}
+.l-site .ecran{width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;display:block}
 .l-site .etiq{top:auto;left:auto;bottom:12px;right:12px}
 .l-id{left:0;bottom:6%;width:44%;background:var(--noir-3);padding:46px 18px 18px;transform:rotate(-6deg);z-index:3;animation-delay:-2s}
 .l-id .aa{font-family:var(--serif);font-size:54px;line-height:1;color:var(--creme)}
@@ -125,8 +126,8 @@ body.menu-ouvert .burger span:nth-child(3){transform:translateY(-6px) rotate(-45
 .l-post img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .l-post .pied-post{padding:8px 10px;font-size:13px;color:#262626;letter-spacing:.2em}
 .l-post .etiq{top:46px}
-.l-video{right:6%;top:0;width:24%;border-radius:20px;background:#0a0806;padding:5px;transform:rotate(7deg);z-index:3;animation-delay:-6s}
-.l-video img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:15px}
+.l-video{right:0;top:-2%;width:34%;border-radius:14px;background:#0a0806;padding:5px;transform:rotate(7deg);z-index:3;animation-delay:-6s}
+.l-video img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px}
 .l-video .lecture{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:rgba(20,18,16,.75);border:1.5px solid var(--or);display:grid;place-items:center;z-index:2}
 .l-video .lecture::after{content:"";border-left:11px solid var(--or);border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
 .l-video .etiq{top:14px;left:12px}
@@ -197,6 +198,8 @@ body.menu-ouvert .burger span:nth-child(3){transform:translateY(-6px) rotate(-45
 .oeuvre .legende span{color:var(--creme-60);font-size:12.5px}
 .oeuvre .play{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:rgba(20,18,16,.75);border:1.5px solid var(--or);display:grid;place-items:center}
 .oeuvre .play::after{content:"";border-left:11px solid var(--or);border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.oeuvre.reelle img{position:static;height:auto}
+.oeuvre.reelle .legende{position:static;background:var(--noir-3);padding:12px 14px 13px;border-top:1px solid rgba(242,235,224,.06)}
 .oeuvre.cache{display:none}
 .note-demo{margin-top:26px;font-size:14px;color:var(--creme-45)}
 
@@ -219,6 +222,17 @@ body.menu-ouvert .burger span:nth-child(3){transform:translateY(-6px) rotate(-45
 
 /* fondateur */
 .fondateur{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,6vw,90px);align-items:center}
+.portrait{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:#eae6df;box-shadow:0 0 0 1px var(--trait),0 40px 80px rgba(0,0,0,.5)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(1) contrast(1.05)}
+.portrait .carte-nom{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(20,18,16,.9);border:1px solid var(--trait);border-radius:16px;padding:14px 18px;backdrop-filter:blur(6px)}
+.portrait .carte-nom b{display:block;font-family:var(--main);color:var(--or);font-size:34px;line-height:1}
+.portrait .carte-nom small{color:var(--creme-60);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800}
+.parcours{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.parcours div{border:1px solid var(--trait);border-radius:16px;padding:16px 18px}
+.parcours b{display:block;font-family:var(--serif);font-weight:400;font-size:20px;color:var(--creme)}
+.parcours span{font-size:14px;color:var(--creme-60)}
+.confiance .mur{margin-top:44px;background:var(--creme);border-radius:26px;padding:clamp(18px,3vw,36px);box-shadow:0 40px 80px rgba(0,0,0,.35)}
+.confiance .mur img{width:100%;height:auto;display:block;mix-blend-mode:multiply}
 .monogramme{aspect-ratio:4/5;border-radius:26px;background:radial-gradient(circle at 30% 20%,rgba(200,155,109,.25),transparent 60%),var(--noir-3);border:1px solid var(--trait);display:flex;flex-direction:column;justify-content:space-between;padding:34px;position:relative;overflow:hidden}
 .monogramme .init{font-family:var(--serif);font-size:clamp(120px,14vw,200px);line-height:.85;color:var(--creme)}
 .monogramme .init span{color:var(--or)}
@@ -283,7 +297,7 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
 /* visionneuse */
 .visionneuse{position:fixed;inset:0;background:rgba(10,8,6,.94);z-index:100;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(8px)}
 .visionneuse.ouverte{display:flex}
-.visionneuse video,.visionneuse img{max-height:88vh;max-width:min(92vw,560px);border-radius:20px;box-shadow:0 0 0 1.5px rgba(226,185,140,.4),0 40px 90px rgba(0,0,0,.7)}
+.visionneuse video,.visionneuse img{max-height:88vh;max-width:min(94vw,1100px);border-radius:20px;box-shadow:0 0 0 1.5px rgba(226,185,140,.4),0 40px 90px rgba(0,0,0,.7)}
 .fermer{position:absolute;top:20px;right:20px;width:50px;height:50px;border-radius:50%;border:1.5px solid var(--or);color:var(--or);font-size:24px;display:grid;place-items:center}
 .flottant{position:fixed;right:18px;bottom:18px;z-index:40;display:none}
 
@@ -296,7 +310,8 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
   .galerie{columns:3}
   .etapes{grid-template-columns:repeat(2,1fr);row-gap:50px}.etapes::before{display:none}
   .contact-grid,.fondateur{grid-template-columns:1fr}
-  .monogramme{max-width:420px}
+  .monogramme,.portrait{max-width:420px}
+  .parcours{grid-template-columns:1fr}
   .engagements{grid-template-columns:1fr 1fr}
   .eng,.eng:nth-child(3n+2),.eng:nth-child(3n+3){padding:30px 24px 30px 0;border-left:0}
   .eng:nth-child(2n){padding-left:24px;border-left:1px solid var(--trait)}
@@ -367,14 +382,14 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
       <div class="preuves"><span>Identité visuelle</span><span>Réseaux sociaux</span><span>Contenus vidéo</span><span>Sites</span><span>Campagnes</span></div>
     </div>
     <div class="scene" aria-hidden="true">
-      <div class="livrable l-site"><div class="barre"><i></i><i></i><i></i><span>votre-marque.fr</span></div>
-        <div class="page"><div><h4>Maison Ardoise <em>table de saison</em></h4><p>Une cuisine de marché, une salle chaleureuse, une histoire à partager.</p><b>Réserver une table</b></div><img src="assets/visuels/pack-creation-table.jpg" alt=""></div>
-        <span class="etiq">Site vitrine</span></div>
+      <div class="livrable l-site"><div class="barre"><i></i><i></i><i></i><span>marrakech-luxe.com</span></div>
+        <img class="ecran" src="assets/realisations/vente-marrakech-luxe.jpg" alt="">
+        <span class="etiq">Site &amp; page de vente</span></div>
       <div class="livrable l-id"><span class="etiq">Identité</span><div class="aa">Aa<span>Aa</span></div>
         <div class="nuancier"><i style="background:#141210;box-shadow:inset 0 0 0 1px rgba(242,235,224,.2)"></i><i style="background:#f2ebe0"></i><i style="background:#e2b98c"></i><i style="background:#c89b6d"></i></div>
         <small>CHARTE · TYPOGRAPHIES · LOGO</small></div>
-      <div class="livrable l-post"><div class="entete"><i></i>votre.marque</div><img src="assets/visuels/marc-accroche.jpg" alt=""><div class="pied-post">♡ ◌ ➤</div><span class="etiq">Réseaux sociaux</span></div>
-      <div class="livrable l-video"><img src="assets/videos/pub-canette-ralenti.jpg" alt=""><span class="lecture"></span><span class="etiq">Vidéo</span></div>
+      <div class="livrable l-post"><div class="entete"><i></i>mc.agency</div><img src="assets/realisations/visuel-podcast.jpg" alt=""><div class="pied-post">♡ ◌ ➤</div><span class="etiq">Réseaux sociaux</span></div>
+      <div class="livrable l-video"><img src="assets/realisations/deck-noula.jpg" alt=""><span class="etiq">Pitch deck</span></div>
     </div>
   </div>
 </section>
@@ -400,6 +415,15 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
   </div>
 </section>
 
+<!-- CONFIANCE -->
+<section class="sec confiance" id="confiance" style="padding-top:0">
+  <div class="wrap" style="text-align:center">
+    <p class="kicker rv">Ils nous font confiance</p>
+    <h2 class="rv d1" style="margin:18px auto 0;max-width:900px">Des marques, des start-up, des experts <span class="main">qui ont choisi de se raconter.</span></h2>
+    <div class="mur rv d2"><img src="assets/realisations/logos-clients.jpg" alt="Logos de clients : CID, Mon Capital Immo, Coach du Bonheur, Lixy, Ascien, Faireception, Siemens Healthineers, Seqino, ASP Bodyguard, Audiweb, Manhaj, Ynov Connect, Noula, Institut Léonard de Vinci et d’autres" loading="lazy"></div>
+  </div>
+</section>
+
 <!-- EXPERTISES -->
 <section class="sec alt grain" id="expertises">
   <div class="wrap">
@@ -419,12 +443,12 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
       <p class="lead rv d2">Le goût ne se raconte pas comme la beauté, ni la mode comme la tech. Nous adaptons le ton, le rythme et les images à votre univers, avec la même exigence.</p>
     </div>
     <div class="univers">
-      <article class="univ rv d1" data-img="visuels/pack-creation-table.jpg"><img src="assets/visuels/pack-creation-table.jpg" alt="Campagne visuelle pour une table gastronomique (démo)" loading="lazy"><div class="txt"><b>Goût</b><span>donner envie de goûter</span><small>Restauration, boissons, épicerie fine</small></div></article>
-      <article class="univ rv d2" data-img="visuels/affiche-institut.jpg"><img src="assets/visuels/affiche-institut.jpg" alt="Affiche d’institut de beauté posée sur un chevalet (démo)" loading="lazy"><div class="txt"><b>Beauté &amp; soin</b><span>faire ressentir</span><small>Cosmétiques, instituts, bien-être</small></div></article>
-      <article class="univ rv d3" data-img="visuels/marc-savoir-faire.jpg"><img src="assets/visuels/marc-savoir-faire.jpg" alt="Direction artistique pour un atelier de menuiserie (démo)" loading="lazy"><div class="txt"><b>Mode &amp; objets</b><span>montrer la matière</span><small>Mode, artisanat, décoration</small></div></article>
-      <article class="univ rv d4" data-img="visuels/claire-site.jpg"><img src="assets/visuels/claire-site.jpg" alt="Site vitrine avant / après (démo)" loading="lazy"><div class="txt"><b>Services &amp; tech</b><span>rendre clair</span><small>Conseil, services, applications</small></div></article>
+      <article class="univ rv d1" data-img="realisations/vente-or-vert.jpg"><img src="assets/realisations/vente-or-vert.jpg" alt="Page de vente L’Or verte de Marrakech" loading="lazy" style="object-position:100% center"><div class="txt"><b>Goût &amp; art de vivre</b><span>donner envie</span><small>L’Or verte de Marrakech · Marrakech Luxe</small></div></article>
+      <article class="univ rv d2" data-img="realisations/vente-gentlemans-cut.jpg"><img src="assets/realisations/vente-gentlemans-cut.jpg" alt="Page de vente Le Gentleman’s Cut" loading="lazy" style="object-position:96% center"><div class="txt"><b>Beauté &amp; bien-être</b><span>faire ressentir</span><small>Le Gentleman’s Cut · Ines Massage · Culottes menstruelles</small></div></article>
+      <article class="univ rv d3" data-img="realisations/deck-noula.jpg"><img src="assets/realisations/deck-noula.jpg" alt="Pitch deck investisseur Noula" loading="lazy" style="object-position:55% center"><div class="txt"><b>Start-up &amp; tech</b><span>rendre clair</span><small>Noula · Faireception · Seqino · BestRoas</small></div></article>
+      <article class="univ rv d4" data-img="realisations/affiche-cannes-1.jpg"><img src="assets/realisations/affiche-cannes-1.jpg" alt="Affiche de l’événement ASP Bodyguard à Cannes" loading="lazy" style="object-position:center top"><div class="txt"><b>Événements &amp; experts</b><span>marquer les esprits</span><small>ASP Bodyguard Cannes · coachs · formateurs</small></div></article>
     </div>
-    <p class="note-demo">Cliquez sur un univers pour voir la création en grand. Démonstrations avec des marques fictives.</p>
+    <p class="note-demo">Cliquez sur un univers pour voir la réalisation en grand.</p>
   </div>
 </section>
 
@@ -435,14 +459,14 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
       <div><p class="kicker rv">Portfolio</p><h2 class="rv d1" style="margin-top:18px">Des idées <span class="main">qui prennent vie.</span></h2></div>
       <div class="filtres rv d2" role="tablist">
         <button class="filtre actif" data-f="tout">Tout</button>
-        <button class="filtre" data-f="identite">Identité &amp; campagnes</button>
+        <button class="filtre" data-f="site">Sites &amp; pages de vente</button>
+        <button class="filtre" data-f="presentation">Présentations</button>
         <button class="filtre" data-f="reseaux">Réseaux sociaux</button>
-        <button class="filtre" data-f="site">Sites</button>
-        <button class="filtre" data-f="video">Vidéo</button>
+        <button class="filtre" data-f="visuel">Visuels &amp; affiches</button>
       </div>
     </div>
     <div class="galerie" id="galerie"></div>
-    <p class="note-demo">Les créations présentées sont des démonstrations conceptuelles avec des marques fictives, sans être attribuées à de faux clients. Les projets clients se présentent en rendez-vous, avec leur accord.</p>
+    <p class="note-demo">Cliquez sur une réalisation pour la voir en grand. Sites, pages de vente, pitch decks, plaquettes, storyboards, visuels et affiches réalisés pour nos clients.</p>
   </div>
 </section>
 
@@ -482,7 +506,7 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
       <div class="eng rv d2"><div class="coche">✓</div><h3>Un seul interlocuteur</h3><p>La personne qui vous écoute est celle qui crée. Pas d’intermédiaire, pas de message déformé.</p></div>
       <div class="eng rv d3"><div class="coche">✓</div><h3>Des fichiers prêts à l’emploi</h3><p>Formats réseaux, site et impression, miniatures et textes de publication&nbsp;: vous publiez sans retoucher.</p></div>
       <div class="eng rv d1"><div class="coche">✓</div><h3>Des droits précisés</h3><p>Supports, durée et territoire d’utilisation sont indiqués noir sur blanc, y compris pour la publicité.</p></div>
-      <div class="eng rv d2"><div class="coche">✓</div><h3>Un portfolio honnête</h3><p>Nos démonstrations utilisent des marques fictives, signalées comme telles. Aucun faux chiffre, aucun faux avis.</p></div>
+      <div class="eng rv d2"><div class="coche">✓</div><h3>Des références réelles</h3><p>Les réalisations présentées ont été créées pour de vraies marques. Aucun faux chiffre, aucun faux avis.</p></div>
       <div class="eng rv d3"><div class="coche">✓</div><h3>Vos validations à chaque étape</h3><p>Rien n’est publié sans votre accord. Un aller-retour de modifications est inclus dans chaque création.</p></div>
     </div>
   </div>
@@ -491,15 +515,15 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
 <!-- FONDATEUR -->
 <section class="sec alt grain" id="fondateur">
   <div class="wrap fondateur">
-    <div class="monogramme rv">
-      <small>Fondateur · directeur de création</small>
-      <div class="init">T<span>.</span>B</div>
-      <div><div class="sig">Tarik Belattar</div><small>Saint-Germain-en-Laye · Île-de-France</small></div>
+    <div class="portrait rv">
+      <img src="assets/realisations/photo-tarik.jpg" alt="Tarik Belattar, fondateur d’E-DUST Solutions">
+      <div class="carte-nom"><b>Tarik Belattar</b><small>Fondateur · directeur de création</small></div>
     </div>
     <div>
       <p class="kicker rv">Derrière E-DUST</p>
       <p class="citation rv d1">«&nbsp;Une marque ne vend pas seulement un produit. Elle vend une promesse. <span class="main">Mon travail, c’est de la rendre visible.&nbsp;»</span></p>
-      <p class="lead rv d2">J’ai fondé <span class="nowrap">E-DUST</span> Solutions, agence de communication digitale créative, pour accompagner les marques de l’identité visuelle aux campagnes. Je comprends votre marque et vos clients, je structure le message, je crée et je livre des supports prêts à l’emploi, avec une règle constante&nbsp;: chaque contenu raconte une histoire dans laquelle votre client se reconnaît.</p>
+      <p class="lead rv d2">De la sécurité privée à la communication&nbsp;: ancien garde du corps pour des célébrités, j’ai troqué le monde du showbusiness et du luxe pour celui des pixels. Aujourd’hui, avec <span class="nowrap">E-DUST</span> Solutions, j’accompagne les marques de l’identité visuelle aux campagnes&nbsp;: storytelling, créativité et stratégie, augmentés par l’IA, pour des messages qui marquent les esprits, en ligne comme dans la réalité.</p>
+      <div class="parcours rv d3"><div><b>Storytelling</b><span>des histoires qui font passer les bons messages</span></div><div><b>Créativité</b><span>un design sur mesure, augmenté par l’IA</span></div><div><b>Stratégie</b><span>offre, cible, positionnement, ton</span></div></div>
       <a href="#contact" class="btn btn-bois rv d3" style="margin-top:30px">Échangeons sur votre marque <span class="fleche">→</span></a>
     </div>
   </div>
@@ -575,12 +599,12 @@ footer{border-top:1px solid var(--trait);padding:60px 0 40px}
 <script>
 // Expertises (mêmes 6 services que le profil LinkedIn) : [icône, titre, description, ce que vous recevez, visuel]
 const EXPERTISES = [
-  ['◈', 'Identité visuelle et univers de marque', 'Une image reconnaissable et adaptée à votre positionnement : logo, couleurs, typographies, ton.', 'charte graphique, logo décliné, modèles prêts à l’emploi', 'avant-apres-bastien'],
-  ['▦', 'Réseaux sociaux', 'Stratégie, contenus prêts à publier, Reels et TikTok : une présence régulière qui raconte quelque chose.', 'ligne éditoriale, visuels, carrousels, Reels, textes de publication', 'marc-accroche'],
-  ['▶', 'Contenus vidéo et motion design', 'Des films courts sans tournage, à partir de vos photos et de votre identité : produit, storytelling, motion design.', 'vidéos en 9:16 et 4:5, miniatures, versions sans son', 'video:pub-canette-ralenti'],
-  ['◧', 'Sites vitrines et landing pages', 'Un site qui explique votre marque en quelques secondes, facilite la prise de contact et la vente.', 'site vitrine ou page d’offre, textes, mise en ligne', 'claire-site'],
-  ['✦', 'Campagnes de lancement', 'Un message, une direction créative et des supports coordonnés pour un temps fort.', 'concept, visuels, affiches, vidéos, kit de diffusion', 'affiche-pizzeria'],
-  ['◎', 'Publicités Meta et TikTok', 'Des créations pensées pour la publicité, déclinées en plusieurs versions à tester.', 'plusieurs accroches et formats par création', 'pack-creation-table']
+  ['◈', 'Identité visuelle et univers de marque', 'Une image reconnaissable et adaptée à votre positionnement : logo, couleurs, typographies, ton.', 'charte graphique, logo décliné, modèles prêts à l’emploi', 'r:deck-noula'],
+  ['▦', 'Réseaux sociaux', 'Stratégie, contenus prêts à publier, Reels et TikTok : une présence régulière qui raconte quelque chose.', 'ligne éditoriale, visuels, carrousels, Reels, textes de publication', 'r:storyboard-instagram'],
+  ['▶', 'Contenus vidéo et motion design', 'Des films courts sans tournage, à partir de vos photos et de votre identité : produit, storytelling, motion design.', 'vidéos en 9:16 et 4:5, miniatures, versions sans son', 'r:visuel-podcast'],
+  ['◧', 'Sites vitrines et landing pages', 'Un site qui explique votre marque en quelques secondes, facilite la prise de contact et la vente.', 'site vitrine ou page d’offre, textes, mise en ligne', 'r:vente-gentlemans-cut'],
+  ['✦', 'Campagnes de lancement', 'Un message, une direction créative et des supports coordonnés pour un temps fort : affiches, pitch deck, plaquette, présentation.', 'concept, visuels, affiches, présentations, kit de diffusion', 'r:affiche-cannes-2'],
+  ['◎', 'Publicités Meta et TikTok', 'Des créations pensées pour la publicité, déclinées en plusieurs versions à tester.', 'plusieurs accroches et formats par création', 'r:lead-magnet-quiz']
 ];
 // Offres : [titre, repère, contenu, mise en avant] — pas de prix affiché : devis détaillé après échange
 const OFFRES = [
@@ -589,24 +613,38 @@ const OFFRES = [
   ['Site vitrine', 'Pour être compris et contacté', ['Structure et textes', 'Design aux couleurs de la marque', 'Formulaire et contact rapide', 'Mise en ligne']],
   ['Campagne de lancement', 'Pour un temps fort', ['Concept créatif', 'Vidéos et visuels coordonnés', 'Déclinaisons publicitaires', 'Affiches et supports']]
 ];
-// Réalisations : catégorie, type, fichier, marque, description. Toutes les marques sont fictives (démo).
+// Réalisations réelles (portfolio de Tarik) : catégorie, fichier, client / projet, description
 const OEUVRES = [
-  ['identite', 'visuel', 'pack-creation-table', 'Chaque table a une histoire', 'Campagne visuelle'],
-  ['reseaux', 'visuel', 'marc-accroche', 'Les mains qui savent', 'Carrousel LinkedIn'],
-  ['site', 'visuel', 'claire-site', '22 h 14', 'Site vitrine · avant / après'],
-  ['identite', 'visuel', 'avant-apres-bastien', 'Bastien Plomberie', 'Refonte d’identité et de communication'],
-  ['video', 'video', 'pub-canette-ralenti', 'Boost Rush', 'Film produit au ralenti'],
-  ['identite', 'visuel', 'affiche-pizzeria', 'Forno Nero', 'Affiche en vitrine'],
-  ['reseaux', 'visuel', 'claire-22h14', '22 h 14', 'Carrousel conseil'],
-  ['video', 'video', 'pov-patisserie', 'Maison Praline', 'Reel POV'],
-  ['identite', 'visuel', 'affiche-librairie', 'La Page', 'Affiche encadrée'],
-  ['reseaux', 'visuel', 'marc-savoir-faire', 'Atelier Copeaux', 'Direction artistique'],
-  ['identite', 'visuel', 'avant-apres-bastien-2', 'Bastien Plomberie', 'Supports avant / après'],
-  ['video', 'video', 'reel-coiffure-ralenti', 'Studio Nacre', 'Reel beauté'],
-  ['identite', 'visuel', 'affiche-institut', 'Maison Clara', 'Affiche chevalet'],
-  ['reseaux', 'visuel', 'marc-vitrine', 'Atelier Copeaux', 'Campagne en vitrine'],
-  ['video', 'video', 'video-explicative', 'Klairo', 'Vidéo explicative'],
-  ['video', 'video', 'pov-mariage', 'Atelier Blanche', 'Reel POV mode']
+  ['site', 'vente-marrakech-luxe', 'Marrakech Luxe', 'Page de vente et site'],
+  ['presentation', 'deck-noula', 'Noula', 'Pitch deck investisseur'],
+  ['visuel', 'affiche-cannes-1', 'ASP Bodyguard · Cannes 2023', 'Affiche d’événement'],
+  ['site', 'vente-or-vert', 'L’Or verte de Marrakech', 'Page de vente et site'],
+  ['reseaux', 'storyboard-instagram', 'Agence immobilière', 'Storyboard Instagram'],
+  ['presentation', 'deck-faireception', 'Faireception', 'Présentation clients'],
+  ['site', 'vente-gentlemans-cut', 'Le Gentleman’s Cut', 'Page de vente et site'],
+  ['visuel', 'visuel-cannes', 'ASP Bodyguard', 'Visuel « Together we are stronger »'],
+  ['presentation', 'plaquette-audiweb', 'Audiweb', 'Plaquette commerciale'],
+  ['site', 'site-lixy', 'Lixy', 'Maquette de site'],
+  ['visuel', 'visuel-podcast', 'MC Agency', 'Visuel podcast'],
+  ['presentation', 'deck-lobbying', 'Lobbying', 'Présentation institutionnelle'],
+  ['site', 'site-seqino', 'Seqino', 'Maquette de site'],
+  ['reseaux', 'storyboard-linkedin', 'Storytelling de marque', 'Storyboard Instagram et LinkedIn'],
+  ['visuel', 'affiche-superman', 'Prévention', 'Affiche de sensibilisation'],
+  ['site', 'site-caroline-dubois', 'Caroline Dubois', 'Maquette de site'],
+  ['site', 'site-kiffe-les-maths', 'Kiffe les maths', 'Maquette de site'],
+  ['site', 'lead-magnet-quiz', 'Lead magnet', 'Page de capture et quiz'],
+  ['visuel', 'visuel-elite', 'Elite Drive Service', 'Affiche de service'],
+  ['site', 'site-bestroas', 'BestRoas', 'Maquette de site'],
+  ['visuel', 'affiche-proprio', 'Proprio Premis', 'Affiche immobilier'],
+  ['site', 'site-culottes-menstruelles', 'Culottes menstruelles', 'Maquette de site'],
+  ['presentation', 'conference-asp-cannes', 'ASP Bodyguard · Cannes', 'Présentation pour l’événement'],
+  ['site', 'site-ines-massage', 'Ines Massage', 'Maquette de site'],
+  ['visuel', 'visuel-flic', 'Target Simulateur', 'Affiche « Dans la peau d’un flic »'],
+  ['site', 'site-coach-du-bonheur', 'Coach du Bonheur', 'Maquette de site'],
+  ['site', 'site-prometheus', 'Prometheus', 'Maquette de site'],
+  ['site', 'site-delicious-trends', 'Delicious Trends', 'Maquette de site'],
+  ['site', 'site-manhaj', 'Manhaj', 'Maquette de site'],
+  ['site', 'site-dgpa', 'DGPA', 'Maquette de site']
 ];
 
 const suivi = el => el.addEventListener('pointermove', e => { const r = el.getBoundingClientRect(); el.style.setProperty('--mx', (e.clientX - r.left) + 'px'); el.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
@@ -617,7 +655,7 @@ const ajouteBesoin = t => { const o = document.createElement('option'); o.textCo
 const le = document.getElementById('liste-expertises');
 EXPERTISES.forEach(([ico, t, d, r, v], i) => {
   const a = document.createElement('a'); a.href = '#contact'; a.className = 'expertise rv d' + (i % 3 + 1);
-  const src = v.startsWith('video:') ? `assets/videos/${v.slice(6)}.jpg` : `assets/visuels/${v}.jpg`;
+  const src = v.startsWith('r:') ? `assets/realisations/${v.slice(2)}.jpg` : v.startsWith('video:') ? `assets/videos/${v.slice(6)}.jpg` : `assets/visuels/${v}.jpg`;
   a.innerHTML = `<div class="visu"><img src="${src}" alt="" loading="lazy"></div><span class="ico">${ico}</span><h3>${t}</h3><p>${d}</p><div class="recu"><b>VOUS RECEVEZ</b>${r}</div>`;
   a.addEventListener('click', () => { sel.value = t; }); suivi(a); le.appendChild(a); ajouteBesoin(t);
 });
@@ -632,17 +670,10 @@ sel.value = 'Je souhaite être conseillé';
 
 // galerie
 const gal = document.getElementById('galerie');
-OEUVRES.forEach(([cat, type, id, nom, desc]) => {
-  const f = document.createElement('figure'); f.className = `oeuvre ${type} rv`; f.dataset.type = cat; f.tabIndex = 0;
-  f.innerHTML = (type === 'video'
-    ? `<img src="assets/videos/${id}.jpg" alt="${nom} — ${desc}" loading="lazy"><video data-src="assets/videos/${id}.mp4" muted loop playsinline preload="none"></video><span class="play"></span>`
-    : `<img src="assets/visuels/${id}.jpg" alt="${nom} — ${desc}" loading="lazy">`) + `<figcaption class="legende"><b>${nom}</b><span>${desc} · démo</span></figcaption>`;
-  if (type === 'video') {
-    const v = f.querySelector('video');
-    f.addEventListener('mouseenter', () => { if (!v.src) v.src = v.dataset.src; v.play().then(() => f.classList.add('joue')).catch(() => {}); });
-    f.addEventListener('mouseleave', () => { v.pause(); f.classList.remove('joue'); });
-  }
-  const ouvrir = () => ouvre(type === 'video' ? `<video src="assets/videos/${id}.mp4" controls autoplay playsinline></video>` : `<img src="assets/visuels/${id}.jpg" alt="${nom}">`);
+OEUVRES.forEach(([cat, id, nom, desc]) => {
+  const f = document.createElement('figure'); f.className = 'oeuvre reelle rv'; f.dataset.type = cat; f.tabIndex = 0;
+  f.innerHTML = `<img src="assets/realisations/${id}.jpg" alt="${nom} — ${desc}" loading="lazy"><figcaption class="legende"><b>${nom}</b><span>${desc}</span></figcaption>`;
+  const ouvrir = () => ouvre(`<img src="assets/realisations/${id}.jpg" alt="${nom}">`);
   f.addEventListener('click', ouvrir); f.addEventListener('keydown', e => { if (e.key === 'Enter') ouvrir(); });
   gal.appendChild(f);
 });
