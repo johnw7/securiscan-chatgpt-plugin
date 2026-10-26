@@ -1,84 +1,82 @@
-# Profil LinkedIn — repositionnement « marques » (octobre 2026)
+# Profil LinkedIn — communication digitale pour les marques (octobre 2026)
 
 ## Titre (220 caractères max)
-Studio créatif pour marques | Films produit, Reels & publicités sans tournage | Votre produit mérite une histoire | E-DUST Solutions
+Communication digitale pour les marques | Identité visuelle, réseaux sociaux, contenus vidéo, sites & campagnes | Votre marque mérite une histoire | E-DUST Solutions
 
 ## Infos (« À propos »)
-Votre produit mérite plus qu'un packshot. Il mérite une histoire.
+Votre marque mérite plus qu'une image. Elle mérite une histoire.
 
-Je suis Tarik Belattar, fondateur d'E-DUST Solutions, studio créatif basé à Saint-Germain-en-Laye.
+Je suis Tarik Belattar, fondateur d'E-DUST Solutions, agence de communication digitale créative basée à Saint-Germain-en-Laye.
 
-J'aide les marques à transformer leurs photos produit en films courts, visuels et campagnes qui donnent envie d'acheter. Sans tournage : je travaille à partir de vos photos, de votre identité et de votre histoire.
+J'accompagne les marques pour qu'elles soient vues, comprises et choisies. De l'identité visuelle aux campagnes, je construis une communication digitale cohérente, qui raconte qui vous êtes et donne envie d'aller plus loin.
 
-Ce que je crée pour les marques :
-→ Films produit (15 à 30 s) au ralenti, en motion design, en storytelling
-→ Reels et TikTok prêts à publier, en 9:16 et 4:5
-→ Publicités Meta et TikTok déclinées en plusieurs accroches à tester
-→ Campagnes de lancement : film, Reels, visuels, affiches, kit revendeurs
-→ Identité visuelle et supports de marque
+Ce que je fais pour les marques :
+→ Identité visuelle et univers de marque
+→ Réseaux sociaux : stratégie, contenus prêts à publier, Reels et TikTok
+→ Contenus vidéo et motion design, sans tournage
+→ Sites vitrines et landing pages qui facilitent le contact et la vente
+→ Campagnes de lancement : message, direction créative et supports coordonnés
+→ Publicités Meta et TikTok déclinées en plusieurs versions à tester
 
-Ma méthode tient en une règle : chaque contenu raconte une histoire dans laquelle votre client se reconnaît. Un quotidien, un déclic, un moment fort, une nouvelle vie — et votre produit comme allié discret.
+Ma méthode : comprendre votre marque et vos clients, structurer le message, créer, livrer des supports prêts à l'emploi. Et une règle constante : chaque contenu raconte une histoire dans laquelle votre client se reconnaît.
 
-Goût, beauté, mode, objets, tech : je m'adapte à votre univers, avec la même exigence.
+Goût, beauté, mode, objets, services, tech : je m'adapte à votre univers, avec la même exigence.
 
 Les démonstrations de mon portfolio utilisent des marques fictives, clairement signalées comme telles.
 
-Vous lancez un produit ou vos publicités manquent d'impact ? Envoyez-moi le lien de votre produit : je vous montre en 15 secondes ce qu'il pourrait raconter.
+Vous lancez une marque, un produit ou voulez moderniser votre communication ? Écrivez-moi : je vous propose une première idée, offerte.
 
 📩 tarikbelatta@gmail.com · 06 13 24 96 80 · edust-solutions.fr
 
-## Bouton personnalisé (profil créateur / premium)
+## Bouton personnalisé
 « Visiter le site » → https://edust-solutions.fr
 
 ## Sélection (« En vedette »), dans cet ordre
-1. Showreel « Votre marque en slow motion » (vidéo) — titre : « Votre produit mérite une histoire · showreel (démos) »
-2. Pub produit au ralenti « Boost Rush » — titre : « Film produit sans tournage · démo boisson »
+1. Site edust-solutions.fr — titre : « Agence de communication digitale pour les marques »
+2. Showreel « Votre marque en slow motion » — titre : « Contenus vidéo de marque · showreel (démos) »
 3. Carrousel « Les mains qui savent » — titre : « Storytelling de marque en 7 pages · démo »
-4. Lien edust-solutions.fr — titre : « Parlons de votre produit »
+4. Visuel « Chaque table a une histoire » — titre : « Campagne visuelle · Pack Création (démo) »
 
 ## Expérience
-**Fondateur & directeur créatif — E-DUST Solutions** · Indépendant · Saint-Germain-en-Laye (hybride) · depuis 2022
-Studio créatif pour marques : films produit, Reels, publicités et campagnes, réalisés sans tournage à partir des photos et de l'identité de la marque.
-• Conception et réalisation de films produit (motion design, ralentis, storytelling, bruitages)
-• Déclinaisons publicitaires Meta et TikTok (accroches, formats 9:16 et 4:5)
-• Campagnes de lancement et supports de marque (visuels, affiches, carrousels)
-• Direction artistique et identité visuelle
-Compétences : Motion design · Storytelling de marque · Direction artistique · Publicité sociale
+**Fondateur & directeur de création — E-DUST Solutions** · Indépendant · Saint-Germain-en-Laye (hybride) · depuis [date de création à indiquer]
+Agence de communication digitale créative pour les marques : identité visuelle, réseaux sociaux, contenus vidéo, sites vitrines et campagnes.
+• Identité visuelle, univers et supports de marque
+• Stratégie et contenus réseaux sociaux (visuels, carrousels, Reels, TikTok)
+• Vidéo et motion design sans tournage, déclinaisons publicitaires Meta et TikTok
+• Sites vitrines, landing pages et parcours de contact
+• Campagnes de lancement et direction artistique
+Compétences : Communication digitale · Identité visuelle · Stratégie de contenu · Motion design · Direction artistique
 
-## Services (section « Prestations »)
-Cocher : Motion design · Montage vidéo · Production vidéo · Publicité · Stratégie de contenu · Conception de marque · Graphisme · Marketing des réseaux sociaux
-Description : « Films produit, Reels et publicités sans tournage pour marques. Votre produit mérite une histoire. »
+## Prestations
+Cocher : Marketing digital · Marketing des réseaux sociaux · Stratégie de contenu · Conception de marque · Graphisme · Création de sites web · Motion design · Publicité
+Description : « Communication digitale pour les marques : identité visuelle, réseaux sociaux, contenus vidéo, sites et campagnes. Votre marque mérite une histoire. »
 
 ## Compétences (épingler les 3 premières)
-1. Motion design
-2. Storytelling de marque
-3. Publicité sur les réseaux sociaux
-Puis : Direction artistique · Vidéo produit · Adobe Creative Cloud · Montage vidéo · Identité visuelle · Stratégie de contenu · Reels Instagram / TikTok
-
-## URL du profil
-linkedin.com/in/tarik-belattar-edust (si disponible)
+1. Communication digitale
+2. Identité visuelle
+3. Stratégie de contenu
+Puis : Marketing des réseaux sociaux · Motion design · Direction artistique · Storytelling de marque · Création de sites web · Publicité sur les réseaux sociaux · Adobe Creative Cloud
 
 ## Post d'annonce du repositionnement
-Pendant des mois, j'ai créé des vidéos pour des commerces, des artisans, des communes.
+Une marque ne vend pas seulement un produit.
 
-Et un détail revenait toujours.
+Elle vend une promesse, un univers, une façon de voir les choses.
 
-Ce qui fait vendre, ce n'est pas la plus belle image.
-C'est l'histoire qu'on raconte autour du produit.
+Pourtant, en ligne, beaucoup de marques se ressemblent : mêmes visuels, mêmes messages, même oubli dès qu'on a scrollé.
 
-Alors j'ai décidé de me consacrer à ça.
+C'est là que je veux être utile.
 
-Désormais, E-DUST Solutions accompagne les marques :
-→ des films produit sans tournage, à partir de vos photos
-→ des Reels et TikTok prêts à publier
-→ des publicités déclinées en plusieurs accroches à tester
-→ des campagnes de lancement complètes
+Désormais, E-DUST Solutions se consacre à la communication digitale des marques :
+→ une identité visuelle reconnaissable
+→ des réseaux sociaux qui racontent quelque chose
+→ des contenus vidéo, sans tournage
+→ des sites qui expliquent et donnent envie de contacter
+→ des campagnes cohérentes, du message au dernier visuel
 
-Goût, beauté, mode, objets, tech : chaque produit a son histoire.
+Goût, beauté, mode, objets, services : chaque marque a son histoire. Mon travail, c'est de la rendre visible et compréhensible.
 
-Vous avez une marque ?
-Envoyez-moi le lien de votre produit en message privé : je vous montre gratuitement ce qu'il pourrait raconter en 15 secondes.
+Vous avez une marque ? Écrivez-moi en message privé : je vous propose une première idée, offerte.
 
-Votre produit mérite plus qu'un packshot. Il mérite une histoire.
+Votre marque mérite plus qu'une image. Elle mérite une histoire.
 
-#MarqueDeProduit #MotionDesign #ContenuDeMarque #EDUSTSolutions
+#CommunicationDigitale #Marque #IdentitéVisuelle #EDUSTSolutions
