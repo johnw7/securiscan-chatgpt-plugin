@@ -16,7 +16,8 @@ fv = Image.open(f'{D}/raw/favicon.png').convert('RGBA'); fv.save(f'{A}/favicon.p
 
 # 2. vidéos (déjà optimisées pour le web) + miniatures
 VIDEOS = ['showreel', 'pov-patisserie', 'pov-mariage', 'reel-coiffure-ralenti', 'reel-fleuriste-bouquet', 'reel-garage-checkup',
-          'reel-renovation-avant-apres', 'tiktok-immobilier-mutation', 'reel-spa-respiration', 'pub-canette-ralenti']
+          'reel-renovation-avant-apres', 'tiktok-immobilier-mutation', 'reel-spa-respiration', 'pub-canette-ralenti',
+          'reel-b2b-motion-design', 'video-explicative', 'reel-mode-3-looks', 'pub-burger']
 for v in VIDEOS:
     shutil.copyfile(f'{L}/portfolio_site/videos/{v}.mp4', f'{A}/videos/{v}.mp4')
     i = Image.open(f'{L}/portfolio_site/videos/{v}.jpg').convert('RGB'); i.thumbnail((540, 960)); i.save(f'{A}/videos/{v}.jpg', quality=82, optimize=True)
@@ -25,7 +26,8 @@ for v in VIDEOS:
 VISUELS = {'marc-accroche': 'mains_artisans/p01.png', 'marc-portrait': 'mains_artisans/p02.png', 'marc-avant': 'mains_artisans/p03.png',
            'marc-savoir-faire': 'mains_artisans/p04.png', 'marc-vitrine': 'mains_artisans/p06.png', 'claire-22h14': 'page_accueil/p01.png',
            'claire-site': 'page_accueil/p06.png', 'affiche-pizzeria': 'affiches_situation/p02.png', 'affiche-librairie': 'affiches_situation/p04.png',
-           'affiche-institut': 'affiches_situation/p06.png', 'avant-apres-bastien': 'avant_apres/c01.png', 'avant-apres-bastien-2': 'avant_apres/c05.png'}
+           'affiche-institut': 'affiches_situation/p06.png', 'avant-apres-bastien': 'avant_apres/c01.png', 'avant-apres-bastien-2': 'avant_apres/c05.png',
+           'pack-creation-table': 'pack_creation/EDUST_pack_creation_chaque_table_4x5.png'}
 for n, src in VISUELS.items():
     i = Image.open(f'{L}/portfolio_fictif/{src}').convert('RGB'); i.thumbnail((864, 1080)); i.save(f'{A}/visuels/{n}.jpg', quality=82, optimize=True, progressive=True)
 
