@@ -1,12 +1,11 @@
 """Extrait les vraies réalisations de Tarik depuis son portfolio PDF (pages rendues à 150 dpi dans raw/pages, 3000×1688).
-Coordonnées relevées sur une grille 800×450 (×3,75). Sortie : img/<nom>.jpg (ignoré par git), copiées ensuite dans le site."""
+Coordonnées relevées sur une grille 800×450 (×3,75). Sortie : img/<nom>.jpg (ignoré par git), copiées ensuite dans le site. La photo de Tarik vient de photo.py."""
 import os
 from PIL import Image
 D = os.path.dirname(os.path.abspath(__file__)); os.makedirs(f'{D}/img', exist_ok=True)
 K = 3000 / 800
 # nom : (page, x0, y0, x1, y1) en coordonnées 800×450
 C = {
-  'photo-tarik': (2, 492, 0, 800, 450),
   'site-bestroas': (5, 0, 112, 238, 260), 'site-cehos': (5, 247, 112, 493, 260), 'site-prometheus': (5, 505, 112, 755, 260),
   'site-elvina-beloire': (5, 0, 293, 238, 415), 'site-lixy': (5, 247, 293, 493, 415), 'site-seqino': (5, 505, 293, 755, 415),
   'site-dgpa': (6, 0, 112, 238, 260), 'site-caroline-dubois': (6, 247, 112, 493, 260), 'site-on-my-way': (6, 505, 112, 755, 255),
