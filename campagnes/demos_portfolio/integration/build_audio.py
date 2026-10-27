@@ -21,7 +21,7 @@ for k in range(1, 6):                                                    # carte
     c = M[f'c{k}']
     add(sfx, ding([12, 14, 16, 17, 19][k - 1]), c + .3, .11); add(sfx, ding([19, 21, 23, 24, 26][k - 1]), c + .55, .05)
 pops = [M['r1'], M['r2'], M['r3']] + [third(sub('Votre poste'), i) + .1 for i in range(3)] + [third(sub('horaires'), i) + .05 for i in range(3)]
-pops += [third(sub('messagerie'), i, 4) + .05 for i in range(4)] + [M['e3c'], sub('Votre référent ou')[0] - .2]
+pops += [third(sub('messagerie'), i, 4) + .05 for i in range(4)] + [M['e3c'], sub('Votre collègue référent')[0] - .2]
 pops += [M['e4b'] + .3, sub('Les premières semaines')[1] - 1.2, sub('personne ne')[0] + .4] + [third(sub('Le livret'), i) + .05 for i in range(3)]
 for t in pops: add(sfx, pop(), t, .22)
 add(sfx, ding(14), M['fin2'] + .1, .1)                                   # « Bienvenue dans l'équipe »

@@ -23,11 +23,11 @@ SCRIPT = [
     (None, 'Ce sont elles qui rendent les premiers jours plus simples.'),
     ('e3', 'Troisième étape : accéder à vos outils.'), ('e3a', 'On vous remet votre matériel et vos accès personnels :'),
     ('e3b', 'messagerie, agenda, documents partagés, outils de votre métier.'), ('e3c', 'Ces accès sont les vôtres : on ne les partage jamais, même avec un collègue.'),
-    ('e3d', 'Un blocage, une question ? C’est normal.'), (None, 'Votre référent ou le support informatique sont là pour vous aider.'),
+    ('e3d', 'Un blocage, une question ? C’est normal.'), (None, 'Votre collègue référent, ou le support informatique, sont là pour vous aider.'),
     ('e4', 'Quatrième étape : comprendre vos premières missions.'), ('e4a', 'Avec votre responsable, vous faites le point sur les priorités,'),
     (None, 'ce qui est attendu de vous, et les prochaines étapes.'), ('e4b', 'Les premières semaines servent à découvrir, puis à contribuer :'),
     (None, 'personne ne vous demande de tout savoir dès le premier jour.'), ('e4c', 'Posez vos questions : c’est comme ça qu’on avance.'),
-    ('e5', 'Dernière étape : bien démarrer ensemble.'), ('e5a', 'Le livret d’accueil, votre référent, votre responsable :'), (None, 'vos ressources sont à portée de main.'),
+    ('e5', 'Et pour finir : bien démarrer ensemble.'), ('e5a', 'Le livret d’accueil, votre référent, votre responsable :'), (None, 'vos ressources sont à portée de main.'),
     ('fin', 'Chaque parcours commence par un premier pas.'), ('fin2', 'Bienvenue dans l’équipe.'),
 ]
 DEBUT, CARTE, AVANT_CARTE, FIN_LOGO = 3.0, 1.0, 2.0, 7.0

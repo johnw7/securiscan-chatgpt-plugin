@@ -239,7 +239,7 @@ window.render = function (t) {
   QA('.tuile').forEach((e, i) => { const q = pop(t, third(so, i, 4) + .05); set(e, q.o, `scale(${q.s})`); });
   set(Q('#login'), seg(t, M.e3c, M.e3c + .4), `translateY(${(1 - eo(seg(t, M.e3c, M.e3c + .5))) * 20}px)`);
   set(Q('#perso'), seg(t, M.e3c + 1.2, M.e3c + 1.7));
-  chip(Q('#badge'), t, sub('Votre référent ou')[0] - .2, M.c4);
+  chip(Q('#badge'), t, sub('Votre collègue référent')[0] - .2, M.c4);
   // étape 4 : frise
   set(Q('#frise'), fr); Q('#friseline').style.transform = `scaleX(${.5 * eio(seg(t, TF[0], TF[1])) + .5 * eio(seg(t, TF[1], TF[2]))})`;
   QA('.noeud').forEach((e, i) => { const q = pop(t, TF[i]); set(e, q.o, `scale(${q.s})`); });
