@@ -201,7 +201,7 @@ window.render = function (t) {
     const p = seg(t, a - XF, b + XF), s = 1.05 + .09 * (dir > 0 ? p : 1 - p);
     const img = el.firstChild; img.style.objectPosition = `${fx}% ${fy}%`;
     img.style.transform = `scale(${s}) translateX(${dir * (p - .5) * 1.6}%)`;
-    if (MODE === '916' && o > .5) { const bg = Q('#bgimg'), src = `img/${n}_flou.jpg`; if (!bg.src.endsWith(src)) bg.src = src; }
+    if (MODE === '916' && !CALQUE && o > .5) { const bg = Q('#bgimg'), src = `img/${n}_flou.jpg`; if (!bg.src.endsWith(src)) bg.src = src; }
   });
   // assombrissements pour les infographies
   const ui = win(t, M.e3b - .2, M.e3d, .5, .5), fr = win(t, M.e4b, M.e4c, .5, .5), lg = seg(t, M.logo, M.logo + .7);
@@ -272,8 +272,11 @@ window.render = function (t) {
     Q('#t916').innerHTML = big; Q('#t916').style.opacity = t >= M.logo ? 1 - lg : 1; Q('#bg916').style.opacity = 1 - lg;
   }
 };
+let CALQUE = false;   // mode calque : photos masquées, fond transparent (superposé aux vidéos par render_calque.cjs)
 window.init = async function (aspect) {
-  MODE = aspect;
+  CALQUE = aspect.endsWith('o'); aspect = aspect.replace('o', ''); MODE = aspect;
+  if (CALQUE) { Q('#shots').style.display = 'none'; Q('#grain').style.display = 'none'; Q('#bgimg').style.display = 'none';
+    document.documentElement.style.background = document.body.style.background = Q('#stage').style.background = 'transparent'; }
   if (aspect === '916') { document.body.classList.add('v916'); const st = Q('#stage'); st.style.transform = 'scale(.5625)'; st.style.top = '640px'; }
   await document.fonts.ready;
   await Promise.all([...document.images].map(i => i.complete ? 1 : new Promise(r => { i.onload = i.onerror = r; })));

@@ -5,7 +5,7 @@ Usage : python3 build_audio.py bruitages   → audio/bande_bruitages.wav (versio
 import os, sys, json, subprocess
 import numpy as np
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from audiolib import SR, add, filt, env, hz, whoosh, pop, ding, tick, riser, boom, pad, sine
+from audiolib import SR, add, filt, env, hz, pop, ding, tick, pad, sine
 D = os.path.dirname(os.path.abspath(__file__))
 TL = json.loads(open(f'{D}/timeline.js').read().split('=', 1)[1].strip().rstrip(';'))
 M, SUBS, DUR = TL['marks'], TL['subs'], TL['dur']
@@ -13,30 +13,20 @@ sub = lambda p: next(s for s in SUBS if s[2].startswith(p))
 third = lambda s, k, n=3: s[0] + (s[1] - s[0]) * k / n
 voix = np.load(f'{D}/audio/voix.npy'); n = len(voix)
 sfx, mus = np.zeros(n), np.zeros(n)
-rng = np.random.default_rng(8)
 
-# ambiance de bureau très discrète (souffle filtré)
-amb = filt(rng.standard_normal(n), [120, 900], 'band') * .05
-amb *= np.clip(np.arange(n) / SR / 2, 0, 1) * np.clip((M['logo'] - np.arange(n) / SR) / 1.5, 0, 1)
-add(sfx, amb, 0, 1)
-# ouverture : la porte qui coulisse, puis l'accueil
-add(sfx, filt(rng.standard_normal(int(1.1 * SR)), [300, 2500], 'band') * np.sin(np.pi * np.arange(int(1.1 * SR)) / (1.1 * SR)) ** 2, sub('Un nouveau')[0] - .6, .35)
-add(sfx, whoosh(.7), sub('Un nouveau')[0] - .35, .25)
-# titre du film, puis les cartes d'étape : balayage lumineux + carillon doux
-add(sfx, riser(1.2), M['titre'] - 1.2, .16); add(sfx, whoosh(.8), M['titre'] - .1, .4); add(sfx, ding(7), M['titre'] + .3, .14)
-for k in range(1, 6):
+# aucun souffle (pas de « whoosh », de montée ni d'ambiance) : uniquement des sons doux et courts
+add(sfx, ding(7), sub('Un nouveau')[0] - .1, .08)                         # l'accueil
+add(sfx, ding(12), M['titre'] + .2, .12); add(sfx, ding(19), M['titre'] + .45, .06)
+for k in range(1, 6):                                                    # cartes d'étape : carillon doux
     c = M[f'c{k}']
-    add(sfx, whoosh(.9), c - .25, .45); add(sfx, ding([12, 14, 16, 17, 19][k - 1]), c + .35, .12); add(sfx, tick(), c + 1.4, .35)
-# apparitions (puces, repères, tuiles, nœuds) : petits « pop »
+    add(sfx, ding([12, 14, 16, 17, 19][k - 1]), c + .3, .11); add(sfx, ding([19, 21, 23, 24, 26][k - 1]), c + .55, .05)
 pops = [M['r1'], M['r2'], M['r3']] + [third(sub('Votre poste'), i) + .1 for i in range(3)] + [third(sub('horaires'), i) + .05 for i in range(3)]
 pops += [third(sub('messagerie'), i, 4) + .05 for i in range(4)] + [M['e3c'], sub('Votre référent ou')[0] - .2]
 pops += [M['e4b'] + .3, sub('Les premières semaines')[1] - 1.2, sub('personne ne')[0] + .4] + [third(sub('Le livret'), i) + .05 for i in range(3)]
-for t in pops: add(sfx, pop(), t, .32); add(sfx, tick(), t + .02, .25)
-add(sfx, whoosh(.6), M['e3b'] - .3, .3); add(sfx, whoosh(.6), M['e4b'] - .2, .3)
-# fin : souffle, puis la poussière qui forme le logo
-add(sfx, riser(1.6), M['fin2'] - 1.4, .12); add(sfx, whoosh(1.0), M['logo'] - .1, .35)
-for i in range(14): add(sfx, tick(), M['logo'] + .3 + i * .1, .3 * (1 - i / 16))
-add(sfx, boom(.5), M['logo'] + 1.7, .35); add(sfx, ding(19), M['logo'] + 1.75, .2)
+for t in pops: add(sfx, pop(), t, .22)
+add(sfx, ding(14), M['fin2'] + .1, .1)                                   # « Bienvenue dans l'équipe »
+for i in range(14): add(sfx, tick(), M['logo'] + .3 + i * .1, .18 * (1 - i / 16))   # la poussière qui forme le logo
+add(sfx, ding(19), M['logo'] + 1.75, .16); add(sfx, ding(26), M['logo'] + 1.9, .06)
 
 def nappe():
     """Accords lents (Do maj7 · La m7 · Fa maj7 · Sol), notes de piano douces, montée à l'étape 4."""
