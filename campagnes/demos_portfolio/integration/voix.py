@@ -50,7 +50,7 @@ def lire(f):
 def mots(x):
     import re, unicodedata
     x = unicodedata.normalize('NFD', x.lower().replace('’', "'")); x = ''.join(c for c in x if unicodedata.category(c) != 'Mn')
-    return re.findall(r"[a-z0-9]+", x)
+    return [re.sub(r"(?<=..)[sx]$", "", w) for w in re.findall(r"[a-z0-9]+", x)]   # pluriels ignorés
 
 def decoupe(a, textes):
     """Découpe un bloc en phrases par alignement : Whisper (faster-whisper, small) horodate chaque mot reconnu,

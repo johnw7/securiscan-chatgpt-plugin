@@ -1,0 +1,19 @@
+"""Voix off Kokoro (modèle libre Apache 2.0, voix française ff_siwis) : un enregistrement par séquence dans audio/voix_blocs/,
+découpé ensuite en phrases par voix.py (alignement Whisper). Usage : python3 voix_kokoro.py <dossier_modele_kokoro> [vitesse]"""
+import os, sys
+import soundfile as sf
+from kokoro_onnx import Kokoro
+D = os.path.dirname(os.path.abspath(__file__)); os.makedirs(f'{D}/audio/voix_blocs', exist_ok=True)
+K, V = sys.argv[1], float(sys.argv[2]) if len(sys.argv) > 2 else .93
+BLOCS = [
+    "Lundi matin. Un nouveau lieu, de nouveaux visages… et cette petite question : par où commencer ? Bienvenue dans votre nouvelle équipe ! Voici les premières étapes pour bien commencer.",
+    "Première étape : faire connaissance. Votre responsable vous accueille, et vous présente l'équipe avec laquelle vous allez travailler. Retenez trois repères : votre responsable, pour les priorités ; un collègue référent, pour les questions du quotidien ; et le service des ressources humaines, pour votre contrat et votre parcours.",
+    "Deuxième étape : découvrir votre environnement. Votre poste de travail, les espaces communs, les salles de réunion… prenez le temps d'en faire le tour. Et notez les informations pratiques : horaires, accès au bâtiment, consignes de sécurité. Ce sont elles qui rendent les premiers jours plus simples.",
+    "Troisième étape : accéder à vos outils. On vous remet votre matériel et vos accès personnels : messagerie, agenda, documents partagés, outils de votre métier. Ces accès sont les vôtres : on ne les partage jamais, même avec un collègue. Un blocage, une question ? C'est normal ! Votre référent ou le support informatique sont là pour vous aider.",
+    "Quatrième étape : comprendre vos premières missions. Avec votre responsable, vous faites le point sur les priorités, ce qui est attendu de vous, et les prochaines étapes. Les premières semaines servent à découvrir, puis à contribuer : personne ne vous demande de tout savoir dès le premier jour. Posez vos questions : c'est comme ça qu'on avance !",
+    "Dernière étape : bien démarrer ensemble. Le livret d'accueil, votre référent, votre responsable : vos ressources sont à portée de main. Chaque parcours commence par un premier pas. Bienvenue dans l'équipe !",
+]
+k = Kokoro(f'{K}/kokoro-v1.0.onnx', f'{K}/voices-v1.0.bin')
+for i, t in enumerate(BLOCS, 1):
+    a, sr = k.create(t, voice='ff_siwis', speed=V, lang='fr-fr'); sf.write(f'{D}/audio/voix_blocs/bloc{i}.wav', a, sr)
+    print(i, round(len(a) / sr, 1), 's')
