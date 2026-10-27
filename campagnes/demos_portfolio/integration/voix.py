@@ -30,7 +30,7 @@ SCRIPT = [
     ('e5', 'Et pour finir : bien démarrer ensemble.'), ('e5a', 'Le livret d’accueil, votre référent, votre responsable :'), (None, 'vos ressources sont à portée de main.'),
     ('fin', 'Chaque parcours commence par un premier pas.'), ('fin2', 'Bienvenue dans l’équipe.'),
 ]
-DEBUT, CARTE, AVANT_CARTE, FIN_LOGO = 3.0, 1.0, 2.0, 7.0
+DEBUT, CARTE, AVANT_CARTE, FIN_LOGO = 1.6, .7, .9, 5.5   # rythme serré : pas de blancs
 
 def synth(k, txt):
     out = f'{PH}/{k:02d}.wav'
@@ -113,7 +113,7 @@ for k, (m, txt) in enumerate(SCRIPT):
     if m: marks[m] = round(t, 3)
     a = EXTERNE[k] if EXTERNE else synth(k, txt); morceaux.append((t, a)); d = len(a) / SR
     subs.append([round(t, 3), round(t + d, 3), txt]); t += d
-    t += .9 if txt[-1] in '.?…' else .5
+    t += .38 if txt[-1] in '.?…!' else .18
 dur = round(t + FIN_LOGO, 2); marks['logo'] = round(t + .4, 3)
 voix = np.zeros(int(dur * SR))
 for t0, a in morceaux:

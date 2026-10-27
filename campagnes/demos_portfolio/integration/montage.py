@@ -38,7 +38,7 @@ for k in range(1, len(PLANS)):
     out = f'[x{k}]' if k + 1 < len(PLANS) else '[vout]'
     filtres.append(f'{chaine}[v{k}]xfade=transition=fade:duration={XF}:offset={off:.3f}{out}'); chaine = out
 cmd = ['ffmpeg', '-y', '-v', 'error', *entrees, '-filter_complex', ';'.join(filtres), '-map', '[vout]', '-t', f'{DUR:.3f}',
-       '-c:v', 'libx264', '-crf', '17', '-preset', 'medium', '-r', str(FPS), f'{D}/out/base_169.mp4']
+       '-c:v', 'libx264', '-crf', '18', '-preset', 'veryfast', '-r', str(FPS), f'{D}/out/base_169.mp4']
 subprocess.run(cmd, check=True)
 print('ok base_169.mp4', subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f'{D}/out/base_169.mp4'],
                                         capture_output=True, text=True).stdout.strip(), 's')
