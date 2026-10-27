@@ -1,6 +1,7 @@
 """Bande-son de la vidéo d'intégration : voix off (voix.py) + bruitages calés sur les animations de video.html,
 et en option une nappe musicale de synthèse (aucune musique sous licence).
-Usage : python3 build_audio.py bruitages   → audio/bande_bruitages.wav (version par défaut : voix + bruitages, sans musique)
+Usage : python3 build_audio.py bruitages | musique | bruitages_sans_voix | musique_sans_voix
+        python3 build_audio.py bruitages   → audio/bande_bruitages.wav (version par défaut : voix + bruitages, sans musique)
         python3 build_audio.py musique     → audio/bande_musique.wav (voix + bruitages + nappe atténuée sous la voix)"""
 import os, sys, json, subprocess
 import numpy as np
@@ -41,7 +42,7 @@ def nappe():
     g = np.clip((np.arange(n) / SR - M['c4']) / 20, 0, 1) * .35 + .85          # légère montée émotionnelle
     w = int(.3 * SR); c = np.concatenate([[0], np.cumsum(np.abs(voix))])        # atténuation sous la voix
     v = (c[np.clip(np.arange(n) + w // 2, 0, n)] - c[np.clip(np.arange(n) - w // 2, 0, n)]) / w
-    duck = 1 - .55 * np.clip(v / (v.max() * .25), 0, 1)
+    duck = 1 - .55 * np.clip(v / (v.max() * .25), 0, 1) if not mode.endswith('sans_voix') else 1.0
     fade = np.clip(np.arange(n) / SR / 2, 0, 1) * np.clip((DUR - np.arange(n) / SR) / 3, 0, 1)
     return mus * g * duck * fade
 
@@ -53,7 +54,8 @@ def sortie(mix, nom):
     os.remove(raw)
 
 mode = sys.argv[1] if len(sys.argv) > 1 else 'bruitages'
-voix_eq = filt(voix, 80, 'high') * 1.0
-mix = voix_eq + sfx * .8 + (nappe() if mode == 'musique' else 0)
+# « sans_voix » : bande sans voix off (bruitages seuls ou avec nappe), les sous-titres portent le message
+voix_eq = filt(voix, 80, 'high') * (0 if mode.endswith('sans_voix') else 1.0)
+mix = voix_eq + sfx * .8 + (nappe() if mode.startswith('musique') else 0)
 sortie(mix, f'bande_{mode}')
 print('ok', mode, round(n / SR, 2), 's')

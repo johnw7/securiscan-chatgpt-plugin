@@ -24,9 +24,13 @@ html,body{margin:0;background:var(--n);overflow:hidden;font-family:'dm-sans',san
 .ico svg{width:38px;height:38px}
 svg .s{fill:none;stroke:url(#g);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
 .ico svg *{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
-#bg916,#t916,#sub916,#hud916{display:none}
-body.v916 #bg916,body.v916 #t916,body.v916 #sub916,body.v916 #hud916{display:block}
-body.v916 #sub,body.v916 #hud,body.v916 #ouv,body.v916 #titre,body.v916 #fin1,body.v916 .card .mont{display:none}
+#bg916,#t916,#sub916,#hud916,#etape916{display:none}
+body.v916 #bg916,body.v916 #t916,body.v916 #sub916,body.v916 #hud916,body.v916 #etape916{display:block}
+.pt{display:flex;align-items:flex-start;gap:22px;margin-top:26px;opacity:0}
+.pt .num{flex:none;width:52px;height:52px;border-radius:26px;background:var(--g);display:flex;align-items:center;justify-content:center;font-family:montserrat;font-weight:800;font-size:26px;color:#100E17}
+.pt span{font-size:36px;font-weight:600;line-height:1.25;padding-top:4px}
+#etape916 .pt{gap:24px;margin-top:22px}#etape916 .pt .num{width:60px;height:60px;border-radius:30px;font-size:30px}#etape916 .pt span{font-size:44px;padding-top:2px}
+body.v916 #sub,body.v916 #etape,body.v916 #hud,body.v916 #ouv,body.v916 #titre,body.v916 #fin1,body.v916 .card .mont{display:none}
 </style></head><body>
 <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFAA45"/><stop offset=".55" stop-color="#E83385"/><stop offset="1" stop-color="#7938D8"/></linearGradient></defs></svg>
 <!-- fond de la version verticale -->
@@ -81,7 +85,7 @@ body.v916 #sub,body.v916 #hud,body.v916 #ouv,body.v916 #titre,body.v916 #fin1,bo
       <div id="perso" style="margin-top:18px;text-align:center;font-size:34px;font-weight:700;opacity:0"><span class="grad">Accès personnels :</span> on ne les partage jamais.</div>
     </div>
   </div>
-  <div id="badge" class="chip" style="left:120px;top:150px"><div class="ico"><svg viewBox="0 0 48 48"><path d="M8 10h32v22H22l-10 8v-8H8z M24 17v6 M24 27v1"/></svg></div><div><b>Une question ?</b><i>Votre référent ou le support informatique</i></div></div>
+  <div id="badge" class="chip" style="left:1080px;top:150px"><div class="ico"><svg viewBox="0 0 48 48"><path d="M8 10h32v22H22l-10 8v-8H8z M24 17v6 M24 27v1"/></svg></div><div><b>Une question ?</b><i>Votre référent ou le support informatique</i></div></div>
   <!-- étape 4 : frise -->
   <div id="frise" class="abs" style="left:210px;top:330px;width:1500px;height:360px;opacity:0">
     <div class="abs kick" style="left:0;right:0;top:0;text-align:center;color:rgba(255,255,255,.6);font-size:22px">Exemple de parcours</div>
@@ -105,7 +109,7 @@ body.v916 #sub,body.v916 #hud,body.v916 #ouv,body.v916 #titre,body.v916 #fin1,bo
     <div id="logotxt" class="abs" style="left:0;right:0;top:650px;text-align:center;opacity:0">
       <div style="font-size:34px;font-weight:700">Vidéos d'intégration et de formation · motion design</div>
       <div style="font-size:30px;margin-top:14px;color:rgba(255,255,255,.75)">edust-solutions.fr</div>
-      <div style="font-size:22px;margin-top:40px;color:rgba(255,255,255,.5);letter-spacing:.06em">Démonstration créative fictive · photos Adobe Stock · voix de synthèse</div>
+      <div style="font-size:22px;margin-top:40px;color:rgba(255,255,255,.5);letter-spacing:.06em">Démonstration créative fictive · photos Adobe Stock</div>
     </div>
   </div>
   <!-- balayage lumineux, grain, barre d'étape, sous-titres -->
@@ -115,11 +119,19 @@ body.v916 #sub,body.v916 #hud,body.v916 #ouv,body.v916 #titre,body.v916 #fin1,bo
     <div id="hudtxt" class="kick" style="font-size:20px;color:rgba(255,255,255,.85)"></div>
     <div id="hudbar" style="display:flex;gap:8px;margin-top:14px"></div>
   </div>
+  <!-- les étapes expliquées en texte (version sans voix) -->
+  <div id="etape" class="abs" style="left:80px;top:150px;width:800px;padding:34px 40px 40px;box-sizing:border-box;border-radius:30px;background:rgba(16,14,23,.82);border:2px solid rgba(255,255,255,.1);box-shadow:0 30px 80px rgba(0,0,0,.5);opacity:0">
+    <div class="abs" style="left:0;top:34px;bottom:40px;width:6px;border-radius:3px;background:var(--g)"></div>
+    <div id="etkick" class="kick grad" style="font-size:20px;display:inline-block"></div>
+    <div id="ettitre" class="mont" style="font-size:52px;line-height:1.08;margin-top:14px"></div>
+    <div id="etpts"></div>
+  </div>
   <div id="sub"><span></span></div>
 </div>
 <!-- éléments propres à la version verticale -->
 <div id="hud916" class="abs" style="left:70px;top:150px;right:70px"><div id="hudtxt916" class="kick" style="font-size:24px"></div><div id="hudbar916" style="display:flex;gap:8px;margin-top:16px"></div></div>
 <div id="t916" class="abs mont" style="left:70px;right:70px;top:250px;font-size:76px;line-height:1.08"></div>
+<div id="etape916" class="abs" style="left:70px;right:70px;top:1280px;opacity:0"><div id="etpts916"></div></div>
 <div id="sub916" class="abs" style="left:60px;right:60px;top:1290px;text-align:center"><span style="display:inline-block;padding:14px 28px;border-radius:18px;background:rgba(16,14,23,.7);font-size:50px;font-weight:600;line-height:1.3"></span></div>
 
 <script src="../common.js"></script>
@@ -185,6 +197,16 @@ Q('#noeuds').innerHTML = NOEUDS.map(([a, b], k) => `<div class="abs noeud" style
 const TF = [M.e4b + .3, sub('Les premières semaines')[1] - 1.2, sub('personne ne')[0] + .4];
 const RES = [['livre', 'Le livret d’accueil'], ['duo', 'Votre référent'], ['pers', 'Votre responsable']];
 Q('#ressources').innerHTML = RES.map(([i, l], k) => `<div class="chip res" style="left:${150 + k * 560}px;top:760px">${ico(i)}<div><b>${l}</b></div></div>`).join('');
+// les étapes en texte : un point par idée, affiché au moment où l'idée arrive (repère ou sous-titre)
+const POINTS = [
+  [['Rencontrez votre responsable et l’équipe', M.e1a], ['Retenez vos 3 repères : responsable, référent, RH', M.e1b]],
+  [['Faites le tour : poste, espaces communs, salles', M.e2a], ['Notez horaires, accès et consignes de sécurité', M.e2c]],
+  [['Récupérez votre matériel et vos accès', M.e3a], ['Vos accès sont personnels : ne les partagez jamais', M.e3c], ['Un blocage ? Votre référent ou le support vous aide', M.e3d]],
+  [['Faites le point sur vos priorités', M.e4a], ['D’abord découvrir, puis contribuer', M.e4b], ['Posez vos questions : c’est comme ça qu’on avance', M.e4c]],
+  [['Le livret d’accueil, à portée de main', M.e5a], ['Votre référent et votre responsable vous accompagnent', sub('vos ressources')[0]]],
+];
+const ET_FIN = [M.c2, M.c3, M.c4, M.c5, M.fin];
+let ETK = -1;
 Q('#hudbar').innerHTML = Q('#hudbar916').innerHTML = [1, 2, 3, 4, 5].map(() => '<div class="seg" style="width:56px;height:6px;border-radius:3px;background:rgba(255,255,255,.22);overflow:hidden"><div style="height:100%;background:var(--g);transform-origin:0 50%;transform:scaleX(0)"></div></div>').join('');
 Q('#dust').innerHTML = Array.from({ length: 34 }, (_, k) => `<div class="abs px" style="width:${10 + hash(k) * 18}px;height:${10 + hash(k) * 18}px;border-radius:3px;background:${['#FFAA45', '#E83385', '#7938D8'][k % 3]}"></div>`).join('');
 
@@ -228,6 +250,21 @@ window.render = function (t) {
   set(Q('#hud'), hud * (CARTES[k - 1] && +CARTES[k - 1].style.opacity > .5 ? 0 : 1)); Q('#hudtxt').textContent = txt;
   set(Q('#hud916'), hud); Q('#hudtxt916').innerHTML = k ? `<span class="grad">Étape ${k} / 5</span>` : '';
   QA('#hudbar .seg div, #hudbar916 .seg div').forEach((d, i) => { const j = i % 5; d.style.transform = `scaleX(${j < k - 1 ? 1 : j === k - 1 ? eo(seg(t, CT[j][0] + .4, CT[j][0] + 1.4)) : 0})`; });
+  // étapes en texte : panneau du début de l'étape (après la carte) à la carte suivante, masqué sous les grandes infographies
+  const ek = CT.findIndex(([, b], i) => t >= b && t < ET_FIN[i]);
+  if (ek !== ETK) {
+    ETK = ek;
+    if (ek >= 0) {
+      Q('#etkick').textContent = 'À retenir'; Q('#ettitre').textContent = ETAPES[ek][1];
+      Q('#etpts').innerHTML = Q('#etpts916').innerHTML = POINTS[ek].map(([l], i) => `<div class="pt"><div class="num">${i + 1}</div><span>${l}</span></div>`).join('');
+    }
+  }
+  const pv = ek < 0 ? 0 : win(t, CT[ek][1], ET_FIN[ek] - .1, .5, .45) * (1 - Math.max(ui, fr));
+  set(Q('#etape'), pv, `translateX(${(1 - eo(seg(t, CT[Math.max(ek, 0)][1], CT[Math.max(ek, 0)][1] + .6))) * -40}px)`); set(Q('#etape916'), pv);
+  if (ek >= 0) QA('#etpts .pt, #etpts916 .pt').forEach((e, j) => {
+    const i = j % POINTS[ek].length, t0 = POINTS[ek][i][1], nx = POINTS[ek][i + 1] ? POINTS[ek][i + 1][1] : 1e9, p = eo(seg(t, t0, t0 + .5));
+    e.style.opacity = p * (t >= nx ? .62 : 1); e.style.transform = `translateY(${(1 - p) * 18}px)`;
+  });
   // étape 1 : repères
   QA('.role').forEach((e, i) => chip(e, t, ROLES[i][3] - .15, M.c2));
   // étape 2 : plan + infos
@@ -261,7 +298,7 @@ window.render = function (t) {
   const s = SUBS.find(([a, b]) => t >= a && t < b + .3), st = s ? s[2] : '';
   const so_ = s ? Math.min(seg(t, s[0], s[0] + .12), 1 - seg(t, s[1] + .15, s[1] + .3)) : 0;
   const sp1 = Q('#sub span'), sp2 = Q('#sub916 span');
-  sp1.textContent = sp2.textContent = st; sp1.style.opacity = sp2.style.opacity = st ? so_ : 0;
+  sp1.textContent = sp2.textContent = st; sp1.style.opacity = st ? so_ : 0; sp2.style.opacity = st ? so_ * (1 - pv) : 0;   // en vertical, le panneau d'étape remplace le sous-titre
   // version verticale : grand titre au-dessus de l'image
   if (MODE === '916') {
     const ct = CT.findIndex(([a, b]) => t >= a && t < b); let big = '';
