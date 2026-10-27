@@ -15,7 +15,9 @@ for F in 169 916; do
   done
   ffmpeg -y -v error -i "$SRC" -i "${N}_miniature.png" -map 0:v -map 1 $V -an -c:v:1 png -disposition:v:1 attached_pic -movflags +faststart "${N}_sans_son.mp4"
 done
-# version mail (< 4 Mo visé ~ 700 kb/s en 720p) à partir de la version par défaut
-ffmpeg -y -v error -i "$D/out/video_169_muet.mp4" -i "$D/audio/bande_bruitages.wav" -map 0:v -map 1:a -vf scale=1280:-2 \
-  -c:v libx264 -b:v 600k -maxrate 700k -bufsize 1400k -pix_fmt yuv420p -preset slow -c:a aac -b:a 64k -ac 1 -movflags +faststart "$L/EDUST_integration_169_mail_720p.mp4"
+# version mail < 4 Mo : 480p en deux passes (~165 kb/s vidéo + 40 kb/s audio pour 2 min 29)
+P=$(mktemp -d)/passe
+ffmpeg -y -v error -i "$D/out/video_169_muet.mp4" -vf scale=854:-2 -c:v libx264 -b:v 165k -pass 1 -passlogfile "$P" -preset slow -an -f null /dev/null
+ffmpeg -y -v error -i "$D/out/video_169_muet.mp4" -i "$D/audio/bande_bruitages.wav" -map 0:v -map 1:a -vf scale=854:-2 -c:v libx264 -b:v 165k -pass 2 -passlogfile "$P" \
+  -preset slow -pix_fmt yuv420p -c:a aac -b:a 40k -ac 1 -movflags +faststart "$L/EDUST_integration_169_mail_480p.mp4"
 ls -la "$L"
