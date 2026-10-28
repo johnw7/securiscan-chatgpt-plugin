@@ -1,0 +1,107 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<!-- Calque de la formation incendie (démo E-DUST) : titre, consignes par étape, dialogues sous-titrés, récapitulatif, générique.
+     Rendu transparent superposé au film 3D : PAGE=../portfolio_fictif/formation_incendie/calque.html node render_calque.cjs 169 <film.mp4> <sortie.mp4> 24 -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@600;700&family=DM+Sans:wght@400;600;800&family=DM+Serif+Display&family=Montserrat:wght@800&display=block" rel="stylesheet">
+<style>
+:root{--n:#141210;--c:#f2ebe0;--or:#e2b98c;--bois:#c89b6d;--rouge:#e0472f}
+html,body{margin:0;background:transparent;overflow:hidden;font-family:'DM Sans',sans-serif;color:var(--c)}
+#stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden}
+.abs{position:absolute}
+.kick{font-weight:800;letter-spacing:.3em;font-size:22px;text-transform:uppercase;color:var(--or)}
+.serif{font-family:'DM Serif Display',serif;font-weight:400}
+.main{font-family:'Caveat',cursive;font-weight:700;color:var(--or)}
+#titre{left:0;top:0;width:1100px;height:1080px;background:linear-gradient(90deg,rgba(20,18,16,.92),rgba(20,18,16,.6) 60%,rgba(20,18,16,0));opacity:0}
+#etape{left:56px;top:48px;max-width:820px;padding:24px 34px 26px 30px;border-radius:22px;background:rgba(20,18,16,.84);border-left:6px solid var(--bois);box-shadow:0 20px 50px rgba(0,0,0,.4);opacity:0}
+#etape .num{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:26px;background:var(--bois);color:var(--n);font-family:'Anton';font-size:30px;margin-right:18px;vertical-align:middle}
+#etape .tit{font-family:'DM Serif Display';font-size:46px;vertical-align:middle}
+#etape .det{margin-top:12px;font-size:28px;font-weight:600;color:rgba(242,235,224,.85);line-height:1.3}
+#sub{left:0;right:0;bottom:56px;text-align:center}
+#sub .bulle{display:inline-block;max-width:1400px;padding:14px 30px 16px;border-radius:16px;background:rgba(20,18,16,.8);opacity:0}
+#sub .qui{font-weight:800;font-size:22px;letter-spacing:.2em;text-transform:uppercase;color:var(--or)}
+#sub .txt{font-size:40px;font-weight:600;line-height:1.25;margin-top:4px}
+#recap{left:0;top:0;width:1920px;height:1080px;background:linear-gradient(90deg,rgba(20,18,16,0) 25%,rgba(20,18,16,.88) 50%,rgba(20,18,16,.95));opacity:0}
+.ligne{display:flex;align-items:center;gap:22px;margin-top:22px;opacity:0}
+.ligne b{flex:none;width:54px;height:54px;border-radius:27px;background:var(--bois);color:var(--n);font-family:'Anton';font-size:30px;display:flex;align-items:center;justify-content:center;font-weight:400}
+.ligne span{font-size:33px;font-weight:600;line-height:1.25}.ligne span em{font-style:normal;color:var(--or);font-weight:800}
+#fin{inset:0;background:var(--n);opacity:0}
+.pilule{display:inline-block;padding:18px 44px;border-radius:50px;background:var(--bois);color:var(--n);font-family:'Montserrat';font-weight:800;font-size:28px;letter-spacing:.04em}
+#pied{right:40px;bottom:22px;font-size:16px;font-weight:800;letter-spacing:.24em;color:rgba(242,235,224,.55);opacity:0}
+</style></head><body>
+<div id="stage">
+  <div id="titre" class="abs">
+    <div class="abs" style="left:110px;top:300px;width:900px">
+      <div class="kick">Formation sécurité · démo E-DUST</div>
+      <div class="serif" style="font-size:104px;line-height:1.02;margin-top:26px">Incendie<br>en entreprise</div>
+      <div class="main" style="font-size:66px;margin-top:18px">que faire en cas de départ de feu&nbsp;?</div>
+      <div id="titreline" style="height:5px;width:380px;margin-top:30px;background:var(--bois);border-radius:3px;transform-origin:0 50%"></div>
+    </div>
+  </div>
+  <div id="etape" class="abs"><div><span class="num"></span><span class="tit"></span></div><div class="det"></div></div>
+  <div id="recap" class="abs">
+    <div class="abs" style="left:1000px;top:120px;width:840px">
+      <div class="kick">Ce qu'il faut retenir</div>
+      <div class="serif" style="font-size:64px;margin-top:14px;line-height:1.05">En cas de départ de feu</div>
+      <div id="lignes"></div>
+      <div id="cta" class="main" style="font-size:52px;margin-top:40px;line-height:1.1;opacity:0">Et vous, savez-vous où est<br>le déclencheur le plus proche&nbsp;?</div>
+    </div>
+  </div>
+  <div id="sub" class="abs"><div class="bulle"><div class="qui"></div><div class="txt"></div></div></div>
+  <div id="pied" class="abs">E-DUST SOLUTIONS · FORMATION INCENDIE (DÉMO)</div>
+  <div id="fin" class="abs">
+    <div class="abs" style="left:0;right:0;top:250px;text-align:center">
+      <div class="kick">Vidéos de formation en animation 3D</div>
+      <div class="serif" style="font-size:96px;margin-top:22px">E-DUST Solutions</div>
+      <div class="main" style="font-size:58px;margin-top:6px">vos consignes, racontées en histoires</div>
+      <div style="margin-top:44px"><span class="pilule">edust-solutions.fr</span></div>
+      <div style="margin-top:34px;font-family:'Montserrat';font-weight:800;font-size:24px;color:rgba(242,235,224,.85)">Tarik Belattar · 06 13 24 96 80 · tarikbelatta@gmail.com</div>
+      <div style="margin-top:46px;font-size:20px;color:rgba(242,235,224,.5);line-height:1.6">Démonstration — entreprise « Atelier Norvan » et personnages fictifs.<br>Consignes générales : suivez toujours le plan d'évacuation et les consignes de votre site.</div>
+    </div>
+  </div>
+</div>
+<script src="../../demos_portfolio/common.js"></script>
+<script>
+let T, DIA, ETAPES, LIGNES;
+window.init = async function (aspect) {
+  const d = await (await fetch('timing.json')).json(); T = d.T; DIA = d.dialogues;
+  ETAPES = [
+    [T.dm - .6, T.parle_thomas, '1', 'J’alerte', 'J’appuie sur le déclencheur manuel d’alarme le plus proche.'],
+    [T.parle_sophie, T.marc_ext, '2', 'J’appelle les secours', '18 ou 112 · et le numéro d’urgence interne de l’entreprise.'],
+    [T.marc_ext, T.feu_eteint + 1.4, '3', 'Petit feu : seulement si je suis formé', 'Extincteur adapté, à la base des flammes, jamais seul, une issue derrière moi.'],
+    [T.porte_repro, T.ascenseur, '4', 'J’évacue', 'Je laisse mes affaires · je ferme les portes sans les verrouiller · je suis le guide-file.'],
+    [T.ascenseur, T.dos_main - .4, '!', 'Jamais l’ascenseur', 'On prend l’escalier, en suivant le balisage vert.'],
+    [T.dos_main - .4, T.porte_sortie + 2.4, '!', 'Porte chaude ? On ne l’ouvre pas', 'Je vérifie avec le dos de la main avant d’ouvrir.'],
+    [T.couloir, T.serre, '!', 'Fumée : je me baisse', 'L’air est plus respirable près du sol.'],
+    [T.serre, T.dehors, '!', 'Le serre-file ferme la marche', 'Il vérifie que personne ne reste derrière.'],
+    [T.dehors, T.fin, '5', 'Point de rassemblement', 'Je me signale et je n’y retourne pas avant l’accord des secours.'],
+  ];
+  LIGNES = ['<em>J’alerte</em> : déclencheur manuel, puis 18 / 112 et numéro interne.', '<em>Petit feu</em> et formé ? Extincteur. Sinon, on évacue.',
+    '<em>J’évacue</em> : affaires laissées, portes fermées, balisage vert.', '<em>Jamais l’ascenseur.</em> Fumée : je me baisse.', '<em>Point de rassemblement</em> : je me signale, je n’y retourne pas.'];
+  Q('#lignes').innerHTML = LIGNES.map((l, i) => `<div class="ligne"><b>${i + 1}</b><span>${l}</span></div>`).join('');
+  await document.fonts.ready;
+  return T.DUR;
+};
+let EK = -1;
+window.render = function (t) {
+  // titre d'ouverture
+  const ti = win(t, .3, 5.6, .8, .7); set(Q('#titre'), ti, `translateX(${(1 - eo(seg(t, .3, 1.5))) * -40}px)`);
+  Q('#titreline').style.transform = `scaleX(${eo(seg(t, .9, 2.2))})`;
+  // consigne de l'étape en cours
+  const k = ETAPES.findIndex(([a, b]) => t >= a && t < b);
+  if (k !== EK) { EK = k; if (k >= 0) { const [, , n, ti2, de] = ETAPES[k]; Q('#etape .num').textContent = n; Q('#etape .tit').textContent = ti2; Q('#etape .det').textContent = de; } }
+  const eo_ = k < 0 ? 0 : win(t, ETAPES[k][0], ETAPES[k][1], .45, .35);
+  set(Q('#etape'), eo_, `translateY(${(1 - eo(seg(t, k < 0 ? 0 : ETAPES[k][0], (k < 0 ? 0 : ETAPES[k][0]) + .5))) * -20}px)`);
+  Q('#etape .num').style.background = k >= 0 && ETAPES[k][2] === '!' ? 'var(--rouge)' : 'var(--bois)';
+  // dialogues
+  const d = DIA.find(([a, b]) => t >= a - .05 && t < b + .35);
+  const bu = Q('#sub .bulle');
+  if (d) { Q('#sub .qui').textContent = d[2]; Q('#sub .txt').textContent = d[3]; bu.style.opacity = win(t, d[0] - .05, d[1] + .35, .15, .25); } else bu.style.opacity = 0;
+  // récapitulatif
+  const rc = win(t, T.fin + .4, T.DUR - 2.6, .8, .5); set(Q('#recap'), rc);
+  QA('.ligne').forEach((e, i) => { const p = eo(seg(t, T.fin + 1.0 + i * .7, T.fin + 1.6 + i * .7)); set(e, p, `translateX(${(1 - p) * 30}px)`); });
+  set(Q('#cta'), seg(t, T.fin + 5, T.fin + 5.7));
+  set(Q('#pied'), win(t, 6, T.DUR - 2.8, .6, .5));
+  // générique
+  set(Q('#fin'), seg(t, T.DUR - 2.8, T.DUR - 2.2));
+};
+</script>
+</body></html>

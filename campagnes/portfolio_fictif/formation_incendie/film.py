@@ -404,7 +404,13 @@ def reglages(S, Wd):
     r.image_settings.file_format = 'JPEG'; r.image_settings.quality = 93
     sc.view_settings.view_transform = 'AgX'; sc.view_settings.look = 'AgX - Medium High Contrast'; sc.view_settings.exposure = .1
 
-json.dump(dict(T=T, dialogues=DIALOGUES, plans=[p[0] for p in PLANS]), open(f'{D}/timing.json', 'w'), ensure_ascii=False, indent=1)
+PAS = []                                   # instants des pas (bruitages) : tous les 0,7 m parcourus en marchant
+for n, ac in ACT.items():
+    last = 0
+    for f in sorted(ac.dist):
+        if ac.vit[f] > .3 and ac.dist[f] - last >= .7: PAS.append((round(f / FPS, 3), n)); last = ac.dist[f]
+        elif ac.vit[f] <= .3: last = ac.dist[f] - .35
+json.dump(dict(T=T, dialogues=DIALOGUES, plans=[p[0] for p in PLANS], pas=PAS), open(f'{D}/timing.json', 'w'), ensure_ascii=False, indent=1)
 mode = sys.argv[1] if len(sys.argv) > 1 else 'stills'
 if mode == 'stills':
     reglages(int(os.environ.get('S', 12)), int(os.environ.get('W', 640)))

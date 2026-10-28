@@ -1,0 +1,22 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<!-- Habillage des fiches de référence 3D (charte E-DUST) : fiche.html?p=thomas → capture 1920×1080 -->
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=DM+Sans:wght@600;800&family=DM+Serif+Display&display=block" rel="stylesheet">
+<style>
+html,body{margin:0;background:#141210;color:#f2ebe0;font-family:'DM Sans',sans-serif;overflow:hidden}
+#img{position:absolute;left:0;top:120px;width:1920px;height:900px;object-fit:cover;object-position:50% 55%}
+.bande{position:absolute;left:0;right:0;top:0;height:120px;display:flex;align-items:center;padding:0 60px;gap:30px}
+.kick{font-weight:800;letter-spacing:.3em;font-size:18px;color:#e2b98c;text-transform:uppercase}
+.nom{font-family:'DM Serif Display';font-size:58px}
+.main{font-family:'Caveat';font-size:40px;color:#e2b98c;margin-left:auto}
+.vues{position:absolute;left:0;right:0;top:160px;display:flex;justify-content:space-around;font-weight:800;letter-spacing:.3em;font-size:20px;color:rgba(20,18,16,.75)}
+.pied{position:absolute;left:0;right:0;bottom:0;height:60px;background:#141210;display:flex;align-items:center;justify-content:space-between;padding:0 60px;font-size:16px;font-weight:800;letter-spacing:.22em;color:rgba(242,235,224,.55)}
+</style></head><body>
+<img id="img"><div class="bande"><div><div class="kick">Fiche de référence 3D · formation incendie</div><div class="nom" id="nom"></div></div><div class="main" id="role"></div></div>
+<div class="vues"><span>FACE</span><span>TROIS QUARTS</span><span>PROFIL</span></div>
+<div class="pied"><span>E-DUST SOLUTIONS · PERSONNAGE FICTIF (DÉMO)</span><span id="pag"></span></div>
+<script>
+const P = {thomas: ['Thomas', 'le nouvel arrivant, celui qui donne l’alerte', '1/3'], sophie: ['Sophie', 'la responsable d’équipe, serre-file', '2/3'], marc: ['Marc', 'l’équipier formé, guide-file', '3/3']};
+const p = new URLSearchParams(location.search).get('p');
+document.getElementById('img').src = 'out/fiche_' + p + '.png'; document.getElementById('nom').textContent = P[p][0];
+document.getElementById('role').textContent = P[p][1]; document.getElementById('pag').textContent = P[p][2];
+</script></body></html>
