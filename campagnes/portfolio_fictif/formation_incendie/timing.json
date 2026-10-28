@@ -1,0 +1,124 @@
+{
+ "T": {
+  "odeur": 7.0,
+  "fumee": 10.0,
+  "flamme": 12.2,
+  "question": 14.6,
+  "leve": 17.0,
+  "dm": 21.4,
+  "alarme": 21.6,
+  "sophie_leve": 23.6,
+  "parle_thomas": 26.6,
+  "parle_sophie": 29.2,
+  "tel": 30.6,
+  "marc_ext": 34.0,
+  "marc_jet": 40.4,
+  "feu_eteint": 42.2,
+  "porte_repro": 46.2,
+  "marc_crie": 47.4,
+  "evac": 49.2,
+  "ascenseur": 56.0,
+  "marc_asc": 56.4,
+  "dos_main": 60.2,
+  "porte_sortie": 61.0,
+  "couloir": 67.5,
+  "serre": 73.0,
+  "dehors": 76.0,
+  "camion": 76.3,
+  "comptage": 82.0,
+  "ok": 87.0,
+  "fin": 90.0,
+  "DUR": 99.0
+ },
+ "dialogues": [
+  [
+   14.6,
+   16.4,
+   "Thomas",
+   "Euh… je fais quoi, là ?"
+  ],
+  [
+   26.6,
+   28.9,
+   "Thomas",
+   "Sophie ! Il y a de la fumée à la reprographie !"
+  ],
+  [
+   29.2,
+   30.6,
+   "Sophie",
+   "J’appelle les secours."
+  ],
+  [
+   31.2,
+   34.0,
+   "Sophie",
+   "Un départ de feu, Atelier Norvan, 2e étage…"
+  ],
+  [
+   47.4,
+   49.4,
+   "Marc",
+   "Tout le monde me suit ! On laisse ses affaires."
+  ],
+  [
+   56.4,
+   58.199999999999996,
+   "Marc",
+   "Pas l’ascenseur, Thomas. L’escalier !"
+  ],
+  [
+   73.1,
+   74.7,
+   "Sophie",
+   "Personne derrière. Je ferme."
+  ],
+  [
+   82.4,
+   85.0,
+   "Marc",
+   "Un, deux, trois, quatre, cinq…"
+  ],
+  [
+   85.2,
+   86.6,
+   "Sophie",
+   "Je suis la dernière. Personne derrière moi."
+  ],
+  [
+   86.8,
+   86.8,
+   "Marc",
+   "Six. Tout le monde est là."
+  ],
+  [
+   87.4,
+   88.8,
+   "Sophie",
+   "Bien joué, Thomas."
+  ]
+ ],
+ "plans": [
+  0.0,
+  5.0,
+  9.7,
+  14.2,
+  16.7,
+  20.7,
+  22.200000000000003,
+  26.0,
+  30.8,
+  33.6,
+  39.5,
+  45.800000000000004,
+  50.400000000000006,
+  55.2,
+  59.5,
+  67.5,
+  72.4,
+  76.0,
+  82.0,
+  86.7,
+  90.0
+ ]
+}
