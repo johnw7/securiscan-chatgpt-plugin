@@ -1,0 +1,23 @@
+{
+  "name": "noamis-espace-projet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NOAMIS — Espace Projet : application de suivi des dossiers clients du cabinet NOAMIS (conseil en sécurité et sûreté).",
+  "main": "server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server.js",
+    "seed": "node --disable-warning=ExperimentalWarning scripts/seed.js",
+    "reset-demo": "node --disable-warning=ExperimentalWarning scripts/seed.js --reset",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "nodemailer": "^10.4.0"
+  }
+}
