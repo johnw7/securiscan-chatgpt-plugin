@@ -1,0 +1,26 @@
+NOAMIS — Espace Projet : utilisation sur votre ordinateur
+==========================================================
+
+1. Installez Node.js (une seule fois) : https://nodejs.org/fr/download
+   Choisissez la version « LTS » et installez-la comme un logiciel classique.
+
+2. Double-cliquez sur le lanceur correspondant à votre ordinateur :
+   - Windows : « Lancer NOAMIS (Windows).bat »
+   - Mac     : « Lancer NOAMIS (Mac).command »
+     (la première fois, si le Mac refuse de l'ouvrir : clic droit sur le fichier,
+      puis « Ouvrir », puis confirmer « Ouvrir »)
+
+   La première fois, l'installation prend 1 à 2 minutes (internet nécessaire).
+   Le navigateur s'ouvre ensuite tout seul sur http://localhost:3100
+
+3. Connectez-vous (données de démonstration, fictives) :
+   - Cabinet : cabinet@noamis.example  /  Demo-Cabinet-2026
+   - Client  : client@noamis.example   /  Demo-Client-2026
+
+Laissez la fenêtre noire ouverte pendant votre travail. La fermer arrête l'application.
+Vos données sont conservées dans le dossier « data » (à sauvegarder si besoin).
+
+Important : en local, seul cet ordinateur accède à l'application ; vos clients ne peuvent
+pas s'y connecter. Les e-mails ne partent pas : les liens d'invitation s'affichent au cabinet.
+
+NOAMIS — Votre projet de sécurité, notre accompagnement.
