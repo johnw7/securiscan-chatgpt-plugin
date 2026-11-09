@@ -81,7 +81,7 @@ function loadConfig(env = process.env) {
   const port = Number(env.PORT || 3100);
   return {
     port,
-    baseUrl: (env.APP_BASE_URL || `http://localhost:${port}`).replace(/\/$/, ''),
+    baseUrl: (env.APP_BASE_URL || env.RENDER_EXTERNAL_URL || `http://localhost:${port}`).replace(/\/$/, ''),
     dbPath: env.DATABASE_PATH || path.join(root, 'data', 'noamis.db'),
     storageDir: env.STORAGE_DIR || path.join(root, 'data', 'storage'),
     secureCookies: env.COOKIE_SECURE === 'true' || env.NODE_ENV === 'production',

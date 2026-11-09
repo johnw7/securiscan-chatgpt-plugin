@@ -30,6 +30,25 @@ npm run reset-demo   # remet la démonstration à zéro
 Un second client fictif (`direction@orvalis.example`, invitation non acceptée) possède son propre dossier : il sert à vérifier
 que le client de démonstration ne peut pas l’ouvrir.
 
+## Mise en ligne (Render)
+
+Le fichier `render.yaml` (à la racine du dépôt) et le `Dockerfile` permettent une mise en ligne sans configuration manuelle.
+
+1. Créer un compte sur [render.com](https://render.com) et autoriser l’accès au dépôt GitHub.
+2. Ouvrir : `https://render.com/deploy?repo=https://github.com/johnw7/securiscan-chatgpt-plugin/tree/claude/eloquent-einstein-qoxt00`
+   (ou, dans Render : *New → Blueprint*, choisir le dépôt et la branche).
+3. Valider : Render construit l’image et publie l’application sur `https://noamis-espace-projet.onrender.com`
+   (ou une adresse proche si ce nom est pris). Les variables SMTP peuvent rester vides.
+
+**Offre gratuite = démonstration** : le service se met en veille après 15 minutes d’inactivité (premier chargement d’environ 1 minute)
+et son disque n’est pas conservé : les données de démonstration sont recréées à chaque redémarrage.
+
+**Usage réel** : passer le service en offre payante *Starter*, ajouter un disque persistant monté sur `/var/data`, puis définir
+`DATABASE_PATH=/var/data/noamis.db`, `STORAGE_DIR=/var/data/storage`, `DEMO_MODE=false`, les variables SMTP, et relier un
+sous-domaine (ex. `espace.noamis.fr`, *Settings → Custom Domains*) avec `APP_BASE_URL=https://espace.noamis.fr`.
+
+Le `Dockerfile` fonctionne aussi chez tout autre hébergeur de conteneurs (Fly.io, Railway, Scaleway, OVHcloud, VPS).
+
 ## Scénario de démonstration
 
 1. **Soumettre une demande** — `/presenter-mon-projet` (sans compte) : profil, coordonnées, contact préféré, besoin, zone, délai,
