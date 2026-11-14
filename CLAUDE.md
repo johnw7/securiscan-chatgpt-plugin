@@ -15,3 +15,8 @@ décrite dans [`NOAMIS-CHARTE.md`](NOAMIS-CHARTE.md). Lire ce fichier avant tout
 - Ton : calme (`[calmly]`), puis chaleureux (`[warmly]`) pour la présentation de NOAMIS
 
 Ne pas proposer ni utiliser d'autre voix, même pour un essai, sauf demande explicite du client.
+
+## Consigne impérative : jamais d'écran noir dans les vidéos
+
+Chaque vidéo s'ouvre sur la miniature complète (logo et titre visibles dès la première image) et les
+séquences s'enchaînent en fondu enchaîné, sans aucun passage au noir.

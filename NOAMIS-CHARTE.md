@@ -58,3 +58,6 @@ Aucune autre couleur. Pas de dégradé, d'effet métallique ni d'ombre marquée.
 - Bruitages discrets : souffle aux transitions, léger tintement à l'apparition des titres,
   son grave et feutré à l'apparition du logo.
 - Fin : logo sur fond noir, bouton or « Parler de mon projet », www.noamis.fr.
+- **Jamais d'écran noir** : la vidéo s'ouvre directement sur la miniature complète (logo + titre visibles
+  dès la première image, car c'est elle que les réseaux affichent en couverture), et les séquences
+  s'enchaînent en fondu enchaîné, sans passer par le noir.
