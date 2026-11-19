@@ -51,3 +51,5 @@ supabase/.branches/
 /coverage/
 scripts/.smoke.tmp.mjs
 scripts/.mfa.tmp.mjs
+scripts/.docs.tmp.mjs
+scripts/.pdf.tmp.mjs
