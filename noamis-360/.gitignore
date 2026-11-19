@@ -54,3 +54,4 @@ scripts/.mfa.tmp.mjs
 scripts/.docs.tmp.mjs
 scripts/.pdf.tmp.mjs
 scripts/.protect.tmp.mjs
+scripts/.axe.tmp.mjs

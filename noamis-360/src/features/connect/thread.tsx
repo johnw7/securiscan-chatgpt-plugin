@@ -25,7 +25,7 @@ export function MessageThread({
   const router = useRouter();
   const [body, setBody] = React.useState("");
   const [pending, start] = React.useTransition();
-  const end = React.useRef<HTMLDivElement>(null);
+  const end = React.useRef<HTMLLIElement>(null);
   React.useEffect(() => {
     end.current?.scrollIntoView({ block: "end" });
     void onOpen?.();
@@ -45,7 +45,7 @@ export function MessageThread({
           );
         })}
         {!messages.length && <li className="py-10 text-center text-sm text-muted">Aucun message pour le moment.</li>}
-        <div ref={end} />
+        <li ref={end} aria-hidden className="h-0" />
       </ol>
       <form
         className="flex items-end gap-2 border-t border-border p-3"

@@ -28,7 +28,7 @@ export default async function InvoicePage({ params }: { params: Promise<{ id: st
   const session = await requireCapability("finance.view");
   const { id } = await params;
   const supabase = await createClient();
-  const { data: v } = await supabase.from("invoices").select("*, clients(id, name), invoice_items(*), credited:invoices!invoices_credited_invoice_id_fkey(id, number)").eq("id", id).is("deleted_at", null).maybeSingle();
+  const { data: v } = await supabase.from("invoices").select("*, clients(id, name), invoice_items(*), credited:credited_invoice_id(id, number)").eq("id", id).is("deleted_at", null).maybeSingle();
   if (!v) notFound();
   const [{ data: payments }, { data: reminders }, { data: credits }, { data: catalog }, clients, missions] = await Promise.all([
     supabase.from("payments").select("*").eq("invoice_id", id).order("paid_at"),

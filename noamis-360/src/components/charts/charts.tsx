@@ -29,7 +29,7 @@ export function MonthlyBarChart({ data, label, money = true }: { data: Array<{ m
     <figure>
       <div className="h-64" aria-hidden>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
+          <BarChart data={data} margin={{ top: 8, right: 8, left: 0, bottom: 0 }} accessibilityLayer={false}>
             <CartesianGrid stroke={GRID} vertical={false} />
             <XAxis dataKey="month" tick={{ fill: AXIS, fontSize: 12 }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fill: AXIS, fontSize: 12 }} axisLine={false} tickLine={false} width={70} tickFormatter={(v) => (money ? eur(v) : String(v))} />
@@ -51,8 +51,8 @@ export function DonutChart({ data, label }: { data: Array<{ name: string; value:
     <figure className="flex flex-col items-center gap-4">
       <div className="h-48 w-48 shrink-0" aria-hidden>
         <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie data={data} dataKey="value" nameKey="name" innerRadius={52} outerRadius={80} paddingAngle={2} stroke="none" isAnimationActive={false}>
+          <PieChart accessibilityLayer={false}>
+            <Pie data={data} dataKey="value" nameKey="name" innerRadius={52} outerRadius={80} paddingAngle={2} stroke="none" isAnimationActive={false} rootTabIndex={-1}>
               {data.map((_, i) => (
                 <Cell key={i} fill={PALETTE[i % PALETTE.length]} />
               ))}

@@ -7,7 +7,9 @@ const decode = (s: string) =>
   s.replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;|&apos;/g, "'");
 
 export function stripHtml(html: string): string {
-  return decode(html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
+  // Décodage AVANT suppression : neutralise aussi le HTML encodé en entités.
+  const strip = (s: string) => s.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]*>/g, " ");
+  return strip(decode(strip(html))).replace(/[<>]/g, " ").replace(/\s+/g, " ").trim();
 }
 
 const text = (v: unknown): string => {

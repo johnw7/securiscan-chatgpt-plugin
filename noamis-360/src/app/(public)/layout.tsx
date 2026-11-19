@@ -6,7 +6,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     <div className="flex min-h-dvh flex-col">
       <header className="border-b border-border">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
-          <Link href="/" aria-label="Accueil NOAMIS 360°" className="shrink-0"><Logo subtitle={false} className="whitespace-nowrap" /></Link>
+          <Link href="/" className="shrink-0"><span className="sr-only">Accueil — </span><Logo subtitle={false} className="whitespace-nowrap" /></Link>
           <nav aria-label="Navigation publique" className="flex items-center gap-4 text-sm">
             <Link href="/diagnostic" className="hidden text-muted hover:text-foreground sm:inline">Diagnostic</Link>
             <Link href="/login" className="rounded-lg border border-gold/60 px-3 py-1.5 text-gold-text hover:bg-gold/10">Espace sécurisé</Link>

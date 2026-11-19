@@ -1,13 +1,12 @@
 import { z } from "zod";
 
 /** Schémas de validation partagés (client et serveur). */
-export const uuid = z.string().uuid("Identifiant invalide");
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+export const uuid = z.string().regex(UUID_RE, "Identifiant invalide");
+/** Sélection facultative : "", null ou absent → null ; sinon UUID valide. */
 export const optionalUuid = z
-  .string()
-  .uuid()
-  .or(z.literal(""))
-  .optional()
-  .transform((v) => (v ? v : null));
+  .preprocess((v) => (v === "" || v === null ? undefined : v), z.string().regex(UUID_RE, "Sélection invalide").optional())
+  .transform((v) => v ?? null);
 
 const blankToNull = (v: unknown) => (typeof v === "string" && v.trim() === "" ? null : v);
 

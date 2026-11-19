@@ -57,7 +57,8 @@ export function Sidebar({ role, organizationName }: { role: Role; organizationNa
   const content = (
     <>
       <div className="flex h-16 items-center border-b border-border px-5">
-        <Link href={role === "client" ? "/portal" : "/dashboard"} aria-label="Accueil NOAMIS 360°">
+        <Link href={role === "client" ? "/portal" : "/dashboard"}>
+          <span className="sr-only">Accueil — </span>
           <Logo />
         </Link>
       </div>

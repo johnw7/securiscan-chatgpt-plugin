@@ -21,11 +21,12 @@ export function UserMenu({ name, email, role, mfa }: { name: string; email: stri
   return (
     <DropdownMenu>
       <DropdownTrigger asChild>
-        <button type="button" className="flex items-center gap-2 rounded-full p-0.5 pr-2 hover:bg-surface-2" aria-label={`Menu de ${name}`}>
+        <button type="button" className="flex items-center gap-2 rounded-full p-0.5 pr-2 hover:bg-surface-2">
+          <span className="sr-only">Menu du compte :</span>
           <span className="grid size-8 place-items-center rounded-full bg-gold text-xs font-semibold text-on-gold" aria-hidden>
             {initials(name)}
           </span>
-          <span className="hidden max-w-36 truncate text-sm text-foreground md:inline">{name}</span>
+          <span className="max-w-36 truncate text-sm text-foreground max-md:sr-only">{name}</span>
         </button>
       </DropdownTrigger>
       <DropdownContent>

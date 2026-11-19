@@ -45,14 +45,15 @@ export async function AppShell({ session, children }: { session: SessionContext;
             <Link
               href={isClient ? "/portal/notifications" : "/notifications"}
               className="relative rounded-lg p-2 text-muted hover:bg-surface-2 hover:text-foreground"
-              aria-label={`Notifications${unread ? ` (${unread} non lues)` : ""}`}
             >
-              <Bell className="size-5" />
+              <Bell className="size-5" aria-hidden />
+              <span className="sr-only">Notifications{unread ? ` (non lues :` : ""}</span>
               {unread > 0 && (
                 <span className="absolute right-1 top-1 grid min-w-4 place-items-center rounded-full bg-gold px-1 text-[10px] font-bold text-on-gold">
                   {unread > 99 ? "99+" : unread}
                 </span>
               )}
+              {unread > 0 && <span className="sr-only">)</span>}
             </Link>
             <UserMenu name={session.fullName} email={session.email} role={session.role} mfa={session.aal === "aal2"} />
           </div>

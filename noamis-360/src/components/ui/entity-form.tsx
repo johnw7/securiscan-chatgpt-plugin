@@ -67,12 +67,14 @@ export function EntityForm({
   const form = useForm<FieldValues>({
     // Le schéma est générique : on accepte ses entrées/sorties sans contrainte de type ici.
     resolver: zodResolver(zodSchema as never) as never,
-    defaultValues: normalizeDefaults(fields, defaultValues),
+    defaultValues: { ...normalizeDefaults(fields, defaultValues), ...(hidden ?? {}) },
     mode: "onTouched",
   });
   const errors = form.formState.errors;
 
-  const submit = form.handleSubmit((values) =>
+  const visible = new Set(fields.map((f) => f.name));
+  const submit = form.handleSubmit(
+    (values) =>
     startTransition(async () => {
       const result = await action({ ...values, ...hidden });
       if (!result.ok) {
@@ -89,6 +91,11 @@ export function EntityForm({
       if (redirectTo) router.push(redirectTo.replace(":id", result.data?.id ?? ""));
       else router.refresh();
     }),
+    (errs) => {
+      // Erreur sur un champ non affiché (donnée de contexte) : on la signale explicitement.
+      const hiddenError = Object.entries(errs).find(([name]) => !visible.has(name));
+      if (hiddenError) toast.error(`Donnée de contexte invalide (${hiddenError[0]}). Rechargez la page.`);
+    },
   );
 
   return (
