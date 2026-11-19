@@ -1417,7 +1417,10 @@ isOneToOne: false
             [_ in never]: never
           }
           Functions: {
-            "client_respond_approval":
+            "attach_protect_contact":
+{ Args: { "p_assessment": string,"p_contact": Json }; Returns: string
+                           },
+"client_respond_approval":
 { Args: { "p_approval": string,"p_approve": boolean,"p_comment": string }; Returns: undefined
                            },
 "client_respond_quote":

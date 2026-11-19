@@ -53,3 +53,4 @@ scripts/.smoke.tmp.mjs
 scripts/.mfa.tmp.mjs
 scripts/.docs.tmp.mjs
 scripts/.pdf.tmp.mjs
+scripts/.protect.tmp.mjs
