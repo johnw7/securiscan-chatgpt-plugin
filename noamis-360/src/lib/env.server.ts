@@ -6,7 +6,7 @@ const serverSchema = z.object({
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(20),
   IP_HASH_SALT: z.string().min(16).default("noamis-local-dev-salt-change-me"),
   ANTHROPIC_API_KEY: z.string().optional(),
-  ANTHROPIC_MODEL: z.string().default("claude-sonnet-5-5"),
+  ANTHROPIC_MODEL: z.string().default("claude-opus-5-5"),
 });
 
 export function serverEnv() {

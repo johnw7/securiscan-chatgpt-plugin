@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { auditReportSchema, auditSchema, observationSchema, recommendationSchema, riskSchema, templateSchema } from "./audit/schemas";
 import { closureSchema, criterionSchema, decisionSchema, meetingSchema, milestoneSchema, offerSchema, projectSchema, receptionSchema, specificationSchema, vendorSchema } from "./project/schemas";
+import { aiDraftSchema, referenceSchema, reportSchema, sourceSchema } from "./intelligence/schemas";
 import { clientSchema, contactSchema, eventSchema, leadSchema, missionSchema, noteSchema, taskSchema } from "./pilot/schemas";
 
 /**
@@ -31,6 +32,10 @@ export const FORM_SCHEMAS = {
   decision: decisionSchema,
   reception: receptionSchema,
   closure: closureSchema,
+  source: sourceSchema,
+  report: reportSchema,
+  reference: referenceSchema,
+  aiDraft: aiDraftSchema,
   member: z.object({ user_id: z.string().uuid("Sélectionnez un collaborateur") }),
 } satisfies Record<string, z.ZodType>;
 
