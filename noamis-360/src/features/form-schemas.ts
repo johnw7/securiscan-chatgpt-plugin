@@ -3,6 +3,7 @@ import { auditReportSchema, auditSchema, observationSchema, recommendationSchema
 import { closureSchema, criterionSchema, decisionSchema, meetingSchema, milestoneSchema, offerSchema, projectSchema, receptionSchema, specificationSchema, vendorSchema } from "./project/schemas";
 import { aiDraftSchema, referenceSchema, reportSchema, sourceSchema } from "./intelligence/schemas";
 import { documentMetaSchema, shareSchema } from "./docs/schemas";
+import { catalogSchema, invoiceSchema, lineSchema, paymentSchema, quoteSchema, reminderSchema } from "./finance/schemas";
 import { clientSchema, contactSchema, eventSchema, leadSchema, missionSchema, noteSchema, taskSchema } from "./pilot/schemas";
 
 /**
@@ -39,6 +40,12 @@ export const FORM_SCHEMAS = {
   aiDraft: aiDraftSchema,
   document: documentMetaSchema,
   share: shareSchema,
+  catalog: catalogSchema,
+  quote: quoteSchema,
+  line: lineSchema,
+  invoice: invoiceSchema,
+  payment: paymentSchema,
+  reminder: reminderSchema,
   member: z.object({ user_id: z.string().uuid("Sélectionnez un collaborateur") }),
 } satisfies Record<string, z.ZodType>;
 
