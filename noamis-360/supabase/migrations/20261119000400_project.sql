@@ -77,7 +77,7 @@ $$;
 
 create table public.milestones (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   project_id       uuid not null references public.projects (id) on delete cascade,
   title            text not null,
   due_date         date,
@@ -110,7 +110,7 @@ create table public.vendors (
 -- Critères de sélection pondérés (somme des poids = 100 recommandée)
 create table public.selection_criteria (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   project_id       uuid not null references public.projects (id) on delete cascade,
   label            text not null,
   weight           numeric(5, 2) not null check (weight > 0 and weight <= 100),
@@ -120,7 +120,7 @@ create table public.selection_criteria (
 -- Offres reçues des prestataires ; scores : { "<criterion_id>": 0..10 }
 create table public.vendor_offers (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   project_id       uuid not null references public.projects (id) on delete cascade,
   vendor_id        uuid not null references public.vendors (id),
   amount_ht        numeric(12, 2) not null check (amount_ht >= 0),
@@ -139,7 +139,7 @@ create unique index vendor_offers_one_selected on public.vendor_offers (project_
 
 create table public.project_meetings (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   project_id       uuid not null references public.projects (id) on delete cascade,
   title            text not null,
   held_at          timestamptz not null,
@@ -154,7 +154,7 @@ create table public.project_meetings (
 -- Décisions, actions correctives et réserves : historique conservé (pas de suppression).
 create table public.project_decisions (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   project_id       uuid not null references public.projects (id) on delete cascade,
   meeting_id       uuid references public.project_meetings (id) on delete set null,
   kind             text not null check (kind in ('decision', 'action_corrective', 'reserve')),

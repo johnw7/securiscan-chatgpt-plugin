@@ -49,7 +49,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "audit_id": string,"category": string,"created_at"?: string,"created_by"?: string | null,"description"?: string | null,"id"?: string,"is_vulnerability"?: boolean,"location"?: string | null,"organization_id": string,"photo_paths"?: (string)[],"position"?: number,"title": string,"updated_at"?: string
+                    "audit_id": string,"category": string,"created_at"?: string,"created_by"?: string | null,"description"?: string | null,"id"?: string,"is_vulnerability"?: boolean,"location"?: string | null,"organization_id"?: string,"photo_paths"?: (string)[],"position"?: number,"title": string,"updated_at"?: string
                   }
                   Update: {
                     "audit_id"?: string,"category"?: string,"created_at"?: string,"created_by"?: string | null,"description"?: string | null,"id"?: string,"is_vulnerability"?: boolean,"location"?: string | null,"organization_id"?: string,"photo_paths"?: (string)[],"position"?: number,"title"?: string,"updated_at"?: string
@@ -195,7 +195,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "client_id": string,"created_at"?: string,"description"?: string | null,"document_id"?: string | null,"id"?: string,"mission_id"?: string | null,"organization_id": string,"requested_by"?: string | null,"responded_at"?: string | null,"responded_by"?: string | null,"response_comment"?: string | null,"status"?: string,"title": string,"updated_at"?: string
+                    "client_id": string,"created_at"?: string,"description"?: string | null,"document_id"?: string | null,"id"?: string,"mission_id"?: string | null,"organization_id"?: string,"requested_by"?: string | null,"responded_at"?: string | null,"responded_by"?: string | null,"response_comment"?: string | null,"status"?: string,"title": string,"updated_at"?: string
                   }
                   Update: {
                     "client_id"?: string,"created_at"?: string,"description"?: string | null,"document_id"?: string | null,"id"?: string,"mission_id"?: string | null,"organization_id"?: string,"requested_by"?: string | null,"responded_at"?: string | null,"responded_by"?: string | null,"response_comment"?: string | null,"status"?: string,"title"?: string,"updated_at"?: string
@@ -303,7 +303,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "created_at"?: string,"created_by"?: string | null,"document_id": string,"download_count"?: number,"expires_at": string,"id"?: string,"max_downloads"?: number,"organization_id": string,"recipient"?: string | null,"revoked_at"?: string | null,"token_hash": string
+                    "created_at"?: string,"created_by"?: string | null,"document_id": string,"download_count"?: number,"expires_at": string,"id"?: string,"max_downloads"?: number,"organization_id"?: string,"recipient"?: string | null,"revoked_at"?: string | null,"token_hash": string
                   }
                   Update: {
                     "created_at"?: string,"created_by"?: string | null,"document_id"?: string,"download_count"?: number,"expires_at"?: string,"id"?: string,"max_downloads"?: number,"organization_id"?: string,"recipient"?: string | null,"revoked_at"?: string | null,"token_hash"?: string
@@ -335,7 +335,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "comment"?: string | null,"created_at"?: string,"document_id": string,"file_name": string,"id"?: string,"mime_type": string,"organization_id": string,"sha256": string,"size_bytes": number,"storage_bucket"?: string,"storage_path": string,"uploaded_by"?: string | null,"version": number
+                    "comment"?: string | null,"created_at"?: string,"document_id": string,"file_name": string,"id"?: string,"mime_type": string,"organization_id"?: string,"sha256": string,"size_bytes": number,"storage_bucket"?: string,"storage_path": string,"uploaded_by"?: string | null,"version": number
                   }
                   Update: {
                     "comment"?: string | null,"created_at"?: string,"document_id"?: string,"file_name"?: string,"id"?: string,"mime_type"?: string,"organization_id"?: string,"sha256"?: string,"size_bytes"?: number,"storage_bucket"?: string,"storage_path"?: string,"uploaded_by"?: string | null,"version"?: number
@@ -417,7 +417,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "collected_at"?: string,"created_at"?: string,"credibility"?: number | null,"excerpt"?: string | null,"id"?: string,"organization_id": string,"published_at"?: string | null,"source_id": string,"status"?: string,"theme"?: string | null,"title": string,"url": string
+                    "collected_at"?: string,"created_at"?: string,"credibility"?: number | null,"excerpt"?: string | null,"id"?: string,"organization_id"?: string,"published_at"?: string | null,"source_id": string,"status"?: string,"theme"?: string | null,"title": string,"url": string
                   }
                   Update: {
                     "collected_at"?: string,"created_at"?: string,"credibility"?: number | null,"excerpt"?: string | null,"id"?: string,"organization_id"?: string,"published_at"?: string | null,"source_id"?: string,"status"?: string,"theme"?: string | null,"title"?: string,"url"?: string
@@ -443,7 +443,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "client_id": string,"organization_id": string,"report_id": string,"sent_at"?: string
+                    "client_id": string,"organization_id"?: string,"report_id": string,"sent_at"?: string
                   }
                   Update: {
                     "client_id"?: string,"organization_id"?: string,"report_id"?: string,"sent_at"?: string
@@ -527,7 +527,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "catalog_item_id"?: string | null,"description": string,"discount_rate"?: number,"id"?: string,"invoice_id": string,"organization_id": string,"position"?: number,"quantity": number,"total_ht"?: never,"unit"?: string,"unit_price": number,"vat_rate"?: number
+                    "catalog_item_id"?: string | null,"description": string,"discount_rate"?: number,"id"?: string,"invoice_id": string,"organization_id"?: string,"position"?: number,"quantity": number,"total_ht"?: never,"unit"?: string,"unit_price": number,"vat_rate"?: number
                   }
                   Update: {
                     "catalog_item_id"?: string | null,"description"?: string,"discount_rate"?: number,"id"?: string,"invoice_id"?: string,"organization_id"?: string,"position"?: number,"quantity"?: number,"total_ht"?: never,"unit"?: string,"unit_price"?: number,"vat_rate"?: number
@@ -685,7 +685,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "body": string,"client_id": string,"created_at"?: string,"from_client"?: boolean,"id"?: string,"mission_id"?: string | null,"organization_id": string,"read_by_client_at"?: string | null,"read_by_staff_at"?: string | null,"sender_id"?: string
+                    "body": string,"client_id": string,"created_at"?: string,"from_client"?: boolean,"id"?: string,"mission_id"?: string | null,"organization_id"?: string,"read_by_client_at"?: string | null,"read_by_staff_at"?: string | null,"sender_id"?: string
                   }
                   Update: {
                     "body"?: string,"client_id"?: string,"created_at"?: string,"from_client"?: boolean,"id"?: string,"mission_id"?: string | null,"organization_id"?: string,"read_by_client_at"?: string | null,"read_by_staff_at"?: string | null,"sender_id"?: string
@@ -723,7 +723,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "completed_at"?: string | null,"created_at"?: string,"due_date"?: string | null,"id"?: string,"organization_id": string,"position"?: number,"project_id": string,"status"?: string,"title": string,"updated_at"?: string
+                    "completed_at"?: string | null,"created_at"?: string,"due_date"?: string | null,"id"?: string,"organization_id"?: string,"position"?: number,"project_id": string,"status"?: string,"title": string,"updated_at"?: string
                   }
                   Update: {
                     "completed_at"?: string | null,"created_at"?: string,"due_date"?: string | null,"id"?: string,"organization_id"?: string,"position"?: number,"project_id"?: string,"status"?: string,"title"?: string,"updated_at"?: string
@@ -923,7 +923,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "channel"?: string,"created_by"?: string | null,"id"?: string,"invoice_id": string,"level": number,"notes"?: string | null,"organization_id": string,"sent_at"?: string
+                    "channel"?: string,"created_by"?: string | null,"id"?: string,"invoice_id": string,"level": number,"notes"?: string | null,"organization_id"?: string,"sent_at"?: string
                   }
                   Update: {
                     "channel"?: string,"created_by"?: string | null,"id"?: string,"invoice_id"?: string,"level"?: number,"notes"?: string | null,"organization_id"?: string,"sent_at"?: string
@@ -955,7 +955,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "amount": number,"created_at"?: string,"created_by"?: string | null,"id"?: string,"invoice_id": string,"method"?: string,"notes"?: string | null,"organization_id": string,"paid_at"?: string,"reference"?: string | null
+                    "amount": number,"created_at"?: string,"created_by"?: string | null,"id"?: string,"invoice_id": string,"method"?: string,"notes"?: string | null,"organization_id"?: string,"paid_at"?: string,"reference"?: string | null
                   }
                   Update: {
                     "amount"?: number,"created_at"?: string,"created_by"?: string | null,"id"?: string,"invoice_id"?: string,"method"?: string,"notes"?: string | null,"organization_id"?: string,"paid_at"?: string,"reference"?: string | null
@@ -1001,7 +1001,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "created_at"?: string,"created_by"?: string | null,"decided_at"?: string,"decided_by"?: string | null,"description"?: string | null,"due_date"?: string | null,"id"?: string,"kind": string,"meeting_id"?: string | null,"organization_id": string,"owner"?: string | null,"project_id": string,"resolved_at"?: string | null,"status"?: string,"title": string,"updated_at"?: string
+                    "created_at"?: string,"created_by"?: string | null,"decided_at"?: string,"decided_by"?: string | null,"description"?: string | null,"due_date"?: string | null,"id"?: string,"kind": string,"meeting_id"?: string | null,"organization_id"?: string,"owner"?: string | null,"project_id": string,"resolved_at"?: string | null,"status"?: string,"title": string,"updated_at"?: string
                   }
                   Update: {
                     "created_at"?: string,"created_by"?: string | null,"decided_at"?: string,"decided_by"?: string | null,"description"?: string | null,"due_date"?: string | null,"id"?: string,"kind"?: string,"meeting_id"?: string | null,"organization_id"?: string,"owner"?: string | null,"project_id"?: string,"resolved_at"?: string | null,"status"?: string,"title"?: string,"updated_at"?: string
@@ -1039,7 +1039,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "attendees"?: string | null,"client_visible"?: boolean,"created_at"?: string,"held_at": string,"id"?: string,"location"?: string | null,"minutes"?: string | null,"organization_id": string,"project_id": string,"title": string,"updated_at"?: string
+                    "attendees"?: string | null,"client_visible"?: boolean,"created_at"?: string,"held_at": string,"id"?: string,"location"?: string | null,"minutes"?: string | null,"organization_id"?: string,"project_id": string,"title": string,"updated_at"?: string
                   }
                   Update: {
                     "attendees"?: string | null,"client_visible"?: boolean,"created_at"?: string,"held_at"?: string,"id"?: string,"location"?: string | null,"minutes"?: string | null,"organization_id"?: string,"project_id"?: string,"title"?: string,"updated_at"?: string
@@ -1129,7 +1129,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "catalog_item_id"?: string | null,"description": string,"discount_rate"?: number,"id"?: string,"organization_id": string,"position"?: number,"quantity": number,"quote_id": string,"total_ht"?: never,"unit"?: string,"unit_price": number,"vat_rate"?: number
+                    "catalog_item_id"?: string | null,"description": string,"discount_rate"?: number,"id"?: string,"organization_id"?: string,"position"?: number,"quantity": number,"quote_id": string,"total_ht"?: never,"unit"?: string,"unit_price": number,"vat_rate"?: number
                   }
                   Update: {
                     "catalog_item_id"?: string | null,"description"?: string,"discount_rate"?: number,"id"?: string,"organization_id"?: string,"position"?: number,"quantity"?: number,"quote_id"?: string,"total_ht"?: never,"unit"?: string,"unit_price"?: number,"vat_rate"?: number
@@ -1205,7 +1205,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "audit_id": string,"client_visible"?: boolean,"completed_at"?: string | null,"created_at"?: string,"description"?: string | null,"due_date"?: string | null,"estimated_cost"?: number | null,"horizon"?: string | null,"id"?: string,"organization_id": string,"owner"?: string | null,"priority"?: string,"risk_id"?: string | null,"status"?: string,"title": string,"updated_at"?: string
+                    "audit_id": string,"client_visible"?: boolean,"completed_at"?: string | null,"created_at"?: string,"description"?: string | null,"due_date"?: string | null,"estimated_cost"?: number | null,"horizon"?: string | null,"id"?: string,"organization_id"?: string,"owner"?: string | null,"priority"?: string,"risk_id"?: string | null,"status"?: string,"title": string,"updated_at"?: string
                   }
                   Update: {
                     "audit_id"?: string,"client_visible"?: boolean,"completed_at"?: string | null,"created_at"?: string,"description"?: string | null,"due_date"?: string | null,"estimated_cost"?: number | null,"horizon"?: string | null,"id"?: string,"organization_id"?: string,"owner"?: string | null,"priority"?: string,"risk_id"?: string | null,"status"?: string,"title"?: string,"updated_at"?: string
@@ -1237,7 +1237,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "audit_id": string,"category": string,"created_at"?: string,"criteria"?: NonNullable<Json>,"id"?: string,"impact": number,"is_validated"?: boolean,"justification": string,"level": string,"likelihood": number,"observation_id"?: string | null,"organization_id": string,"score"?: never,"threat": string,"updated_at"?: string,"vulnerability"?: string | null
+                    "audit_id": string,"category": string,"created_at"?: string,"criteria"?: NonNullable<Json>,"id"?: string,"impact": number,"is_validated"?: boolean,"justification": string,"level": string,"likelihood": number,"observation_id"?: string | null,"organization_id"?: string,"score"?: never,"threat": string,"updated_at"?: string,"vulnerability"?: string | null
                   }
                   Update: {
                     "audit_id"?: string,"category"?: string,"created_at"?: string,"criteria"?: NonNullable<Json>,"id"?: string,"impact"?: number,"is_validated"?: boolean,"justification"?: string,"level"?: string,"likelihood"?: number,"observation_id"?: string | null,"organization_id"?: string,"score"?: never,"threat"?: string,"updated_at"?: string,"vulnerability"?: string | null
@@ -1269,7 +1269,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "id"?: string,"label": string,"organization_id": string,"position"?: number,"project_id": string,"weight": number
+                    "id"?: string,"label": string,"organization_id"?: string,"position"?: number,"project_id": string,"weight": number
                   }
                   Update: {
                     "id"?: string,"label"?: string,"organization_id"?: string,"position"?: number,"project_id"?: string,"weight"?: number
@@ -1365,7 +1365,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "amount_ht": number,"created_at"?: string,"delay_weeks"?: number | null,"id"?: string,"is_selected"?: boolean,"organization_id": string,"project_id": string,"received_at"?: string | null,"scope_notes"?: string | null,"scores"?: NonNullable<Json>,"strengths"?: string | null,"updated_at"?: string,"vendor_id": string,"weaknesses"?: string | null
+                    "amount_ht": number,"created_at"?: string,"delay_weeks"?: number | null,"id"?: string,"is_selected"?: boolean,"organization_id"?: string,"project_id": string,"received_at"?: string | null,"scope_notes"?: string | null,"scores"?: NonNullable<Json>,"strengths"?: string | null,"updated_at"?: string,"vendor_id": string,"weaknesses"?: string | null
                   }
                   Update: {
                     "amount_ht"?: number,"created_at"?: string,"delay_weeks"?: number | null,"id"?: string,"is_selected"?: boolean,"organization_id"?: string,"project_id"?: string,"received_at"?: string | null,"scope_notes"?: string | null,"scores"?: NonNullable<Json>,"strengths"?: string | null,"updated_at"?: string,"vendor_id"?: string,"weaknesses"?: string | null

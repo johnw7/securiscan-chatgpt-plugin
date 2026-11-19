@@ -1,0 +1,13 @@
+import { chromium } from "playwright";
+const [,, email, url, out] = process.argv;
+const browser = await chromium.launch();
+const ctx = await browser.newContext();
+const page = await ctx.newPage();
+await page.goto("http://localhost:3000/login");
+await page.fill("#email", email); await page.fill("#password", "Noamis-Dev-2026!");
+await page.click("button[type=submit]");
+await page.waitForURL((u) => !u.pathname.startsWith("/login"));
+const res = await ctx.request.get("http://localhost:3000" + url);
+console.log("status", res.status(), res.headers()["content-type"]);
+const buf = await res.body(); (await import("node:fs")).writeFileSync(out, buf); console.log("bytes", buf.length);
+await browser.close();

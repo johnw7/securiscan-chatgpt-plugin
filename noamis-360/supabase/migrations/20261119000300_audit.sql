@@ -76,7 +76,7 @@ create trigger audits_draft_version before update on public.audits for each row 
 
 create table public.audit_observations (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   audit_id         uuid not null references public.audits (id) on delete cascade,
   category         text not null,
   title            text not null,
@@ -96,7 +96,7 @@ create trigger audit_observations_audit after insert or update or delete on publ
 
 create table public.risk_assessments (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   audit_id         uuid not null references public.audits (id) on delete cascade,
   observation_id   uuid references public.audit_observations (id) on delete set null,
   category         text not null,
@@ -118,7 +118,7 @@ create trigger risk_assessments_audit after insert or update or delete on public
 
 create table public.recommendations (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   audit_id         uuid not null references public.audits (id) on delete cascade,
   risk_id          uuid references public.risk_assessments (id) on delete set null,
   title            text not null,

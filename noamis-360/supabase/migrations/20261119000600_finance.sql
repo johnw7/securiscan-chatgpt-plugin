@@ -103,7 +103,7 @@ create trigger quotes_audit after insert or update or delete on public.quotes fo
 
 create table public.quote_items (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   quote_id         uuid not null references public.quotes (id) on delete cascade,
   position         int not null default 0,
   catalog_item_id  uuid references public.service_catalog (id) on delete set null,
@@ -167,7 +167,7 @@ create trigger invoices_audit after insert or update or delete on public.invoice
 
 create table public.invoice_items (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   invoice_id       uuid not null references public.invoices (id) on delete cascade,
   position         int not null default 0,
   catalog_item_id  uuid references public.service_catalog (id) on delete set null,
@@ -183,7 +183,7 @@ create index invoice_items_invoice_idx on public.invoice_items (invoice_id, posi
 
 create table public.payments (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   invoice_id       uuid not null references public.invoices (id),
   amount           numeric(12, 2) not null check (amount > 0),
   paid_at          date not null default current_date,
@@ -198,7 +198,7 @@ create trigger payments_audit after insert or update or delete on public.payment
 
 create table public.payment_reminders (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   invoice_id       uuid not null references public.invoices (id),
   level            int not null check (level between 1 and 3),
   channel          text not null default 'email' check (channel in ('email', 'courrier', 'telephone', 'autre')),

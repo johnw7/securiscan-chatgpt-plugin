@@ -39,7 +39,7 @@ create trigger documents_audit after insert or update or delete on public.docume
 
 create table public.document_versions (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   document_id      uuid not null references public.documents (id) on delete cascade,
   version          int not null,
   storage_bucket   text not null default 'documents',
@@ -112,7 +112,7 @@ $$;
 -- Liens de partage temporaires (le jeton n'est jamais stocké en clair).
 create table public.document_shares (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   document_id      uuid not null references public.documents (id) on delete cascade,
   token_hash       text not null unique check (token_hash ~ '^[0-9a-f]{64}$'),
   recipient        text,
@@ -180,7 +180,7 @@ grant execute on function public.consume_document_share(text) to service_role;
 -- -----------------------------------------------------------------------------
 create table public.messages (
   id                  uuid primary key default gen_random_uuid(),
-  organization_id     uuid not null references public.organizations (id),
+  organization_id     uuid not null default private.current_org_id() references public.organizations (id),
   client_id           uuid not null references public.clients (id) on delete cascade,
   mission_id          uuid references public.missions (id) on delete set null,
   sender_id           uuid not null default auth.uid() references public.profiles (id),
@@ -268,7 +268,7 @@ grant execute on function public.mark_messages_read(uuid) to authenticated;
 
 create table public.client_approvals (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   client_id        uuid not null references public.clients (id) on delete cascade,
   mission_id       uuid references public.missions (id) on delete cascade,
   document_id      uuid references public.documents (id) on delete set null,

@@ -29,7 +29,7 @@ create trigger intelligence_sources_audit after insert or update or delete on pu
 -- Contenus collectés (titre, lien, date, extrait) — jamais de copie intégrale.
 create table public.intelligence_items (
   id               uuid primary key default gen_random_uuid(),
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   source_id        uuid not null references public.intelligence_sources (id) on delete cascade,
   title            text not null,
   url              text not null check (url ~ '^https?://'),
@@ -90,7 +90,7 @@ create trigger intelligence_reports_audit after insert or update or delete on pu
 create table public.intelligence_report_recipients (
   report_id        uuid not null references public.intelligence_reports (id) on delete cascade,
   client_id        uuid not null references public.clients (id) on delete cascade,
-  organization_id  uuid not null references public.organizations (id),
+  organization_id  uuid not null default private.current_org_id() references public.organizations (id),
   sent_at          timestamptz not null default now(),
   primary key (report_id, client_id)
 );
