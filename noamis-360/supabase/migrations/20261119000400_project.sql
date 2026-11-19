@@ -5,7 +5,7 @@
 create table public.projects (
   id                uuid primary key default gen_random_uuid(),
   organization_id   uuid not null default private.current_org_id() references public.organizations (id),
-  reference         text not null,
+  reference         text not null default '',
   client_id         uuid not null references public.clients (id),
   mission_id        uuid references public.missions (id),
   name              text not null check (char_length(name) between 3 and 200),

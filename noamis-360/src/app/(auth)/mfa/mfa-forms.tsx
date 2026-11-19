@@ -69,8 +69,11 @@ export function MfaEnrollForm() {
   const [code, setCode] = React.useState("");
   const [error, setError] = React.useState<string | null>(null);
   const [pending, setPending] = React.useState(false);
+  const started = React.useRef(false);
 
   React.useEffect(() => {
+    if (started.current) return; // une seule tentative d'enrôlement (mode strict React)
+    started.current = true;
     let cancelled = false;
     (async () => {
       const supabase = createBrowserSupabase();
@@ -83,7 +86,7 @@ export function MfaEnrollForm() {
       for (const f of list?.all ?? []) {
         if (f.status === "unverified") await supabase.auth.mfa.unenroll({ factorId: f.id });
       }
-      const { data, error } = await supabase.auth.mfa.enroll({ factorType: "totp", friendlyName: `NOAMIS 360° ${new Date().toISOString().slice(0, 10)}` });
+      const { data, error } = await supabase.auth.mfa.enroll({ factorType: "totp", friendlyName: `NOAMIS 360° ${new Date().toISOString().slice(0, 16)} ${crypto.randomUUID().slice(0, 6)}` });
       if (cancelled) return;
       if (error || !data) {
         setError("Impossible de démarrer l'enrôlement. Reconnectez-vous puis réessayez.");
@@ -92,7 +95,8 @@ export function MfaEnrollForm() {
       setFactor({ id: data.id, qr: data.totp.qr_code, secret: data.totp.secret });
     })();
     return () => {
-      cancelled = true;
+      cancelled = false;
+      void cancelled;
     };
   }, [router]);
 

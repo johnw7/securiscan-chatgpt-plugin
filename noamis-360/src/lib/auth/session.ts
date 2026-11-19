@@ -26,7 +26,7 @@ export const getSession = cache(async (): Promise<SessionContext | null> => {
   const claims = claimsData?.claims;
   if (!claims?.sub) return null;
 
-  const [{ data: membership }, { data: profile }, { data: aalData }] = await Promise.all([
+  const [{ data: membership }, { data: profile }] = await Promise.all([
     supabase
       .from("memberships")
       .select("role, organization_id, client_id, organizations(name)")
@@ -36,10 +36,18 @@ export const getSession = cache(async (): Promise<SessionContext | null> => {
       .limit(1)
       .maybeSingle(),
     supabase.from("profiles").select("full_name, email").eq("id", claims.sub).maybeSingle(),
-    supabase.auth.mfa.getAuthenticatorAssuranceLevel(),
   ]);
 
   if (!membership) return null;
+
+  // Niveau d'assurance lu dans le JWT vérifié par getClaims().
+  const aal = claims.aal === "aal2" ? "aal2" : "aal1";
+  // Facteurs MFA vérifiés : consultés auprès du serveur d'authentification seulement si nécessaire.
+  let mfaEnrolled = aal === "aal2";
+  if (!mfaEnrolled && requiresMfa(membership.role as Role)) {
+    const { data: userData } = await supabase.auth.getUser();
+    mfaEnrolled = (userData.user?.factors ?? []).some((f) => f.status === "verified");
+  }
 
   return {
     userId: claims.sub,
@@ -49,8 +57,8 @@ export const getSession = cache(async (): Promise<SessionContext | null> => {
     organizationId: membership.organization_id,
     organizationName: (membership.organizations as { name: string } | null)?.name ?? "NOAMIS",
     clientId: membership.client_id,
-    aal: (aalData?.currentLevel ?? "aal1") as "aal1" | "aal2",
-    mfaEnrolled: aalData?.nextLevel === "aal2",
+    aal,
+    mfaEnrolled,
   };
 });
 

@@ -50,3 +50,4 @@ supabase/.branches/
 /playwright/.cache/
 /coverage/
 scripts/.smoke.tmp.mjs
+scripts/.mfa.tmp.mjs

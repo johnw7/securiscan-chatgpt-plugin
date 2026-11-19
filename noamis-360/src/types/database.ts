@@ -101,7 +101,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "answers"?: NonNullable<Json>,"audit_date"?: string | null,"auditor_id"?: string | null,"client_id": string,"context"?: string | null,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"draft_version"?: number,"id"?: string,"methodology"?: string | null,"mission_id"?: string | null,"organization_id"?: string,"reference": string,"scoring_snapshot"?: Json | null,"site_address"?: string | null,"site_name"?: string | null,"status"?: string,"summary"?: string | null,"template_id"?: string | null,"title": string,"updated_at"?: string,"validated_at"?: string | null,"validated_by"?: string | null
+                    "answers"?: NonNullable<Json>,"audit_date"?: string | null,"auditor_id"?: string | null,"client_id": string,"context"?: string | null,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"draft_version"?: number,"id"?: string,"methodology"?: string | null,"mission_id"?: string | null,"organization_id"?: string,"reference"?: string,"scoring_snapshot"?: Json | null,"site_address"?: string | null,"site_name"?: string | null,"status"?: string,"summary"?: string | null,"template_id"?: string | null,"title": string,"updated_at"?: string,"validated_at"?: string | null,"validated_by"?: string | null
                   }
                   Update: {
                     "answers"?: NonNullable<Json>,"audit_date"?: string | null,"auditor_id"?: string | null,"client_id"?: string,"context"?: string | null,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"draft_version"?: number,"id"?: string,"methodology"?: string | null,"mission_id"?: string | null,"organization_id"?: string,"reference"?: string,"scoring_snapshot"?: Json | null,"site_address"?: string | null,"site_name"?: string | null,"status"?: string,"summary"?: string | null,"template_id"?: string | null,"title"?: string,"updated_at"?: string,"validated_at"?: string | null,"validated_by"?: string | null
@@ -671,6 +671,12 @@ isOneToOne: false
 isOneToOne: false
       referencedRelation: "organizations"
       referencedColumns: ["id"]
+    },{
+      foreignKeyName: "memberships_user_id_fkey"
+      columns: ["user_id"]
+isOneToOne: false
+      referencedRelation: "profiles"
+      referencedColumns: ["id"]
     }
                   ]
                 },"messages": {
@@ -775,7 +781,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "budget"?: number | null,"client_id": string,"client_visible"?: boolean,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"description"?: string | null,"end_date"?: string | null,"id"?: string,"is_confidential"?: boolean,"manager_id"?: string | null,"organization_id"?: string,"progress"?: number,"reference": string,"service_type": string,"start_date"?: string | null,"status"?: string,"title": string,"updated_at"?: string
+                    "budget"?: number | null,"client_id": string,"client_visible"?: boolean,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"description"?: string | null,"end_date"?: string | null,"id"?: string,"is_confidential"?: boolean,"manager_id"?: string | null,"organization_id"?: string,"progress"?: number,"reference"?: string,"service_type": string,"start_date"?: string | null,"status"?: string,"title": string,"updated_at"?: string
                   }
                   Update: {
                     "budget"?: number | null,"client_id"?: string,"client_visible"?: boolean,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"description"?: string | null,"end_date"?: string | null,"id"?: string,"is_confidential"?: boolean,"manager_id"?: string | null,"organization_id"?: string,"progress"?: number,"reference"?: string,"service_type"?: string,"start_date"?: string | null,"status"?: string,"title"?: string,"updated_at"?: string
@@ -1059,7 +1065,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "budget"?: number | null,"client_id": string,"client_visible"?: boolean,"closed_at"?: string | null,"closure_notes"?: string | null,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"description"?: string | null,"end_date"?: string | null,"id"?: string,"mission_id"?: string | null,"name": string,"organization_id"?: string,"phase"?: string,"reception_date"?: string | null,"reception_notes"?: string | null,"reference": string,"specification"?: string | null,"start_date"?: string | null,"status"?: string,"updated_at"?: string
+                    "budget"?: number | null,"client_id": string,"client_visible"?: boolean,"closed_at"?: string | null,"closure_notes"?: string | null,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"description"?: string | null,"end_date"?: string | null,"id"?: string,"mission_id"?: string | null,"name": string,"organization_id"?: string,"phase"?: string,"reception_date"?: string | null,"reception_notes"?: string | null,"reference"?: string,"specification"?: string | null,"start_date"?: string | null,"status"?: string,"updated_at"?: string
                   }
                   Update: {
                     "budget"?: number | null,"client_id"?: string,"client_visible"?: boolean,"closed_at"?: string | null,"closure_notes"?: string | null,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"description"?: string | null,"end_date"?: string | null,"id"?: string,"mission_id"?: string | null,"name"?: string,"organization_id"?: string,"phase"?: string,"reception_date"?: string | null,"reception_notes"?: string | null,"reference"?: string,"specification"?: string | null,"start_date"?: string | null,"status"?: string,"updated_at"?: string
@@ -1155,7 +1161,7 @@ isOneToOne: false
                   }
                   ComputedFields: never
                   Insert: {
-                    "client_id": string,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"discount_amount"?: number,"discount_rate"?: number,"id"?: string,"introduction"?: string | null,"issue_date"?: string,"lead_id"?: string | null,"mission_id"?: string | null,"number": string,"organization_id"?: string,"payment_terms"?: string | null,"responded_at"?: string | null,"response_comment"?: string | null,"sent_at"?: string | null,"status"?: string,"subtotal_ht"?: number,"terms"?: string | null,"title": string,"total_ht"?: number,"total_ttc"?: number,"total_vat"?: number,"updated_at"?: string,"valid_until"?: string | null,"vat_breakdown"?: NonNullable<Json>
+                    "client_id": string,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"discount_amount"?: number,"discount_rate"?: number,"id"?: string,"introduction"?: string | null,"issue_date"?: string,"lead_id"?: string | null,"mission_id"?: string | null,"number"?: string,"organization_id"?: string,"payment_terms"?: string | null,"responded_at"?: string | null,"response_comment"?: string | null,"sent_at"?: string | null,"status"?: string,"subtotal_ht"?: number,"terms"?: string | null,"title": string,"total_ht"?: number,"total_ttc"?: number,"total_vat"?: number,"updated_at"?: string,"valid_until"?: string | null,"vat_breakdown"?: NonNullable<Json>
                   }
                   Update: {
                     "client_id"?: string,"created_at"?: string,"created_by"?: string | null,"deleted_at"?: string | null,"discount_amount"?: number,"discount_rate"?: number,"id"?: string,"introduction"?: string | null,"issue_date"?: string,"lead_id"?: string | null,"mission_id"?: string | null,"number"?: string,"organization_id"?: string,"payment_terms"?: string | null,"responded_at"?: string | null,"response_comment"?: string | null,"sent_at"?: string | null,"status"?: string,"subtotal_ht"?: number,"terms"?: string | null,"title"?: string,"total_ht"?: number,"total_ttc"?: number,"total_vat"?: number,"updated_at"?: string,"valid_until"?: string | null,"vat_breakdown"?: NonNullable<Json>

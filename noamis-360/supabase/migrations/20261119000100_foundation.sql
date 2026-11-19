@@ -111,7 +111,7 @@ create trigger on_auth_user_created
 create table public.memberships (
   id               uuid primary key default gen_random_uuid(),
   organization_id  uuid not null references public.organizations (id) on delete cascade,
-  user_id          uuid not null references auth.users (id) on delete cascade,
+  user_id          uuid not null references public.profiles (id) on delete cascade,
   role             text not null check (role in ('super_admin', 'admin', 'collaborator', 'client')),
   client_id        uuid,  -- FK ajoutée après création de public.clients
   active           boolean not null default true,

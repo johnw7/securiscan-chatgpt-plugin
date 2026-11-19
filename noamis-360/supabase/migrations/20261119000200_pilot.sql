@@ -98,7 +98,7 @@ create trigger leads_audit after insert or update or delete on public.leads for 
 create table public.missions (
   id               uuid primary key default gen_random_uuid(),
   organization_id  uuid not null default private.current_org_id() references public.organizations (id),
-  reference        text not null,
+  reference        text not null default '',
   client_id        uuid not null references public.clients (id),
   service_type     text not null check (service_type in (
                      'audit_surete', 'amoa', 'risk_intelligence', 'solutions_securite',

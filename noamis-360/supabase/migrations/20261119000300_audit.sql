@@ -27,7 +27,7 @@ create trigger audit_templates_audit after insert or update or delete on public.
 create table public.audits (
   id                uuid primary key default gen_random_uuid(),
   organization_id   uuid not null default private.current_org_id() references public.organizations (id),
-  reference         text not null,
+  reference         text not null default '',
   client_id         uuid not null references public.clients (id),
   mission_id        uuid references public.missions (id),
   template_id       uuid references public.audit_templates (id),

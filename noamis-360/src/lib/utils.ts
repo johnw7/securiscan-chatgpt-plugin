@@ -46,3 +46,23 @@ export function safeInternalPath(path: string | null | undefined, fallback = "/d
   if (!path || !path.startsWith("/") || path.startsWith("//") || path.startsWith("/\\")) return fallback;
   return path;
 }
+
+/** Convertit une saisie « datetime-local » (heure de Paris) en ISO UTC. */
+export function parisLocalToISO(local: string): string {
+  const base = local.length === 16 ? `${local}:00` : local;
+  const probe = new Date(`${base}Z`);
+  const part = new Intl.DateTimeFormat("en-US", { timeZone: "Europe/Paris", timeZoneName: "longOffset" })
+    .formatToParts(probe)
+    .find((p) => p.type === "timeZoneName")?.value;
+  const offset = part && part !== "GMT" ? part.replace("GMT", "") : "+00:00";
+  return new Date(`${base}${offset}`).toISOString();
+}
+
+/** Convertit un horodatage ISO en valeur « datetime-local » (heure de Paris). */
+export function isoToParisLocal(iso: string | null | undefined): string {
+  if (!iso) return "";
+  const parts = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit",
+  }).format(new Date(iso));
+  return parts.replace(" ", "T");
+}
