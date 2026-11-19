@@ -4,6 +4,7 @@ import { closureSchema, criterionSchema, decisionSchema, meetingSchema, mileston
 import { aiDraftSchema, referenceSchema, reportSchema, sourceSchema } from "./intelligence/schemas";
 import { documentMetaSchema, shareSchema } from "./docs/schemas";
 import { catalogSchema, invoiceSchema, lineSchema, paymentSchema, quoteSchema, reminderSchema } from "./finance/schemas";
+import { approvalSchema } from "./connect/schemas";
 import { clientSchema, contactSchema, eventSchema, leadSchema, missionSchema, noteSchema, taskSchema } from "./pilot/schemas";
 
 /**
@@ -46,6 +47,7 @@ export const FORM_SCHEMAS = {
   invoice: invoiceSchema,
   payment: paymentSchema,
   reminder: reminderSchema,
+  approval: approvalSchema,
   member: z.object({ user_id: z.string().uuid("Sélectionnez un collaborateur") }),
 } satisfies Record<string, z.ZodType>;
 
