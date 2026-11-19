@@ -62,9 +62,11 @@ export function EntityForm({
 }: Props) {
   const router = useRouter();
   const [pending, startTransition] = React.useTransition();
+  const zodSchema = FORM_SCHEMAS[schema];
+  if (!zodSchema) throw new Error(`Schéma de formulaire inconnu : ${String(schema)}`);
   const form = useForm<FieldValues>({
     // Le schéma est générique : on accepte ses entrées/sorties sans contrainte de type ici.
-    resolver: zodResolver(FORM_SCHEMAS[schema] as never) as never,
+    resolver: zodResolver(zodSchema as never) as never,
     defaultValues: normalizeDefaults(fields, defaultValues),
     mode: "onTouched",
   });
