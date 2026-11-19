@@ -200,8 +200,15 @@ set search_path = ''
 as $$
 begin
   select organization_id into new.organization_id from public.clients where id = new.client_id;
-  new.sender_id := auth.uid();
-  new.from_client := private.is_client_of(new.client_id);
+  -- Un utilisateur connecté ne peut jamais usurper l'expéditeur ; seules les
+  -- opérations serveur (clé de service, sans utilisateur) fixent sender_id.
+  if auth.uid() is not null then
+    new.sender_id := auth.uid();
+    new.from_client := private.is_client_of(new.client_id);
+  else
+    new.from_client := exists (select 1 from public.memberships m
+                               where m.user_id = new.sender_id and m.client_id = new.client_id and m.role = 'client');
+  end if;
   new.read_by_staff_at := null;
   new.read_by_client_at := null;
   return new;

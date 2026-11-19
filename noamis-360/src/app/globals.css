@@ -1,26 +1,136 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Charte NOAMIS 360°
+ * Palette obligatoire : noir #101113 / #1B1C1E, or #C7A15B / #E5C27B, blanc #FFFFFF, gris #AFAFAF.
+ * Contrastes (WCAG 2.2 AA) vérifiés dans tests/unit/contrast.test.ts.
+ * Thème sombre = référence. Thème clair : mêmes teintes, textes assombris pour le contraste.
+ */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root,
+[data-theme="dark"] {
+  --background: #101113;
+  --surface: #1b1c1e;
+  --surface-2: #232427;
+  --surface-3: #2b2d31;
+  --border: #34363b;
+  --border-strong: #4a4d53;
+  --foreground: #ffffff;
+  --muted: #afafaf;
+  --gold: #c7a15b;
+  --gold-light: #e5c27b;
+  --gold-text: #e5c27b;
+  --on-gold: #101113;
+  --success: #5ec38f;
+  --warning: #e8b45a;
+  --danger: #f2777a;
+  --info: #7fb2e8;
+  --ring: #e5c27b;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.25);
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --background: #f6f5f2;
+  --surface: #ffffff;
+  --surface-2: #f1efea;
+  --surface-3: #e7e4dd;
+  --border: #dedad1;
+  --border-strong: #bfb9ad;
+  --foreground: #101113;
+  --muted: #55575c;
+  --gold: #c7a15b;
+  --gold-light: #e5c27b;
+  --gold-text: #7a5a1e;
+  --on-gold: #101113;
+  --success: #1f7a4d;
+  --warning: #8a5a00;
+  --danger: #b42318;
+  --info: #1d5fa8;
+  --ring: #7a5a1e;
+  --shadow: 0 1px 2px rgb(16 17 19 / 0.06), 0 8px 24px rgb(16 17 19 / 0.08);
+  color-scheme: light;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-text: var(--gold-text);
+  --color-on-gold: var(--on-gold);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --color-ring: var(--ring);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --shadow-card: var(--shadow);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Focus visible systématique (navigation clavier, WCAG 2.4.7 / 2.4.11) */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--gold) 35%, transparent);
+  }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+  }
+  [data-theme="light"] input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
 }

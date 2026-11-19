@@ -49,3 +49,4 @@ supabase/.branches/
 /blob-report/
 /playwright/.cache/
 /coverage/
+scripts/.smoke.tmp.mjs
