@@ -1,0 +1,31 @@
+name: NOAMIS 360° — qualité
+on:
+  push:
+    paths: ["noamis-360/**", ".github/workflows/noamis-360-ci.yml"]
+  pull_request:
+    paths: ["noamis-360/**"]
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: noamis-360
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ci-placeholder-public-key-not-a-secret
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: noamis-360/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm audit --omit=dev
+      - run: npm run build

@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NOAMIS 360°
 
-## Getting Started
+Plateforme de pilotage de **NOAMIS Sûreté Conseil** (conseil indépendant en sécurité et sûreté) : direction et CRM, audits de sûreté, AMOA, veille, documents, finance, portail client et diagnostic public.
 
-First, run the development server:
+| Module | Rôle | Accès |
+|---|---|---|
+| **PILOT** | Tableau de bord, clients, contacts, prospects, missions, tâches, calendrier, recherche, notifications, historique | Équipe NOAMIS |
+| **AUDIT** | Questionnaires configurables, brouillon terrain hors ligne, photos, cotation des risques, recommandations, validation, rapport PDF | Équipe NOAMIS |
+| **PROJECT** | AMOA en 8 étapes : cahier des charges, jalons, prestataires, comparatif pondéré (PDF/Excel), réunions, décisions, réserves, clôture | Équipe NOAMIS |
+| **INTELLIGENCE** | Sources évaluées (code de l'Amirauté), collecte RSS autorisée, fiches/bulletins/alertes, validation humaine, diffusion, brouillons IA identifiés | Équipe NOAMIS |
+| **DOCS** | Documents privés versionnés, téléchargements signés, liens de partage expirants | Équipe NOAMIS |
+| **FINANCE** | Catalogue, devis, factures, avoirs, règlements, relances, PDF à mentions légales, export comptable | Équipe (émission : administrateurs) |
+| **CONNECT** | Portail client cloisonné : missions, documents, validations, devis/factures, messagerie, veille | Clients |
+| **PROTECT** | Diagnostic préliminaire public, synthèse PDF, demande de contact → prospect CRM | Public |
+
+## Pile technique
+
+Next.js 16 (App Router) · TypeScript strict · React 19 · Tailwind CSS 4 · composants accessibles (Radix) · Supabase (PostgreSQL 17, Auth + MFA TOTP, Storage privé, RLS) · Zod · React Hook Form · Recharts · Decimal.js · @react-pdf/renderer · ExcelJS · Vitest · Playwright + axe-core.
+
+## Démarrage local (développeurs)
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+supabase start                      # pile Supabase locale (Docker)
+cp .env.example .env.local          # puis renseigner les clés affichées par `supabase status`
+npm run db:reset                    # applique les migrations
+node scripts/seed-dev.ts            # données FICTIVES (refusé hors environnement local)
+npm run dev                         # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Comptes fictifs locaux : `consultant@noamis.test`, `admin@noamis.test` (MFA requise), `client.a@exemple.test`… — mot de passe affiché par le script.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Qualité
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run typecheck && npm run lint
+npm test                            # tests unitaires
+npm run test:security               # RLS, stockage, isolation (base locale requise)
+npm run test:integration            # cohérence financière, flux métier en base
+npm run test:e2e                    # parcours Playwright, accessibilité, mobile
+```
 
-## Learn More
+## Documentation
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Architecture](docs/ARCHITECTURE.md) · [Sécurité](docs/SECURITY.md) · [Déploiement](docs/DEPLOYMENT.md)
+- [Exploitation, sauvegardes, restauration](docs/OPERATIONS.md) · [Guide utilisateur](docs/USER_GUIDE.md)
+- [Avancement et journal](docs/PROGRESS.md) · [Décisions](docs/DECISIONS.md)
