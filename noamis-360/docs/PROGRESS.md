@@ -42,7 +42,7 @@ _Dernière mise à jour : 20/11/2026_
 ## Blocages
 
 1. **Supabase (production)** : le connecteur et les deux jetons saisis sont refusés par l'API de gestion (« JWT could not be decoded »). Action requise : jeton `sbp_` valide, reconnexion du connecteur sur claude.ai, ou intégration Supabase via Vercel.
-2. Déploiement Vercel en attente du point 1 (équipe Vercel accessible, aucun projet créé).
+2. **Vercel** : le connecteur peut lire l'équipe « noamis surete conseil » mais la création de projet est refusée (403 « You don't have permission to create the project »). Action requise : importer le dépôt depuis vercel.com/new (dossier racine `noamis-360`) ou accorder au connecteur le droit de créer des projets.
 
 ## Coûts récurrents estimés
 
