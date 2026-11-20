@@ -14,7 +14,6 @@ afterAll(closePool);
 
 const adminMfa = () => ({ kind: "user" as const, id: f.admin, aal: "aal2" as const });
 const collab = () => ({ kind: "user" as const, id: f.collab, aal: "aal1" as const });
-const clientA = () => ({ kind: "user" as const, id: f.clientUserA, aal: "aal1" as const });
 
 async function draftInvoice(c: PoolClient, lines: Array<[number, number, number, number]>, discount = 0) {
   const inv = (

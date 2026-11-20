@@ -9,7 +9,7 @@ import { QuotesTable } from "@/features/finance/tables";
 import { getClientOptions, getMissionOptions } from "@/features/pilot/queries";
 import { requireCapability } from "@/lib/auth/session";
 import { createClient } from "@/lib/supabase/server";
-import { todayISO } from "@/lib/utils";
+import { daysFromTodayISO, todayISO } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Devis" };
 
@@ -30,7 +30,7 @@ export default async function QuotesPage() {
         description="Propositions commerciales numérotées, calcul HT / TVA / TTC, envoi au portail client et conversion en facture."
         actions={
           <FormDialog title="Nouveau devis" size="lg" trigger={<Button><Plus /> Nouveau devis</Button>} schema="quote" fields={quoteFields(clients, missions)}
-            defaultValues={{ issue_date: today, valid_until: new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10), discount_rate: 0, payment_terms: "Paiement à 30 jours à réception de facture" }}
+            defaultValues={{ issue_date: today, valid_until: daysFromTodayISO(30), discount_rate: 0, payment_terms: "Paiement à 30 jours à réception de facture" }}
             action={saveQuote} redirectTo="/finance/quotes/:id" successMessage="Devis créé" />
         }
       />

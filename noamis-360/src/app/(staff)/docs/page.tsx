@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Notice, PageHeader, StatCard } from "@/components/ui/misc";
 import { DocumentsTable } from "@/features/docs/table";
 import { UploadDialog } from "@/features/docs/upload";
@@ -39,7 +40,7 @@ export default async function DocsPage({ searchParams }: { searchParams: Promise
         <StatCard label="Partagés avec les clients" value={rows.filter((r) => r.client_visible).length} tone="info" />
         <StatCard label="Pièces déposées par les clients" value={rows.filter((r) => r.category === "piece_client").length} tone="success" />
       </div>
-      {(sp.client || sp.mission) && <div className="mb-4"><Notice tone="info">Liste filtrée sur {sp.mission ? "une mission" : "un client"}. <a className="text-gold-text underline" href="/docs">Afficher tout</a></Notice></div>}
+      {(sp.client || sp.mission) && <div className="mb-4"><Notice tone="info">Liste filtrée sur {sp.mission ? "une mission" : "un client"}. <Link className="text-gold-text underline" href="/docs">Afficher tout</Link></Notice></div>}
       <DocumentsTable rows={rows} />
     </>
   );

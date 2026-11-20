@@ -6,7 +6,7 @@ import { saveQuote } from "@/features/finance/actions";
 import { quoteFields } from "@/features/finance/fields";
 import { getClientOptions, getMissionOptions } from "@/features/pilot/queries";
 import { requireCapability } from "@/lib/auth/session";
-import { todayISO } from "@/lib/utils";
+import { daysFromTodayISO, todayISO } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Nouveau devis" };
 
@@ -22,7 +22,7 @@ export default async function NewQuotePage({ searchParams }: { searchParams: Pro
           <EntityForm
             schema="quote"
             fields={quoteFields(clients, missions)}
-            defaultValues={{ client_id: sp.client, mission_id: sp.mission, issue_date: todayISO(), valid_until: new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10), discount_rate: 0, payment_terms: "Paiement à 30 jours à réception de facture" }}
+            defaultValues={{ client_id: sp.client, mission_id: sp.mission, issue_date: todayISO(), valid_until: daysFromTodayISO(30), discount_rate: 0, payment_terms: "Paiement à 30 jours à réception de facture" }}
             action={saveQuote}
             redirectTo="/finance/quotes/:id"
             submitLabel="Créer le devis"

@@ -14,8 +14,15 @@ export function Tabs({
 }) {
   const [value, setValue] = React.useState(defaultValue ?? tabs[0]?.value);
   React.useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (hash && tabs.some((t) => t.value === hash)) setValue(hash);
+    // Synchronisation avec un système externe (ancre de l'URL), inaccessible au rendu serveur.
+    const apply = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash && tabs.some((t) => t.value === hash)) setValue(hash);
+    };
+     
+    apply();
+    window.addEventListener("hashchange", apply);
+    return () => window.removeEventListener("hashchange", apply);
   }, [tabs]);
   return (
     <T.Root

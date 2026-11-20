@@ -60,7 +60,6 @@ export function sanitizeFileName(name: string): string {
   const base = name.split(/[\\/]/).pop() ?? "fichier";
   const cleaned = base
     .normalize("NFKC")
-    // eslint-disable-next-line no-control-regex
     .replace(/[\u0000-\u001f\u007f<>:"|?*]/g, "")
     .replace(/\s+/g, " ")
     .replace(/^\.+/, "")

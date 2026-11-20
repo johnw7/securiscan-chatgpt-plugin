@@ -84,7 +84,12 @@ export function InlineSelect({
   const router = useRouter();
   const [pending, start] = React.useTransition();
   const [current, setCurrent] = React.useState(value);
-  React.useEffect(() => setCurrent(value), [value]);
+  const [previous, setPrevious] = React.useState(value);
+  if (value !== previous) {
+    // Ajustement pendant le rendu quand la valeur serveur change (motif recommandé par React).
+    setPrevious(value);
+    setCurrent(value);
+  }
   return (
     <Select
       aria-label={label}

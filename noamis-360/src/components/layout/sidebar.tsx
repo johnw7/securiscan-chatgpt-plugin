@@ -51,8 +51,6 @@ function NavLinks({ role, onNavigate }: { role: Role; onNavigate?: () => void })
 
 export function Sidebar({ role, organizationName }: { role: Role; organizationName: string }) {
   const [open, setOpen] = React.useState(false);
-  const pathname = usePathname();
-  React.useEffect(() => setOpen(false), [pathname]);
 
   const content = (
     <>

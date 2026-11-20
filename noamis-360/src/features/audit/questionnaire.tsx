@@ -49,7 +49,9 @@ export function Questionnaire({
   const version = React.useRef(initialVersion);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const latest = React.useRef(answers);
-  latest.current = answers;
+  React.useEffect(() => {
+    latest.current = answers;
+  }, [answers]);
 
   // Brouillon local plus récent que la version serveur ? On propose la restauration.
   React.useEffect(() => {
@@ -57,6 +59,8 @@ export function Questionnaire({
       const raw = localStorage.getItem(storageKey);
       if (!raw) return;
       const draft = JSON.parse(raw) as LocalDraft;
+      // Lecture d'un système externe (stockage local) indisponible au rendu serveur.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (JSON.stringify(draft.answers) !== JSON.stringify(initialAnswers)) setRestorable(draft);
       else localStorage.removeItem(storageKey);
     } catch {

@@ -66,3 +66,15 @@ export function isoToParisLocal(iso: string | null | undefined): string {
   }).format(new Date(iso));
   return parts.replace(" ", "T");
 }
+
+/** Date (AAAA-MM-JJ) décalée de `days` jours par rapport à aujourd'hui (heure de Paris). */
+export function daysFromTodayISO(days: number): string {
+  const d = new Date(`${todayISO()}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+/** Horodatage ISO décalé de `days` jours par rapport à maintenant. */
+export function isoInDays(days: number): string {
+  return new Date(Date.now() + days * 86_400_000).toISOString();
+}

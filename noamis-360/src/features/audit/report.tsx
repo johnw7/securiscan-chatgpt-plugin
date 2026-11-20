@@ -200,6 +200,7 @@ export function AuditReportDocument({ data }: { data: ReportData }) {
             <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 10 }}>
               {photos.map((p, i) => (
                 <View key={i} style={{ width: "47%" }} wrap={false}>
+                  {/* eslint-disable-next-line jsx-a11y/alt-text -- composant PDF (react-pdf), sans attribut alt ; légende fournie dessous */}
                   <Image src={{ data: p.data, format: p.format }} style={{ width: "100%", maxHeight: 200, objectFit: "contain" }} />
                   <Text style={[s.small, s.muted]}>Photo {i + 1} - {t(p.observation)}</Text>
                 </View>

@@ -9,7 +9,7 @@ import { amountDue, isOverdue, sum } from "@/features/finance/calc";
 import { requireStaff } from "@/lib/auth/session";
 import { EVENT_KINDS, LEAD_STAGES, LEAD_STAGE_ORDER, TASK_PRIORITY } from "@/lib/labels";
 import { createClient } from "@/lib/supabase/server";
-import { formatDate, formatDateTime, formatEUR, todayISO } from "@/lib/utils";
+import { formatDate, formatDateTime, formatEUR, isoInDays, todayISO } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Tableau de bord" };
 
@@ -20,7 +20,7 @@ export default async function DashboardPage() {
   const supabase = await createClient();
   const today = todayISO();
   const year = today.slice(0, 4);
-  const in14 = new Date(Date.now() + 14 * 86400000).toISOString();
+  const in14 = isoInDays(14);
 
   const [missions, leads, invoices, tasks, audits, events] = await Promise.all([
     supabase.from("missions").select("id, status").is("deleted_at", null),
