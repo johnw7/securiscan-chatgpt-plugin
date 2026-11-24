@@ -88,7 +88,7 @@ def collect_news():
 
 
 def ask_gemini(prompt):
-    model = os.environ.get("GEMINI_MODEL") or "gemini-3.5-flash"
+    model = os.environ.get("GEMINI_MODEL") or "gemini-flash-latest"
     key = os.environ["GEMINI_API_KEY"]
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
     body = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode()
@@ -96,7 +96,7 @@ def ask_gemini(prompt):
         url, data=body, method="POST",
         headers={"Content-Type": "application/json", "x-goog-api-key": key},
     )
-    with urllib.request.urlopen(req, timeout=60) as r:
+    with urllib.request.urlopen(req, timeout=180) as r:
         data = json.load(r)
     return data["candidates"][0]["content"]["parts"][0]["text"].strip()
 
