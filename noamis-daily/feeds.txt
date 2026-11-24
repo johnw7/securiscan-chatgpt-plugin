@@ -1,0 +1,4 @@
+# Un flux RSS par ligne. Les lignes commençant par # sont ignorées.
+# Un flux en panne est simplement ignoré, il ne bloque rien.
+https://www.cert.ssi.gouv.fr/feed/
+https://www.cnil.fr/fr/rss.xml
