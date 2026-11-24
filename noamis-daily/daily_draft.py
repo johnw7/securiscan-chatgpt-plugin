@@ -21,20 +21,37 @@ from datetime import date
 from pathlib import Path
 
 HERE = Path(__file__).parent
+AGENT = HERE / "linkedin_agent"
+sys.path.insert(0, str(AGENT))
 MAX_ITEMS_PER_FEED = 5
 
-PROMPT = """Tu rédiges pour NOAMIS Sûreté Conseil, cabinet de conseil en sûreté et accompagnement.
-Écris UN brouillon de post LinkedIn en français à partir des actualités ci-dessous.
+PROMPT = """Tu es l'agent LinkedIn de NOAMIS Sûreté Conseil. Écris UN brouillon de post en français
+à partir des actualités ci-dessous, en respectant la voix et les règles suivantes.
 
-Règles :
-- Ton sobre, professionnel, utile. Pas de sensationnalisme, pas d'emojis en excès.
-- Pas de tiret cadratin. Phrases courtes.
-- N'invente aucun chiffre, aucun fait, aucune promesse. Utilise uniquement ce qui figure dans les actualités.
-- Choisis l'actualité la plus pertinente pour des responsables d'entrepôts, de sites ou de PME, et donne 3 conseils concrets de prévention.
-- Cite la source (nom de l'organisme et lien) à la fin.
-- Termine par une question simple pour ouvrir la discussion.
-- Longueur : 900 à 1300 caractères.
-- Réponds uniquement avec le texte du post.
+VOIX NOAMIS :
+{voice}
+
+FORMULES D'ACCROCHE DISPONIBLES (choisis la seule qui colle vraiment au sujet) :
+{hooks}
+
+RÈGLES D'ÉCRITURE :
+- Ligne 1 : l'accroche, seule, lisible avant la coupure mobile (environ 140 caractères).
+- Ligne 2 : la suite directe de l'accroche, pas de la mise en place.
+- Corps : paragraphes de 1 à 3 lignes, une ligne vide entre chaque.
+- Un tournant : une phrase qui reformule ce qui précède.
+- Fin : UNE question précise que seul ce post peut poser. Pas de "Qu'en pensez-vous ?".
+- Une seule idée par post. Longueur : 900 à 1300 caractères.
+- Choisis l'actualité la plus utile pour des responsables de sites ou d'entrepôts et donne 3 conseils concrets.
+- N'invente aucun chiffre, client ou résultat. Utilise seulement les actualités fournies.
+- Aucun lien dans le texte du post. Trois hashtags maximum, en bas, s'ils sont réels.
+- Pas de tiret cadratin.
+
+FORMAT DE RÉPONSE EXACT :
+ACCROCHE: <numéro et nom de la formule>
+POST:
+<texte du post>
+PREMIER_COMMENTAIRE:
+<source : nom de l'organisme et lien>
 
 Actualités :
 {news}
@@ -100,19 +117,47 @@ def create_issue(title, body):
         return json.load(r)["html_url"]
 
 
+def load_hooks():
+    data = json.loads((AGENT / "hooks.json").read_text(encoding="utf-8"))
+    return "\n".join(f"{h['id']}. {h['name']}: {h['template']}" for h in data["hooks"])
+
+
+def parse_reply(text):
+    hook, post, comment = "", text, ""
+    if "POST:" in text:
+        head, rest = text.split("POST:", 1)
+        hook = head.replace("ACCROCHE:", "").strip()
+        post, _, comment = rest.partition("PREMIER_COMMENTAIRE:")
+    return hook, post.strip(), comment.strip()
+
+
+def humanize_text(text):
+    """Passe le texte dans l'humaniseur de li-human (MIT). Renvoie (texte, rapport)."""
+    import humanize
+    lex = humanize.load_lexicon(str(AGENT / "slop.json"))
+    return humanize.humanize(text, lex)
+
+
 def main():
     news = collect_news()
     if not news:
         print("Aucune actualité récupérée, rien à faire.")
         return 0
-    prompt = PROMPT.format(news=news)
+    voice = (AGENT / "voice.md").read_text(encoding="utf-8")
+    prompt = PROMPT.format(voice=voice, hooks=load_hooks(), news=news)
     if os.environ.get("DRY_RUN"):
         print(prompt)
         return 0
-    draft = ask_gemini(prompt)
+    hook, post, comment = parse_reply(ask_gemini(prompt))
+    post, report = humanize_text(post)
+    flags = report.get("structures") or report.get("structural") or []
+    flag_txt = f"\n\n**À relire (tournures typiques d'une IA détectées) :** {flags}" if flags else ""
     body = (
         "**Brouillon à relire avant publication. Rien n'est publié automatiquement.**\n\n"
-        f"{draft}\n\n---\n<details><summary>Actualités utilisées</summary>\n\n{news}\n\n</details>"
+        f"Formule d'accroche : {hook or 'non indiquée'}\n\n"
+        f"```\n{post}\n```{flag_txt}\n\n"
+        f"**Premier commentaire à poster (source) :**\n{comment or 'voir actualités ci-dessous'}\n\n"
+        f"---\n<details><summary>Actualités utilisées</summary>\n\n{news}\n\n</details>"
     )
     print("Issue créée :", create_issue(f"Brouillon LinkedIn du {date.today():%d/%m/%Y}", body))
     return 0
