@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """NOAMIS : brouillon quotidien de post LinkedIn à partir de flux officiels.
 
-Étapes : lit les flux RSS, demande un brouillon à Gemini (offre gratuite),
+Étapes : lit les flux RSS, demande un brouillon à Gemni (offre gratuite),
 puis crée une Issue GitHub (notification email) pour validation humaine.
 Rien n'est publié automatiquement. Bibliothèque standard uniquement.
 
@@ -88,7 +88,7 @@ def collect_news():
 
 
 def ask_gemini(prompt):
-    model = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash")
+    model = os.environ.get("GEMINI_MODEL") or "gemini-3.5-flash"
     key = os.environ["GEMINI_API_KEY"]
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
     body = json.dumps({"contents": [{"parts": [{"text": prompt}]}]}).encode()
