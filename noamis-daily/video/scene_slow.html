@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>NOAMIS présentation</title>
+<style>
+:root{--bg:#0B0B0C;--gold:#C9A24B;--ivory:#F5F3EE;--muted:#A8A6A0}
+*{box-sizing:border-box}
+html,body{margin:0;width:1920px;height:1080px;background:var(--bg);overflow:hidden}
+body{font-family:'Inter',sans-serif;color:var(--ivory);position:relative}
+.serif{font-family:'Bitstream Charter','Liberation Serif',serif}
+.bgglow{position:absolute;inset:0;background:radial-gradient(900px 600px at 70% 30%,rgba(201,162,75,.10),transparent 70%)}
+.frame{position:absolute;inset:48px;border:1px solid var(--gold);opacity:.55}
+.scene{position:absolute;inset:48px;padding:96px 120px;opacity:0;display:flex;flex-direction:column;justify-content:center}
+.kicker{font-size:26px;letter-spacing:.42em;color:var(--gold);font-weight:500;margin-bottom:64px}
+.r{opacity:0}
+.line{height:2px;background:var(--gold);width:160px;transform-origin:left center;transform:scaleX(0)}
+.big{font-size:150px;line-height:1.05;font-weight:700;letter-spacing:.03em}
+.h1{font-size:104px;line-height:1.1;font-weight:700}
+.h2{font-size:92px;line-height:1.1;font-weight:700}
+.sub{font-size:46px;line-height:1.4;color:var(--ivory)}
+.mut{font-size:34px;line-height:1.5;color:var(--muted)}
+.gold{color:var(--gold)}
+.sweep{background:linear-gradient(100deg,#F5F3EE 0%,#F5F3EE 42%,#E8C66A 50%,#F5F3EE 58%,#F5F3EE 100%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sweep .gold{-webkit-text-fill-color:var(--gold)}
+.scene{will-change:transform,opacity}
+.num{font-size:34px;color:var(--gold);letter-spacing:.3em;margin-bottom:40px}
+.prog{position:absolute;left:48px;bottom:48px;height:3px;background:var(--gold);width:0}
+.stack>*+*{margin-top:44px}
+</style>
+</head>
+<body>
+<div class="bgglow" id="glow"></div>
+<div class="frame"></div>
+<div class="prog" id="prog"></div>
+
+<section class="scene" data-s="0" data-e="6.2">
+<div class="kicker r" data-d="0.2">SÛRETÉ CONSEIL</div>
+<div class="big serif r sweep" data-d="0.6">NOAMIS</div>
+<div class="line" data-d="1.4" style="margin:44px 0"></div>
+<div class="serif sub r" data-d="1.8" style="font-style:italic;font-size:64px;line-height:1.2">Du conseil.<br>Rien d'autre à vous vendre.</div>
+<div class="mut r" data-d="3.6" style="margin-top:56px">Comprendre d'abord. Sécuriser ensuite.</div>
+</section>
+
+<section class="scene" data-s="6.2" data-e="13.4">
+<div class="kicker r" data-d="0.1">NOTRE PROMESSE</div>
+<div class="stack">
+<div class="h1 serif r sweep" data-d="0.6"><span class="gold" style="font-size:56px;margin-right:36px">01</span>Comprendre vos risques.</div>
+<div class="h1 serif r sweep" data-d="2.1"><span class="gold" style="font-size:56px;margin-right:36px">02</span>Choisir votre prestataire.</div>
+<div class="h1 serif r sweep" data-d="3.6"><span class="gold" style="font-size:56px;margin-right:36px">03</span>Décider en confiance.</div>
+</div>
+</section>
+
+<section class="scene" data-s="13.4" data-e="17.4">
+<div class="num r" data-d="0.1">01 / 05</div>
+<div class="h1 serif r sweep" data-d="0.4">Diagnostic sûreté express</div>
+<div class="line" data-d="1.0" style="margin:40px 0"></div>
+<div class="sub r" data-d="1.3">Faire le point avant d'investir.</div>
+</section>
+
+<section class="scene" data-s="17.4" data-e="21.4">
+<div class="num r" data-d="0.1">02 / 05</div>
+<div class="h1 serif r sweep" data-d="0.4">Plan de sûreté sur mesure</div>
+<div class="line" data-d="1.0" style="margin:40px 0"></div>
+<div class="sub r" data-d="1.3">Transformer vos priorités en décisions préparées.</div>
+</section>
+
+<section class="scene" data-s="21.4" data-e="25.4">
+<div class="num r" data-d="0.1">03 / 05</div>
+<div class="h1 serif r sweep" data-d="0.4">Assistance à la consultation</div>
+<div class="line" data-d="1.0" style="margin:40px 0"></div>
+<div class="sub r" data-d="1.3">Comprendre les offres avant de vous engager.</div>
+</section>
+
+<section class="scene" data-s="25.4" data-e="29.4">
+<div class="num r" data-d="0.1">04 / 05</div>
+<div class="h1 serif r sweep" data-d="0.4">Atelier de préparation de crise</div>
+<div class="line" data-d="1.0" style="margin:40px 0"></div>
+<div class="sub r" data-d="1.3">Préparer les rôles et les premières décisions.</div>
+</section>
+
+<section class="scene" data-s="29.4" data-e="33.4">
+<div class="num r" data-d="0.1">05 / 05</div>
+<div class="h1 serif r sweep" data-d="0.4">Veille sûreté mensuelle</div>
+<div class="line" data-d="1.0" style="margin:40px 0"></div>
+<div class="sub r" data-d="1.3">Des informations ciblées pour préparer vos décisions.</div>
+</section>
+
+<section class="scene" data-s="33.4" data-e="40.4">
+<div class="kicker r" data-d="0.1">NOTRE INDÉPENDANCE</div>
+<div class="h1 serif r sweep" data-d="0.5" style="margin-bottom:48px">Rien à vous revendre.</div>
+<div class="stack sub">
+<div class="r" data-d="1.8"><span class="gold" style="margin-right:28px">&#8212;</span>Pas de revente de matériel</div>
+<div class="r" data-d="2.8"><span class="gold" style="margin-right:28px">&#8212;</span>Pas de gardiennage vendu</div>
+<div class="r" data-d="3.8"><span class="gold" style="margin-right:28px">&#8212;</span>Aucune commission perçue auprès des prestataires</div>
+</div>
+<div class="mut r" data-d="5.2" style="margin-top:56px">Plus de 10 ans d'expérience de terrain sur des sites sensibles.</div>
+</section>
+
+<section class="scene" data-s="40.4" data-e="47">
+<div class="kicker r" data-d="0.1">PARLONS-EN</div>
+<div class="h1 serif r sweep" data-d="0.5">Réservez 30 minutes gratuites.</div>
+<div class="line" data-d="1.2" style="margin:44px 0"></div>
+<div class="sub r" data-d="1.6"><span class="gold">noamis.fr</span></div>
+<div class="sub r" data-d="2.1" style="margin-top:12px"><span class="gold">contact@noamis.fr</span></div>
+<div class="serif r" data-d="3.4" style="margin-top:64px;font-style:italic;font-size:52px">Comprendre d'abord. Sécuriser ensuite.</div>
+</section>
+
+<script>
+const K = 1.6;                       // ralenti global
+const TOTAL = 47 * K + 0.5;
+const clamp = (x, a=0, b=1) => Math.min(b, Math.max(a, x));
+const easeOut = x => 1 - Math.pow(1 - x, 4);
+const easeIO = x => x < .5 ? 4*x*x*x : 1 - Math.pow(-2*x + 2, 3) / 2;
+const scenes = [...document.querySelectorAll('.scene')];
+for (const s of scenes) {
+  s._a = +s.dataset.s * K; s._b = +s.dataset.e * K;
+  s._items = [...s.querySelectorAll('.r, .line')].map(el => ({ el, d: +el.dataset.d * K }));
+  s._sw = [...s.querySelectorAll('.sweep')];
+}
+window.render = function (t) {
+  for (const s of scenes) {
+    const a = s._a, b = s._b;
+    const on = t >= a && t <= b;
+    const fin = clamp((t - a) / 1.1), fout = clamp((b - t) / 1.1);
+    s.style.opacity = on ? Math.min(easeIO(fin), easeIO(fout)) : 0;
+    const z = clamp((t - a) / (b - a));
+    s.style.transform = 'scale(' + (1 + 0.035 * z) + ')';       // zoom très lent
+    if (!on) continue;
+    for (const {el, d} of s._items) {
+      const p = easeOut(clamp((t - a - d) / 1.9));
+      if (el.classList.contains('line')) el.style.transform = 'scaleX(' + p + ')';
+      else {
+        el.style.opacity = p;
+        el.style.transform = 'translateY(' + (36 * (1 - p)) + 'px)';
+        el.style.filter = 'blur(' + (14 * (1 - p)) + 'px)';      // entrée floue
+        if (el.classList.contains('kicker')) el.style.letterSpacing = (0.42 + 0.35 * (1 - p)) + 'em';
+      }
+    }
+    for (const el of s._sw) {                                       // éclat doré lent
+      const sp = clamp((t - a - 1.2) / 4.5);
+      el.style.backgroundPosition = (100 - 100 * easeIO(sp)) + '% 0';
+    }
+  }
+  document.getElementById('prog').style.width = (1824 * clamp(t / TOTAL)) + 'px';
+  document.getElementById('glow').style.transform = 'translate(' + (-60 * Math.sin(t / 9)) + 'px,' + (30 * Math.cos(t / 11)) + 'px)';
+};
+window.render(0);
+</script>
+</body>
+</html>
